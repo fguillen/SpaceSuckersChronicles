@@ -57,19 +57,19 @@ I'm not going to build all of these clients, I think I'm going to focus to build
 ### Example of comunication
 
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/stats
-- _SERVER:_ <json with the details of all ships in this planet>
+- _SERVER:_ [json with the details of all ships in this planet]
   
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/ships/raiders/1/send/<planet_name>/<action_name>
-- _SERVER:_ <json with the details of travel>
+- _SERVER:_ [json with the details of travel]
   
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/ships/create_float/send/<planet_name>?attack&ships=[1,2,3,4,56,78,89]
-- _SERVER:_ <json with the details of travel>
+- _SERVER:_ [json with the details of travel]
   
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>?action=build&ship_class=raider
-- _SERVER:_ <json with the details of the construction>
+- _SERVER:_ [json with the details of the construction]
   
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/messages
-- _SERVER:_ <json with the last news in this planet>
+- _SERVER:_ [json with the last news in this planet]
   
   
 
