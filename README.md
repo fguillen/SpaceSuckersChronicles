@@ -16,7 +16,15 @@ I don't want to build a ready to production MMORP, I just want to build somethin
 Trying to do this simple we will have _User_, _Planet_, _Ship_ and _Fabric_. Maybe another template classes like _ShipModel_ and _FabricModel_.
 
 
-### The System
+### The Installation and Use process 
+
+The _Administrator_ installs the **core gem** and the **server gem** and start the server.
+
+The _User_ installs the **console client gem**.
+
+The _User_ configure the _console client_ with **sever ip** and **user name**.
+
+The _User_ use the _console client_ to interact with the _server_.
 
 The _User_ create an account and magically a _Planet_ will be create for him/her with an small _Float_ and a basic _Resources_ to star build and explore.
 
@@ -85,7 +93,7 @@ Defining a **combat resolution system**.
 
 Trying to design the APIs the way we can take the code and change the context completely: in one clone we are playing an space war, in another clone we are garden insects trying to conquer the whole garden, or virus in a human body conquering another human bodies...
 
-Could be nice to build some _Users managed by the computer_ with a very stupid IA, but I think this is needed due I'm not expecting the ton of real users neede to make the game funny :)
+Could be nice to build some _Users managed by the computer_ with a very stupid IA, but I think this is needed due I'm not expecting the ton of real users needed to make the game funny :)
 
 ## Not going to be done
 
@@ -96,4 +104,5 @@ I'm not going to put attention in the bellow subjects (but they would be desirab
 * Attack remains recollection possibility. 
 * Multi-language (just English)
 * I'm gonna use the most familiar ORM to me: ActiveRecord (I don't want this election to stack me)
+* Error protection (everything will crash in case request bad-format, or resource not found)
 
