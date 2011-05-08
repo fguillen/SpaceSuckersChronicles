@@ -26,13 +26,13 @@ The _User_ configure the _console client_ with **sever ip** and **user name**.
 
 The _User_ use the _console client_ to interact with the _server_.
 
-The _User_ create an account and magically a _Planet_ will be create for him/her with an small _Float_ and a basic _Resources_ to star build and explore.
+The _User_ create an account and magically a _Planet_ will be create for him/her with an small _Fleet_ and a basic _Resources_ to star build and explore.
 
 The _User_ could start build new _Fabrics_ or _Ships_ or send _Spy Ships_ to random locations trying to find new _Planets_.
 
-Once the _User_ has find a new _Planet_ he can send a _Float_ to this _Planet_ an conquer it.
+Once the _User_ has find a new _Planet_ he can send a _Fleet_ to this _Planet_ an conquer it.
  
-Attacks will be produced when two enemy _Floats_ are found in the same planet. _Attacks_ will be resolved automatically and not strategy possibilities are available. The winner of the _Attack_ will be the owner of the _Planet_.
+Attacks will be produced when two enemy _Fleets_ are found in the same planet. _Attacks_ will be resolved automatically and not strategy possibilities are available. The winner of the _Attack_ will be the owner of the _Planet_.
 
 ### The User Commands
 
@@ -43,7 +43,7 @@ I have very forgotten my OGame epoch, I think the commands could be:
 * lunch an spy ship to another planet
 * lunch an spy ship to random locations looking for planets
 * read the spy ship reports
-* lunch a float (define the float) to another planet
+* lunch a fleet (define the fleet) to another planet
 * attack another planet
 * build new ships or fabrics
 * upgrade ship or fabric levels
@@ -70,7 +70,7 @@ I'm not going to build all of these clients, I think I'm going to focus to build
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/ships/raiders/1/send/<planet_name>/<action_name>
 - _SERVER:_ [json with the details of travel]
   
-- _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/ships/create_float/send/<planet_name>?attack&ships=[1,2,3,4,56,78,89]
+- _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>/ships/create_fleet/send/<planet_name>?attack&ships=[1,2,3,4,56,78,89]
 - _SERVER:_ [json with the details of travel]
   
 - _CLIENT:_ http://spacesuckerschronicles.com/users/<user_name>/planets/<planet_name>?action=build&ship_class=raider
