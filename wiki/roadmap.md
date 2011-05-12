@@ -58,6 +58,12 @@ Implement a system where we can define:
 
 This is a sort of _DelayedJob_ or something like this.
 
+## Artificial Intelligence
+
+Try to add _non_users_ players to the game who can execute random _commands_.
+
+This could be great for experiments: every player is a _non_user_ and then accelerate the time to see what happen.
+
 ## Implement API of the gem
 
 After its definition we implement the commands for the internal gem, these are Ruby commands.

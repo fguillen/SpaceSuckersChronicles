@@ -1,0 +1,23 @@
+mine:
+  attack: 10
+  defense: 10
+  life: 10
+  upgrade_timing: 10
+  upgrade_black_stuff: 10
+  power: 10
+  
+garage:
+  attack: 10
+  defense: 10
+  life: 10
+  upgrade_timing: 10
+  upgrade_black_stuff: 10
+  power: 10
+    
+mosquito:
+  attack: 10
+  defense: 10
+  life: 10
+  upgrade_timing: 10
+  upgrade_black_stuff: 10
+  power: 10
