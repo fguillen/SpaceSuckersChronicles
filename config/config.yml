@@ -1,3 +1,8 @@
+universe:
+  tic_duration: 1
+  dimension: 20
+  travel_black_stuff: 2
+  
 mine:
   attack: 10
   defense: 10
@@ -5,19 +10,12 @@ mine:
   upgrade_timing: 10
   upgrade_black_stuff: 10
   power: 10
-  
-garage:
+
+ship:
   attack: 10
   defense: 10
   life: 10
   upgrade_timing: 10
   upgrade_black_stuff: 10
-  power: 10
-    
-mosquito:
-  attack: 10
-  defense: 10
-  life: 10
-  upgrade_timing: 10
-  upgrade_black_stuff: 10
+  velocity: 1
   power: 10

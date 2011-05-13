@@ -1,16 +1,17 @@
+require 'benchmark'
+
 module S2C
   class Universe
-    attr_accessor :planets, :log
+    attr_accessor :planets, :logs, :status, :tic
     
     def initialize
-      S2C::Universe.log( self, "Initializing Universe" )
+      @logs = []
       @planets = []
-      @log = []
-      S2C::Universe.log( self, "Universe intialized" )
+      @tic = 0 # Universe's time
     end
     
     def create_planet( name )
-      planet = S2C::Models::Planet.new( name )
+      planet = S2C::Models::Planet.new( self, name )
       
       @planets << planet
       
@@ -18,49 +19,76 @@ module S2C
     end
     
     def cycle
-      S2C::Universe.log( self, "Start cycle" )
+      self.log( self, "Start cycle" )
       @planets.each do |planet|
         planet.constructions.each do |construction|
           construction.work
         end
       end
-      S2C::Universe.log( self, "End cycle" )
+      
+      @tic += 1
+      self.log( self, "End cycle" )
+    end
+    
+    def start
+      Thread.new { self.run }
+    end
+    
+    def end
+      @status = :ending
     end
     
     def run
-      S2C::Universe.log( self, "Start run" )
-      while( true )
-        self.cycle
-        self.stats
-        sleep( 2 )
+      self.log( self, "Start run" )
+      while( self.status != :ending )
+        time =
+          Benchmark.realtime do
+            self.cycle
+          end
+
+        sleep( S2C::Config.config['universe']['tic_duration'].to_i - time )
       end
-      S2C::Universe.log( self, "End run" )
+      self.log( self, "End run" )
     end
     
-    def id
+    def identity
       'Universe'
     end
     
-    def self.log( element, message )
-      puts "[#{element.id}] > #{message}"
-    end
-    
-    def to_s
+    def stats
       "planets:#{self.planets.size}"
     end
     
-    def stats
-      puts "--STATS INI--"
+    def log( element, message )
+      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", self.tic, element.identity, message )
+    end
+    
+    def print_logs( last_lines = 10 )
+      last_lines = self.logs.size  if last_lines > self.logs.size
       
-      puts "[Universe] > #{self.to_s}"
+      return self.logs[-(last_lines),last_lines]
+    end
+    
+    def map
+      universe_dimension = S2C::Config.config['universe']['dimension']
+      
+      result = Array.new( universe_dimension ) { ' ' * universe_dimension }
+
       self.planets.each do |planet|
-        puts "[#{planet.id}] > #{planet.to_s}"
-        planet.constructions.each do |construction|
-          puts "[#{construction.id}] > #{construction.to_s}"
-        end
+        line = result[ planet.position[0] ]
+        line[ planet.position[1] ] = "*#{planet.identity}"
       end
       
-      puts "--STATS END--"
+      return result
+    end
+    
+    def ships
+      result = []
+      @planets.each do |planet|
+        result += planet.constructions.select { |e| e.type == 'ship' }
+      end
+
+      return result
     end
   end
 end

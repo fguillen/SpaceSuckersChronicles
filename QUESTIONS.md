@@ -44,3 +44,31 @@ And also, I want to use this statuses list in the code, but if it is an array I 
 ## How to reuse test_helper setup
 
 If I define a `Test::Unit::TestCase.setup` I can use it on any test class but if my test class **wants to add some new stuff to the setup** how can I deal with this?.
+
+
+## The infinite run cycle and the progress of the processes
+
+I think there are to approach to update the progress of the processes:
+
+* Using the real clock to calculate the status of a process on every moment.
+* Update the progress of the process sending 'update' signals each fixed amount of real time
+
+In this moment I'm using the second approach:
+
+The Universe is the one keeping running an infinite loop, calling to the method `work` of every element in the system: Constructions, Ships, ...
+
+There are two things I don't like with this approach:
+
+* My console in blocked because the method `run` never ends.
+* Could be de-synchronization between real clock and processes progress due different durations in the work that has to be done in each cycle.
+
+But I don't want to leave this approach yet because is very **stable** and **manipulable**:
+
+* The end of a process is never missed
+* I can _accelerate_ or _slow down_ the velocity of all processes very easily.
+
+So questions:
+
+* Is the not ending `run` method a good idea?
+* How can I avoid the console block? Threads?
+* What do you think is better approach: _real clock_ calculation, or the _cycle_ one?

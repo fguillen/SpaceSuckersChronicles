@@ -8,12 +8,12 @@ module S2C
       #   ]
       
       def initialize( planet )
-        S2C::Universe.log( self, "Starting construction mine" )
+        planet.universe.log( self, "Starting construction mine" )
         super( planet, 'mine' )
       end
 
       def work_standby
-        S2C::Universe.log( self, "Mine extracting" )
+        self.universe.log( self, "Mine extracting" )
         self.planet.add_black_stuff( self.power )
       end
     end

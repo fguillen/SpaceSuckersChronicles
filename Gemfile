@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'highline'
+
 group :development do
   gem 'rack'
 end

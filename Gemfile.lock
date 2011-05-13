@@ -3,6 +3,7 @@ GEM
   specs:
     archive-tar-minitar (0.5.2)
     columnize (0.3.2)
+    highline (1.6.2)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
     mocha (0.9.12)
@@ -22,6 +23,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  highline
   mocha
   rack
   ruby-debug19

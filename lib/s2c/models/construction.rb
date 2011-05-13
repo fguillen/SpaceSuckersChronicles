@@ -1,7 +1,7 @@
 module S2C
   module Models
     class Construction
-      attr_reader :id, :planet, :level, :type, :status, :process_tics
+      attr_reader :identity, :planet, :level, :type, :status, :process_tics, :universe
     
       # @@statuses = [
       #   :under_construction,
@@ -10,14 +10,15 @@ module S2C
       # ]
     
       def initialize( planet, type )
-        @id = Time.now.to_i
-        S2C::Universe.log( self, "Starting contruction Construction" )
+        @identity = Time.now.to_i + rand(1000)
+        planet.universe.log( self, "Starting contruction Construction" )
+        @universe = planet.universe
         @planet = planet
         @level = 0
         @type = type
         @status = :under_construction
         @process_tics = self.upgrade_timing
-        S2C::Universe.log( self, self.to_s )
+        self.universe.log( self, self.to_s )
       end
     
       # I know there are cleaner ways to define this methods 
@@ -54,14 +55,16 @@ module S2C
       end
     
       def upgrade
-        S2C::Universe.log( self, "Upgrading" )
+        self.universe.log( self, "Upgrading" )
       
         if( self.status != :standby )
-          raise Exception, "can't upgrade a Construction in status: '#{self.status}'"
+          puts "ERROR: can't upgrade a Construction in status: '#{self.status}'"
+          return false
         end
       
         if( self.planet.black_stuff < self.upgrade_black_stuff )
-          raise Exception, 'not enough black stuff'
+          puts "ERROR: not enough black stuff"
+          return false
         end
       
         self.planet.remove_black_stuff( self.upgrade_black_stuff )
@@ -70,34 +73,50 @@ module S2C
       end
     
       def work_under_construction
-        S2C::Universe.log( self, "In contruction" )
+        self.universe.log( self, "In contruction" )
       
-        @process_tics -= 1
         if( @process_tics == 0 )
-          S2C::Universe.log( self, "Built" )
+          self.universe.log( self, "Built" )
           @level = 1
           @status = :standby
         end
+        
+        @process_tics -= 1
       end
     
       def work_upgrading
-        S2C::Universe.log( self, "Upgrading" )
+        self.universe.log( self, "Upgrading" )
       
-        @process_tics -= 1
         if( @process_tics == 0 )
           @level += 1
           @status = :standby
-          S2C::Universe.log( self, "Upgraded to level #{self.level}" )
+          self.universe.log( self, "Upgraded to level #{self.level}" )
         end
+        
+        @process_tics -= 1
+      end
+      
+      def work_standby
+        self.universe.log( self, "Standby" )
       end
     
       def work
-        S2C::Universe.log( self, "Working" )
+        self.universe.log( self, "Working" )
         self.send( "work_#{self.status}" )
       end
     
-      def to_s
-        "type:#{self.type} level:#{self.level} status:#{self.status} tics:#{self.process_tics}"
+      def stats
+        result = ""
+        result += "type:#{self.type}"
+        result += " level:#{self.level}"
+        result += " status:#{self.status}"
+        
+        if self.status != :standby
+          result += " remain_tics:#{self.process_tics}"
+          result += " ending_time:#{S2C::Utils.remaing_tics_to_time( self.process_tics ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+        end
+        
+        return result
       end
     end
   end

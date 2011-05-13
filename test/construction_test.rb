@@ -3,19 +3,21 @@ require_relative 'test_helper'
 class ConstructionTest < Test::Unit::TestCase
   def setup 
     S2C::Config.stubs( :config_path ).returns( "#{FIXTURES_PATH}/config.yml" )
-    S2C::Universe.stubs( :log )
+    
+    @universe = S2C::Universe.new
+    @planet = @universe.create_planet( 'jupiter' )
   end
   
   def test_initialize
-    construction = S2C::Models::Construction.new( 'jupiter', 'mine' )
+    construction = S2C::Models::Construction.new( @planet, 'mine' )
     assert_equal( 0, construction.level )
     assert_equal( :under_construction, construction.status )
-    assert_equal( 'jupiter', construction.planet )
+    assert_equal( @planet, construction.planet )
     assert_equal( 'mine', construction.type )
   end
   
   def test_upgrade
-    planet = S2C::Models::Planet.new( 'jupiter' )
+    planet = S2C::Models::Planet.new( @universe, 'jupiter' )
     planet.expects( :black_stuff ).returns( 14 )
     planet.expects( :remove_black_stuff ).with( 14 )
     
@@ -28,7 +30,7 @@ class ConstructionTest < Test::Unit::TestCase
   end
   
   def test_attack_calculation_for_mine
-    construction = S2C::Models::Construction.new( 'jupiter', 'mine' )
+    construction = S2C::Models::Construction.new( @planet, 'mine' )
     assert_equal( 10, construction.attack )
     
     construction.instance_variable_set( :@level, 1 )
@@ -45,18 +47,10 @@ class ConstructionTest < Test::Unit::TestCase
   end
   
   def test_defense_calculation_for_mine
-    construction = S2C::Models::Construction.new( 'jupiter', 'mine' )
+    construction = S2C::Models::Construction.new( @planet, 'mine' )
     assert_equal( 11, construction.defense )
     
     construction.instance_variable_set( :@level, 1 )
     assert_equal( 23, construction.defense )
-  end
-  
-  def test_attack_calculation_for_garage
-    construction = S2C::Models::Construction.new( 'jupiter', 'garage' )
-    assert_equal( 20, construction.attack )
-    
-    construction.instance_variable_set( :@level, 1 )
-    assert_equal( 42, construction.attack )
   end
 end
