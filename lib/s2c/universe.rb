@@ -2,31 +2,33 @@ require 'benchmark'
 
 module S2C
   class Universe
-    attr_accessor :planets, :logs, :status, :tic
+    attr_accessor :planets, :logs, :status, :tick
     
     def initialize
       @logs = []
       @planets = []
-      @tic = 0 # Universe's time
+      @tick = 0 # Universe's time
     end
     
-    def create_planet( name )
-      planet = S2C::Models::Planet.new( self, name )
+    def create_planet( name, position = nil )
+      planet = S2C::Models::Planet.new( self, name, position )
       
       @planets << planet
       
-      return planet
+      planet
     end
     
     def cycle
       self.log( self, "Start cycle" )
+      
       @planets.each do |planet|
         planet.constructions.each do |construction|
           construction.work
         end
       end
       
-      @tic += 1
+      @tick += 1
+      
       self.log( self, "End cycle" )
     end
     
@@ -40,14 +42,16 @@ module S2C
     
     def run
       self.log( self, "Start run" )
+      
       while( self.status != :ending )
         time =
           Benchmark.realtime do
             self.cycle
           end
 
-        sleep( S2C::Config.config['universe']['tic_duration'].to_i - time )
+        sleep( S2C::Config.config['universe']['tick_seconds'].to_i - time )
       end
+      
       self.log( self, "End run" )
     end
     
@@ -60,13 +64,13 @@ module S2C
     end
     
     def log( element, message )
-      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", self.tic, element.identity, message )
+      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", self.tick, element.identity, message )
     end
     
     def print_logs( last_lines = 10 )
       last_lines = self.logs.size  if last_lines > self.logs.size
       
-      return self.logs[-(last_lines),last_lines]
+      self.logs[-(last_lines),last_lines]
     end
     
     def map
@@ -79,16 +83,17 @@ module S2C
         line[ planet.position[1] ] = "*#{planet.identity}"
       end
       
-      return result
+      result
     end
     
     def ships
       result = []
+      
       @planets.each do |planet|
         result += planet.constructions.select { |e| e.type == 'ship' }
       end
 
-      return result
+      result
     end
   end
 end

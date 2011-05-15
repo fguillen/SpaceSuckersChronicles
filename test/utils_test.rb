@@ -37,11 +37,11 @@ class UtilsTest < Test::Unit::TestCase
     assert_equal( 4, S2C::Utils.travel_black_stuff( nil, nil ) )
   end
   
-  def test_travel_time
+  def test_travel_ticks
     S2C::Utils.expects( :planet_distance ).returns( 1 )
-    assert_equal( 1, S2C::Utils.travel_time( nil, nil, 1 ) )
+    assert_equal( 1, S2C::Utils.travel_ticks( nil, nil, 1 ) )
     
     S2C::Utils.expects( :planet_distance ).returns( 8 )
-    assert_equal( 4, S2C::Utils.travel_time( nil, nil, 2 ) )
+    assert_equal( 4, S2C::Utils.travel_ticks( nil, nil, 2 ) )
   end
 end

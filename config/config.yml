@@ -1,21 +1,20 @@
 universe:
-  tic_duration: 1
+  tick_seconds: 1
   dimension: 20
   travel_black_stuff: 2
   
 mine:
-  attack: 10
   defense: 10
   life: 10
-  upgrade_timing: 10
+  upgrade_timing: 30
   upgrade_black_stuff: 10
-  power: 10
+  power: 1
 
 ship:
   attack: 10
   defense: 10
   life: 10
-  upgrade_timing: 10
+  upgrade_timing: 40
   upgrade_black_stuff: 10
   velocity: 1
-  power: 10
+  power: 1

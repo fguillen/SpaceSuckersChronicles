@@ -1,13 +1,8 @@
 module S2C
   module Models
     class Ship < S2C::Models::Construction
-    
-      # @@statuses = 
-      #   super.statuses + [
-      #     :traveling,
-      #     :attacking
-      #   ]
-      
+      attr_reader :traveling_to
+
       def initialize( planet )
         planet.universe.log( self, "Starting construction ship" )
         @traveling_to = nil
@@ -15,63 +10,67 @@ module S2C
       end
       
       def velocity
-        self.property_value( 'velocity' )
+        property_value( 'velocity' )
+      end
+
+      def attack
+        property_value( 'attack' )
       end
       
-      def travel( planet )
-        self.universe.log( self, "Traveling to #{planet.identity}" )
+      def travel( planet_destiny )
+        universe.log( self, "Traveling to #{planet.identity}" )
         
-        if( self.status != :standby )
-          puts "ERROR: can't travel with a Ship in status: '#{self.status}'"
+        if( status != :standby )
+          universe.log( self, "ERROR: can't travel with a Ship in status: '#{status}'" )
           return false
         end
       
-        needed_black_stuff = S2C::Utils.travel_black_stuff( self.planet, planet )
+        needed_black_stuff = S2C::Utils.travel_black_stuff( planet, planet_destiny )
         
-        if( self.planet.black_stuff < needed_black_stuff )
-          puts "ERROR: not enough black stuff"
+        if( planet.black_stuff < needed_black_stuff )
+          universe.log( self, "ERROR: not enough black stuff" )
           return false
         end
       
-        self.planet.remove_black_stuff( needed_black_stuff )
+        planet.remove_black_stuff( needed_black_stuff )
         @status = :traveling
-        @traveling_to = planet
-        @process_tics = S2C::Utils.travel_time( self.planet, planet, self.velocity )
+        @traveling_to = planet_destiny
+        @process_remaining_ticks = S2C::Utils.travel_ticks( planet, planet_destiny, velocity )
       end
       
       def work_traveling
-        self.universe.log( self, "Traveling" )
+        universe.log( self, "Traveling" )
       
-        if( @process_tics == 0 )
-          self.universe.log( self, "Has arrive to planet #{@traveling_to.identity}" )
+        if( @process_remaining_ticks == 0 )
+          universe.log( self, "Has arrive to planet #{traveling_to.identity}" )
           
-          @traveling_to.constructions << @planet.constructions.delete( self )
-          @planet = @traveling_to
+          planet.constructions.delete( self )
+          traveling_to.constructions << self
           
+          @planet = traveling_to
           @traveling_to = nil
           @status = :standby
         end
-        
-        @process_tics -= 1
       end
 
       def stats
         result = ""
-        result += "type:#{self.type}"
-        result += " level:#{self.level}"
-        result += " status:#{self.status}"
+        result += "type:#{type}".ljust( 20 )
+        result += "level:#{level}".ljust( 20 )
+        result += "status:#{status}".ljust( 20 )
 
-        if self.status == :travelig
-          result += " destiny:#{@traveling_to}"
+        if status == :travelig
+          result += "destiny:#{traveling_to.identity}".ljust( 20 )
         end
         
-        if self.status != :standby
-          result += " remain_tics:#{self.process_tics}"
-          result += " ending_time:#{S2C::Utils.remaing_tics_to_time( self.process_tics ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+        if status != :standby
+          result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
+          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks ).strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
-        return result
+        result
       end
+      
     end
   end
 end

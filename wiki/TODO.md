@@ -1,14 +1,3 @@
-# Make the run cycle in a fixed time
+# Errors
 
-The infinite loop has to take always the same time.
-
-Think in this approach:
-
-    while( true )
-      time =
-        Benchmark.realtime do
-          self.cycle
-        end
-
-      sleep( 2 - time )
-    end
+* planet names modify the map

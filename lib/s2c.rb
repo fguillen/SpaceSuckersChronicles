@@ -7,3 +7,6 @@ require_relative 's2c/universe'
 require_relative 's2c/console'
 require_relative 's2c/stats'
 require_relative 's2c/utils'
+
+module S2C
+end

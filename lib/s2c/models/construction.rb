@@ -1,13 +1,8 @@
 module S2C
   module Models
     class Construction
-      attr_reader :identity, :planet, :level, :type, :status, :process_tics, :universe
-    
-      # @@statuses = [
-      #   :under_construction,
-      #   :standby,
-      #   :upgrading
-      # ]
+      
+      attr_reader :identity, :planet, :level, :type, :status, :process_remaining_ticks, :universe
     
       def initialize( planet, type )
         @identity = Time.now.to_i + rand(1000)
@@ -17,107 +12,97 @@ module S2C
         @level = 0
         @type = type
         @status = :under_construction
-        @process_tics = self.upgrade_timing
-        self.universe.log( self, self.to_s )
+        @process_remaining_ticks = upgrade_timing
+        universe.log( self, to_s )
       end
-    
-      # I know there are cleaner ways to define this methods 
-      # but for the moment is ok.
-      def attack
-        self.property_value( 'attack' )
-      end
-    
+      
       def defense
-        self.property_value( 'defense' )
+        property_value( 'defense' )
       end
     
       def power
-        self.property_value( 'power' )
+        property_value( 'power' )
       end
     
       def upgrade_timing
-        self.property_value( 'upgrade_timing' )
+        property_value( 'upgrade_timing' )
       end
     
       def upgrade_black_stuff
-        self.property_value( 'upgrade_black_stuff' )
+        property_value( 'upgrade_black_stuff' )
       end
     
       def upgrade_timing
-        self.property_value( 'upgrade_timing' )
+        property_value( 'upgrade_timing' )
       end
     
       def property_value( property )
-        init_value = S2C::Config.config[self.type][property]
-        actual_value = init_value + ( init_value * ( @level * ( 1.1 ** @level ) ) ).round
-      
-        return actual_value
+        init_value = S2C::Config.config[type][property]
+        init_value + ( init_value * ( @level * ( 1.1 ** @level ) ) ).round
       end
     
       def upgrade
-        self.universe.log( self, "Upgrading" )
+        universe.log( self, "Upgrading" )
       
-        if( self.status != :standby )
-          puts "ERROR: can't upgrade a Construction in status: '#{self.status}'"
+        if( status != :standby )
+          universe.log( self, "ERROR: can't upgrade a Construction in status: '#{status}'" )
           return false
         end
       
-        if( self.planet.black_stuff < self.upgrade_black_stuff )
-          puts "ERROR: not enough black stuff"
+        if( planet.black_stuff < upgrade_black_stuff )
+          universe.log( self, "ERROR: not enough black stuff" )
           return false
         end
       
-        self.planet.remove_black_stuff( self.upgrade_black_stuff )
+        planet.remove_black_stuff( upgrade_black_stuff )
         @status = :upgrading
-        @process_tics = self.upgrade_timing
+        @process_remaining_ticks = upgrade_timing
+      end
+      
+      def work
+        universe.log( self, "Working" )
+        send( "work_#{status}" )
+        @process_remaining_ticks -= 1
       end
     
       def work_under_construction
-        self.universe.log( self, "In contruction" )
+        universe.log( self, "In contruction" )
       
-        if( @process_tics == 0 )
-          self.universe.log( self, "Built" )
+        if( @process_remaining_ticks == 0 )
+          universe.log( self, "Built" )
           @level = 1
           @status = :standby
         end
-        
-        @process_tics -= 1
       end
     
       def work_upgrading
-        self.universe.log( self, "Upgrading" )
+        universe.log( self, "Upgrading" )
       
-        if( @process_tics == 0 )
+        if( @process_remaining_ticks == 0 )
           @level += 1
           @status = :standby
-          self.universe.log( self, "Upgraded to level #{self.level}" )
+          universe.log( self, "Upgraded to level #{level}" )
         end
-        
-        @process_tics -= 1
       end
       
       def work_standby
-        self.universe.log( self, "Standby" )
-      end
-    
-      def work
-        self.universe.log( self, "Working" )
-        self.send( "work_#{self.status}" )
+        universe.log( self, "Standby" )
       end
     
       def stats
         result = ""
-        result += "type:#{self.type}"
-        result += " level:#{self.level}"
-        result += " status:#{self.status}"
+        result += "type:#{type}".ljust( 20 )
+        result += "level:#{level}".ljust( 20 )
+        result += "status:#{status}".ljust( 20 )
         
-        if self.status != :standby
-          result += " remain_tics:#{self.process_tics}"
-          result += " ending_time:#{S2C::Utils.remaing_tics_to_time( self.process_tics ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+        if status != :standby
+          result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
+          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks ).strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
-        return result
+        result
       end
+      
     end
   end
 end
