@@ -5,13 +5,13 @@ module S2C
       attr_reader :identity, :planet, :level, :type, :status, :process_remaining_ticks, :universe
     
       def initialize( planet, type )
-        @identity = Time.now.to_i + rand(1000)
         planet.universe.log( self, "Starting contruction Construction" )
-        @universe = planet.universe
-        @planet = planet
-        @level = 0
-        @type = type
-        @status = :under_construction
+        @identity   = Time.now.to_i + rand(1000)
+        @universe   = planet.universe
+        @planet     = planet
+        @level      = 0
+        @type       = type
+        @status     = :under_construction
         @process_remaining_ticks = upgrade_timing
         universe.log( self, to_s )
       end
@@ -70,7 +70,7 @@ module S2C
       
         if( @process_remaining_ticks == 0 )
           universe.log( self, "Built" )
-          @level = 1
+          @level  = 1
           @status = :standby
         end
       end

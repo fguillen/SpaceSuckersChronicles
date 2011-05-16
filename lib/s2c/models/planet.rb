@@ -5,11 +5,11 @@ module S2C
     
       def initialize( universe, name, position = nil )
         universe.log( self, "Creating planet" )
-        @black_stuff = 20
-        @name = name
-        @constructions = []
-        @universe = universe
-        @position = position || [rand( S2C::Config.config['universe']['dimension'] ), rand( S2C::Config.config['universe']['dimension'] )]
+        @black_stuff    = 20
+        @name           = name
+        @constructions  = []
+        @universe       = universe
+        @position       = position || [rand( S2C::Config.config['universe']['dimension'] ), rand( S2C::Config.config['universe']['dimension'] )]
       end
     
       def add_black_stuff( amount )

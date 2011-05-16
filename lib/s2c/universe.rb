@@ -5,9 +5,9 @@ module S2C
     attr_accessor :planets, :logs, :status, :tick
     
     def initialize
-      @logs = []
-      @planets = []
-      @tick = 0 # Universe's time
+      @logs     = []
+      @planets  = []
+      @tick     = 0 # Universe's time
     end
     
     def create_planet( name, position = nil )
