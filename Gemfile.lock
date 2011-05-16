@@ -2,7 +2,10 @@ GEM
   remote: http://rubygems.org/
   specs:
     archive-tar-minitar (0.5.2)
+    chronic (0.3.0)
     columnize (0.3.2)
+    delorean (1.0.0)
+      chronic
     highline (1.6.2)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -23,6 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  delorean
   highline
   mocha
   rack

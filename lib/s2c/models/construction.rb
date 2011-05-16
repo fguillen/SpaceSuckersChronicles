@@ -37,7 +37,7 @@ module S2C
       end
     
       def property_value( property )
-        init_value = S2C::Config[type][property]
+        init_value = universe.config[type][property]
         init_value + ( init_value * ( @level * ( 1.1 ** @level ) ) ).round
       end
     
@@ -97,7 +97,7 @@ module S2C
         
         if status != :standby
           result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
-          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks, universe.config['universe']['tick_seconds'] ).strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
         result

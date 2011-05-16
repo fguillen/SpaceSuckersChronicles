@@ -2,10 +2,9 @@ require_relative 'test_helper'
 
 class MineTest < Test::Unit::TestCase
   def setup 
-    S2C::Config.stubs( :config_path ).returns( "#{FIXTURES_PATH}/config.yml" )
-    
-    @universe = S2C::Universe.new( { 'size' => 20 } )
-    @planet = @universe.create_planet( 'jupiter' )
+    @config   = S2C::Config.new( "#{FIXTURES_PATH}/config.yml" )
+    @universe = S2C::Universe.new( @config )
+    @planet   = @universe.create_planet( 'jupiter' )
   end
   
   def test_initialize

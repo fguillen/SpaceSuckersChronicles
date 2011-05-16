@@ -2,11 +2,11 @@ require_relative 'test_helper'
 
 class StatsTest < Test::Unit::TestCase
   def setup 
-    S2C::Config.stubs( :config_path ).returns( "#{FIXTURES_PATH}/config.yml" )
+    @config = S2C::Config.new( "#{FIXTURES_PATH}/config.yml" )
   end
   
   def test_stats
-    universe = S2C::Universe.new( { 'size' => 20 } )
+    universe = S2C::Universe.new( @config )
     
     planet1 = universe.create_planet( 'x100', [1,2] )
     planet2 = universe.create_planet( 'x200', [5,8] )

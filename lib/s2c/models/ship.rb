@@ -25,7 +25,7 @@ module S2C
           return false
         end
       
-        needed_black_stuff = S2C::Utils.travel_black_stuff( planet, planet_destiny )
+        needed_black_stuff = S2C::Utils.travel_consume_black_stuff( planet, planet_destiny, universe.config['universe']['travel_black_stuff'] )
         
         if( planet.black_stuff < needed_black_stuff )
           universe.log( self, "ERROR: not enough black stuff" )
@@ -65,7 +65,7 @@ module S2C
         
         if status != :standby
           result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
-          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks, universe.config['universe']['tick_seconds'] ).strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
         result

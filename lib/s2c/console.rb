@@ -2,8 +2,11 @@ require 'highline/import'
 
 module S2C
   class Console
+    attr_reader :config
+    
     def initialize
-      @universe = Universe.new( S2C::Config['universe'] )
+      @config = S2C::Config.new
+      @universe = Universe.new( config )
       @universe.start
       @exit = false
     end

@@ -3,9 +3,8 @@ require_relative 'test_helper'
 class ShipTest < Test::Unit::TestCase
   
   def setup 
-    S2C::Config.stubs( :config_path ).returns( "#{FIXTURES_PATH}/config.yml" )
-    
-    @universe = S2C::Universe.new( { 'size' => 20 } )
+    @config   = S2C::Config.new( "#{FIXTURES_PATH}/config.yml" )
+    @universe = S2C::Universe.new( @config )
     @planet = @universe.create_planet( 'jupiter' )
   end
   
@@ -32,7 +31,7 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.instance_variable_set( :@black_stuff, 12 )
     
-    S2C::Utils.expects( :travel_black_stuff ).with( ship.planet, planet_destiny ).returns( 11 )
+    S2C::Utils.expects( :travel_consume_black_stuff ).with( ship.planet, planet_destiny, 2 ).returns( 11 )
     S2C::Utils.expects( :travel_ticks ).with( ship.planet, planet_destiny, ship.velocity ).returns( 3 )
     
     ship.travel( planet_destiny )
@@ -66,7 +65,7 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.expects( :black_stuff ).returns( 10 )
     
-    S2C::Utils.expects( :travel_black_stuff).with( ship.planet, planet_destiny ).returns( 11 )
+    S2C::Utils.expects( :travel_consume_black_stuff).with( ship.planet, planet_destiny, 2 ).returns( 11 )
     
     assert_equal( false, ship.travel( planet_destiny ) )
     assert_equal( :standby, ship.status )
@@ -102,7 +101,7 @@ class ShipTest < Test::Unit::TestCase
   end
   
   def test_stats_in_traveling
-    S2C::Utils.stubs( :remaining_ticks_to_time ).returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
+    S2C::Utils.expects( :remaining_ticks_to_time ).with( 14, @config['universe']['tick_seconds'] ).returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
     
     planet_destiny = @universe.create_planet( 'x700' )
     

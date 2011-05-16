@@ -2,12 +2,13 @@ require 'benchmark'
 
 module S2C
   class Universe
-    attr_accessor :planets, :logs, :status, :tick, :size
+    attr_accessor :planets, :logs, :status, :tick, :size, :config
     
-    def initialize( opts )
+    def initialize( config )
       @logs     = []
       @planets  = []
-      @size     = opts['size']
+      @config   = config
+      @size     = config['universe']['size']
       @tick     = 0 # Universe's time
     end
     
@@ -50,7 +51,7 @@ module S2C
             self.cycle
           end
 
-        sleep( S2C::Config['universe']['tick_seconds'].to_i - time )
+        sleep( config['universe']['tick_seconds'].to_i - time )
       end
       
       self.log( self, "End run" )
