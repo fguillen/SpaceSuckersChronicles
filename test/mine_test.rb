@@ -16,7 +16,7 @@ class MineTest < Test::Unit::TestCase
     assert_equal( 0, mine.level )
     assert_equal( 'mine', mine.type )
     assert_equal( :under_construction, mine.status )
-    assert_equal( 13, mine.instance_variable_get( :@process_remaining_ticks ) ) 
+    assert_equal( 13, mine.instance_variable_get( :@process_remaining_ticks ) )
   end
   
   def test_work_standby

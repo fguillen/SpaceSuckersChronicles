@@ -31,8 +31,15 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.instance_variable_set( :@black_stuff, 12 )
     
-    S2C::Utils.expects( :travel_consume_black_stuff ).with( ship.planet, planet_destiny, 2 ).returns( 11 )
-    S2C::Utils.expects( :travel_ticks ).with( ship.planet, planet_destiny, ship.velocity ).returns( 3 )
+    S2C::Utils.
+      expects( :travel_consume_black_stuff ).
+      with( ship.planet, planet_destiny, 2 ).
+      returns( 11 )
+      
+    S2C::Utils.
+      expects( :travel_ticks ).
+      with( ship.planet, planet_destiny, ship.velocity ).
+      returns( 3 )
     
     ship.travel( planet_destiny )
     assert_equal( :traveling, ship.status )
@@ -65,7 +72,10 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.expects( :black_stuff ).returns( 10 )
     
-    S2C::Utils.expects( :travel_consume_black_stuff).with( ship.planet, planet_destiny, 2 ).returns( 11 )
+    S2C::Utils.
+      expects( :travel_consume_black_stuff).
+      with( ship.planet, planet_destiny, 2 ).
+      returns( 11 )
     
     assert_equal( false, ship.travel( planet_destiny ) )
     assert_equal( :standby, ship.status )
@@ -101,7 +111,10 @@ class ShipTest < Test::Unit::TestCase
   end
   
   def test_stats_in_traveling
-    S2C::Utils.expects( :remaining_ticks_to_time ).with( 14, @config['universe']['tick_seconds'] ).returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
+    S2C::Utils.
+      expects( :remaining_ticks_to_time ).
+      with( 14, @config['universe']['tick_seconds'] ).
+      returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
     
     planet_destiny = @universe.create_planet( 'x700' )
     
@@ -113,7 +126,11 @@ class ShipTest < Test::Unit::TestCase
     ship.stubs( :process_remaining_ticks ).returns( 14 )
 
     assert_equal( 
-      "type:TYPE           level:123           status:traveling    remaining_ticks:14  ending_time:2010-11-12 13:14:15",
+      "type:TYPE           " +
+      "level:123           " +
+      "status:traveling    " +
+      "remaining_ticks:14  " +
+      "time:2010-11-12 13:14:15",
       ship.stats
     )
   end

@@ -69,7 +69,10 @@ class PlanetTest < Test::Unit::TestCase
     @planet.stubs( :constructions ).returns( [1,2] )
     @planet.stubs( :black_stuff ).returns( 789 )
     
-    assert_equal( "position:[3,45]     constructions:2     black_stuff:789", @planet.stats )
+    assert_equal( 
+      "position:[3,45]     constructions:2     black_stuff:789", 
+      @planet.stats 
+    )
   end
 
 end

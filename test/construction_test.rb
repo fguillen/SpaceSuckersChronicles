@@ -15,7 +15,10 @@ class ConstructionTest < Test::Unit::TestCase
     assert_equal( 0, construction.level )
     assert_equal( 'mine', construction.type )
     assert_equal( :under_construction, construction.status )
-    assert_equal( 13, construction.instance_variable_get( :@process_remaining_ticks ) )
+    assert_equal( 
+      13, 
+      construction.instance_variable_get( :@process_remaining_ticks ) 
+    )
   end
   
   def test_power_calculation
@@ -53,7 +56,10 @@ class ConstructionTest < Test::Unit::TestCase
     construction.upgrade
     assert_equal( 0, construction.level )
     assert_equal( :upgrading, construction.status )
-    assert_equal( 13, construction.instance_variable_get( :@process_remaining_ticks ) )
+    assert_equal( 
+      13, 
+      construction.instance_variable_get( :@process_remaining_ticks ) 
+    )
   end
   
   def test_upgrade_not_standby_construction_should_returns_false
@@ -141,7 +147,9 @@ class ConstructionTest < Test::Unit::TestCase
   end
   
   def test_stats_not_in_standby
-    S2C::Utils.stubs( :remaining_ticks_to_time ).returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
+    S2C::Utils.
+      stubs( :remaining_ticks_to_time ).
+      returns( Time.new( 2010, 11, 12, 13, 14, 15 ) )
     
     construction = S2C::Models::Construction.new( @planet, 'mine' )
     construction.instance_variable_set( :@status, :upgrading )
@@ -150,7 +158,11 @@ class ConstructionTest < Test::Unit::TestCase
     construction.stubs( :process_remaining_ticks ).returns( 12 )
     
     assert_equal( 
-      "type:TYPE           level:78            status:upgrading    remaining_ticks:12  ending_time:2010-11-12 13:14:15",
+      "type:TYPE           " +
+      "level:78            " +
+      "status:upgrading    " +
+      "remaining_ticks:12  " +
+      "time:2010-11-12 13:14:15",
       construction.stats
     )
   end

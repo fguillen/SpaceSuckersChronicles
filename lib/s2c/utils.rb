@@ -6,7 +6,10 @@ module S2C
     end
     
     def self.planet_distance( planet1, planet2 )
-      Math.sqrt( ( planet2.position[0] - planet1.position[0] ) ** 2 + ( planet2.position[1] - planet1.position[1] ) ** 2 ).round
+      Math.sqrt( 
+        ( planet2.position[0] - planet1.position[0] ) ** 2 +
+        ( planet2.position[1] - planet1.position[1] ) ** 2 
+      ).round
     end
     
     def self.travel_consume_black_stuff( planet1, planet2, travel_black_stuff )

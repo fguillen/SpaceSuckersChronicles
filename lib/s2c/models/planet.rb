@@ -1,7 +1,14 @@
 module S2C
   module Models
     class Planet
-      attr_reader :universe, :black_stuff, :name, :constructions, :position
+      
+      attr_reader(
+        :universe, 
+        :black_stuff, 
+        :name, 
+        :constructions, 
+        :position
+      )
     
       def initialize( universe, name, position = nil )
         universe.log( self, "Creating planet" )
@@ -9,7 +16,8 @@ module S2C
         @name           = name
         @constructions  = []
         @universe       = universe
-        @position       = position || [rand( universe.size ), rand( universe.size )]
+        @position       = 
+          position || [rand( universe.size ), rand( universe.size )]
       end
     
       def add_black_stuff( amount )
@@ -18,7 +26,10 @@ module S2C
       end
     
       def remove_black_stuff( amount )
-        universe.log( self, "Removing #{amount} black stuff to planet #{name}" )
+        universe.log( 
+          self, 
+          "Removing #{amount} black stuff to planet #{name}" 
+        )
         @black_stuff -= amount
       end
     
@@ -48,6 +59,7 @@ module S2C
         result += "constructions:#{constructions.size}".ljust( 20 )
         result += "black_stuff:#{black_stuff}"
       end
+      
     end
   end
 end

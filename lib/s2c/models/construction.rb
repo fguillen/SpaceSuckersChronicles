@@ -2,7 +2,15 @@ module S2C
   module Models
     class Construction
       
-      attr_reader :identity, :planet, :level, :type, :status, :process_remaining_ticks, :universe
+      attr_reader(
+        :identity, 
+        :planet, 
+        :level, 
+        :type, 
+        :status, 
+        :process_remaining_ticks, 
+        :universe
+      )
     
       def initialize( planet, type )
         planet.universe.log( self, "Starting contruction Construction" )
@@ -45,7 +53,10 @@ module S2C
         universe.log( self, "Upgrading" )
       
         if( status != :standby )
-          universe.log( self, "ERROR: can't upgrade a Construction in status: '#{status}'" )
+          universe.log( 
+            self, 
+            "ERROR: can't upgrade a Construction in status: '#{status}'" 
+          )
           return false
         end
       
@@ -96,8 +107,14 @@ module S2C
         result += "status:#{status}".ljust( 20 )
         
         if status != :standby
+          finish_time = 
+            S2C::Utils.remaining_ticks_to_time( 
+              process_remaining_ticks, 
+              universe.config['universe']['tick_seconds'] 
+            )
+            
           result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
-          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks, universe.config['universe']['tick_seconds'] ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+          result += "time:#{finish_time.strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
         result

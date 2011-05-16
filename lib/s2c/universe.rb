@@ -2,7 +2,14 @@ require 'benchmark'
 
 module S2C
   class Universe
-    attr_accessor :planets, :logs, :status, :tick, :size, :config
+    attr_accessor(
+      :planets, 
+      :logs, 
+      :status, 
+      :tick, 
+      :size, 
+      :config
+    )
     
     def initialize( config )
       @logs     = []
@@ -66,7 +73,13 @@ module S2C
     end
     
     def log( element, message )
-      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", tick, element.identity, message )
+      @logs << 
+        Kernel.sprintf( 
+          "(%010d) [%10s] > %s", 
+          tick, 
+          element.identity, 
+          message
+        )
     end
     
     def print_logs( last_lines = 10 )

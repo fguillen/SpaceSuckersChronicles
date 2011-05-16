@@ -21,11 +21,19 @@ module S2C
         universe.log( self, "Traveling to #{planet.identity}" )
         
         if( status != :standby )
-          universe.log( self, "ERROR: can't travel with a Ship in status: '#{status}'" )
+          universe.log( 
+            self, 
+            "ERROR: can't travel with a Ship in status: '#{status}'" 
+          )
           return false
         end
       
-        needed_black_stuff = S2C::Utils.travel_consume_black_stuff( planet, planet_destiny, universe.config['universe']['travel_black_stuff'] )
+        needed_black_stuff = 
+          S2C::Utils.travel_consume_black_stuff( 
+            planet, 
+            planet_destiny, 
+            universe.config['universe']['travel_black_stuff'] 
+          )
         
         if( planet.black_stuff < needed_black_stuff )
           universe.log( self, "ERROR: not enough black stuff" )
@@ -35,7 +43,12 @@ module S2C
         planet.remove_black_stuff( needed_black_stuff )
         @status = :traveling
         @traveling_to = planet_destiny
-        @process_remaining_ticks = S2C::Utils.travel_ticks( planet, planet_destiny, velocity )
+        @process_remaining_ticks = 
+          S2C::Utils.travel_ticks( 
+            planet, 
+            planet_destiny, 
+            velocity 
+          )
       end
       
       def work_traveling
@@ -64,8 +77,14 @@ module S2C
         end
         
         if status != :standby
+          finish_time = 
+            S2C::Utils.remaining_ticks_to_time( 
+              process_remaining_ticks, 
+              universe.config['universe']['tick_seconds'] 
+            )
+            
           result += "remaining_ticks:#{process_remaining_ticks}".ljust( 20 )
-          result += "ending_time:#{S2C::Utils.remaining_ticks_to_time( process_remaining_ticks, universe.config['universe']['tick_seconds'] ).strftime( '%Y-%m-%d %H:%M:%S' )}"
+          result += "time:#{finish_time.strftime( '%Y-%m-%d %H:%M:%S' )}"
         end
         
         result

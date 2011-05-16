@@ -8,7 +8,8 @@ module S2C
       universe.planets.each do |planet|
         result << "  |- #{S2C::Stats.console_line( planet, planet.stats )}"
         planet.constructions.each do |construction|
-          result << "  |    |- #{S2C::Stats.console_line( construction, construction.stats )}"
+          result << "  |    |- " +
+                    S2C::Stats.console_line( construction, construction.stats )
         end
       end
 
