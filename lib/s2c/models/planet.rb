@@ -9,7 +9,7 @@ module S2C
         @name           = name
         @constructions  = []
         @universe       = universe
-        @position       = position || [rand( S2C::Config.config['universe']['dimension'] ), rand( S2C::Config.config['universe']['dimension'] )]
+        @position       = position || [rand( universe.size ), rand( universe.size )]
       end
     
       def add_black_stuff( amount )

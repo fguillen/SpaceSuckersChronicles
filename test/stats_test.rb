@@ -6,7 +6,7 @@ class StatsTest < Test::Unit::TestCase
   end
   
   def test_stats
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
     
     planet1 = universe.create_planet( 'x100', [1,2] )
     planet2 = universe.create_planet( 'x200', [5,8] )

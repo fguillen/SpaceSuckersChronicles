@@ -1,6 +1,6 @@
 universe:
   tick_seconds: 1
-  dimension: 10
+  size: 10
   travel_black_stuff: 2
 
 mine:

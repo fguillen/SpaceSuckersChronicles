@@ -5,7 +5,7 @@ class ShipTest < Test::Unit::TestCase
   def setup 
     S2C::Config.stubs( :config_path ).returns( "#{FIXTURES_PATH}/config.yml" )
     
-    @universe = S2C::Universe.new
+    @universe = S2C::Universe.new( { 'size' => 20 } )
     @planet = @universe.create_planet( 'jupiter' )
   end
   

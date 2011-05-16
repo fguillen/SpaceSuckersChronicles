@@ -2,15 +2,16 @@ require_relative 'test_helper'
 
 class UniverseTest < Test::Unit::TestCase
   def test_initialize
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
     
     assert_equal( [], universe.logs )
     assert_equal( [], universe.planets )
     assert_equal( 0, universe.tick )
+    assert_equal( 20, universe.size )
   end
   
   def test_create_planet
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
     
     planet = universe.create_planet( 'jupiter', [1,2] )
     
@@ -20,7 +21,7 @@ class UniverseTest < Test::Unit::TestCase
   end
   
   def test_cycle
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
     universe.instance_variable_set( :@tick, 1 )
     planet = universe.create_planet( 'jupiter' )
     mine = planet.build_mine
@@ -36,7 +37,7 @@ class UniverseTest < Test::Unit::TestCase
   
   
   def test_ships
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
 
     planet1 = universe.create_planet( 'jupiter' )
     mine1 = planet1.build_mine

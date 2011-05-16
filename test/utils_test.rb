@@ -6,7 +6,7 @@ class UtilsTest < Test::Unit::TestCase
   end
   
   def test_planet_distance
-    universe = S2C::Universe.new
+    universe = S2C::Universe.new( { 'size' => 20 } )
 
     planet1 = S2C::Models::Planet.new( universe, 'jupiter', [0,0] )
     planet2 = S2C::Models::Planet.new( universe, 'saturn', [0,0] )

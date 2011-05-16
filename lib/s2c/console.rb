@@ -3,7 +3,7 @@ require 'highline/import'
 module S2C
   class Console
     def initialize
-      @universe = Universe.new
+      @universe = Universe.new( S2C::Config.config['universe'] )
       @universe.start
       @exit = false
     end
@@ -18,7 +18,7 @@ module S2C
     
     def menu
       choose do |menu|
-        menu.prompt = "You whish?  "
+        menu.prompt = "You wish?  "
 
         menu.choice(:seed) { seed }
         menu.choice(:create_planet) { create_planet_menu }

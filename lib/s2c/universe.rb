@@ -2,11 +2,12 @@ require 'benchmark'
 
 module S2C
   class Universe
-    attr_accessor :planets, :logs, :status, :tick
+    attr_accessor :planets, :logs, :status, :tick, :size
     
-    def initialize
+    def initialize( opts )
       @logs     = []
       @planets  = []
+      @size     = opts['size']
       @tick     = 0 # Universe's time
     end
     
@@ -74,9 +75,7 @@ module S2C
     end
     
     def map
-      universe_dimension = S2C::Config.config['universe']['dimension']
-      
-      result = Array.new( universe_dimension ) { ' ' * universe_dimension }
+      result = Array.new( size ) { ' ' * size }
 
       self.planets.each do |planet|
         line = result[ planet.position[0] ]
