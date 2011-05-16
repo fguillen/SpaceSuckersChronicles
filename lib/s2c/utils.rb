@@ -1,7 +1,7 @@
 module S2C
   class Utils
     def self.remaining_ticks_to_time( remaining_ticks )
-      seconds = remaining_ticks * S2C::Config.config['universe']['tick_seconds']
+      seconds = remaining_ticks * S2C::Config['universe']['tick_seconds']
       Time.now + seconds
     end
     
@@ -11,7 +11,7 @@ module S2C
     
     def self.travel_black_stuff( planet1, planet2 )
       distance = S2C::Utils.planet_distance( planet1, planet2 )
-      distance * S2C::Config.config['universe']['travel_black_stuff']
+      distance * S2C::Config['universe']['travel_black_stuff']
     end
     
     def self.travel_ticks( planet1, planet2, velocity )

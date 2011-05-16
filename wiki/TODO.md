@@ -1,3 +1,4 @@
-# Errors
+# TODO
 
 * planet names modify the map
+* S2C::Config.universe.size

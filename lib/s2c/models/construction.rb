@@ -37,7 +37,7 @@ module S2C
       end
     
       def property_value( property )
-        init_value = S2C::Config.config[type][property]
+        init_value = S2C::Config[type][property]
         init_value + ( init_value * ( @level * ( 1.1 ** @level ) ) ).round
       end
     

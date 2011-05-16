@@ -3,7 +3,7 @@ require 'highline/import'
 module S2C
   class Console
     def initialize
-      @universe = Universe.new( S2C::Config.config['universe'] )
+      @universe = Universe.new( S2C::Config['universe'] )
       @universe.start
       @exit = false
     end

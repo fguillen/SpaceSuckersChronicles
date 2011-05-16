@@ -50,7 +50,7 @@ module S2C
             self.cycle
           end
 
-        sleep( S2C::Config.config['universe']['tick_seconds'].to_i - time )
+        sleep( S2C::Config['universe']['tick_seconds'].to_i - time )
       end
       
       self.log( self, "End run" )
