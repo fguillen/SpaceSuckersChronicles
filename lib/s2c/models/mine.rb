@@ -8,8 +8,8 @@ module S2C
       end
 
       def work_standby
-        self.universe.log( self, "Mine extracting" )
-        self.planet.add_black_stuff( self.power )
+        universe.log( self, "Mine extracting" )
+        planet.add_black_stuff( power )
       end
       
     end

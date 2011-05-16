@@ -21,7 +21,7 @@ module S2C
     end
     
     def cycle
-      self.log( self, "Start cycle" )
+      log( self, "Start cycle" )
       
       @planets.each do |planet|
         planet.constructions.each do |construction|
@@ -31,11 +31,11 @@ module S2C
       
       @tick += 1
       
-      self.log( self, "End cycle" )
+      log( self, "End cycle" )
     end
     
     def start
-      Thread.new { self.run }
+      Thread.new { run }
     end
     
     def end
@@ -43,18 +43,18 @@ module S2C
     end
     
     def run
-      self.log( self, "Start run" )
+      log( self, "Start run" )
       
-      while( self.status != :ending )
+      while( status != :ending )
         time =
           Benchmark.realtime do
-            self.cycle
+            cycle
           end
 
         sleep( config['universe']['tick_seconds'].to_i - time )
       end
       
-      self.log( self, "End run" )
+      log( self, "End run" )
     end
     
     def identity
@@ -62,23 +62,23 @@ module S2C
     end
     
     def stats
-      "planets:#{self.planets.size}"
+      "planets:#{planets.size}"
     end
     
     def log( element, message )
-      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", self.tick, element.identity, message )
+      @logs << Kernel.sprintf( "(%010d) [%10s] > %s", tick, element.identity, message )
     end
     
     def print_logs( last_lines = 10 )
-      last_lines = self.logs.size  if last_lines > self.logs.size
+      last_lines = logs.size  if last_lines > logs.size
       
-      self.logs[-(last_lines),last_lines]
+      logs[-(last_lines),last_lines]
     end
     
     def map
       result = Array.new( size ) { ' ' * size }
 
-      self.planets.each do |planet|
+      planets.each do |planet|
         line = result[ planet.position[0] ]
         line[ planet.position[1] ] = "*#{planet.identity}"
       end
