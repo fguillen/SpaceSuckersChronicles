@@ -8,7 +8,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:0
     1. seed
     2. create_planet
@@ -19,7 +19,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  1
+    You wish?  1
     1. seed
     2. create_planet
     3. build_mine
@@ -29,7 +29,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:3
       |- [x23        ] > position:[7,6]      constructions:3     black_stuff:20
       |    |- [1305421864 ] > type:mine           level:0             status:under_constructionremaining_ticks:5   ending_time:2011-05-15 03:05:45
@@ -46,7 +46,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:3
       |- [x23        ] > position:[7,6]      constructions:3     black_stuff:41
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -63,7 +63,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  8
+    You wish?  8
                     
                     
                     
@@ -93,7 +93,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  5
+    You wish?  5
     1. 1305422042
     2. 1305421821
     Ship?  1
@@ -110,7 +110,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:3
       |- [x23        ] > position:[7,6]      constructions:3     black_stuff:651
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -127,7 +127,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:3
       |- [x23        ] > position:[7,6]      constructions:2     black_stuff:798
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -144,7 +144,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  6
+    You wish?  6
     (0000000076) [  Universe] > End cycle
     (0000000076) [  Universe] > Start cycle
     (0000000076) [1305421864] > Working
@@ -164,7 +164,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  2
+    You wish?  2
     Name? jupiter
     1. seed
     2. create_planet
@@ -175,7 +175,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  8
+    You wish?  8
                     
                     
                     
@@ -205,7 +205,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  4
+    You wish?  4
     1. x23
     2. x24
     3. x25
@@ -220,7 +220,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:4
       |- [x23        ] > position:[7,6]      constructions:2     black_stuff:2751
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -239,7 +239,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:4
       |- [x23        ] > position:[7,6]      constructions:2     black_stuff:2940
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -258,7 +258,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  5
+    You wish?  5
     1. 1305421821
     2. 1305421719
     3. 1305422042
@@ -277,7 +277,7 @@
     7. stats
     8. map
     9. exit
-    You whish?  7
+    You wish?  7
     [Universe   ] > planets:4
       |- [x23        ] > position:[7,6]      constructions:1     black_stuff:3503
       |    |- [1305421864 ] > type:mine           level:1             status:standby      
@@ -296,4 +296,4 @@
     7. stats
     8. map
     9. exit
-    You whish?
+    You wish?
