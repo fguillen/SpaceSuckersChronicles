@@ -70,7 +70,7 @@ Then:
     
 #### Commands
 
-You can check this [command session](https://github.com/fguillen/SpaceSuckersChronicles/blob/master/wiki/console_session.md), it if for the _stand alone_ version but it should work just the same
+You can check this [command session](https://github.com/fguillen/SpaceSuckersChronicles/blob/master/wiki/console_session.md), it is for the _stand alone_ version but it should work just the same.
 
 
 
