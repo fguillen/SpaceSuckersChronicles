@@ -4,10 +4,8 @@ module S2C
   class Console
     attr_reader :config
     
-    def initialize
-      @config = S2C::Config.new
-      @universe = Universe.new( config )
-      @universe.start
+    def initialize(url)
+      @url  = url
       @exit = false
     end
     
@@ -15,8 +13,6 @@ module S2C
       while( !@exit )
         menu
       end
-      
-      @universe.end
     end
     
     def menu
@@ -36,6 +32,7 @@ module S2C
     end
     
     def seed
+      
       planet1 = @universe.create_planet( 'x23' )
       planet2 = @universe.create_planet( 'x24' )
       planet3 = @universe.create_planet( 'x25' )
