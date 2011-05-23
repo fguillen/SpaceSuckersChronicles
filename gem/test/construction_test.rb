@@ -183,7 +183,7 @@ class ConstructionTest < Test::Unit::TestCase
     construction = S2C::Models::Construction.new( @planet, 'mine' )
     construction.stubs(:identity).returns('CONSTRUCTION')
     construction.stubs(:status).returns('STATUS')
-    construction.stubs(:process_remaining_ticks).returns('PROCESS_REMAIN_TICKS')
+    construction.stubs(:process_remaining_ticks).returns(10)
     construction.stubs(:type).returns('TYPE')
     construction.stubs(:level).returns(78)
     
@@ -192,6 +192,6 @@ class ConstructionTest < Test::Unit::TestCase
     assert_equal(78, construction.to_hash[:level])
     assert_equal('TYPE', construction.to_hash[:type])
     assert_equal('STATUS', construction.to_hash[:status])
-    assert_equal('PROCESS_REMAIN_TICKS', construction.to_hash[:process_remaining_ticks])
+    assert_equal(10, construction.to_hash[:process_remaining_ticks])
   end
 end

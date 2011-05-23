@@ -82,12 +82,12 @@ class UniverseTest < Test::Unit::TestCase
     universe.stubs( :logs ).returns( ['1','2'] )
     universe.stubs( :status ).returns( 'STATUS' )
     universe.stubs( :tick ).returns( 'TICK' )
-    universe.stubs( :size ).returns( 'SIZE' )
+    universe.stubs( :size ).returns( 10 )
     
     assert_equal(['1', '2'], universe.to_hash[:logs])
     assert_equal('STATUS', universe.to_hash[:status])
     assert_equal('TICK', universe.to_hash[:tick])
-    assert_equal('SIZE', universe.to_hash[:size])
+    assert_equal(10, universe.to_hash[:size])
     assert_equal(2, universe.to_hash[:planets].size)
     assert_equal(ship1.identity, universe.to_hash[:planets][0][:constructions][0][:identity])
   end

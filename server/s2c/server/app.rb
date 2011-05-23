@@ -17,6 +17,11 @@ module S2C::Server
     get "/universe/planets" do
       universe.to_hash[:planets].to_json
     end
+    
+    # show ships
+    get "/universe/ships" do
+      universe.to_hash[:ships].to_json
+    end
 
     # show planet
     get "/universe/planet/:name" do
@@ -32,7 +37,7 @@ module S2C::Server
     end
     
     # build mine
-    post "/universe/planets/:name/mine" do
+    post "/universe/planets/:name/mines" do
       planet = universe.get_planet(params[:name])
       planet.build_mine
       
@@ -40,7 +45,7 @@ module S2C::Server
     end
     
     # build ship
-    post "/universe/planets/:name/ship" do
+    post "/universe/planets/:name/ships" do
       planet = universe.get_planet(params[:name])
       planet.build_ship
       
@@ -48,9 +53,10 @@ module S2C::Server
     end
 
     # travel
-    put "/universe/ships/:identity/travel" do
+    post "/universe/ships/:identity/travel" do
       ship   = universe.get_ship(params[:identity])
       planet = universe.get_planet(params[:planet_name])
+
       ship.travel(planet)
       
       redirect "/universe/planet/#{ship.planet.name}"

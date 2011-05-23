@@ -67,7 +67,9 @@ module S2C
           :name          => name,
           :black_stuff   => black_stuff,
           :constructions => constructions_hash,
-          :position      => position
+          :position      => position,
+          :identity      => identity,
+          :stats         => stats
         }
       end
     end

@@ -15,7 +15,7 @@ class ThimblSingingTest < Test::Unit::TestCase
     
     @planet1 = @universe.create_planet( 'x100', [1,2] )
     @planet2 = @universe.create_planet( 'x200', [5,8] )
-    @planet3 = @universe.create_planet( 'yogan exsima', [45,29] )
+    @planet3 = @universe.create_planet( 'yogan exsima', [5,9] )
     
     @mine1 = @planet1.build_mine
     @mine2 = @planet1.build_mine
@@ -24,6 +24,7 @@ class ThimblSingingTest < Test::Unit::TestCase
     @ship1 = @planet1.build_ship
     @ship2 = @planet2.build_ship
     @ship3 = @planet2.build_ship
+    @ship4 = @planet2.build_ship
     
     @ship3.instance_variable_set( :@status, :traveling )
     @ship3.instance_variable_set( :@traveling_to, @planet3 )
@@ -33,6 +34,7 @@ class ThimblSingingTest < Test::Unit::TestCase
   
   def test_show_universe
     get '/universe'
+    
     json_response = JSON.parse(last_response.body)
     
     assert_equal(3, json_response['planets'].size)
@@ -45,6 +47,13 @@ class ThimblSingingTest < Test::Unit::TestCase
     json_response = JSON.parse(last_response.body)
     
     assert_equal(3, json_response.size)
+  end
+  
+  def test_show_ships
+    get '/universe/ships'
+    json_response = JSON.parse(last_response.body)
+    
+    assert_equal(4, json_response.size)
   end
   
   def test_show_planet
@@ -69,7 +78,7 @@ class ThimblSingingTest < Test::Unit::TestCase
   def test_build_mine
     @planet1.expects(:build_mine)
     
-    post "/universe/planets/#{@planet1.name}/mine"
+    post "/universe/planets/#{@planet1.name}/mines"
     assert last_response.redirect?
     assert_match("/universe/planet/#{@planet1.name}", last_response.location)
   end
@@ -77,15 +86,15 @@ class ThimblSingingTest < Test::Unit::TestCase
   def test_build_ship
     @planet1.expects(:build_ship)
     
-    post "/universe/planets/#{@planet1.name}/ship"
+    post "/universe/planets/#{@planet1.name}/ships"
     assert last_response.redirect?
     assert_match("/universe/planet/#{@planet1.name}", last_response.location)
   end
   
-  def test_build_ship
+  def test_travel
     @ship1.expects(:travel).with(@planet2)
     
-    put(
+    post(
       "/universe/ships/#{@ship1.identity}/travel", 
       :planet_name => @planet2.name
     )

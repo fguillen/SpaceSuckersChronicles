@@ -127,7 +127,8 @@ module S2C
           :level                    => level,
           :type                     => type,
           :status                   => status,
-          :process_remaining_ticks  => process_remaining_ticks
+          :process_remaining_ticks  => process_remaining_ticks,
+          :stats                    => stats
         }
       end
       

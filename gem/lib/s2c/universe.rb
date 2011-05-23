@@ -42,7 +42,6 @@ module S2C
     end
     
     def start
-      puts "XXX: START"
       Thread.new { run }
     end
     
@@ -120,13 +119,18 @@ module S2C
     
     def to_hash
       planets_hash = planets.map { |e| e.to_hash }
+      ships_hash   = ships.map { |e| e.to_hash }
       
       {
         :planets  => planets_hash,
         :logs     => logs,
         :status   => status,
         :tick     => tick,
-        :size     => size
+        :size     => size,
+        :ships    => ships_hash,
+        :map      => map,
+        :identity => identity,
+        :stats    => stats
       }
     end
   end
