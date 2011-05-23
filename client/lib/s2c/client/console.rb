@@ -1,101 +1,145 @@
 require 'highline/import'
 
 module S2C
-  class Console
-    attr_reader :config
+  module Client
+    class Console
     
-    def initialize(url)
-      @url  = url
-      @exit = false
-    end
+      attr_reader :host
     
-    def run
-      while( !@exit )
-        menu
+      def initialize(host)
+        @host = host
+        @exit = false
       end
-    end
     
-    def menu
-      choose do |menu|
-        menu.prompt = "You wish?  "
-
-        menu.choice(:seed) { seed }
-        menu.choice(:create_planet) { create_planet_menu }
-        menu.choice(:build_mine) { build_mine_menu }
-        menu.choice(:build_ship) { build_ship_menu }
-        menu.choice(:travel) { travel_menu }
-        menu.choice(:log) { log }
-        menu.choice(:stats) { stats }
-        menu.choice(:map) { map }
-        menu.choice(:exit) { @exit = true }
-      end
-    end
-    
-    def seed
-      
-      planet1 = @universe.create_planet( 'x23' )
-      planet2 = @universe.create_planet( 'x24' )
-      planet3 = @universe.create_planet( 'x25' )
-      
-      mine = planet1.build_mine
-      ship = planet1.build_ship
-      ship2 = planet1.build_ship
-    end
-    
-    def create_planet_menu
-      name = ask( "Name? " )
-      @universe.create_planet( name )
-    end
-    
-    def build_mine_menu
-      choose do |menu|
-        menu.prompt = "Planet?  "
-
-        @universe.planets.each do |planet|
-          menu.choice( planet.name ) { planet.build_mine }
+      def run
+        while( !@exit )
+          menu
         end
       end
-    end
     
-    def build_ship_menu
-      choose do |menu|
-        menu.prompt = "Planet?  "
-
-        @universe.planets.each do |planet|
-          menu.choice( planet.name ) { planet.build_ship }
-        end
-      end
-    end
-    
-    def travel_menu
-      ship = 
+      def menu
         choose do |menu|
-          menu.prompt = "Ship?  "
+          menu.prompt = "You wish?  "
 
-          @universe.ships.each do |ship|
-            menu.choice( ship.identity ) { ship }
+          menu.choice(:seed) { seed }
+          menu.choice(:create_planet) { create_planet_menu }
+          menu.choice(:build_mine) { build_mine_menu }
+          menu.choice(:build_ship) { build_ship_menu }
+          menu.choice(:travel) { travel_menu }
+          menu.choice(:log) { log }
+          menu.choice(:stats) { stats }
+          menu.choice(:map) { map }
+          menu.choice(:exit) { @exit = true }
+        end
+      end
+    
+      def seed
+        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x23")
+        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x24")
+        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x25")
+      
+        Curl::Easy.http_post("http://#{host}/universe/planets/x23/mines")
+        Curl::Easy.http_post("http://#{host}/universe/planets/x23/ships")
+        Curl::Easy.http_post("http://#{host}/universe/planets/x23/ships")
+      end
+    
+      def create_planet_menu
+        name = ask( "Name? " )
+        Curl::Easy.http_post("http://#{host}/universe/planet", "name=#{name}")
+      end
+    
+      def build_mine_menu
+        c = Curl::Easy.new("http://#{host}/universe/planets")
+        c.perform
+        planets = JSON.parse(c.body_str)
+        
+        choose do |menu|
+          menu.prompt = "Planet?  "
+
+          planets.each do |planet|
+            menu.choice(planet['name']) do 
+              Curl::Easy.http_post(
+                "http://#{host}/universe/planets/#{planet['name']}/mines"
+              )
+            end
+          end
+        end      end
+    
+      def build_ship_menu
+        c = Curl::Easy.new("http://#{host}/universe/planets")
+        c.perform
+        planets = JSON.parse(c.body_str)
+        
+        choose do |menu|
+          menu.prompt = "Planet?  "
+
+          planets.each do |planet|
+            menu.choice(planet['name']) do 
+              Curl::Easy.http_post(
+                "http://#{host}/universe/planets/#{planet['name']}/ships"
+              )
+            end
           end
         end
+      end
+    
+      def travel_menu
+        c = Curl::Easy.new("http://#{host}/universe/ships")
+        c.perform
+        ships = JSON.parse(c.body_str)
         
-      choose do |menu|
-        menu.prompt = "To planet?  "
+        c = Curl::Easy.new("http://#{host}/universe/planets")
+        c.perform
+        planets = JSON.parse(c.body_str)
+        
+        ship_identity = 
+          choose do |menu|
+            menu.prompt = "Ship?  "
 
-        @universe.planets.each do |planet|
-          menu.choice( planet.name ) { ship.travel( planet ) }
+            ships.each do |ship|
+              menu.choice(ship['identity']) { ship['identity'] }
+            end
+          end
+        
+        puts "XXX: ship_identity: #{ship_identity}"
+        
+        choose do |menu|
+          menu.prompt = "To planet?  "
+
+          planets.each do |planet|
+            menu.choice(planet['name']) do
+              Curl::Easy.http_post(
+                "http://#{host}/universe/ships/#{ship_identity}/travel",
+                "planet_name=#{planet['name']}"
+              )
+            end
+          end
         end
       end
-    end
     
-    def log
-      puts @universe.print_logs.join( "\n" )
-    end
+      def log
+        c = Curl::Easy.new("http://#{host}/universe")
+        c.perform
+        universe = JSON.parse(c.body_str)
+        
+        puts universe['logs'].join("\n")
+      end
     
-    def stats
-      puts S2C::Stats.stats( @universe ).join( "\n" )
-    end
+      def stats
+        c = Curl::Easy.new("http://#{host}/universe")
+        c.perform
+        universe = JSON.parse(c.body_str)
+        
+        puts S2C::Client::Stats.stats(universe).join( "\n" )
+      end
     
-    def map
-      puts @universe.map.join( "\n" )
+      def map
+        c = Curl::Easy.new("http://#{host}/universe")
+        c.perform
+        universe = JSON.parse(c.body_str)
+        
+        puts universe['map'].join( "\n" )
+      end
     end
   end
 end

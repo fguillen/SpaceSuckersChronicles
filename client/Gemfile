@@ -1,6 +1,8 @@
 source "http://rubygems.org"
 
 gem 'highline'
+gem 'curb'
+gem 'json'
 
 # Specify your gem's dependencies in client.gemspec
 gemspec
