@@ -146,4 +146,14 @@ class ShipTest < Test::Unit::TestCase
       ship.stats
     )
   end
+  
+  def test_to_hash
+    ship            = S2C::Models::Ship.new(@planet)
+    planet_destiny  = @universe.create_planet('x700')
+    
+    ship.stubs(:traveling_to).returns(planet_destiny)
+    
+    assert_equal('x700', ship.to_hash[:traveling_to])
+  end
+
 end

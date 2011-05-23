@@ -14,7 +14,7 @@ module S2C
     
       def initialize( planet, type )
         planet.universe.log( self, "Starting contruction Construction" )
-        @identity   = Time.now.to_i + rand(1000)
+        @identity   = (Time.now.to_i + rand(1000)).to_s
         @universe   = planet.universe
         @planet     = planet
         @level      = 0
@@ -118,6 +118,17 @@ module S2C
         end
         
         result
+      end
+      
+      def to_hash
+        {
+          :identity                 => identity,
+          :planet                   => planet.name,
+          :level                    => level,
+          :type                     => type,
+          :status                   => status,
+          :process_remaining_ticks  => process_remaining_ticks
+        }
       end
       
     end

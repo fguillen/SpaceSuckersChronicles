@@ -90,6 +90,12 @@ module S2C
         result
       end
       
+      def to_hash
+        super.merge(
+          :traveling_to => traveling_to ? traveling_to.name : nil
+        )
+      end
+      
     end
   end
 end

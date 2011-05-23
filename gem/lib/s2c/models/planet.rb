@@ -60,6 +60,16 @@ module S2C
         result += "black_stuff:#{black_stuff}"
       end
       
+      def to_hash
+        constructions_hash = constructions.map { |e| e.to_hash }
+        
+        {
+          :name          => name,
+          :black_stuff   => black_stuff,
+          :constructions => constructions_hash,
+          :position      => position
+        }
+      end
     end
   end
 end

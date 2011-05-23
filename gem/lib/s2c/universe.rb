@@ -42,6 +42,7 @@ module S2C
     end
     
     def start
+      puts "XXX: START"
       Thread.new { run }
     end
     
@@ -107,6 +108,26 @@ module S2C
       end
 
       result
+    end
+    
+    def get_planet(name)
+      planets.select { |e| e.name == name }.first
+    end
+    
+    def get_ship(identity)
+      ships.select { |e| e.identity == identity }.first
+    end
+    
+    def to_hash
+      planets_hash = planets.map { |e| e.to_hash }
+      
+      {
+        :planets  => planets_hash,
+        :logs     => logs,
+        :status   => status,
+        :tick     => tick,
+        :size     => size
+      }
     end
   end
 end

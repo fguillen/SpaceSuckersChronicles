@@ -53,4 +53,42 @@ class UniverseTest < Test::Unit::TestCase
     
     assert_equal( [ship1, ship2, ship3], universe.ships )
   end
+  
+  def test_get_planet
+    universe = S2C::Universe.new( @config )
+    planet1 = universe.create_planet('jupiter')
+    planet2 = universe.create_planet('mercurio')
+    
+    assert_equal(planet2, universe.get_planet('mercurio'))
+  end
+  
+  def test_get_ship
+    universe = S2C::Universe.new( @config )
+    planet1  = universe.create_planet('jupiter')
+    ship1    = planet1.build_ship
+    
+    assert_equal(ship1, universe.get_ship(ship1.identity))
+  end
+  
+  def test_to_hash
+    universe = S2C::Universe.new( @config )
+    planet1 = universe.create_planet('jupiter')
+    planet2 = universe.create_planet('mercurio')
+    
+    ship1 = planet1.build_ship
+    ship2 = planet1.build_ship
+    mine1 = planet1.build_mine
+    
+    universe.stubs( :logs ).returns( ['1','2'] )
+    universe.stubs( :status ).returns( 'STATUS' )
+    universe.stubs( :tick ).returns( 'TICK' )
+    universe.stubs( :size ).returns( 'SIZE' )
+    
+    assert_equal(['1', '2'], universe.to_hash[:logs])
+    assert_equal('STATUS', universe.to_hash[:status])
+    assert_equal('TICK', universe.to_hash[:tick])
+    assert_equal('SIZE', universe.to_hash[:size])
+    assert_equal(2, universe.to_hash[:planets].size)
+    assert_equal(ship1.identity, universe.to_hash[:planets][0][:constructions][0][:identity])
+  end
 end

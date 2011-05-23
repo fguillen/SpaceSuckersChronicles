@@ -74,5 +74,20 @@ class PlanetTest < Test::Unit::TestCase
       @planet.stats 
     )
   end
+  
+  def test_to_hash
+    ship1 = @planet.build_ship
+    ship2 = @planet.build_ship
+    mine1 = @planet.build_mine
+    
+    @planet.stubs( :position ).returns( [3,45] )
+    @planet.stubs( :black_stuff ).returns( 789 )
+    
+    assert_equal('jupiter', @planet.to_hash[:name])
+    assert_equal(789, @planet.to_hash[:black_stuff])
+    assert_equal(3, @planet.to_hash[:constructions].size)
+    assert_equal([3, 45], @planet.to_hash[:position])
+    assert_equal(ship1.identity, @planet.to_hash[:constructions][0][:identity])
+  end
 
 end
