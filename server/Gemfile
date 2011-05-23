@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'highline'
 gem 'sinatra'
+gem 'json'
 
 group :development do
   gem 'rack'
@@ -9,6 +9,6 @@ end
 
 group :test do
   gem 'mocha'
+  gem 'rack-test'
   gem 'ruby-debug19'
-  gem 'delorean'
 end
