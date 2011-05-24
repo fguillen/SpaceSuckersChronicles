@@ -1,4 +1,5 @@
 require 'rubygems'
 require 'json'
-
+require 'sinatra/base'
+require_relative '../../gem/lib/s2c'
 require_relative 'server/app'

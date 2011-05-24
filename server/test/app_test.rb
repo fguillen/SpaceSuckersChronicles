@@ -13,9 +13,9 @@ class ThimblSingingTest < Test::Unit::TestCase
     config = S2C::Config.new("#{FIXTURES_PATH}/config.yml")
     @universe = S2C::Universe.new(config)
     
-    @planet1 = @universe.create_planet( 'x100', [1,2] )
-    @planet2 = @universe.create_planet( 'x200', [5,8] )
-    @planet3 = @universe.create_planet( 'yogan exsima', [5,9] )
+    @planet1 = @universe.create_planet('x100', [1,2])
+    @planet2 = @universe.create_planet('x200', [5,8])
+    @planet3 = @universe.create_planet('yogan exsima', [5,9])
     
     @mine1 = @planet1.build_mine
     @mine2 = @planet1.build_mine
@@ -26,8 +26,8 @@ class ThimblSingingTest < Test::Unit::TestCase
     @ship3 = @planet2.build_ship
     @ship4 = @planet2.build_ship
     
-    @ship3.instance_variable_set( :@status, :traveling )
-    @ship3.instance_variable_set( :@traveling_to, @planet3 )
+    @ship3.instance_variable_set(:@status, :traveling)
+    @ship3.instance_variable_set(:@traveling_to, @planet3)
     
     S2C::Server::App.any_instance.stubs(:universe).returns(@universe)
   end
@@ -97,7 +97,7 @@ class ThimblSingingTest < Test::Unit::TestCase
     post(
       "/universe/ships/#{@ship1.identity}/travel", 
       :planet_name => @planet2.name
-    )
+   )
     
     assert last_response.redirect?
     assert_match("/universe/planet/#{@planet1.name}", last_response.location)

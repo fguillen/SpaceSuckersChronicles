@@ -9,9 +9,9 @@ module S2C
       :tick, 
       :size, 
       :config
-    )
+   )
     
-    def initialize( config )
+    def initialize(config)
       @logs     = []
       @planets  = []
       @config   = config
@@ -19,8 +19,8 @@ module S2C
       @tick     = 0 # Universe's time
     end
     
-    def create_planet( name, position = nil )
-      planet = S2C::Models::Planet.new( self, name, position )
+    def create_planet(name, position = nil)
+      planet = S2C::Models::Planet.new(self, name, position)
       
       @planets << planet
       
@@ -28,7 +28,7 @@ module S2C
     end
     
     def cycle
-      log( self, "Start cycle" )
+      log(self, "Start cycle")
       
       @planets.each do |planet|
         planet.constructions.each do |construction|
@@ -38,7 +38,7 @@ module S2C
       
       @tick += 1
       
-      log( self, "End cycle" )
+      log(self, "End cycle")
     end
     
     def start
@@ -50,18 +50,18 @@ module S2C
     end
     
     def run
-      log( self, "Start run" )
+      log(self, "Start run")
       
-      while( status != :ending )
+      while(status != :ending)
         time =
           Benchmark.realtime do
             cycle
           end
 
-        sleep( config['universe']['tick_seconds'].to_i - time )
+        sleep(config['universe']['tick_seconds'].to_i - time)
       end
       
-      log( self, "End run" )
+      log(self, "End run")
     end
     
     def identity
@@ -72,24 +72,24 @@ module S2C
       "planets:#{planets.size}"
     end
     
-    def log( element, message )
+    def log(element, message)
       @logs << 
-        Kernel.sprintf( 
+        Kernel.sprintf(
           "(%010d) [%10s] > %s", 
           tick, 
           element.identity, 
           message
-        )
+       )
     end
     
-    def print_logs( last_lines = 10 )
+    def print_logs(last_lines = 10)
       last_lines = logs.size  if last_lines > logs.size
       
       logs[-(last_lines),last_lines]
     end
     
     def map
-      result = Array.new( size ) { ' ' * size }
+      result = Array.new(size) { ' ' * size }
 
       planets.each do |planet|
         line = result[ planet.position[0] ]

@@ -5,18 +5,18 @@ module S2C
     
     CONFIG_PATH = "#{File.dirname(__FILE__)}/../../config/config.yml"
     
-    def initialize( config_path = CONFIG_PATH )
-      load( config_path )
+    def initialize(config_path = CONFIG_PATH)
+      load(config_path)
     end
             
-    def []( key )
+    def [](key)
       @config[key]
     end
     
     private
     
-    def load( config_path )
-      @config ||= YAML.load( File.read( config_path ) )
+    def load(config_path)
+      @config ||= YAML.load(File.read(config_path))
     end
 
   end

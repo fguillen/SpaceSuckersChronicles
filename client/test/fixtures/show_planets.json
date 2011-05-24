@@ -1,0 +1,69 @@
+[
+  {
+    "name": "x23",
+    "black_stuff": 1648,
+    "constructions": [
+      {
+        "identity": "1306266325",
+        "planet": "x23",
+        "level": 1,
+        "type": "mine",
+        "status": "standby",
+        "process_remaining_ticks": -815,
+        "stats": "type:mine           level:1             status:standby      "
+      },
+      {
+        "identity": "1306266053",
+        "planet": "x23",
+        "level": 1,
+        "type": "ship",
+        "status": "standby",
+        "process_remaining_ticks": -805,
+        "stats": "type:ship           level:1             status:standby      ",
+        "traveling_to": null
+      },
+      {
+        "identity": "1306266439",
+        "planet": "x23",
+        "level": 1,
+        "type": "ship",
+        "status": "standby",
+        "process_remaining_ticks": -805,
+        "stats": "type:ship           level:1             status:standby      ",
+        "traveling_to": null
+      }
+    ],
+    "position": [
+      41,
+      9
+    ],
+    "identity": "x23",
+    "stats": "position:[41,9]     constructions:3     black_stuff:1648"
+  },
+  {
+    "name": "x24",
+    "black_stuff": 20,
+    "constructions": [
+
+    ],
+    "position": [
+      14,
+      35
+    ],
+    "identity": "x24",
+    "stats": "position:[14,35]    constructions:0     black_stuff:20"
+  },
+  {
+    "name": "x25",
+    "black_stuff": 20,
+    "constructions": [
+
+    ],
+    "position": [
+      28,
+      30
+    ],
+    "identity": "x25",
+    "stats": "position:[28,30]    constructions:0     black_stuff:20"
+  }
+]

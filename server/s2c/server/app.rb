@@ -1,39 +1,35 @@
-require 'rubygems'
-require 'sinatra/base'
-require_relative '../../../gem/lib/s2c'
-
 module S2C::Server
   class App < Sinatra::Base  
-    config = S2C::Config.new
-    @@universe = S2C::Universe.new(config)
+    config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../config/config.yml")
+    @@universe  = S2C::Universe.new(config)
     @@universe.start
     
     # show universe
     get "/universe" do
-      universe.to_hash.to_json
+      JSON.pretty_generate universe.to_hash
     end
     
     # show planets
     get "/universe/planets" do
-      universe.to_hash[:planets].to_json
+      JSON.pretty_generate universe.to_hash[:planets]
     end
     
     # show ships
     get "/universe/ships" do
-      universe.to_hash[:ships].to_json
+      JSON.pretty_generate universe.to_hash[:ships]
     end
 
     # show planet
     get "/universe/planet/:name" do
       planet = universe.get_planet(params[:name])
-      planet.to_hash.to_json
+      JSON.pretty_generate planet.to_hash
     end
     
     # create planet
     post "/universe/planet" do
       planet = universe.create_planet(params[:name])
       
-      redirect "/universe/planet/#{planet.name}"
+      redirect_to_planet planet.name
     end
     
     # build mine
@@ -41,7 +37,7 @@ module S2C::Server
       planet = universe.get_planet(params[:name])
       planet.build_mine
       
-      redirect "/universe/planet/#{planet.name}"
+      redirect_to_planet planet.name
     end
     
     # build ship
@@ -49,7 +45,7 @@ module S2C::Server
       planet = universe.get_planet(params[:name])
       planet.build_ship
       
-      redirect "/universe/planet/#{planet.name}"
+      redirect_to_planet planet.name
     end
 
     # travel
@@ -59,9 +55,13 @@ module S2C::Server
 
       ship.travel(planet)
       
-      redirect "/universe/planet/#{ship.planet.name}"
+      redirect_to_planet ship.planet.name
     end
     
+    def redirect_to_planet(name)
+      redirect URI.escape("/universe/planet/#{name}")
+    end
+        
     def universe
       @@universe
     end

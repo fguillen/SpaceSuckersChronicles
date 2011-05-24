@@ -1,0 +1,7 @@
+[32m[Universe   ][0m [31m>[0m [1mplanets:3[0m
+[31m  |-[0m[32m[x23        ][0m [31m>[0m [1mposition:[41,9]     constructions:3     black_stuff:60[0m
+[31m  |    |-[0m[32m[1306266325 ][0m [31m>[0m [33m[1mtype:mine           level:1             status:standby      [0m[0m
+[31m  |    |-[0m[32m[1306266053 ][0m [31m>[0m [35m[1mtype:ship           level:1             status:standby      [0m[0m
+[31m  |    |-[0m[32m[1306266439 ][0m [31m>[0m [35m[1mtype:ship           level:1             status:standby      [0m[0m
+[31m  |-[0m[32m[x24        ][0m [31m>[0m [1mposition:[14,35]    constructions:0     black_stuff:20[0m
+[31m  |-[0m[32m[x25        ][0m [31m>[0m [1mposition:[28,30]    constructions:0     black_stuff:20[0m

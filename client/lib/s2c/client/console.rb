@@ -1,18 +1,17 @@
-require 'highline/import'
-
 module S2C
   module Client
     class Console
     
-      attr_reader :host
+      attr_reader :host, :commander
     
       def initialize(host)
-        @host = host
-        @exit = false
+        @host       = host
+        @exit       = false
+        @commander  = S2C::Client::Commander.new(host)
       end
     
       def run
-        while( !@exit )
+        while(!@exit)
           menu
         end
       end
@@ -34,63 +33,59 @@ module S2C
       end
     
       def seed
-        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x23")
-        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x24")
-        Curl::Easy.http_post("http://#{host}/universe/planet", "name=x25")
+        commander.create_planet('x23')
+        commander.create_planet('x24')
+        commander.create_planet('x25')
       
-        Curl::Easy.http_post("http://#{host}/universe/planets/x23/mines")
-        Curl::Easy.http_post("http://#{host}/universe/planets/x23/ships")
-        Curl::Easy.http_post("http://#{host}/universe/planets/x23/ships")
+        commander.build_mine('x23')
+        commander.build_ship('x23')
+        commander.build_ship('x23')
+        
+        stats
       end
     
       def create_planet_menu
-        name = ask( "Name? " )
-        Curl::Easy.http_post("http://#{host}/universe/planet", "name=#{name}")
+        name = ask("Name? ")
+        commander.create_planet(name)
+        
+        stats
       end
     
       def build_mine_menu
-        c = Curl::Easy.new("http://#{host}/universe/planets")
-        c.perform
-        planets = JSON.parse(c.body_str)
+        planets = commander.get_planets
         
         choose do |menu|
           menu.prompt = "Planet?  "
 
           planets.each do |planet|
             menu.choice(planet['name']) do 
-              Curl::Easy.http_post(
-                "http://#{host}/universe/planets/#{planet['name']}/mines"
-              )
-            end
-          end
-        end      end
-    
-      def build_ship_menu
-        c = Curl::Easy.new("http://#{host}/universe/planets")
-        c.perform
-        planets = JSON.parse(c.body_str)
-        
-        choose do |menu|
-          menu.prompt = "Planet?  "
-
-          planets.each do |planet|
-            menu.choice(planet['name']) do 
-              Curl::Easy.http_post(
-                "http://#{host}/universe/planets/#{planet['name']}/ships"
-              )
+              commander.build_mine(planet['name'])
             end
           end
         end
+        
+        stats
+      end
+    
+      def build_ship_menu
+        planets = commander.get_planets
+        
+        choose do |menu|
+          menu.prompt = "Planet?  "
+
+          planets.each do |planet|
+            menu.choice(planet['name']) do 
+              commander.build_ship(planet['name'])
+            end
+          end
+        end
+        
+        stats
       end
     
       def travel_menu
-        c = Curl::Easy.new("http://#{host}/universe/ships")
-        c.perform
-        ships = JSON.parse(c.body_str)
-        
-        c = Curl::Easy.new("http://#{host}/universe/planets")
-        c.perform
-        planets = JSON.parse(c.body_str)
+        ships   = commander.get_ships
+        planets = commander.get_planets
         
         ship_identity = 
           choose do |menu|
@@ -101,44 +96,29 @@ module S2C
             end
           end
         
-        puts "XXX: ship_identity: #{ship_identity}"
-        
         choose do |menu|
           menu.prompt = "To planet?  "
 
           planets.each do |planet|
             menu.choice(planet['name']) do
-              Curl::Easy.http_post(
-                "http://#{host}/universe/ships/#{ship_identity}/travel",
-                "planet_name=#{planet['name']}"
-              )
+              commander.travel(ship_identity, planet['name'])
             end
           end
         end
+        
+        stats
       end
     
       def log
-        c = Curl::Easy.new("http://#{host}/universe")
-        c.perform
-        universe = JSON.parse(c.body_str)
-        
-        puts universe['logs'].join("\n")
+        puts commander.log
       end
     
       def stats
-        c = Curl::Easy.new("http://#{host}/universe")
-        c.perform
-        universe = JSON.parse(c.body_str)
-        
-        puts S2C::Client::Stats.stats(universe).join( "\n" )
+        puts commander.stats
       end
     
       def map
-        c = Curl::Easy.new("http://#{host}/universe")
-        c.perform
-        universe = JSON.parse(c.body_str)
-        
-        puts universe['map'].join( "\n" )
+        puts commander.map
       end
     end
   end
