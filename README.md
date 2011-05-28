@@ -1,5 +1,7 @@
 # S2C
 
+![Space Suckers Chronicles logo](http://farm3.static.flickr.com/2718/5768774787_395211651d_o.png)
+
 I have improve this exercise adding a **server layer** and starting what is could be a **console client layer**.
 
 ## Next Iteration

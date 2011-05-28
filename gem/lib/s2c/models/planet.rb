@@ -26,10 +26,11 @@ module S2C
       end
     
       def remove_black_stuff(amount)
-        universe.log(
+        universe.log( 
           self, 
-          "Removing #{amount} black stuff to planet #{name}" 
-       )
+          "Removing #{amount} black stuff to planet #{name}"
+        )
+                      
         @black_stuff -= amount
       end
     

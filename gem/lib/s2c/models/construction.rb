@@ -14,6 +14,7 @@ module S2C
     
       def initialize(planet, type)
         planet.universe.log(self, "Starting contruction Construction")
+        
         @identity   = (Time.now.to_i + rand(1000)).to_s
         @universe   = planet.universe
         @planet     = planet
@@ -21,6 +22,7 @@ module S2C
         @type       = type
         @status     = :under_construction
         @process_remaining_ticks = upgrade_timing
+        
         universe.log(self, to_s)
       end
       
