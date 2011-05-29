@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "s2c_client"
+require "s2c/client/version"
 
 Gem::Specification.new do |s|
   s.name        = "S2C Client"
