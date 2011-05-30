@@ -1,7 +1,10 @@
 PATH
   remote: .
   specs:
-    S2C Client (0.0.1)
+    s2c_client (0.0.1)
+      curb
+      highline
+      json
 
 GEM
   remote: http://rubygems.org/
@@ -14,7 +17,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  S2C Client!
-  curb
-  highline
-  json
+  s2c_client!

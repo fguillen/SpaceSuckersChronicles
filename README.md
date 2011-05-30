@@ -48,14 +48,14 @@ The server initialize an _Universe_, starts it and exposes it to network request
     
 #### Commands
 
-* show universe: get "/universe"
-* show planets: get "/universe/planets"
-* show ships: get "/universe/ships"
-* show planet: get "/universe/planet/:name"
-* create planet: post "/universe/planet?name=<planet_name>"
-* build mine: post "/universe/planets/:name/mines"
-* build ship: post "/universe/planets/:name/ships"
-* travel: post "/universe/ships/:identity/travel?planet_name=<planet_name>" 
+* show universe:  get "/universe"
+* show planets:   get "/universe/planets"
+* show ships:     get "/universe/ships"
+* show planet:    get "/universe/planet/:name"
+* create planet:  post "/universe/planet?name=<planet_name>"
+* build mine:     post "/universe/planets/:name/mines"
+* build ship:     post "/universe/planets/:name/ships"
+* travel:         post "/universe/ships/:identity/travel?planet_name=<planet_name>" 
 
 ### The client
 

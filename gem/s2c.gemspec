@@ -1,25 +1,21 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "s2c/client/version"
+require "s2c/version"
 
 Gem::Specification.new do |s|
-  s.name        = "s2c_client"
-  s.version     = S2C::Client::VERSION
+  s.name        = "s2c"
+  s.version     = S2C::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Fernando Guillen"]
   s.email       = ["fguillen.mail@gmail.com"]
   s.homepage    = "http://fernandoguillen.info"
-  s.summary     = "Console client for the S2C HTTP REST API"
-  s.description = "Menu based console client for send commands to a 'Space Suckers Chronicles' HTTP REST API server"
+  s.summary     = "Core S2C game engine"
+  s.description = "All the core components for the 'Space Suckers Chronicles' text-based massively multiplayer online role-playing game"
 
-  s.rubyforge_project = "s2c_client"
+  s.rubyforge_project = "s2c"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  s.add_dependency('highline')
-  s.add_dependency('curb')
-  s.add_dependency('json')
 end

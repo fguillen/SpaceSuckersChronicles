@@ -15,37 +15,6 @@ We already have
 * Every action **consumes black stuff** which is extracted with the _Mines_.
 * Every action **takes time** to be finished.
 
-### The console
-
-To interact with the game in a very simple way you can use the **Console**:
-
-    ruby bin/console.rb
-    
-Following the menus you can:
-
-* create_planet
-* build_mine
-* build_ship
-* travel
-* log
-* see stats
-* see the map
-
-For a very easy console session you can follow this sequence:
-
-* 1:seed (this is a trick for creating a bunch of objects quick)
-* 7:stats (see the actual status of your constructions)
-* 8:map (see the planets map)
-* 5:travel (send a _Ship_ to another planet)
-** choose a ship
-** choose a planet
-
-## Next version
-
-* Client/Server communication :)
-* Attack!
-* Multiuser
-* ... web interface?
 
 
 

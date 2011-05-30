@@ -1,4 +1,4 @@
-require_relative '../s2c/s2c_server'
+require_relative '../lib/s2c/s2c_server'
 require 'rack/test'
 require 'test/unit'
 require 'mocha'

@@ -1,6 +1,6 @@
 module S2C::Server
   class App < Sinatra::Base  
-    config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../config/config.yml")
+    config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../../config/config.yml")
     @@universe  = S2C::Universe.new(config)
     @@universe.start
     

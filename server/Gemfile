@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'sinatra'
-gem 'json'
+gemspec
 
 group :development do
   gem 'rack'
