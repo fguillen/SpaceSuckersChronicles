@@ -31,12 +31,12 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.instance_variable_set(:@black_stuff, 12)
     
-    S2C::Utils.
+    ship.
       expects(:travel_consume_black_stuff).
       with(ship.planet, planet_destiny, 2).
       returns(11)
       
-    S2C::Utils.
+    ship.
       expects(:travel_ticks).
       with(ship.planet, planet_destiny, ship.velocity).
       returns(3)
@@ -72,7 +72,7 @@ class ShipTest < Test::Unit::TestCase
     
     ship.planet.expects(:black_stuff).returns(10)
     
-    S2C::Utils.
+    ship.
       expects(:travel_consume_black_stuff).
       with(ship.planet, planet_destiny, 2).
       returns(11)
@@ -111,11 +111,6 @@ class ShipTest < Test::Unit::TestCase
   end
   
   def test_stats_in_traveling
-    S2C::Utils.
-      expects(:remaining_ticks_to_time).
-      with(14, @config['universe']['tick_seconds']).
-      returns(Time.new(2010, 11, 12, 13, 14, 15))
-    
     planet_destiny = @universe.create_planet('x700')
     
     ship = S2C::Models::Ship.new(@planet)
@@ -124,6 +119,11 @@ class ShipTest < Test::Unit::TestCase
     ship.stubs(:level).returns(123)
     ship.stubs(:traveling_to).returns(planet_destiny)
     ship.stubs(:process_remaining_ticks).returns(14)
+    
+    ship.
+      expects(:remaining_ticks_to_time).
+      with(14, @config['universe']['tick_seconds']).
+      returns(Time.new(2010, 11, 12, 13, 14, 15))
 
     assert_equal(
       "type:TYPE           " +

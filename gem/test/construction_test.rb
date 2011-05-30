@@ -146,16 +146,16 @@ class ConstructionTest < Test::Unit::TestCase
     assert_equal(:standby, construction.status)
   end
   
-  def test_stats_not_in_standby
-    S2C::Utils.
-      stubs(:remaining_ticks_to_time).
-      returns(Time.new(2010, 11, 12, 13, 14, 15))
-    
+  def test_stats_not_in_standby    
     construction = S2C::Models::Construction.new(@planet, 'mine')
     construction.instance_variable_set(:@status, :upgrading)
     construction.stubs(:type).returns('TYPE')
     construction.stubs(:level).returns(78)
     construction.stubs(:process_remaining_ticks).returns(12)
+    
+    construction.
+      stubs(:remaining_ticks_to_time).
+      returns(Time.new(2010, 11, 12, 13, 14, 15))
     
     assert_equal(
       "type:TYPE           " +

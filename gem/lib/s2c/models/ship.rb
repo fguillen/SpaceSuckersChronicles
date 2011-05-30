@@ -29,7 +29,7 @@ module S2C
         end
       
         needed_black_stuff = 
-          S2C::Utils.travel_consume_black_stuff(
+          travel_consume_black_stuff(
             planet, 
             planet_destiny, 
             universe.config['universe']['travel_black_stuff'] 
@@ -44,7 +44,7 @@ module S2C
         @status = :traveling
         @traveling_to = planet_destiny
         @process_remaining_ticks = 
-          S2C::Utils.travel_ticks(
+          travel_ticks(
             planet, 
             planet_destiny, 
             velocity 
@@ -78,7 +78,7 @@ module S2C
         
         if status != :standby
           finish_time = 
-            S2C::Utils.remaining_ticks_to_time(
+            remaining_ticks_to_time(
               process_remaining_ticks, 
               universe.config['universe']['tick_seconds'] 
            )

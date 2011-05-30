@@ -2,6 +2,8 @@ module S2C
   module Models
     class Construction
       
+      include S2C::Utils
+      
       attr_reader(
         :identity, 
         :planet, 
@@ -110,7 +112,7 @@ module S2C
         
         if status != :standby
           finish_time = 
-            S2C::Utils.remaining_ticks_to_time(
+            remaining_ticks_to_time(
               process_remaining_ticks, 
               universe.config['universe']['tick_seconds'] 
            )
