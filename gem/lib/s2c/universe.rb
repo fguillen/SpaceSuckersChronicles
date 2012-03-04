@@ -123,7 +123,7 @@ module S2C
       {
         :planets  => planets_hash,
         :fleets   => fleets_hash,
-        :logs     => logs,
+        # :logs     => logs,
         :status   => status,
         :tick     => tick,
         :ships    => ships_hash,

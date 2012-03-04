@@ -2,6 +2,9 @@ universe:
   tick_seconds: 1
   travel_black_stuff: 2
 
+planet:
+  initial_black_stuff: 1000
+
 mine:
   defense: 11
   life: 12

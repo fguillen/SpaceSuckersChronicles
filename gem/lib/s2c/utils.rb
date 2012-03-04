@@ -31,5 +31,29 @@ module S2C
       100 - ( ( 100 * process_remaining_ticks ) / process_total_ticks )
     end
 
+    def feed_universe( universe )
+      planet1 = universe.create_planet( 'X001', [10,10] )
+      planet2 = universe.create_planet( 'X002', [100, 100] )
+      planet3 = universe.create_planet( 'X003', [50, 200] )
+      planet4 = universe.create_planet( 'X004', [300, 150] )
+      planet5 = universe.create_planet( 'X005', [400, 250] )
+
+      ship1 = planet1.build_ship
+      ship2 = planet1.build_ship
+      ship3 = planet1.build_ship
+
+      ship4 = planet2.build_ship
+      ship5 = planet2.build_ship
+
+      ship6 = planet3.build_ship
+      ship7 = planet3.build_ship
+      ship8 = planet3.build_ship
+
+      fleet1 = planet1.build_fleet( planet2, [ship1, ship2] )
+      fleet2 = planet1.build_fleet( planet3, [ship3] )
+
+      universe
+    end
+
   end
 end

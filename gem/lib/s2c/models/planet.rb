@@ -12,7 +12,7 @@ module S2C
 
       def initialize(universe, id, position)
         universe.log(self, "Creating planet")
-        @black_stuff    = 20
+        @black_stuff    = universe.config["planet"]["initial_black_stuff"]
         @id             = id
         @constructions  = []
         @universe       = universe

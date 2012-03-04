@@ -1,13 +1,3 @@
-source 'http://rubygems.org'
+source :rubygems
 
 gemspec
-
-group :development do
-  gem 'rack'
-end
-
-group :test do
-  gem 'mocha'
-  gem 'ruby-debug19'
-  gem 'delorean'
-end

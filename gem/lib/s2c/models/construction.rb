@@ -1,7 +1,6 @@
 module S2C
   module Models
     class Construction
-
       include S2C::Utils
 
       attr_reader(
@@ -18,7 +17,7 @@ module S2C
       def initialize(planet, type)
         planet.universe.log(self, "Starting contruction Construction")
 
-        @id   = (Time.now.to_i + rand(1000)).to_s
+        @id         = (Time.now.to_i + rand(1000)).to_s
         @universe   = planet.universe
         @planet     = planet
         @level      = 0
@@ -85,7 +84,7 @@ module S2C
       def work_under_construction
         universe.log(self, "In contruction")
 
-        if(@process_remaining_ticks == 0)
+        if(@process_remaining_ticks <= 0)
           universe.log(self, "Built")
           @level  = 1
           @status = :standby

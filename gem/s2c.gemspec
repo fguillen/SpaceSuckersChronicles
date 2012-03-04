@@ -14,6 +14,11 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "s2c"
 
+  s.add_development_dependency "bundler",   ">= 1.0.0.rc.6"
+  s.add_development_dependency "rake",      "0.9.2.2"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "delorean"
+
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

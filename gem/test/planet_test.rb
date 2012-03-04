@@ -11,7 +11,7 @@ class PlanetTest < Test::Unit::TestCase
   def test_initialize
     planet = S2C::Models::Planet.new(@universe, 'saturn', [1, 1])
 
-    assert_equal(20, planet.black_stuff)
+    assert_equal(1000, planet.black_stuff)
     assert_equal('saturn', planet.id)
     assert_equal(0, planet.constructions.size)
     assert_equal(@universe, planet.universe)
