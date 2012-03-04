@@ -7,6 +7,7 @@ module S2C
         :black_stuff,
         :id,
         :constructions,
+        :ships,
         :position
      )
 
@@ -15,6 +16,7 @@ module S2C
         @black_stuff    = universe.config["planet"]["initial_black_stuff"]
         @id             = id
         @constructions  = []
+        @ships          = []
         @universe       = universe
         @position       = position
       end
@@ -45,6 +47,7 @@ module S2C
         universe.log(self, "Building a ship")
         construction = S2C::Models::Ship.new(self)
         @constructions << construction
+        @ships << construction
 
         construction
       end
@@ -59,10 +62,12 @@ module S2C
 
       def to_hash
         constructions_hash = constructions.map { |e| e.to_hash }
+        ship_ids = ships.map( &:id )
 
         {
           :black_stuff   => black_stuff,
           :constructions => constructions_hash,
+          :ship_ids      => ship_ids,
           :position      => position,
           :id            => id
         }
