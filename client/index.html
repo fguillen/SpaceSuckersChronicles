@@ -20,26 +20,26 @@
 <!-- TEMPLATES -->
 
 <script type="text/template" id="planet-ship">
-  <%= name %>
+  <%= id %>
 </script>
 
 <script type="text/template" id="planet">
-  <h1><%= name %></h1>
+  <h1><%= id %></h1>
   <div class="sphere"></div>
 </script>
 
 <script type="text/template" id="fleet">
-  <h1><%= name %></h1>
+  <h1><%= id %></h1>
   <div class="sphere"></div>
 </script>
 
 <script type="text/template" id="planet-info">
-  <h1>Planet <span><%= name %></h1>
+  <h1>Planet <span><%= id %></h1>
   <div class="info">
     <dl class="details">
-      <dt>Nivel</dt><dd><span><%= level %></span></dd>
-      <dt>Production</dt><dd><span><%= production %></span></dd>
-      <dt>Position</dt><dd><span>⩟<%= x %> ⩠<%= y %></span></dd>
+      <dt>Nivel</dt><dd><span>XX</span></dd>
+      <dt>Black Stuff</dt><dd><span><%= black_stuff %></span></dd>
+      <dt>Position</dt><dd><span>⩟<%= position[0] %> ⩠<%= position[1] %></span></dd>
       <dt>Defense</dt><dd><span>10 missiles</span></dd>
     </dl>
   </div>
@@ -88,10 +88,10 @@
   <h1>Fleet <span><%= name %></h1>
   <div class="info">
     <dl class="details">
-      <dt>Position</dt><dd><span>⩟<%= x %> ⩠<%= y %></span></dd>
-      <dt>Origin</dt><dd><span><%= origin.get( "name" ) %></span></dd>
-      <dt>Destination</dt><dd><span><%= destination.get( "name" ) %></span></dd>
-      <dt>Percent</dt><dd><span><%= percent %></span></dd>
+      <dt>Position</dt><dd><span>⩟<%= position[0] %> ⩠<%= position[1] %></span></dd>
+      <dt>Origin</dt><dd><span><%= origin.get( "id" ) %></span></dd>
+      <dt>Destination</dt><dd><span><%= destination.get( "id" ) %></span></dd>
+      <dt>Percent</dt><dd><span><%= process_percent %></span></dd>
     </dl>
   </div>
 
@@ -100,7 +100,7 @@
       <h1>Navy</h1>
       <ul class="details">
         <% ships.each( function( ship ){ %>
-          <li><%= ship.get( "name" ) %></li>
+          <li><%= ship.get( "id" ) %></li>
         <% }); %>
       </ul>
     </div>

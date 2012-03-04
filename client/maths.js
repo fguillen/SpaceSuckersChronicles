@@ -2,14 +2,14 @@ function fleetCoordinates( fleet, planets ){
   var planetOrigin      = fleet.get( "origin" );
   var planetDestination = fleet.get( "destination" );
   var distance          = distancePlanets( planetOrigin, planetDestination );
-  var distanceCovered   = percent( distance, fleet.get( "percent" ) );
+  var distanceCovered   = percent( distance, fleet.get( "process_percent" ) );
 
   var result =
     coordinatesMediumPoint(
-      parseInt( planetOrigin.get( "x" ) ),
-      parseInt( planetOrigin.get( "y" ) ),
-      parseInt( planetDestination.get( "x" ) ),
-      parseInt( planetDestination.get( "y" ) ),
+      parseInt( planetOrigin.get( "position" )[0] ),
+      parseInt( planetOrigin.get( "position" )[1] ),
+      parseInt( planetDestination.get( "position" )[0] ),
+      parseInt( planetDestination.get( "position" )[1] ),
       distanceCovered
     );
 
@@ -19,10 +19,10 @@ function fleetCoordinates( fleet, planets ){
 function distancePlanets( planet1, planet2 ){
   var distance =
     distancePoints(
-      parseInt( planet1.get( "x" ) ),
-      parseInt( planet1.get( "y" ) ),
-      parseInt( planet2.get( "x" ) ),
-      parseInt( planet2.get( "y" ) )
+      parseInt( planet1.get( "position" )[0] ),
+      parseInt( planet1.get( "position" )[1] ),
+      parseInt( planet2.get( "position" )[0] ),
+      parseInt( planet2.get( "position" )[1] )
     );
 
   return distance;

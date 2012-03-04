@@ -10,14 +10,18 @@ $(function(){
       console.log( "Fleet.initialize", this );
       this.set( "selected", false );
 
-      this.set( "ships",        new Ships().reset( this.get( "shipsData" ) ) );
-      this.set( "origin",       Game.planets.get( this.get( "origin_id" ) ) );
-      this.set( "destination",  Game.planets.get( this.get( "destination_id" ) ) );
+      this.set( "ships", new Ships( Game.ships.get_by_ids( this.get( "ship_ids" ) ) ) );
+      this.set( "origin", Game.planets.get( this.get( "planet_id" ) ) );
+      this.set( "destination", Game.planets.get( this.get( "traveling_to" ) ) );
 
+      this.on( "change:process_percent", this.updatePosition, this );
+
+      this.updatePosition();
+    },
+
+    updatePosition: function(){
       var coordinates = fleetCoordinates( this, Game.planets );
-
-      this.set( "x", coordinates["x"] );
-      this.set( "y", coordinates["y"] );
+      this.set( "position", [ coordinates["x"], coordinates["y"] ] );
     },
 
     selectToogle: function(){
@@ -48,18 +52,22 @@ $(function(){
       this.fleet = opts.fleet;
       this.fleet.on( "change:x change:y", this.updateAttributes, this );
       this.fleet.on( "change:selected", this.updateSelected, this );
+      this.fleet.on( "change:position", this.updatePosition, this );
+      this.fleet.on( "remove", this.remove, this );
 
       this.updateAttributes();
     },
 
     updateAttributes: function(){
-      this.updatePositions();
+      this.updatePosition();
       this.updateSelected();
     },
 
-    updatePositions: function(){
-      this.$el.css({ "left":  (this.fleet.get("x") - 5) });
-      this.$el.css({ "top":   (this.fleet.get("y") - 5) });
+    updatePosition: function(){
+      console.log( "FleetView.updatePosition" );
+
+      this.$el.css({ "left":  (this.fleet.get( "position" )[0] - 5) });
+      this.$el.css({ "top":   (this.fleet.get( "position" )[1] - 5) });
     },
 
     updateSelected: function(){
@@ -178,6 +186,15 @@ $(function(){
 
       return result;
     },
+
+    get_by_ids: function( ids ){
+      var result =
+        this.filter( function( ship ){
+          return _.include( ids, ship.get( "id" ) );
+        });
+
+      return result;
+    }
   });
 
   var ShipsView = Backbone.View.extend({
@@ -188,8 +205,11 @@ $(function(){
     },
 
     initialize: function(opts){
+      console.log( "ShipsView.initialize", opts );
+
       this.ships = opts.ships;
       this.ships.bind( 'remove', this.render, this );
+      // this.ships.bind( 'add', this.render, this );
     },
 
     render: function(){
@@ -210,7 +230,9 @@ $(function(){
     initialize: function(){
       console.log( "Planet.initialize", this );
 
-      this.ships = new Ships().reset( this.get( "shipsData" ) );
+      this.ships = new Ships( Game.ships.get_by_ids( this.get( "ship_ids" ) ) );
+
+      console.log( "Planet.initialize.ships", this.ships.pluck( "id" ) );
 
       this.set( "selected", false );
     },
@@ -311,8 +333,8 @@ $(function(){
     },
 
     updatePositions: function(){
-      this.$el.css({ "left"  : (this.planet.get("x") - 15)  });
-      this.$el.css({ "top" : (this.planet.get("y") - 15) });
+      this.$el.css({ "left"  : (this.planet.get("position")[0] - 15)  });
+      this.$el.css({ "top" : (this.planet.get("position")[1] - 15) });
     },
 
     updateSelected: function(){
@@ -350,6 +372,7 @@ $(function(){
 
       this.fleet = opts.fleet;
       this.fleet.on( "change:selected", this.toogle, this );
+      this.fleet.on( "change", this.render, this );
 
       this.$el.attr( "id", "fleet-info-" + this.fleet.id );
     },
@@ -393,6 +416,8 @@ $(function(){
 
       this.$el.attr( "id", "planet-info-" + this.planet.id );
 
+      console.log( "PlanetInfoView.initialize.ships", this.planet.ships.pluck( "id" ) );
+
       this.shipsView = new ShipsView({ ships: this.planet.ships });
     },
 
@@ -435,10 +460,14 @@ $(function(){
 
       this.planets = opts.planets;
       this.planets.bind( 'reset', this.addAllPlanets, this );
+      this.planets.bind( 'add', this.addOnePlanet, this );
 
       this.fleets = opts.fleets;
       this.fleets.bind( 'reset', this.addAllFleets, this );
       this.fleets.bind( 'add', this.addOneFleet, this );
+
+      this.addAllPlanets();
+      this.addAllFleets();
     },
 
     addOnePlanet: function( model ) {
@@ -466,10 +495,14 @@ $(function(){
     initialize: function(opts){
       this.planets = opts.planets;
       this.planets.bind( 'reset', this.addAllPlanets, this );
+      this.planets.bind( 'add', this.addOnePlanet, this );
 
       this.fleets = opts.fleets;
       this.fleets.bind( 'reset', this.addAllFleets, this );
       this.fleets.bind( 'add', this.addOneFleet, this );
+
+      this.addAllPlanets();
+      this.addAllFleets();
     },
 
     addOnePlanet: function( model ) {
@@ -492,22 +525,66 @@ $(function(){
     },
   });
 
-  var GameView = Backbone.View.extend({
-    initialize: function(){
-      console.log( "GameView.initialize" );
+  var Universe = Backbone.Model.extend({
+    url: "http://localhost:4567/universe",
 
-      this.data = data;
+    initialize: function( opts ){
+      console.log( "Universe.initialize" );
+      this.ships = new Ships();
       this.planets = new Planets();
       this.fleets = new Fleets();
 
+      this.on( "change", this.setup, this );
+
+      console.log( "Universe.initialize END" );
+    },
+
+    setup: function(){
+      console.log( "Univese.setup.ships", this.get( "ships" ) );
+
+      this.refreshCollection( this.ships, this.get( "ships" ) );
+      this.refreshCollection( this.planets, this.get( "planets" ) );
+      this.refreshCollection( this.fleets, this.get( "fleets" ) );
+
+
+
+      // this.get( "planets" ).each( function( dataJSON ) {
+      //   var model = this.planets.get( dataJSON.id );
+      //   model.set( dataJSON )
+      // });
+
+      // this.get( "fleets" ).each( function( dataJSON ) {
+      //   var model = this.fleets.get( dataJSON.id );
+      //   model.set( dataJSON )
+      // });
+    },
+
+    refreshCollection: function( collection, dataJSON ){
+      _(dataJSON).each( function( modelJSON ) {
+        var model = collection.get( modelJSON.id );
+        if( model ) {
+          model.set( modelJSON );
+        } else {
+          collection.add( modelJSON );
+        }
+      });
+    }
+  })
+
+  var UniverseView = Backbone.View.extend({
+    initialize: function( opts ){
+      console.log( "GameView.initialize" );
+
+      this.universe = opts.universe;
+
       this.map = new MapView({
-        planets: this.planets,
-        fleets: this.fleets,
+        planets: this.universe.planets,
+        fleets: this.universe.fleets,
       });
 
       this.infoPanel = new InfoPanelView({
-        planets: this.planets,
-        fleets: this.fleets,
+        planets: this.universe.planets,
+        fleets: this.universe.fleets,
       });
 
       console.log( "GameView.initialize END" );
@@ -523,11 +600,10 @@ $(function(){
       planetOrigin.ships.remove( ships );
 
       this.fleets.create({
-        name:           "F999",
         origin_id:      planetOrigin.id,
         destination_id: planetDestination.id,
         percent:        0,
-        shipsData:      new Ships( ships ).toJSON()
+        ship_ids:       ships.map( function( ship ) { ship.get( "id" ) } )
       });
 
       planetOrigin.set( "creatingFleet", false );
@@ -539,13 +615,24 @@ $(function(){
 
 
 
-  Game = new GameView();
-  Game.planets.fetch();
-  Game.fleets.fetch();
+  Game = new Universe();
+  // Game.set( data );
 
+  setInterval(function() {
+    Game.fetch();
+  }, 1000);
+
+  Game.fetch();
+  // Game.fetch();
+  // Game.fetch();
+  // Game.setup();
+
+  var GameView = new UniverseView({ universe: Game });
+  // Game.planets.fetch();
+  // Game.fleets.fetch();
+
+  // Game.ships.reset( Game.ships );
   // Game.planets.reset( data.planets );
   // Game.fleets.reset( data.fleets );
-
-
 
 });

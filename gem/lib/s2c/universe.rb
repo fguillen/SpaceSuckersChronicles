@@ -72,13 +72,17 @@ module S2C
     end
 
     def log(element, message)
-      @logs <<
+      message =
         Kernel.sprintf(
           "(%010d) [%10s] > %s",
           tick,
           element.id,
           message
        )
+
+      puts "XXX: #{message}"
+
+      @logs << message
     end
 
     def print_logs(last_lines = 10)

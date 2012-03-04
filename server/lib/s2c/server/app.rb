@@ -4,6 +4,18 @@ module S2C::Server
     @@universe  = S2C::Universe.new(config)
     @@universe.start
 
+    S2C::Utils.feed_universe( @@universe )
+
+    before do
+      headers(
+        'Access-Control-Allow-Origin'       => "*",
+        'Access-Control-Allow-Methods'      => "POST, GET, OPTIONS, PUT, DELETE",
+        'Access-Control-Allow-Headers'      => "*",
+        'Access-Control-Max-Age'            => "1728000",
+        'Access-Control-Allow-Headers'      => "Content-Type"
+      )
+    end
+
     # show universe
     get "/universe" do
       JSON.pretty_generate universe.to_hash

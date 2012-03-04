@@ -2,7 +2,10 @@ universe:
   tick_seconds: 1
   size: 50
   travel_black_stuff: 10
-  
+
+planet:
+  initial_black_stuff: 10000
+
 mine:
   defense: 10
   life: 10
@@ -16,5 +19,14 @@ ship:
   life: 10
   upgrade_timing: 40
   upgrade_black_stuff: 100
+  velocity: 1
+  power: 1
+
+fleet:
+  attack: 10
+  defense: 10
+  life: 10
+  upgrade_timing: 0
+  upgrade_black_stuff: 10
   velocity: 1
   power: 1

@@ -37,7 +37,7 @@ module S2C
          )
 
         if(planet.black_stuff < needed_black_stuff)
-          universe.log(self, "ERROR: not enough black stuff")
+          universe.log(self, "ERROR: not enough black stuff. Needed '#{needed_black_stuff}', having '#{planet.black_stuff}'.")
           return false
         end
 
