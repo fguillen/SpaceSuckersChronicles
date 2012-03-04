@@ -5,7 +5,7 @@ class PlanetTest < Test::Unit::TestCase
 
     @config   = S2C::Config.new("#{FIXTURES_PATH}/config.yml")
     @universe = S2C::Universe.new(@config)
-    @planet   = @universe.create_planet('jupiter')
+    @planet   = @universe.create_planet('jupiter', [1, 1])
   end
 
   def test_initialize

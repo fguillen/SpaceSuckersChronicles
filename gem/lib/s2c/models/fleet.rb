@@ -3,12 +3,18 @@ module S2C
     class Fleet < S2C::Models::Construction
       attr_reader(
         :traveling_to,
-        :planet_destination
+        :planet_destination,
+        :ships
       )
 
       def initialize(planet, planet_destination, ships)
         planet.universe.log(self, "Sending Fleet from #{planet.id} to #{planet_destination.id}")
+
         super( planet, 'fleet' )
+
+        @planet_destination = planet_destination
+        @ships = ships
+
         travel( planet_destination )
       end
 
@@ -66,7 +72,8 @@ module S2C
 
       def to_hash
         super.merge(
-          :traveling_to => traveling_to ? traveling_to.id : nil
+          :traveling_to => traveling_to ? traveling_to.id : nil,
+          :ship_ids     => ships.map( &:id )
        )
       end
 

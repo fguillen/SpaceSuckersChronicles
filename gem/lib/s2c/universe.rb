@@ -18,7 +18,7 @@ module S2C
       @tick     = 0 # Universe's time
     end
 
-    def create_planet(id, position = nil)
+    def create_planet(id, position)
       planet = S2C::Models::Planet.new(self, id, position)
 
       @planets << planet

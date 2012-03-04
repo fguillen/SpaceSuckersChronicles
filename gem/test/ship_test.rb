@@ -5,7 +5,7 @@ class ShipTest < Test::Unit::TestCase
   def setup
     @config   = S2C::Config.new("#{FIXTURES_PATH}/config.yml")
     @universe = S2C::Universe.new(@config)
-    @planet = @universe.create_planet('jupiter')
+    @planet = @universe.create_planet('jupiter', [1, 1])
   end
 
   def test_initialize
@@ -21,8 +21,8 @@ class ShipTest < Test::Unit::TestCase
   end
 
   def test_travel
-    planet_origin = @universe.create_planet('x500')
-    planet_destiny = @universe.create_planet('x700')
+    planet_origin = @universe.create_planet('x500', [1, 1])
+    planet_destiny = @universe.create_planet('x700', [1, 1])
 
     ship = S2C::Models::Ship.new(planet_origin)
     ship.instance_variable_set(:@status, :standby)
@@ -49,7 +49,7 @@ class ShipTest < Test::Unit::TestCase
   end
 
   def test_travel_not_in_standby_should_returns_false
-    planet_destiny = @universe.create_planet('saturn')
+    planet_destiny = @universe.create_planet('saturn', [1, 1])
 
     ship = S2C::Models::Ship.new(@planet)
     ship.instance_variable_set(:@status, :under_construction)
@@ -63,7 +63,7 @@ class ShipTest < Test::Unit::TestCase
   end
 
   def test_travel_not_enough_black_stuff_should_returns_false
-    planet_destiny = @universe.create_planet('saturn')
+    planet_destiny = @universe.create_planet('saturn', [1, 1])
 
     ship = S2C::Models::Ship.new(@planet)
     ship.instance_variable_set(:@status, :standby)
@@ -93,8 +93,8 @@ class ShipTest < Test::Unit::TestCase
   end
 
   def test_work_traveling_finished
-    planet_origin = @universe.create_planet('x500')
-    planet_destiny = @universe.create_planet('x700')
+    planet_origin = @universe.create_planet('x500', [1, 1])
+    planet_destiny = @universe.create_planet('x700', [1, 1])
 
     ship = S2C::Models::Ship.new(planet_origin)
     ship.instance_variable_set(:@status, :traveling)
@@ -112,7 +112,7 @@ class ShipTest < Test::Unit::TestCase
 
   def test_to_hash
     ship            = S2C::Models::Ship.new(@planet)
-    planet_destiny  = @universe.create_planet('x700')
+    planet_destiny  = @universe.create_planet('x700', [1, 1])
 
     ship.stubs(:traveling_to).returns(planet_destiny)
 
