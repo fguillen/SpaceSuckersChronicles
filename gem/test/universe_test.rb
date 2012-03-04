@@ -85,17 +85,21 @@ class UniverseTest < Test::Unit::TestCase
     universe.stubs(:status).returns('STATUS')
     universe.stubs(:tick).returns('TICK')
 
-    assert_equal(['1', '2'], universe.to_hash[:logs])
-    assert_equal('STATUS', universe.to_hash[:status])
-    assert_equal('TICK', universe.to_hash[:tick])
-    assert_equal(2, universe.to_hash[:planets].size)
+    universe_hash = universe.to_hash
+
+    puts "XXX: universe_hash: #{JSON.pretty_generate( universe_hash ) }"
+
+    assert_equal(['1', '2'], universe_hash[:logs])
+    assert_equal('STATUS', universe_hash[:status])
+    assert_equal('TICK', universe_hash[:tick])
+    assert_equal(2, universe_hash[:planets].size)
     assert_equal(
       ship1.id,
-      universe.to_hash[:planets][0][:constructions][0][:id]
+      universe_hash[:planets][0][:constructions][0][:id]
     )
     assert_equal(
       fleet1.id,
-      universe.to_hash[:fleets][0][:id]
+      universe_hash[:fleets][0][:id]
     )
   end
 end

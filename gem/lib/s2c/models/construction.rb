@@ -106,10 +106,6 @@ module S2C
         universe.log(self, "Standby")
       end
 
-      def process_percent
-        100 - ( ( 100 * process_remaining_ticks ) / process_total_ticks )
-      end
-
       def to_hash
         {
           :id                       => id,
@@ -119,7 +115,7 @@ module S2C
           :status                   => status,
           :process_remaining_ticks  => process_remaining_ticks,
           :process_total_ticks      => process_total_ticks,
-          :process_percent          => process_percent
+          :process_percent          => process_percent( process_total_ticks, process_remaining_ticks )
         }
       end
 

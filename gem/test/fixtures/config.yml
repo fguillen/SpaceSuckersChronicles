@@ -22,7 +22,7 @@ fleet:
   attack: 30
   defense: 31
   life: 32
-  upgrade_timing: 33
+  upgrade_timing: 0
   upgrade_black_stuff: 34
   velocity: 35
   power: 36
