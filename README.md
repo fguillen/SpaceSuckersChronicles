@@ -2,6 +2,8 @@
 
 ![Space Suckers Chronicles logo](http://farm3.static.flickr.com/2718/5768774787_395211651d_o.png)
 
+_"Oh yes. It runs on the world’s most powerful graphics chip, imagination"_ – Dc. Sheldon Cooper
+
 I have improve this exercise adding a **server layer** and starting what is could be a **console client layer**.
 
 ## Next Iteration
