@@ -1,12 +1,15 @@
 module S2C
   module Models
-    class Ship < S2C::Models::Construction
-      attr_reader :traveling_to
+    class Fleet < S2C::Models::Construction
+      attr_reader(
+        :traveling_to,
+        :planet_destination
+      )
 
-      def initialize(planet)
-        planet.universe.log(self, "Starting construction ship")
-        @traveling_to = nil
-        super(planet, 'ship')
+      def initialize(planet, planet_destination, ships)
+        planet.universe.log(self, "Sending Fleet from #{planet.identity} to #{planet_destination.identity}")
+        super( planet, 'fleet' )
+        travel( planet_destination )
       end
 
       def velocity
@@ -18,15 +21,7 @@ module S2C
       end
 
       def travel(planet_destiny)
-        universe.log(self, "Traveling to #{planet.identity}")
-
-        if(status != :standby)
-          universe.log(
-            self,
-            "ERROR: can't travel with a Ship in status: '#{status}'"
-         )
-          return false
-        end
+        universe.log(self, "Traveling to #{planet_destiny.identity}")
 
         needed_black_stuff =
           travel_consume_black_stuff(
@@ -48,7 +43,7 @@ module S2C
             planet,
             planet_destiny,
             velocity
-         )
+          )
 
         @process_remaining_ticks = process_total_ticks
       end
@@ -59,8 +54,9 @@ module S2C
         if(@process_remaining_ticks == 0)
           universe.log(self, "Has arrive to planet #{traveling_to.identity}")
 
+          # FIXME: remove ships from planet
           planet.constructions.delete(self)
-          traveling_to.constructions << self
+          traveling_to.constructions << selfs
 
           @planet = traveling_to
           @traveling_to = nil
