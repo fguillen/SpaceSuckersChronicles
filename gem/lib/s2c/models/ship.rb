@@ -18,7 +18,7 @@ module S2C
       end
 
       def travel(planet_destiny)
-        universe.log(self, "Traveling to #{planet.identity}")
+        universe.log(self, "Traveling to #{planet.id}")
 
         if(status != :standby)
           universe.log(
@@ -57,7 +57,7 @@ module S2C
         universe.log(self, "Traveling")
 
         if(@process_remaining_ticks == 0)
-          universe.log(self, "Has arrive to planet #{traveling_to.identity}")
+          universe.log(self, "Has arrive to planet #{traveling_to.id}")
 
           planet.constructions.delete(self)
           traveling_to.constructions << self
@@ -68,34 +68,10 @@ module S2C
         end
       end
 
-      def stats
-        result = ""
-        result += "type:#{type}".ljust(20)
-        result += "level:#{level}".ljust(20)
-        result += "status:#{status}".ljust(20)
-
-        if status == :travelig
-          result += "destiny:#{traveling_to.identity}".ljust(20)
-        end
-
-        if status != :standby
-          finish_time =
-            remaining_ticks_to_time(
-              process_remaining_ticks,
-              universe.config['universe']['tick_seconds']
-           )
-
-          result += "remaining_ticks:#{process_remaining_ticks}".ljust(20)
-          result += "time:#{finish_time.strftime('%Y-%m-%d %H:%M:%S')}"
-        end
-
-        result
-      end
-
       def to_hash
         super.merge(
-          :traveling_to => traveling_to ? traveling_to.name : nil
-       )
+          :traveling_to => traveling_to ? traveling_to.id : nil
+        )
       end
 
     end

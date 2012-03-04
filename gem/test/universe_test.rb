@@ -12,7 +12,6 @@ class UniverseTest < Test::Unit::TestCase
     assert_equal([], universe.logs)
     assert_equal([], universe.planets)
     assert_equal(0, universe.tick)
-    assert_equal(10, universe.size)
   end
 
   def test_create_planet
@@ -68,7 +67,7 @@ class UniverseTest < Test::Unit::TestCase
     planet1  = universe.create_planet('jupiter')
     ship1    = planet1.build_ship
 
-    assert_equal(ship1, universe.get_ship(ship1.identity))
+    assert_equal(ship1, universe.get_ship(ship1.id))
   end
 
   def test_to_hash
@@ -82,23 +81,21 @@ class UniverseTest < Test::Unit::TestCase
     mine1   = planet1.build_mine
     fleet1  = planet1.build_fleet( planet2, [ship1, ship2] )
 
-    puts "XXX: planet1.to_hash: #{JSON.pretty_generate( planet1.to_hash )}"
-
     universe.stubs(:logs).returns(['1','2'])
     universe.stubs(:status).returns('STATUS')
     universe.stubs(:tick).returns('TICK')
-    universe.stubs(:size).returns(30)
-
-    puts "XXX: universe.to_hash: #{JSON.pretty_generate( universe.to_hash )}"
 
     assert_equal(['1', '2'], universe.to_hash[:logs])
     assert_equal('STATUS', universe.to_hash[:status])
     assert_equal('TICK', universe.to_hash[:tick])
-    assert_equal(10, universe.to_hash[:size])
     assert_equal(2, universe.to_hash[:planets].size)
     assert_equal(
-      ship1.identity,
-      universe.to_hash[:planets][0][:constructions][0][:identity]
-   )
+      ship1.id,
+      universe.to_hash[:planets][0][:constructions][0][:id]
+    )
+    assert_equal(
+      fleet1.id,
+      universe.to_hash[:fleets][0][:id]
+    )
   end
 end

@@ -1,20 +1,41 @@
-PATH
-  remote: .
-  specs:
-    s2c_client (0.0.1)
-      curb
-      highline
-      json
-
 GEM
   remote: http://rubygems.org/
   specs:
-    curb (0.7.15)
-    highline (1.6.2)
-    json (1.5.1)
+    async-rack (0.5.1)
+      rack (~> 1.1)
+    em-synchrony (1.0.0)
+      eventmachine (>= 1.0.0.beta.1)
+    eventmachine (1.0.0.beta.4)
+    goliath (0.9.4)
+      async-rack
+      em-synchrony (>= 1.0.0)
+      eventmachine (>= 1.0.0.beta.3)
+      http_parser.rb
+      http_router (~> 0.9.0)
+      log4r
+      multi_json
+      rack (>= 1.2.2)
+      rack-contrib
+      rack-respond_to
+    http_parser.rb (0.5.3)
+    http_router (0.9.7)
+      rack (>= 1.0.0)
+      url_mount (~> 0.2.1)
+    log4r (1.1.10)
+    multi_json (1.1.0)
+    rack (1.4.1)
+    rack-accept-media-types (0.9)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
+    rack-respond_to (0.9.8)
+      rack-accept-media-types (>= 0.6)
+    statico (0.0.1)
+      goliath
+    url_mount (0.2.1)
+      rack
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  s2c_client!
+  statico

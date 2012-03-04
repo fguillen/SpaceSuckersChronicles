@@ -1,8 +1,0 @@
-require_relative 's2c/client/console'
-require_relative 's2c/client/stats'
-require_relative 's2c/client/commander'
-require_relative 's2c/client/version'
-require 'curb'
-require 'json'
-require 'highline/import'
-require 'uri'

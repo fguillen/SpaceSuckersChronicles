@@ -5,30 +5,29 @@ module S2C
       attr_reader(
         :universe,
         :black_stuff,
-        :name,
+        :id,
         :constructions,
         :position
      )
 
-      def initialize(universe, name, position = nil)
+      def initialize(universe, id, position)
         universe.log(self, "Creating planet")
         @black_stuff    = 20
-        @name           = name
+        @id             = id
         @constructions  = []
         @universe       = universe
-        @position       =
-          position || [rand(universe.size), rand(universe.size)]
+        @position       = position
       end
 
       def add_black_stuff(amount)
-        universe.log(self, "Adding #{amount} black stuff to planet #{name}")
+        universe.log(self, "Adding #{amount} black stuff to planet #{id}")
         @black_stuff += amount
       end
 
       def remove_black_stuff(amount)
         universe.log(
           self,
-          "Removing #{amount} black stuff to planet #{name}"
+          "Removing #{amount} black stuff to planet #{id}"
         )
 
         @black_stuff -= amount
@@ -58,27 +57,14 @@ module S2C
         construction
       end
 
-      def identity
-        name || '-'
-      end
-
-      def stats
-        result = ""
-        result += "position:[#{position[0]},#{position[1]}]".ljust(20)
-        result += "constructions:#{constructions.size}".ljust(20)
-        result += "black_stuff:#{black_stuff}"
-      end
-
       def to_hash
         constructions_hash = constructions.map { |e| e.to_hash }
 
         {
-          :name          => name,
           :black_stuff   => black_stuff,
           :constructions => constructions_hash,
           :position      => position,
-          :identity      => identity,
-          :stats         => stats
+          :id            => id
         }
       end
     end

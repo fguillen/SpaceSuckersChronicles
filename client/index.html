@@ -1,0 +1,114 @@
+<html>
+<head>
+  <title>Planets</title>
+  <script type="text/javascript" src="./jquery.js"></script>
+  <script type="text/javascript" src="./underscore.js"></script>
+  <script type="text/javascript" src="./backbone.js"></script>
+  <script type="text/javascript" src="./data.js"></script>
+  <script type="text/javascript" src="./maths.js"></script>
+  <script type="text/javascript" src="./planets.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <link rel="stylesheet" type="text/css" href="./planets.css">
+</head>
+<body>
+  <div id="map"></div>
+  <div id="info-panel"></div>
+</body>
+
+<!-- TEMPLATES -->
+
+<script type="text/template" id="planet-ship">
+  <%= name %>
+</script>
+
+<script type="text/template" id="planet">
+  <h1><%= name %></h1>
+  <div class="sphere"></div>
+</script>
+
+<script type="text/template" id="fleet">
+  <h1><%= name %></h1>
+  <div class="sphere"></div>
+</script>
+
+<script type="text/template" id="planet-info">
+  <h1>Planet <span><%= name %></h1>
+  <div class="info">
+    <dl class="details">
+      <dt>Nivel</dt><dd><span><%= level %></span></dd>
+      <dt>Production</dt><dd><span><%= production %></span></dd>
+      <dt>Position</dt><dd><span>⩟<%= x %> ⩠<%= y %></span></dd>
+      <dt>Defense</dt><dd><span>10 missiles</span></dd>
+    </dl>
+  </div>
+
+  <div class="constructions">
+    <div class="construction mine">
+      <h1>Mine</h1>
+      <div class="upgrade">
+        (<a href="#">180⋶ for upgrade</a>)
+      </div>
+      <dl class="details">
+        <dt>Nivel</dt><dd><span>4</span></dd>
+        <dt>Production</dt><dd><span>220 ⨃</span></dd>
+      </dl>
+    </div>
+    <div class="construction hangar">
+      <h1>Hangar</h1>
+      <div class="upgrade">
+        (upgrading..290⩪)
+      </div>
+      <dl class="details">
+        <dt>Nivel</dt><dd><span>1</span></dd>
+        <dt>Production</dt><dd><span>10 ⨃</span></dd>
+        <dt>
+          Building
+        </dt>
+        <dd>
+          <ul>
+            <li><span>12 ships</span> (123⩪) (<a href>12⋶ for ship</a>) </li>
+            <li><span>3 missils</span> (11⩪) (<a href>1⋶ for missile</a>) </li>
+        </dd>
+      </dl>
+    </div>
+    <div class="construction navy">
+      <h1>Navy</h1>
+    </div>
+  </div>
+
+  <div class="controls">
+    <a href="#" class="create-fleet">Send Fleet</a>
+    <a href="#" class="cancel-fleet">Cancel Fleet</a>
+  </div>
+</script>
+
+<script type="text/template" id="fleet-info">
+  <h1>Fleet <span><%= name %></h1>
+  <div class="info">
+    <dl class="details">
+      <dt>Position</dt><dd><span>⩟<%= x %> ⩠<%= y %></span></dd>
+      <dt>Origin</dt><dd><span><%= origin.get( "name" ) %></span></dd>
+      <dt>Destination</dt><dd><span><%= destination.get( "name" ) %></span></dd>
+      <dt>Percent</dt><dd><span><%= percent %></span></dd>
+    </dl>
+  </div>
+
+  <div class="constructions">
+    <div class="construction navy">
+      <h1>Navy</h1>
+      <ul class="details">
+        <% ships.each( function( ship ){ %>
+          <li><%= ship.get( "name" ) %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="controls">
+  </div>
+</script>
+
+
+</html>

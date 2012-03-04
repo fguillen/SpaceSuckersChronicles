@@ -1,0 +1,182 @@
+body{
+  background-color: white;
+  color: black;
+  font-family: 'Ropa Sans', sans-serif;
+/*  font-family: 'Asap', sans-serif;*/
+}
+
+a {
+  color: black;
+}
+
+/* MAP */
+
+#map {
+  position: relative;
+  margin: 0 auto;
+  width: 700px;
+  height: 500px;
+  /*border: 1px solid black;*/
+}
+
+.planet {
+  position: absolute;
+}
+
+.planet h1 {
+  color: transparent;
+  text-align: center;
+  font-size: 10px;
+}
+
+.planet:hover h1 {
+  color: black;
+}
+
+.planet .sphere {
+  box-sizing: border-box;
+  border: 2px solid black;
+  width: 30px;
+  height: 30px;
+}
+
+.planet.selected .sphere{
+  border: 5px solid black;
+}
+
+.planet.selected h1 {
+  color: black;
+}
+
+@-webkit-keyframes turnit{
+  0%{ -webkit-transform: scale(1); }
+  50%{ -webkit-transform: scale(1.2); }
+  100%{ -webkit-transform: scale(1); }
+}
+
+.planet.selectable {
+  -webkit-animation-name: turnit;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+}
+
+
+.fleet {
+  position: absolute;
+}
+
+.fleet h1 {
+  color: transparent;
+  text-align: center;
+  font-size: 8px;
+}
+
+.fleet:hover h1 {
+  color: red;
+}
+
+.fleet .sphere {
+  box-sizing: border-box;
+  border: 2px solid red;
+  width: 10px;
+  height: 10px;
+}
+
+.fleet.selected .sphere{
+  border: 3px solid red;
+}
+
+.fleet.selected h1 {
+  color: red;
+}
+
+/* INFO PANEL */
+
+#info-panel {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.panel-info {
+  box-sizing: border-box;
+  padding: 30px 20px 0px 40px;
+  background-color: white;
+  position: absolute;
+
+  right: -400px;
+  /*right: 0px;*/
+  top: 0px;
+  bottom: 0px;
+  width: 400px;
+  border-left: 8px solid black;
+}
+
+.panel-info > h1 {
+  margin-left: -20px;
+  font-size: 40px;
+  font-family: 'Asap', sans-serif;
+}
+
+.panel-info .info {
+  margin-top: 20px;
+}
+
+.panel-info .details dt {
+  float: left;
+}
+
+.panel-info .details dd {
+  margin-left: 80px;
+}
+.panel-info .details dd span {
+  font-family: 'Asap', sans-serif;
+  font-size: .9em;
+  line-height: 16px;
+}
+
+.panel-info .constructions {
+  margin-top: 20px;
+}
+
+.panel-info .construction {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.panel-info .construction > h1 {
+  font-family: 'Asap', sans-serif;
+}
+
+.panel-info .construction .upgrade {
+  margin-left: 80px;
+  margin-top: -14px;
+}
+
+.panel-info .construction .details {
+  margin-top: 5px;
+}
+
+.panel-info .navy .details {
+  padding: 5px;
+  width: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.panel-info .navy ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+.panel-info .navy ul li.selected {
+  font-weight: bold;
+}
+
+.panel-info .controls {
+  margin-top: 10px;
+}
+
+

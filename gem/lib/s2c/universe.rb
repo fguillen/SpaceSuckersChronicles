@@ -15,12 +15,11 @@ module S2C
       @logs     = []
       @planets  = []
       @config   = config
-      @size     = config['universe']['size']
       @tick     = 0 # Universe's time
     end
 
-    def create_planet(name, position = nil)
-      planet = S2C::Models::Planet.new(self, name, position)
+    def create_planet(id, position = nil)
+      planet = S2C::Models::Planet.new(self, id, position)
 
       @planets << planet
 
@@ -64,7 +63,7 @@ module S2C
       log(self, "End run")
     end
 
-    def identity
+    def id
       'Universe'
     end
 
@@ -77,7 +76,7 @@ module S2C
         Kernel.sprintf(
           "(%010d) [%10s] > %s",
           tick,
-          element.identity,
+          element.id,
           message
        )
     end
@@ -86,17 +85,6 @@ module S2C
       last_lines = logs.size  if last_lines > logs.size
 
       logs[-(last_lines),last_lines]
-    end
-
-    def map
-      result = Array.new(size) { ' ' * size }
-
-      planets.each do |planet|
-        line = result[ planet.position[0] ]
-        line[ planet.position[1] ] = "*#{planet.identity}"
-      end
-
-      result
     end
 
     def ships
@@ -119,12 +107,12 @@ module S2C
       result
     end
 
-    def get_planet(name)
-      planets.select { |e| e.name == name }.first
+    def get_planet(id)
+      planets.select { |e| e.id == id }.first
     end
 
-    def get_ship(identity)
-      ships.select { |e| e.identity == identity }.first
+    def get_ship(id)
+      ships.select { |e| e.id == id }.first
     end
 
     def to_hash
@@ -138,11 +126,8 @@ module S2C
         :logs     => logs,
         :status   => status,
         :tick     => tick,
-        :size     => size,
         :ships    => ships_hash,
-        :map      => map,
-        :identity => identity,
-        :stats    => stats
+        :id       => id
       }
     end
   end

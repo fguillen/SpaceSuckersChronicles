@@ -5,7 +5,7 @@ module S2C
       include S2C::Utils
 
       attr_reader(
-        :identity,
+        :id,
         :planet,
         :level,
         :type,
@@ -18,7 +18,7 @@ module S2C
       def initialize(planet, type)
         planet.universe.log(self, "Starting contruction Construction")
 
-        @identity   = (Time.now.to_i + rand(1000)).to_s
+        @id   = (Time.now.to_i + rand(1000)).to_s
         @universe   = planet.universe
         @planet     = planet
         @level      = 0
@@ -106,41 +106,20 @@ module S2C
         universe.log(self, "Standby")
       end
 
-      def stats
-        result = ""
-        result += "type:#{type}".ljust(20)
-        result += "level:#{level}".ljust(20)
-        result += "status:#{status}".ljust(20)
-
-        if status != :standby
-          finish_time =
-            remaining_ticks_to_time(
-              process_remaining_ticks,
-              universe.config['universe']['tick_seconds']
-           )
-
-          result += "remaining_ticks:#{process_remaining_ticks}".ljust(20)
-          result += "time:#{finish_time.strftime('%Y-%m-%d %H:%M:%S')}"
-        end
-
-        result
-      end
-
       def process_percent
         100 - ( ( 100 * process_remaining_ticks ) / process_total_ticks )
       end
 
       def to_hash
         {
-          :identity                 => identity,
-          :planet                   => planet.name,
+          :id                       => id,
+          :planet_id                => planet.id,
           :level                    => level,
           :type                     => type,
           :status                   => status,
           :process_remaining_ticks  => process_remaining_ticks,
           :process_total_ticks      => process_total_ticks,
-          :process_percent          => process_percent,
-          :stats                    => stats
+          :process_percent          => process_percent
         }
       end
 
