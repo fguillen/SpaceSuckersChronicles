@@ -288,13 +288,10 @@
     // model differs from its current attributes, they will be overriden,
     // triggering a `"change"` event.
     fetch: function(options) {
-      console.log( "Backbone.fetch", options );
-
       options = options ? _.clone(options) : {};
       var model = this;
       var success = options.success;
       options.success = function(resp, status, xhr) {
-        console.log( "fetch success: ", resp );
         if (!model.set(model.parse(resp, xhr), options)) return false;
         if (success) success(model, resp);
       };
@@ -324,7 +321,6 @@
       var model = this;
       var success = options.success;
       options.success = function(resp, status, xhr) {
-        console.log( "save success: ", resp );
         var serverAttrs = model.parse(resp, xhr);
         if (options.wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
         if (!model.set(serverAttrs, options)) return false;
@@ -372,7 +368,6 @@
     // using Backbone's restful methods, override this to change the endpoint
     // that will be called.
     url: function() {
-      console.log( "Backbone.url.this", this );
       var base = getValue(this.collection, 'url') || getValue(this, 'urlRoot') || urlError();
       if (this.isNew()) return base;
       return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + encodeURIComponent(this.id);
@@ -627,20 +622,15 @@
     // collection when they arrive. If `add: true` is passed, appends the
     // models to the collection instead of resetting.
     fetch: function(options) {
-      console.log( "Backbone.fetch2" );
-
       options = options ? _.clone(options) : {};
       if (options.parse === undefined) options.parse = true;
       var collection = this;
       var success = options.success;
       options.success = function(resp, status, xhr) {
-        console.log( "Backbone.fetch2.success" );
-
         collection[options.add ? 'add' : 'reset'](collection.parse(resp, xhr), options);
         if (success) success(collection, resp);
       };
       options.error = Backbone.wrapError(options.error, collection, options);
-      console.log( "Backbone.fetch2.before_sync" );
       return (this.sync || Backbone.sync).call(this, 'read', this, options);
     },
 
@@ -1185,8 +1175,6 @@
   // Useful when interfacing with server-side languages like **PHP** that make
   // it difficult to read the body of `PUT` requests.
   Backbone.sync = function(method, model, options) {
-    console.log( "Backbone.sync" );
-
     var type = methodMap[method];
 
     // Default JSON-request options.

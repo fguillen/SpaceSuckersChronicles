@@ -23,8 +23,6 @@ $(function(){
     },
 
     changeSelected: function( model, val, opts ){
-      console.log( "Fleets.changeSelected", val );
-
       if( val ){
         App.Game.planets.deselectAll();
 

@@ -34,7 +34,7 @@ $(function(){
 
     updatePositions: function(){
       this.$el.css({ "left"  : (this.planet.get("position")[0] - 15)  });
-      this.$el.css({ "top" : (this.planet.get("position")[1] - 15) });
+      this.$el.css({ "top" : (this.planet.get("position")[1] - 25) });
     },
 
     updateSelected: function(){

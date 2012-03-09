@@ -13,7 +13,6 @@ $(function(){
     },
 
     synch: function(){
-      console.log( "Universe.synch.this", this );
       this.fetch();
 
       var _self = this;
@@ -31,18 +30,6 @@ $(function(){
       App.Utils.refreshCollection( this.ships, this.get( "ships" ) );
       App.Utils.refreshCollection( this.planets, this.get( "planets" ) );
       App.Utils.refreshCollection( this.fleets, this.get( "fleets" ) );
-
-
-
-      // this.get( "planets" ).each( function( dataJSON ) {
-      //   var model = this.planets.get( dataJSON.id );
-      //   model.set( dataJSON )
-      // });
-
-      // this.get( "fleets" ).each( function( dataJSON ) {
-      //   var model = this.fleets.get( dataJSON.id );
-      //   model.set( dataJSON )
-      // });
     },
 
     sendFleetToPlanet: function( planetDestination ){
@@ -50,10 +37,7 @@ $(function(){
       var planetDestination = planetDestination;
       var ships             = planetOrigin.ships.selected();
 
-      console.log( "Universe.sendFleetToPlanet.ships", ships );
-
       planetOrigin.ships.remove( ships );
-
 
       var ship_ids =
         ships.map(function( ship, index ) {

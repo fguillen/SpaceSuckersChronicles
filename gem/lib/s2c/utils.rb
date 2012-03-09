@@ -32,25 +32,26 @@ module S2C
     end
 
     def feed_universe( universe )
-      planet1 = universe.create_planet( 'X001', [10,10] )
-      planet2 = universe.create_planet( 'X002', [20, 20] )
-      planet3 = universe.create_planet( 'X003', [50, 200] )
+      planet1 = universe.create_planet( 'X001', [200,10] )
+      planet2 = universe.create_planet( 'X002', [50, 120] )
+      planet3 = universe.create_planet( 'X003', [150, 200] )
       planet4 = universe.create_planet( 'X004', [300, 150] )
       planet5 = universe.create_planet( 'X005', [400, 250] )
+      planet6 = universe.create_planet( 'X006', [500, 200] )
+      planet7 = universe.create_planet( 'X007', [450, 380] )
+      planet8 = universe.create_planet( 'X008', [100, 350] )
+      planet9 = universe.create_planet( 'X009', [260, 420] )
+      planet10 = universe.create_planet( 'X010', [30, 250] )
+      planet11 = universe.create_planet( 'X011', [430, 50] )
 
-      ship1 = planet1.build_ship
-      ship2 = planet1.build_ship
-      ship3 = planet1.build_ship
-
-      ship4 = planet2.build_ship
-      ship5 = planet2.build_ship
-
-      ship6 = planet3.build_ship
-      ship7 = planet3.build_ship
-      ship8 = planet3.build_ship
-
-      fleet1 = planet1.build_fleet( planet2, [ship1, ship2] )
-      fleet2 = planet1.build_fleet( planet3, [ship3] )
+      3.times { planet1.build_ship }
+      3.times { planet2.build_ship }
+      3.times { planet3.build_ship }
+      3.times { planet4.build_ship }
+      3.times { planet5.build_ship }
+      3.times { planet6.build_ship }
+      3.times { planet7.build_ship }
+      3.times { planet8.build_ship }
 
       universe
     end

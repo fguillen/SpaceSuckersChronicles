@@ -9,15 +9,13 @@ $(function(){
 
     updateShips: function(){
       var ship_ids = this.get( "ship_ids" );
-      console.log( "Planet.updateShips", this.id, ship_ids );
-
       var _self = this;
+
       // add
       _(ship_ids).each( function( ship_id ) {
         var ship = _self.ships.get( ship_id );
         if( !ship ) {
           var ship_to_add = App.Game.ships.get( ship_id );
-          console.log( "Planet.updateShips.ship_to_add", ship_to_add );
           _self.ships.add( ship_to_add );
         }
       });

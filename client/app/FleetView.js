@@ -24,7 +24,6 @@ $(function(){
     },
 
     fadeOut: function(){
-      console.log( "App.FleetView.fadeOut" );
       var _self = this;
       this.$el.fadeOut( "slow", function() { _self.remove() } );
     },

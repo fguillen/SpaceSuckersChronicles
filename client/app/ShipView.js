@@ -16,8 +16,6 @@ $(function(){
     },
 
     initialize: function(opts){
-      console.log( "ShipView.initialize", opts );
-
       this.ship = opts.ship;
       this.ship.on( "change:selected", this.updateSelected, this );
     },
@@ -31,7 +29,6 @@ $(function(){
     },
 
     render: function(){
-      console.log( "ShipView.render", this.ship );
       this.$el.html( this.template( this.ship.toJSON() ) );
       return this;
     }

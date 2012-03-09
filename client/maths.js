@@ -49,5 +49,8 @@ function coordinatesMediumPoint( xA, yA, xB, yB, distanceAC ){
   var xC = xA + deltaXAC;
   var yC = yA + deltaYAC;
 
+  var xC = Math.round( xC );
+  var yC = Math.round( yC );
+
   return { x: xC, y: yC };
 }

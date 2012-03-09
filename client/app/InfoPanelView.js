@@ -21,7 +21,6 @@ $(function(){
     },
 
     addOneFleet: function( model ) {
-      console.log( "InfoPanelView.addOneFleet", model );
       var view = new App.FleetInfoView({ fleet: model });
       this.$el.append( view.render().el );
     },

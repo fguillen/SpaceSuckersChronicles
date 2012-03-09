@@ -3,7 +3,6 @@ $(function(){
     url: "http://localhost:4567/fleets",
 
     initialize: function(){
-      console.log( "Fleet.initialize", this );
       this.set( "selected", false );
 
       this.set( "ships", new App.Ships( App.Game.ships.get_by_ids( this.get( "ship_ids" ) ) ) );
