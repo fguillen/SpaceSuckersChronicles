@@ -49,6 +49,8 @@ $(function(){
         traveling_to:     planetDestination.id,
         process_percent:  0,
         ship_ids:         ship_ids
+      }, {
+        wait: true
       });
 
       planetOrigin.set( "creatingFleet", false );
