@@ -2,9 +2,18 @@ module S2C::Server
   class App < Sinatra::Base
     config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../../config/config.yml")
     @@universe  = S2C::Universe.new(config)
-    @@universe.start
+    @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
 
-    S2C::Utils.feed_universe( @@universe )
+    puts "XXX: db_path: #{@@db_path}"
+
+    if( File.exists?( @@db_path ) )
+      hash = JSON.parse( File.read( @@db_path ) )
+      @@universe.from_hash( hash )
+    else
+      S2C::Utils.feed_universe( @@universe )
+    end
+
+    @@universe.start
 
     before do
       headers(
@@ -17,8 +26,9 @@ module S2C::Server
     end
 
     get "/universe" do
+      S2C::Utils.save_universe( @@universe, @@db_path )
+
       result = JSON.pretty_generate universe.to_hash
-      puts "XXX: result: #{result}"
       result
     end
 

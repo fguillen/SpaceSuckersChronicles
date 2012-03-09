@@ -1,3 +1,5 @@
+db: "db/universe.json"
+
 universe:
   tick_seconds: 1
   size: 50

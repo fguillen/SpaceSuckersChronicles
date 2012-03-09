@@ -9,10 +9,6 @@ module S2C
       end
     end
 
-    def load_universe( path )
-
-    end
-
     def remaining_ticks_to_time(remaining_ticks, tick_seconds)
       seconds = remaining_ticks * tick_seconds
       Time.now + seconds

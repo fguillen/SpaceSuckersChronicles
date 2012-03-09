@@ -46,8 +46,6 @@ module S2C
 
       @tick += 1
 
-      S2C::Utils.save_universe( self, File.expand_path( "~/Downloads/universe.json" ) )
-
       log(self, "End cycle")
     end
 

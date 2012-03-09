@@ -1,0 +1,479 @@
+{
+  "planets": [
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+        "1331327892",
+        "1331327955",
+        "1331328263"
+      ],
+      "position": [
+        200,
+        10
+      ],
+      "id": "X001"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+        "1331328694",
+        "1331328270",
+        "1331328237"
+      ],
+      "position": [
+        50,
+        120
+      ],
+      "id": "X002"
+    },
+    {
+      "black_stuff": 5260,
+      "ship_ids": [
+        "1331327802"
+      ],
+      "position": [
+        150,
+        200
+      ],
+      "id": "X003"
+    },
+    {
+      "black_stuff": 5260,
+      "ship_ids": [
+        "1331328147"
+      ],
+      "position": [
+        300,
+        150
+      ],
+      "id": "X004"
+    },
+    {
+      "black_stuff": 580,
+      "ship_ids": [
+
+      ],
+      "position": [
+        400,
+        250
+      ],
+      "id": "X005"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+        "1331328037",
+        "1331328265",
+        "1331327793"
+      ],
+      "position": [
+        500,
+        200
+      ],
+      "id": "X006"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+        "1331328491",
+        "1331328047",
+        "1331328482"
+      ],
+      "position": [
+        450,
+        380
+      ],
+      "id": "X007"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+        "1331328606",
+        "1331328768",
+        "1331327909"
+      ],
+      "position": [
+        100,
+        350
+      ],
+      "id": "X008"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+
+      ],
+      "position": [
+        260,
+        420
+      ],
+      "id": "X009"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+
+      ],
+      "position": [
+        30,
+        250
+      ],
+      "id": "X010"
+    },
+    {
+      "black_stuff": 10000,
+      "ship_ids": [
+
+      ],
+      "position": [
+        430,
+        50
+      ],
+      "id": "X011"
+    }
+  ],
+  "fleets": [
+    {
+      "id": "1331328256",
+      "planet_id": "X003",
+      "level": 0,
+      "type": "fleet",
+      "status": "traveling",
+      "process_remaining_ticks": 144,
+      "process_total_ticks": 158,
+      "process_percent": 9,
+      "traveling_to": "X004",
+      "ship_ids": [
+        "1331328714",
+        "1331328133"
+      ]
+    },
+    {
+      "id": "1331328632",
+      "planet_id": "X004",
+      "level": 0,
+      "type": "fleet",
+      "status": "traveling",
+      "process_remaining_ticks": 144,
+      "process_total_ticks": 158,
+      "process_percent": 9,
+      "traveling_to": "X003",
+      "ship_ids": [
+        "1331328281",
+        "1331327819"
+      ]
+    },
+    {
+      "id": "1331328248",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "fleet",
+      "status": "traveling",
+      "process_remaining_ticks": 53,
+      "process_total_ticks": 112,
+      "process_percent": 53,
+      "traveling_to": null,
+      "ship_ids": [
+        "1331328272"
+      ]
+    },
+    {
+      "id": "1331328746",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "fleet",
+      "status": "traveling",
+      "process_remaining_ticks": 80,
+      "process_total_ticks": 139,
+      "process_percent": 43,
+      "traveling_to": null,
+      "ship_ids": [
+        "1331328518"
+      ]
+    },
+    {
+      "id": "1331328783",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "fleet",
+      "status": "traveling",
+      "process_remaining_ticks": 161,
+      "process_total_ticks": 220,
+      "process_percent": 27,
+      "traveling_to": null,
+      "ship_ids": [
+        "1331328570"
+      ]
+    }
+  ],
+  "status": null,
+  "tick": 14,
+  "ships": [
+    {
+      "id": "1331327892",
+      "planet_id": "X001",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331327955",
+      "planet_id": "X001",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328263",
+      "planet_id": "X001",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328694",
+      "planet_id": "X002",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328270",
+      "planet_id": "X002",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328237",
+      "planet_id": "X002",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331327802",
+      "planet_id": "X003",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328147",
+      "planet_id": "X004",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328037",
+      "planet_id": "X006",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328265",
+      "planet_id": "X006",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331327793",
+      "planet_id": "X006",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328491",
+      "planet_id": "X007",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328047",
+      "planet_id": "X007",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328482",
+      "planet_id": "X007",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328606",
+      "planet_id": "X008",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328768",
+      "planet_id": "X008",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331327909",
+      "planet_id": "X008",
+      "level": 1,
+      "type": "ship",
+      "status": "standby",
+      "process_remaining_ticks": -63,
+      "process_total_ticks": 40,
+      "process_percent": 258,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328714",
+      "planet_id": "X003",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 22,
+      "process_total_ticks": 40,
+      "process_percent": 45,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328133",
+      "planet_id": "X003",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 22,
+      "process_total_ticks": 40,
+      "process_percent": 45,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328281",
+      "planet_id": "X004",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 25,
+      "process_total_ticks": 40,
+      "process_percent": 38,
+      "traveling_to": null
+    },
+    {
+      "id": "1331327819",
+      "planet_id": "X004",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 25,
+      "process_total_ticks": 40,
+      "process_percent": 38,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328272",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 16,
+      "process_total_ticks": 40,
+      "process_percent": 60,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328518",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 14,
+      "process_total_ticks": 40,
+      "process_percent": 65,
+      "traveling_to": null
+    },
+    {
+      "id": "1331328570",
+      "planet_id": "X005",
+      "level": 0,
+      "type": "ship",
+      "status": "under_construction",
+      "process_remaining_ticks": 12,
+      "process_total_ticks": 40,
+      "process_percent": 70,
+      "traveling_to": null
+    }
+  ],
+  "id": "Universe",
+  "last_id": 0
+}
