@@ -11,7 +11,7 @@ $(function(){
 
       this.ships = opts.ships;
       this.ships.bind( 'remove', this.render, this );
-      // this.ships.bind( 'add', this.render, this );
+      this.ships.bind( 'add', this.render, this );
     },
 
     render: function(){

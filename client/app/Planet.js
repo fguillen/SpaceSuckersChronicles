@@ -11,7 +11,7 @@ $(function(){
       var ship_ids = this.get( "ship_ids" );
       console.log( "Planet.updateShips", this.id, ship_ids );
 
-      _self = this;
+      var _self = this;
       // add
       _(ship_ids).each( function( ship_id ) {
         var ship = _self.ships.get( ship_id );

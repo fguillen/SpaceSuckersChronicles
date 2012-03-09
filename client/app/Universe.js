@@ -13,10 +13,10 @@ $(function(){
     },
 
     synch: function(){
-      console.log( "Universe.synch" );
+      console.log( "Universe.synch.this", this );
       this.fetch();
 
-      _self = this;
+      var _self = this;
       this.interval =
         setInterval(function() {
           _self.fetch();
