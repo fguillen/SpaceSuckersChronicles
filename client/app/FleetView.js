@@ -16,12 +16,17 @@ $(function(){
 
     initialize: function(opts){
       this.fleet = opts.fleet;
-      this.fleet.on( "change:x change:y", this.updateAttributes, this );
       this.fleet.on( "change:selected", this.updateSelected, this );
       this.fleet.on( "change:position", this.updatePosition, this );
-      this.fleet.on( "remove", this.remove, this );
+      this.fleet.on( "remove", this.fadeOut, this );
 
       this.updateAttributes();
+    },
+
+    fadeOut: function(){
+      console.log( "App.FleetView.fadeOut" );
+      var _self = this;
+      this.$el.fadeOut( "slow", function() { _self.remove() } );
     },
 
     updateAttributes: function(){

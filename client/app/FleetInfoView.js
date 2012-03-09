@@ -10,8 +10,14 @@ $(function(){
       this.fleet = opts.fleet;
       this.fleet.on( "change:selected", this.toogle, this );
       this.fleet.on( "change", this.render, this );
+      this.fleet.on( "remove", this.fadeOut, this );
 
       this.$el.attr( "id", "fleet-info-" + this.fleet.id );
+    },
+
+    fadeOut: function(){
+      var _self = this;
+      this.$el.animate( { right: -400 }, 500, function(){ _self.remove(); } );
     },
 
     toogle: function(){
