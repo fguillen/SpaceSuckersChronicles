@@ -62,19 +62,22 @@ module S2C
 
           # FIXME: remove ships from planet
           planet.constructions.delete(self)
-          traveling_to.constructions << selfs
+          traveling_to.constructions.concat( self.ships )
+          traveling_to.ships.concat( self.ships )
 
-          @planet = traveling_to
-          @traveling_to = nil
-          @status = :standby
+          self.remove
         end
+      end
+
+      def remove
+        planet.constructions.delete(self)
       end
 
       def to_hash
         super.merge(
           :traveling_to => traveling_to ? traveling_to.id : nil,
           :ship_ids     => ships.map( &:id )
-       )
+        )
       end
 
     end

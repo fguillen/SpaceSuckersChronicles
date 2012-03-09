@@ -6,13 +6,38 @@
   <script type="text/javascript" src="./backbone.js"></script>
   <script type="text/javascript" src="./data.js"></script>
   <script type="text/javascript" src="./maths.js"></script>
-  <script type="text/javascript" src="./planets.js"></script>
+  <script type="text/javascript" src="./app/App.js"></script>
+  <script type="text/javascript" src="./app/ControlsView.js"></script>
+  <script type="text/javascript" src="./app/Fleet.js"></script>
+  <script type="text/javascript" src="./app/FleetView.js"></script>
+  <script type="text/javascript" src="./app/Fleets.js"></script>
+  <script type="text/javascript" src="./app/Ship.js"></script>
+  <script type="text/javascript" src="./app/ShipView.js"></script>
+  <script type="text/javascript" src="./app/Ships.js"></script>
+  <script type="text/javascript" src="./app/ShipsView.js"></script>
+  <script type="text/javascript" src="./app/Planet.js"></script>
+  <script type="text/javascript" src="./app/PlanetView.js"></script>
+  <script type="text/javascript" src="./app/Planets.js"></script>
+  <script type="text/javascript" src="./app/FleetInfoView.js"></script>
+  <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
+  <script type="text/javascript" src="./app/InfoPanelView.js"></script>
+  <script type="text/javascript" src="./app/MapView.js"></script>
+  <script type="text/javascript" src="./app/Universe.js"></script>
+  <script type="text/javascript" src="./app/UniverseView.js"></script>
+  <script type="text/javascript" src="./app/Utils.js"></script>
+  <script type="text/javascript" src="./app/LoadGame.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
+
+  <!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="./reset.css">
   <link rel="stylesheet" type="text/css" href="./planets.css">
 </head>
 <body>
+  <div id="controls">
+    <a href="#" id="synch">synch</a>
+    <a href="#" id="pause" style="display:none">pause</a>
+  </div>
+
   <div id="map"></div>
   <div id="info-panel"></div>
 </body>
@@ -29,7 +54,7 @@
 </script>
 
 <script type="text/template" id="fleet">
-  <h1><%= id %></h1>
+  <h1><%= name %></h1>
   <div class="sphere"></div>
 </script>
 

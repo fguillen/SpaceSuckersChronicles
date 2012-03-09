@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gemspec
 
+gem "s2c", :path => "/Users/fguillen/Develop/Ruby/SpaceSuckersChronicles/gem"
+
 group :development do
   gem 'rack'
 end

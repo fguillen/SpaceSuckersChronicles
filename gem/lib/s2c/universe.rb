@@ -54,10 +54,17 @@ module S2C
       while(status != :ending)
         time =
           Benchmark.realtime do
-            cycle
+            begin
+              cycle
+            rescue Exception => e
+              log( self, "ERROR: #{e}" )
+              raise e
+            end
           end
 
-        sleep(config['universe']['tick_seconds'].to_i - time)
+        rest_time = config['universe']['tick_seconds'].to_i - time
+        log( self, "Resting #{rest_time * 1000} millisecond" )
+        sleep( rest_time )
       end
 
       log(self, "End run")
@@ -117,6 +124,10 @@ module S2C
 
     def get_ship(id)
       ships.select { |e| e.id == id }.first
+    end
+
+    def get_fleet(id)
+      fleets.select { |e| e.id == id }.first
     end
 
     def to_hash

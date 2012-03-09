@@ -1,4 +1,3 @@
-console.log( "loading Backbone" );
 //     Backbone.js 0.9.1
 
 //     (c) 2010-2012 Jeremy Ashkenas, DocumentCloud Inc.
@@ -289,7 +288,7 @@ console.log( "loading Backbone" );
     // model differs from its current attributes, they will be overriden,
     // triggering a `"change"` event.
     fetch: function(options) {
-      console.log( "Backbone.fetch" );
+      console.log( "Backbone.fetch", options );
 
       options = options ? _.clone(options) : {};
       var model = this;
@@ -551,14 +550,11 @@ console.log( "loading Backbone" );
     // Remove a model, or a list of models from the set. Pass silent to avoid
     // firing the `remove` event for every model removed.
     remove: function(models, options) {
-      console.log( "removing models", models );
-
       var i, l, index, model;
       options || (options = {});
       models = _.isArray(models) ? models.slice() : [models];
       for (i = 0, l = models.length; i < l; i++) {
         model = this.getByCid(models[i]) || this.get(models[i]);
-        console.log( "removing model", model );
         if (!model) continue;
         delete this._byId[model.id];
         delete this._byCid[model.cid];
@@ -1230,9 +1226,6 @@ console.log( "loading Backbone" );
     }
 
     // Make the request, allowing the user to override any Ajax options.
-    console.log( "ajax_call.params", params );
-    console.log( "ajax_call.options", options );
-
     return $.ajax(_.extend(params, options));
   };
 

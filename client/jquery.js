@@ -7577,7 +7577,6 @@ jQuery.extend({
 
 			try {
 				state = 1;
-				console.log( "Jquery.ajax.requestHeaders XXX", requestHeaders )
 				transport.send( requestHeaders, done );
 			} catch (e) {
 				// Propagate exception as error if not done
@@ -8100,9 +8099,6 @@ if ( jQuery.support.ajax ) {
 					// Do send the request
 					// This may raise an exception which is actually
 					// handled in jQuery.ajax (so no try/catch here)
-					console.log( "Jquery.ajax.hasContent", s.hasContent );
-					console.log( "Jquery.ajax.data", s.data );
-					console.log( "Jquery.ajax.xhr", xhr );
 					xhr.send( ( s.hasContent && s.data ) || null );
 
 					// Listener

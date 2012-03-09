@@ -33,7 +33,7 @@ module S2C
 
     def feed_universe( universe )
       planet1 = universe.create_planet( 'X001', [10,10] )
-      planet2 = universe.create_planet( 'X002', [100, 100] )
+      planet2 = universe.create_planet( 'X002', [20, 20] )
       planet3 = universe.create_planet( 'X003', [50, 200] )
       planet4 = universe.create_planet( 'X004', [300, 150] )
       planet5 = universe.create_planet( 'X005', [400, 250] )

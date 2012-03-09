@@ -16,71 +16,26 @@ module S2C::Server
       )
     end
 
-    # show universe
     get "/universe" do
-      JSON.pretty_generate universe.to_hash
+      result = JSON.pretty_generate universe.to_hash
+      puts "XXX: result: #{result}"
+      result
     end
 
-    # show planets
-    get "/universe/planets" do
-      JSON.pretty_generate universe.to_hash[:planets]
-    end
+    post "/fleets" do
+      data = JSON.parse( request.body.read )
 
-    # show ships
-    get "/universe/ships" do
-      JSON.pretty_generate universe.to_hash[:ships]
-    end
+      planet = universe.get_planet( data["planet_id"] )
+      planet_destination = universe.get_planet( data["traveling_to"] )
+      ships = data["ship_ids"].map { |ship_id| universe.get_ship( ship_id ) }
 
-    # show planet
-    get "/universe/planet/:name" do
-      planet = universe.get_planet(params[:name])
-      JSON.pretty_generate planet.to_hash
-    end
+      fleet = planet.build_fleet( planet_destination, ships )
 
-    # create planet
-    post "/universe/planet" do
-      planet = universe.create_planet(params[:name])
+      data["ship_ids"].each do |ship_id|
+        planet.remove_ship( ship_id )
+      end
 
-      redirect_to_planet planet.name
-    end
-
-    # build mine
-    post "/universe/planets/:name/mines" do
-      planet = universe.get_planet(params[:name])
-      planet.build_mine
-
-      redirect_to_planet planet.name
-    end
-
-    # build ship
-    post "/universe/planets/:name/ships" do
-      planet = universe.get_planet(params[:name])
-      planet.build_ship
-
-      redirect_to_planet planet.name
-    end
-
-    # build fleet
-    post "/universe/fleets" do
-      params = JSON.parse( request.env["rack.input"].read )
-      planet = universe.get_planet(params[:name])
-      planet.build_fleet( params["planet_destination_id"], params["ship_ids"] )
-
-      redirect_to_planet planet.name
-    end
-
-    # travel
-    post "/universe/ships/:identity/travel" do
-      ship   = universe.get_ship(params[:identity])
-      planet = universe.get_planet(params[:planet_name])
-
-      ship.travel(planet)
-
-      redirect_to_planet ship.planet.name
-    end
-
-    def redirect_to_planet(name)
-      redirect URI.escape("/universe/planet/#{name}")
+      JSON.pretty_generate fleet.to_hash
     end
 
     def universe

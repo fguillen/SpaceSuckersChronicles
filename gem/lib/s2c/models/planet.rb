@@ -43,6 +43,11 @@ module S2C
         construction
       end
 
+      def remove_ship( ship_id )
+        @ships.delete_if { |e| e.id == ship_id }
+        @constructions.delete_if { |e| e.id == ship_id }
+      end
+
       def build_ship
         universe.log(self, "Building a ship")
         construction = S2C::Models::Ship.new(self)

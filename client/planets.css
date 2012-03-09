@@ -9,6 +9,12 @@ a {
   color: black;
 }
 
+/* CONTROLS */
+#controls {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
 /* MAP */
 
 #map {

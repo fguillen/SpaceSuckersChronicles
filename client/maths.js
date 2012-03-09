@@ -49,18 +49,5 @@ function coordinatesMediumPoint( xA, yA, xB, yB, distanceAC ){
   var xC = xA + deltaXAC;
   var yC = yA + deltaYAC;
 
-  // console.log( "xA", xA );
-  // console.log( "yA", yA );
-  // console.log( "xB", xB );
-  // console.log( "yB", yB );
-  // console.log( "distanceAC", distanceAC );
-
-  // console.log( "distanceAB", distanceAB );
-  // console.log( "angleAB", angleAB );
-  // console.log( "deltaXAC", deltaXAC );
-  // console.log( "deltaYAC", deltaYAC );
-  // console.log( "xC", xC );
-  // console.log( "yC", yC );
-
   return { x: xC, y: yC };
 }

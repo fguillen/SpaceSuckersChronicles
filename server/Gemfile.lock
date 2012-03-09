@@ -5,6 +5,11 @@ PATH
       json
       sinatra
 
+PATH
+  remote: /Users/fguillen/Develop/Ruby/SpaceSuckersChronicles/gem
+  specs:
+    s2c (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -40,4 +45,5 @@ DEPENDENCIES
   rack
   rack-test
   ruby-debug19
+  s2c!
   s2c_server!
