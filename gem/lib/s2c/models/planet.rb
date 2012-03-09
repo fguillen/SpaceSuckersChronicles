@@ -11,14 +11,15 @@ module S2C
         :position
      )
 
-      def initialize(universe, id, position)
+      def initialize(universe, opts = {})
         universe.log(self, "Creating planet")
-        @black_stuff    = universe.config["planet"]["initial_black_stuff"]
-        @id             = id
+
+        @black_stuff    = opts["black_stuff"] || universe.config["planet"]["initial_black_stuff"]
+        @id             = opts["id"] || universe.generate_id( "X" )
         @constructions  = []
         @ships          = []
         @universe       = universe
-        @position       = position
+        @position       = opts["position"]
       end
 
       def add_black_stuff(amount)
@@ -57,12 +58,15 @@ module S2C
         construction
       end
 
-      def build_fleet( planet_destination, ships )
+      def build_fleet( traveling_to, ships )
         universe.log(self, "Building a fleet")
-        construction = S2C::Models::Fleet.new(self, planet_destination, ships)
-        @constructions << construction
+        fleet = S2C::Models::Fleet.new(self)
+        fleet.add_ships( ships )
+        fleet.travel( traveling_to )
 
-        construction
+        @constructions << fleet
+
+        fleet
       end
 
       def to_hash
@@ -71,7 +75,7 @@ module S2C
 
         {
           :black_stuff   => black_stuff,
-          :constructions => constructions_hash,
+          # :constructions => constructions_hash,
           :ship_ids      => ship_ids,
           :position      => position,
           :id            => id

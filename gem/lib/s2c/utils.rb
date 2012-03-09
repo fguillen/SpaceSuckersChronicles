@@ -3,6 +3,16 @@ module S2C
 
     extend self
 
+    def save_universe( universe, path )
+      File.open( path, "w" ) do |f|
+        f.write JSON.pretty_generate( universe.to_hash )
+      end
+    end
+
+    def load_universe( path )
+
+    end
+
     def remaining_ticks_to_time(remaining_ticks, tick_seconds)
       seconds = remaining_ticks * tick_seconds
       Time.now + seconds

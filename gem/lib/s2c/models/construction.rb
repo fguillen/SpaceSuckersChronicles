@@ -14,19 +14,17 @@ module S2C
         :universe
      )
 
-      def initialize(planet, type)
+      def initialize(planet, type, opts = {})
         planet.universe.log(self, "Starting contruction Construction")
 
-        @id         = (Time.now.to_i + rand(1000)).to_s
-        @universe   = planet.universe
-        @planet     = planet
-        @level      = 0
-        @type       = type
-        @status     = :under_construction
-        @process_total_ticks      = upgrade_timing
-        @process_remaining_ticks  = process_total_ticks
-
-        universe.log(self, to_s)
+        @id                       = opts["id"] || (Time.now.to_i + rand(1000)).to_s
+        @universe                 = planet.universe
+        @planet                   = planet
+        @level                    = opts["level"] || 0
+        @type                     = opts["type"] || type
+        @status                   = opts["status"] || :under_construction
+        @process_total_ticks      = opts["process_total_ticks"] || upgrade_timing
+        @process_remaining_ticks  = opts["process_remaining_ticks"] || process_total_ticks
       end
 
       def defense

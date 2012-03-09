@@ -161,4 +161,25 @@ class ConstructionTest < Test::Unit::TestCase
     assert_equal('STATUS', construction.to_hash[:status])
     assert_equal(10, construction.to_hash[:process_remaining_ticks])
   end
+
+  def test_initialize_from_opts
+    opts = {
+      "id"                       => "id",
+      "level"                    => "level",
+      "type"                     => "type",
+      "status"                   => "status",
+      "process_remaining_ticks"  => "process_remaining_ticks",
+      "process_total_ticks"      => "process_total_ticks"
+    }
+
+    construction = S2C::Models::Construction.new( @planet, nil, opts )
+
+    assert_equal( "id",                       construction.id )
+    assert_equal( @planet,                    construction.planet )
+    assert_equal( "level",                    construction.level )
+    assert_equal( "type",                     construction.type )
+    assert_equal( "status",                   construction.status )
+    assert_equal( "process_remaining_ticks",  construction.process_remaining_ticks )
+    assert_equal( "process_total_ticks",      construction.process_total_ticks )
+  end
 end

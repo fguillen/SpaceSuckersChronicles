@@ -87,19 +87,36 @@ class UniverseTest < Test::Unit::TestCase
 
     universe_hash = universe.to_hash
 
-    puts "XXX: universe_hash: #{JSON.pretty_generate( universe_hash ) }"
-
     # assert_equal(['1', '2'], universe_hash[:logs])
     assert_equal('STATUS', universe_hash[:status])
     assert_equal('TICK', universe_hash[:tick])
     assert_equal(2, universe_hash[:planets].size)
-    assert_equal(
-      ship1.id,
-      universe_hash[:planets][0][:constructions][0][:id]
-    )
+    # assert_equal(
+    #   ship1.id,
+    #   universe_hash[:planets][0][:constructions][0][:id]
+    # )
     assert_equal(
       fleet1.id,
       universe_hash[:fleets][0][:id]
     )
+  end
+
+  def test_from_hash
+    hash = JSON.parse( File.read( "#{FIXTURES_PATH}/universe.json" ) )
+    universe = S2C::Universe.new( @config )
+    universe.from_hash( hash )
+
+    assert_equal( 11, universe.planets.size )
+    assert_equal( 5, universe.fleets.size )
+    assert_equal( 24, universe.ships.size )
+  end
+
+  def test_generate_id
+    universe = S2C::Universe.new(@config)
+    universe.instance_variable_set( :@last_id, 23 )
+
+    assert_equal( "X024", universe.generate_id( "X" ) )
+    assert_equal( 24, universe.last_id )
+
   end
 end

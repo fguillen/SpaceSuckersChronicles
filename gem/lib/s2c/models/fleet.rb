@@ -3,19 +3,19 @@ module S2C
     class Fleet < S2C::Models::Construction
       attr_reader(
         :traveling_to,
-        :planet_destination,
         :ships
       )
 
-      def initialize(planet, planet_destination, ships)
-        planet.universe.log(self, "Sending Fleet from #{planet.id} to #{planet_destination.id}")
+      def initialize( planet, opts = {} )
+        @ships = []
 
-        super( planet, 'fleet' )
+        opts = { "status" => :standby }.merge( opts )
 
-        @planet_destination = planet_destination
-        @ships = ships
+        super( planet, 'fleet', opts )
+      end
 
-        travel( planet_destination )
+      def add_ships( ships )
+        @ships.concat( ships )
       end
 
       def velocity
@@ -26,13 +26,13 @@ module S2C
         property_value('attack')
       end
 
-      def travel(planet_destiny)
-        universe.log(self, "Traveling to #{planet_destiny.id}")
+      def travel(traveling_to)
+        universe.log(self, "Traveling to #{traveling_to.id}")
 
         needed_black_stuff =
           travel_consume_black_stuff(
             planet,
-            planet_destiny,
+            traveling_to,
             universe.config['universe']['travel_black_stuff']
          )
 
@@ -43,11 +43,11 @@ module S2C
 
         planet.remove_black_stuff(needed_black_stuff)
         @status = :traveling
-        @traveling_to = planet_destiny
+        @traveling_to = traveling_to
         @process_total_ticks =
           travel_ticks(
             planet,
-            planet_destiny,
+            traveling_to,
             velocity
           )
 

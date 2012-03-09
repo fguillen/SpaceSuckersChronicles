@@ -8,18 +8,27 @@ module S2C
       :status,
       :tick,
       :size,
-      :config
+      :config,
+      :last_id
    )
 
-    def initialize(config)
+    def initialize(config, opts = {})
       @logs     = []
       @planets  = []
       @config   = config
-      @tick     = 0 # Universe's time
+      @tick     = opts["tick"] || 0 # Universe's time
+      @last_id  = opts["last_id"] || 0
     end
 
     def create_planet(id, position)
-      planet = S2C::Models::Planet.new(self, id, position)
+      planet =
+        S2C::Models::Planet.new(
+          self,
+          {
+            "id"        => id,
+            "position"  => position
+          }
+        )
 
       @planets << planet
 
@@ -36,6 +45,8 @@ module S2C
       end
 
       @tick += 1
+
+      S2C::Utils.save_universe( self, File.expand_path( "~/Downloads/universe.json" ) )
 
       log(self, "End cycle")
     end
@@ -87,7 +98,7 @@ module S2C
           message
        )
 
-      puts "XXX: #{message}"
+      # puts "XXX: #{message}"
 
       @logs << message
     end
@@ -103,6 +114,10 @@ module S2C
 
       planets.each do |planet|
         result += planet.constructions.select { |e| e.type == 'ship' }
+      end
+
+      fleets.each do |fleet|
+        result.concat( fleet.ships )
       end
 
       result
@@ -130,6 +145,11 @@ module S2C
       fleets.select { |e| e.id == id }.first
     end
 
+    def generate_id( prefix )
+      @last_id += 1
+      Kernel.sprintf( "#{prefix}%03d", last_id )
+    end
+
     def to_hash
       planets_hash = planets.map { |e| e.to_hash }
       ships_hash   = ships.map { |e| e.to_hash }
@@ -142,8 +162,44 @@ module S2C
         :status   => status,
         :tick     => tick,
         :ships    => ships_hash,
-        :id       => id
+        :id       => id,
+        :last_id  => last_id
       }
+    end
+
+    def from_hash( hash )
+      planets =
+        hash["planets"].map do |opts|
+          planet = S2C::Models::Planet.new( self, opts )
+
+          opts["ship_ids"].each do |ship_id|
+            ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
+            ship = S2C::Models::Ship.new( planet, ship_opts )
+
+            planet.constructions << ship
+            planet.ships << ship
+          end
+
+          @planets << planet
+        end
+
+      fleets =
+        hash["fleets"].map do |opts|
+          planet = self.get_planet( opts["planet_id"] )
+
+          fleet = S2C::Models::Fleet.new( planet, opts )
+
+          opts["ship_ids"].each do |ship_id|
+            ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
+            ship = S2C::Models::Ship.new( planet, ship_opts )
+            fleet.ships << ship
+          end
+
+          traveling_to = self.get_planet( opts["traveling_to"] )
+          fleet.travel( traveling_to )
+
+          planet.constructions << fleet
+        end
     end
   end
 end

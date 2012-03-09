@@ -3,10 +3,9 @@ module S2C
     class Ship < S2C::Models::Construction
       attr_reader :traveling_to
 
-      def initialize(planet)
-        planet.universe.log(self, "Starting construction ship")
+      def initialize(planet, opts = {} )
         @traveling_to = nil
-        super(planet, 'ship')
+        super( planet, 'ship', opts )
       end
 
       def velocity

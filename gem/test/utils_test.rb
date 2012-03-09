@@ -9,24 +9,24 @@ class UtilsTest < Test::Unit::TestCase
   def test_planet_distance
     universe = S2C::Universe.new(@config)
 
-    planet1 = S2C::Models::Planet.new(universe, 'jupiter', [0,0])
-    planet2 = S2C::Models::Planet.new(universe, 'saturn', [0,0])
+    planet1 = S2C::Models::Planet.new(universe, "position" => [0,0])
+    planet2 = S2C::Models::Planet.new(universe, "position" => [0,0])
     assert_equal(0, S2C::Utils.planet_distance(planet1, planet2))
 
-    planet1 = S2C::Models::Planet.new(universe, 'jupiter', [0,0])
-    planet2 = S2C::Models::Planet.new(universe, 'saturn', [1,1])
+    planet1 = S2C::Models::Planet.new(universe, "position" => [0,0])
+    planet2 = S2C::Models::Planet.new(universe, "position" => [1,1])
     assert_equal(1, S2C::Utils.planet_distance(planet1, planet2))
 
-    planet1 = S2C::Models::Planet.new(universe, 'jupiter', [0,0])
-    planet2 = S2C::Models::Planet.new(universe, 'saturn', [5,5])
+    planet1 = S2C::Models::Planet.new(universe, "position" => [0,0])
+    planet2 = S2C::Models::Planet.new(universe, "position" => [5,5])
     assert_equal(7, S2C::Utils.planet_distance(planet1, planet2))
 
-    planet1 = S2C::Models::Planet.new(universe, 'jupiter', [0,0])
-    planet2 = S2C::Models::Planet.new(universe, 'saturn', [5,10])
+    planet1 = S2C::Models::Planet.new(universe, "position" => [0,0])
+    planet2 = S2C::Models::Planet.new(universe, "position" => [5,10])
     assert_equal(11, S2C::Utils.planet_distance(planet1, planet2))
 
-    planet1 = S2C::Models::Planet.new(universe, 'jupiter', [10,5])
-    planet2 = S2C::Models::Planet.new(universe, 'saturn', [0,0])
+    planet1 = S2C::Models::Planet.new(universe, "position" => [10,5])
+    planet2 = S2C::Models::Planet.new(universe, "position" => [0,0])
     assert_equal(11, S2C::Utils.planet_distance(planet1, planet2))
   end
 
@@ -61,7 +61,7 @@ class UtilsTest < Test::Unit::TestCase
     universe = S2C::Universe.new( @config )
     S2C::Utils.feed_universe( universe )
 
-    assert_equal( 5, universe.planets.size )
-    assert_equal( 2, universe.fleets.size )
+    assert_equal( 11, universe.planets.size )
+    assert_equal( 0, universe.fleets.size )
   end
 end

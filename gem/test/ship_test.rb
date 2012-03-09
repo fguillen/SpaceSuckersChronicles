@@ -119,4 +119,14 @@ class ShipTest < Test::Unit::TestCase
     assert_equal('x700', ship.to_hash[:traveling_to])
   end
 
+  def test_from_opts
+    opts = {
+      "level" => 101
+    }
+
+    ship = S2C::Models::Ship.new( @planet, opts )
+
+    assert_equal( 101, ship.level )
+  end
+
 end
