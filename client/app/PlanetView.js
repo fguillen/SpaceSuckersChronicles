@@ -14,7 +14,7 @@ $(function(){
       if( this.planet.get( "selectable" ) ){
         App.Game.sendFleetToPlanet( this.planet );
       } else {
-        this.planet.selectToogle();
+        this.planet.selectToggle();
       }
     },
 

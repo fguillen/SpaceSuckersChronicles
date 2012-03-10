@@ -29,7 +29,7 @@ $(function(){
       });
     },
 
-    selectToogle: function(){
+    selectToggle: function(){
       if( this.get( "selected" ) ){
         this.set( "selected", false );
       } else {

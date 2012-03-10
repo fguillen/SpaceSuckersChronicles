@@ -11,7 +11,7 @@ $(function(){
     },
 
     select: function(){
-      this.fleet.selectToogle();
+      this.fleet.selectToggle();
     },
 
     initialize: function(opts){

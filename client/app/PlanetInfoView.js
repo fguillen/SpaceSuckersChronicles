@@ -13,7 +13,7 @@ $(function(){
 
     initialize: function(opts){
       this.planet = opts.planet;
-      this.planet.on( "change:selected", this.toogle, this );
+      this.planet.on( "change:selected", this.toggle, this );
       this.planet.on( "change", this.render, this );
 
       this.$el.attr( "id", "planet-info-" + this.planet.id );
@@ -29,7 +29,7 @@ $(function(){
       this.planet.set( "creatingFleet", false );
     },
 
-    toogle: function(){
+    toggle: function(){
       if( this.planet.get( "selected" ) ){
         this.$el.css({ zIndex: 100 });
         this.$el.animate( { right: 0 }, 500 );
