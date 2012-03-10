@@ -13,6 +13,8 @@ $(function(){
     },
 
     anySelected: function(){
+      console.log( "Fleets.anySelected", this );
+
       var result =
         this.any( function( fleet ){
           var result = fleet.get( "selected" );

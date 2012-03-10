@@ -9,9 +9,10 @@ class FleetTest < Test::Unit::TestCase
   end
 
   def test_initialize
+    @universe.expects( :generate_id ).with( "F" ).returns( "F000" )
     fleet = S2C::Models::Fleet.new( @planet )
 
-    assert_not_nil( fleet.id )
+    assert_equal( "F000",             fleet.id )
     assert_equal( @universe,          fleet.universe )
     assert_equal( @planet,            fleet.planet )
     assert_equal( 0,                  fleet.level )

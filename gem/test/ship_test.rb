@@ -9,9 +9,10 @@ class ShipTest < Test::Unit::TestCase
   end
 
   def test_initialize
+    @universe.expects( :generate_id ).with( "A" ).returns( "A000" )
     ship = S2C::Models::Ship.new(@planet)
 
-    assert_not_nil(ship.id)
+    assert_equal( "A000", ship.id )
     assert_equal(@universe, ship.universe)
     assert_equal(@planet, ship.planet)
     assert_equal(0, ship.level)

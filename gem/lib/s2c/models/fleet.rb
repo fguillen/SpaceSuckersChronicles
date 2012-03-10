@@ -9,8 +9,9 @@ module S2C
       def initialize( planet, opts = {} )
         @ships = []
 
-        opts = { "status" => :standby }.merge( opts )
-
+        @traveling_to = planet.universe.get_planet( opts["traveling_to"] ) if opts["traveling_to"]
+        id = planet.universe.generate_id( "F" )
+        opts = { "status" => :standby, "id" => id }.merge( opts )
         super( planet, 'fleet', opts )
       end
 
@@ -38,7 +39,7 @@ module S2C
 
         if(planet.black_stuff < needed_black_stuff)
           universe.log(self, "ERROR: not enough black stuff. Needed '#{needed_black_stuff}', having '#{planet.black_stuff}'.")
-          return false
+          # return false
         end
 
         planet.remove_black_stuff(needed_black_stuff)
@@ -74,6 +75,7 @@ module S2C
       end
 
       def to_hash
+        puts "XXX: fleet: #{id} traveling to: '#{traveling_to}'"
         super.merge(
           :traveling_to => traveling_to ? traveling_to.id : nil,
           :ship_ids     => ships.map( &:id )

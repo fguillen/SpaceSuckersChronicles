@@ -5,6 +5,8 @@ module S2C
 
       def initialize(planet, opts = {} )
         @traveling_to = nil
+        id = planet.universe.generate_id( "A" )
+        opts = { "id" => id }.merge( opts )
         super( planet, 'ship', opts )
       end
 

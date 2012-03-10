@@ -20,12 +20,12 @@ module S2C
       @last_id  = opts["last_id"] || 0
     end
 
-    def create_planet(id, position)
+    def create_planet(position)
       planet =
         S2C::Models::Planet.new(
           self,
           {
-            "id"        => id,
+            "id"        => self.generate_id( "X" ),
             "position"  => position
           }
         )
@@ -192,9 +192,6 @@ module S2C
             ship = S2C::Models::Ship.new( planet, ship_opts )
             fleet.ships << ship
           end
-
-          traveling_to = self.get_planet( opts["traveling_to"] )
-          fleet.travel( traveling_to )
 
           planet.constructions << fleet
         end
