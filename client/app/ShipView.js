@@ -12,20 +12,19 @@ $(function(){
     },
 
     select: function(){
-      this.ship.selectToogle();
+      console.log( "ShipView.select" );
+      this.ship.selectToggle();
     },
 
     initialize: function(opts){
+      console.log( "ShipView.initialize" );
       this.ship = opts.ship;
       this.ship.on( "change:selected", this.updateSelected, this );
+      this.ship.on( "s2c:remove:from_planet", this.remove, this );
     },
 
     updateSelected: function(){
-      if( this.ship.get( "selected" ) ){
-        this.$el.addClass( "selected" );
-      } else {
-        this.$el.removeClass( "selected" );
-      }
+      this.$el.toggleClass( "selected", this.ship.get( "selected" ) );
     },
 
     render: function(){

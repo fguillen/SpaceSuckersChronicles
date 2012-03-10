@@ -8,14 +8,17 @@ $(function(){
 
     initialize: function(opts){
       this.ships = opts.ships;
-      this.ships.bind( 'remove', this.render, this );
-      this.ships.bind( 'add', this.render, this );
+      this.ships.bind( 'remove', this.removeOne, this );
+      this.ships.bind( 'add', this.addOne, this );
+      this.ships.each( $.proxy( this.addOne, this ) );
     },
 
     render: function(){
-      this.$el.html("");
-      this.ships.each( $.proxy( this.addOne, this ) );
       return this;
+    },
+
+    removeOne: function( model ) {
+      model.trigger( "s2c:remove:from_planet" );
     },
 
     addOne: function( model ) {
