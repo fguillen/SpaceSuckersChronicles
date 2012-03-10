@@ -41,9 +41,7 @@ module S2C::Server
 
       fleet = planet.build_fleet( planet_destination, ships )
 
-      data["ship_ids"].each do |ship_id|
-        planet.remove_ship( ship_id )
-      end
+
 
       JSON.pretty_generate fleet.to_hash
     end

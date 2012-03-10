@@ -3,7 +3,8 @@ module S2C
     class Fleet < S2C::Models::Construction
       attr_reader(
         :traveling_to,
-        :ships
+        :ships,
+        :combat_against
       )
 
       def initialize( planet, opts = {} )
@@ -56,18 +57,30 @@ module S2C
       end
 
       def work_traveling
-        universe.log(self, "Traveling")
+        universe.log( self, "Traveling to #{traveling_to.id} remains #{process_remaining_ticks}" )
 
         if(@process_remaining_ticks == 0)
-          universe.log(self, "Has arrive to planet #{traveling_to.id}")
+          universe.log(self, "Has arrived to planet #{traveling_to.id}")
 
-          # FIXME: remove ships from planet
-          planet.constructions.delete(self)
-          traveling_to.constructions.concat( self.ships )
-          traveling_to.ships.concat( self.ships )
-
-          self.remove
+          combat( traveling_to )
         end
+      end
+
+
+      def work_combat
+        universe.log( self, "Fighting against #{combat_against.id}" )
+
+
+
+      end
+
+      def combat( planet )
+        planet.combat( self )
+
+        @status = :combat
+        @combat_against = planet
+
+        ships.each { |e| e.combat( planet, :type => :planet ) }
       end
 
       def remove

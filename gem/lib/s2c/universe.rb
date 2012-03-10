@@ -4,6 +4,7 @@ module S2C
   class Universe
     attr_accessor(
       :planets,
+      :units,
       :logs,
       :status,
       :tick,
@@ -15,6 +16,7 @@ module S2C
     def initialize(config, opts = {})
       @logs     = []
       @planets  = []
+      @units    = []
       @config   = config
       @tick     = opts["tick"] || 0 # Universe's time
       @last_id  = opts["last_id"] || 0
@@ -38,10 +40,8 @@ module S2C
     def cycle
       log(self, "Start cycle")
 
-      @planets.each do |planet|
-        planet.constructions.each do |construction|
-          construction.work
-        end
+      @units.each do |unit|
+        unit.work
       end
 
       @tick += 1
@@ -96,7 +96,7 @@ module S2C
           message
        )
 
-      # puts "XXX: #{message}"
+      puts "XXX: #{message}"
 
       @logs << message
     end

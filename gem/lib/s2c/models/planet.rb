@@ -36,10 +36,18 @@ module S2C
         @black_stuff -= amount
       end
 
+      def combat( fleet )
+        @status = :combat
+        @combat_against = fleet
+
+        ships.each { |e| e.combat( fleet, :type => :fleet ) }
+      end
+
       def build_mine
         universe.log(self, "Building a mine")
         construction = S2C::Models::Mine.new(self)
         @constructions << construction
+        @universe.units << contruction
 
         construction
       end
@@ -54,17 +62,23 @@ module S2C
         construction = S2C::Models::Ship.new(self)
         @constructions << construction
         @ships << construction
+        @universe.units << construction
 
         construction
       end
 
       def build_fleet( traveling_to, ships )
         universe.log(self, "Building a fleet")
+
+        ships do |ship|
+          self.remove_ship( ship )
+        end
+
         fleet = S2C::Models::Fleet.new(self)
         fleet.add_ships( ships )
         fleet.travel( traveling_to )
 
-        @constructions << fleet
+        @universe.units << fleet
 
         fleet
       end

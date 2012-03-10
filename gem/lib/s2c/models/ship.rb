@@ -1,7 +1,11 @@
 module S2C
   module Models
     class Ship < S2C::Models::Construction
-      attr_reader :traveling_to
+      attr_reader(
+        :traveling_to,
+        :combat_against,
+        :combat_type
+      )
 
       def initialize(planet, opts = {} )
         @traveling_to = nil
@@ -17,6 +21,13 @@ module S2C
       def attack
         property_value('attack')
       end
+
+      def combat( navy, opts )
+        @status = :combat
+        @combat_against = navy
+        @combat_type = opts[:type]
+      end
+
 
       def travel(planet_destiny)
         universe.log(self, "Traveling to #{planet.id}")
@@ -67,6 +78,10 @@ module S2C
           @traveling_to = nil
           @status = :standby
         end
+      end
+
+      def work_combat
+        universe.log( self, "Fighting against #{combat_against.id}" )
       end
 
       def to_hash
