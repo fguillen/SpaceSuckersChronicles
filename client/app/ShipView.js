@@ -12,7 +12,8 @@ $(function(){
     },
 
     select: function(){
-      this.ship.selectToogle();
+      console.log( "ShipView.select" );
+      this.ship.selectToggle();
     },
 
     initialize: function(opts){
