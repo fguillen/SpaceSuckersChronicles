@@ -10,10 +10,11 @@ $(function(){
       this.ships = opts.ships;
       this.ships.bind( 'remove', this.removeOne, this );
       this.ships.bind( 'add', this.addOne, this );
-      this.ships.each( $.proxy( this.addOne, this ) );
     },
 
     render: function(){
+      this.$el.html("");
+      this.ships.each( $.proxy( this.addOne, this ) );
       return this;
     },
 

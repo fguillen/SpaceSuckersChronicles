@@ -14,7 +14,7 @@ $(function(){
     initialize: function(opts){
       this.planet = opts.planet;
       this.planet.on( "change:selected", this.toggle, this );
-      this.planet.on( "change", this.render, this );
+      this.planet.on( "change:blackstuff", this.render, this );
 
       this.$el.attr( "id", "planet-info-" + this.planet.id );
 

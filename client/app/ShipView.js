@@ -12,12 +12,10 @@ $(function(){
     },
 
     select: function(){
-      console.log( "ShipView.select" );
       this.ship.selectToggle();
     },
 
     initialize: function(opts){
-      console.log( "ShipView.initialize" );
       this.ship = opts.ship;
       this.ship.on( "change:selected", this.updateSelected, this );
       this.ship.on( "s2c:remove:from_planet", this.remove, this );
