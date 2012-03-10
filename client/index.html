@@ -46,9 +46,7 @@
 
 <!-- TEMPLATES -->
 
-<script type="text/template" id="planet-ship">
-  ♆<%= id %>
-</script>
+<script type="text/template" id="planet-ship"><%= id %></script>
 
 <script type="text/template" id="planet">
   <h1><%= id %></h1>
@@ -127,7 +125,7 @@
       <h1>Navy</h1>
       <ul class="details">
         <% ships.each( function( ship ){ %>
-          <li><%= ship.get( "id" ) %></li>
+          <li class="ship"><%= ship.get( "id" ) %></li>
         <% }); %>
       </ul>
     </div>

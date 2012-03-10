@@ -199,4 +199,8 @@ a {
   cursor: pointer;
 }
 
+.panel-info .navy .ship:before {
+  content:"♆";
+}
+
 

@@ -3870,7 +3870,7 @@ var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[
 // Here we check if the JavaScript engine is using some sort of
 // optimization where it does not always call our comparision
 // function. If that is the case, discard the hasDuplicate value.
-//   Thus far that includes Google Chrome.
+//   Thus far that includes Goggle Chrome.
 [0, 0].sort(function() {
 	baseHasDuplicate = false;
 	return 0;
