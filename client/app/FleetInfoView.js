@@ -8,7 +8,7 @@ $(function(){
 
     initialize: function(opts){
       this.fleet = opts.fleet;
-      this.fleet.on( "change:selected", this.toogle, this );
+      this.fleet.on( "change:selected", this.toggle, this );
       this.fleet.on( "change", this.render, this );
       this.fleet.on( "remove", this.fadeOut, this );
 
@@ -20,7 +20,7 @@ $(function(){
       this.$el.animate( { right: -400 }, 500, function(){ _self.remove(); } );
     },
 
-    toogle: function(){
+    toggle: function(){
       if( this.fleet.get( "selected" ) ){
         this.$el.css({ zIndex: 100 });
         this.$el.animate( { right: 0 }, 500 );

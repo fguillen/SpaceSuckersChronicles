@@ -19,7 +19,7 @@ $(function(){
       this.set( "position", [ coordinates["x"], coordinates["y"] ] );
     },
 
-    selectToogle: function(){
+    selectToggle: function(){
       if( this.get( "selected" ) ){
         this.set( "selected", false );
       } else {
