@@ -195,4 +195,8 @@ a {
   margin-top: 10px;
 }
 
+.panel-info .navy .ship {
+  cursor: pointer;
+}
+
 
