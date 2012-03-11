@@ -54,6 +54,31 @@ class PlanetTest < Test::Unit::TestCase
     assert_equal(@planet, @planet.units.first.planet)
   end
 
+  def test_build_fleet
+    planet2 = @universe.create_planet( [10, 10], "id" => "saturno" )
+
+    @planet.instance_variable_set(:@units, [])
+    @planet.instance_variable_set(:@ships, [])
+
+    ship1 = @planet.build_ship
+    ship2 = @planet.build_ship
+
+    assert_equal(2, @universe.units.size)
+    assert_equal(2, @planet.units.size)
+    assert_equal(2, @planet.ships.size)
+
+    fleet = @planet.build_fleet( planet2, [ship1] )
+
+    assert_equal(3, @universe.units.size)
+    assert_equal(1, @planet.units.size)
+    assert_equal(1, @planet.ships.size)
+    assert_equal(1, fleet.ships.size)
+    assert_equal(:traveling, fleet.status)
+    assert_equal(planet2.id, fleet.traveling_to.id)
+    assert_equal(:traveling, fleet.ships.first.status)
+    assert_equal(fleet.id, fleet.ships.first.in_fleet.id)
+  end
+
   def test_id
     assert_equal('jupiter', @planet.id)
   end

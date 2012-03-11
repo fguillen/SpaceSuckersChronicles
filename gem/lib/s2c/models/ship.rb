@@ -3,8 +3,7 @@ module S2C
     class Ship < S2C::Models::Construction
       attr_reader(
         :traveling_to,
-        :combat_against,
-        :combat_type
+        :in_fleet
       )
 
       attr_accessor :in_fleet
@@ -13,6 +12,7 @@ module S2C
         @traveling_to = nil
         id = planet.universe.generate_id( "A" )
         opts = { "id" => id }.merge( opts )
+
         super( planet, 'ship', opts )
       end
 
@@ -80,22 +80,31 @@ module S2C
       def work_traveling
         universe.log(self, "Traveling")
 
-        if(@process_remaining_ticks == 0)
-          universe.log(self, "Has arrive to planet #{traveling_to.id}")
+        # if(@process_remaining_ticks == 0)
+        #   universe.log(self, "Has arrive to planet #{traveling_to.id}")
 
-          planet.units.delete(self)
-          traveling_to.units << self
+        #   planet.units.delete(self)
+        #   traveling_to.units << self
 
-          @planet = traveling_to
-          @traveling_to = nil
-          @status = :standby
-        end
+        #   @planet = traveling_to
+        #   @traveling_to = nil
+        #   @status = :standby
+        # end
       end
 
       def work_combat
+        puts "XXX: work_combat: #{self.id}"
         universe.log( self, "Fighting against #{@combat_against.id}" )
         unit_against = S2C::Utils.get_random( @combat_against.units )
-        if( hit( unit_against ) == :destroyed )
+
+        if( unit_against.nil? )
+          if( @combat_type == :fleet )
+            @planet.conquer( @combat_against )
+          else
+            @in_fleet.conquer( @combat_against )
+          end
+
+        elsif( hit( unit_against ) == :destroyed )
           if( @combat_against.destroy_unit( unit_against ) == :surrender )
             if( @combat_type == :fleet )
               @planet.conquer( @combat_against )

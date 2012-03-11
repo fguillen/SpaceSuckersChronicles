@@ -52,6 +52,7 @@ module S2C
       def destroy_unit( unit )
         @universe.log(self, "Destroying unit #{unit.id}")
 
+        @ships.delete( unit )
         @units.delete( unit )
         @universe.units.delete( unit )
 
@@ -72,9 +73,9 @@ module S2C
         construction
       end
 
-      def remove_ship( ship_id )
-        @ships.delete_if { |e| e.id == ship_id }
-        @units.delete_if { |e| e.id == ship_id }
+      def remove_ship( ship )
+        @ships.delete( ship )
+        @units.delete( ship )
       end
 
       def build_ship
@@ -90,8 +91,8 @@ module S2C
       def build_fleet( traveling_to, ships )
         universe.log(self, "Building a fleet")
 
-        ships do |ship|
-          self.remove_ship( ship )
+        ships.each do |ship|
+          remove_ship( ship )
         end
 
         fleet = S2C::Models::Fleet.new(self)

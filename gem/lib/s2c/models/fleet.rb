@@ -31,13 +31,14 @@ module S2C
           planet.units << ship
         end
 
-        disolve
+        remove
       end
 
       def destroy_unit( ship )
         universe.log(self, "Destroying ship #{ship.id}")
 
         ships.delete( ship )
+        @universe.units.delete( ship )
 
         if( ships.empty? )
           universe.log(self, "Fleet without ships, removing")
@@ -120,13 +121,12 @@ module S2C
         ships.each { |e| e.combat( planet, :type => :planet ) }
       end
 
-      def disolve
+      def remove
         @status = :disolved
         @universe.units.delete( self )
       end
 
       def to_hash
-        puts "XXX: fleet: #{id} traveling to: '#{traveling_to}'"
         super.merge(
           :traveling_to => traveling_to ? traveling_to.id : nil,
           :ship_ids     => ships.map( &:id )

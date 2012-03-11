@@ -8,6 +8,8 @@ $(function(){
     },
 
     updateShips: function(){
+      console.log( "Planet.updateShips", this.id );
+
       var ship_ids = this.get( "ship_ids" );
       var _self = this;
 
@@ -22,9 +24,12 @@ $(function(){
 
       // remove
       var actual_ship_ids = this.ships.pluck( "id" );
-      var ship_ids_to_remove = _(actual_ship_ids).difference(ship_ids)
+      var ship_ids_to_remove = _( actual_ship_ids ).difference( ship_ids )
 
-      _(ship_ids_to_remove).each( function( ship_id_to_remove ){
+      console.log( "actual_ship_ids", actual_ship_ids );
+      console.log( "ship_ids_to_remove", ship_ids_to_remove );
+
+      _( ship_ids_to_remove ).each( function( ship_id_to_remove ){
         _self.ships.remove( ship_id_to_remove );
       });
     },

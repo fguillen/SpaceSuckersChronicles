@@ -12,8 +12,10 @@ module S2C
         :process_remaining_ticks,
         :process_total_ticks,
         :universe,
-        :life
-     )
+        :life,
+        :combat_against,
+        :combat_type
+      )
 
       def initialize(planet, type, opts = {})
         planet.universe.log(self, "Starting contruction Construction")
@@ -27,6 +29,11 @@ module S2C
         @status                   = opts["status"] || :under_construction
         @process_total_ticks      = opts["process_total_ticks"] || upgrade_timing
         @process_remaining_ticks  = opts["process_remaining_ticks"] || process_total_ticks
+        @combat_type              = opts["combat_type"]
+
+        @combat_against = nil
+        @combat_against = universe.get_fleet( opts["combat_against"] )  if combat_type == :fleet
+        @combat_against = universe.get_planet( opts["combat_against"] ) if combat_type == :planet
       end
 
       def attack
@@ -119,7 +126,9 @@ module S2C
           :status                   => status,
           :process_remaining_ticks  => process_remaining_ticks,
           :process_total_ticks      => process_total_ticks,
-          :process_percent          => process_percent( process_total_ticks, process_remaining_ticks )
+          :process_percent          => process_percent( process_total_ticks, process_remaining_ticks ),
+          :combat_against           => combat_against ? combat_against.id : nil,
+          :combat_type              => combat_type
         }
       end
 

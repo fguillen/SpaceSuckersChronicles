@@ -36,6 +36,8 @@ module S2C
     end
 
     def cycle
+      @tick += 1
+
       log(self, "Start cycle")
 
       @units.each do |unit|
@@ -43,8 +45,6 @@ module S2C
       end
 
       log(self, "End cycle")
-
-      @tick += 1
     end
 
     def start
@@ -65,11 +65,13 @@ module S2C
               cycle
             rescue Exception => e
               log( self, "ERROR: #{e}" )
+              puts "XXX: backtrace:"
+              puts e.backtrace.join( "\n" )
               raise e
             end
           end
 
-        rest_time = config['universe']['tick_seconds'].to_i - time
+        rest_time = config['universe']['tick_seconds'].to_f - time
         log( self, "Resting #{rest_time * 1000} millisecond" )
         sleep( rest_time )
       end
@@ -122,6 +124,7 @@ module S2C
     end
 
     def get_fleet(id)
+      puts "XXX: Universe.get_fleet: #{id}"
       fleets.select { |e| e.id == id }.first
     end
 
@@ -170,13 +173,15 @@ module S2C
 
           fleet = S2C::Models::Fleet.new( planet, opts )
 
-          opts["ship_ids"].each do |ship_id|
-            ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
-            ship = S2C::Models::Ship.new( planet, ship_opts )
-            fleet.ships << ship
-            self.units << ship
-          end
+          ships =
+            opts["ship_ids"].map do |ship_id|
+              ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
+              ship = S2C::Models::Ship.new( planet, ship_opts )
+            end
 
+          fleet.add_ships( ships )
+
+          self.units.concat( ships )
           self.units << fleet
         end
     end
