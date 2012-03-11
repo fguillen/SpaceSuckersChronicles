@@ -5,7 +5,7 @@ class FleetTest < Test::Unit::TestCase
   def setup
     @config   = S2C::Config.new("#{FIXTURES_PATH}/config.yml")
     @universe = S2C::Universe.new(@config)
-    @planet   = @universe.create_planet( 'jupiter', [1, 1] )
+    @planet   = @universe.create_planet( [1, 1] )
   end
 
   def test_initialize
@@ -33,7 +33,7 @@ class FleetTest < Test::Unit::TestCase
   def test_travel
     fleet = S2C::Models::Fleet.new( @planet )
 
-    traveling_to = @universe.create_planet( 'jupiter', [10, 10] )
+    traveling_to = @universe.create_planet( [10, 10] )
 
     fleet.travel( traveling_to )
 

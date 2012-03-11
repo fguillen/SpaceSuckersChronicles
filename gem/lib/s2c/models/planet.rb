@@ -6,7 +6,7 @@ module S2C
         :universe,
         :black_stuff,
         :id,
-        :constructions,
+        :units,
         :ships,
         :position
      )
@@ -16,7 +16,7 @@ module S2C
 
         @black_stuff    = opts["black_stuff"] || universe.config["planet"]["initial_black_stuff"]
         @id             = opts["id"] || universe.generate_id( "X" )
-        @constructions  = []
+        @units  = []
         @ships          = []
         @universe       = universe
         @position       = opts["position"]
@@ -39,28 +39,48 @@ module S2C
       def combat( fleet )
         @status = :combat
         @combat_against = fleet
-
         ships.each { |e| e.combat( fleet, :type => :fleet ) }
+      end
+
+
+      def conquer( navy )
+        universe.log( self, "Navy conquered #{navy.id}" )
+        navy.remove
+        @ships.each { |e| e.combat_reward }
+      end
+
+      def destroy_unit( unit )
+        @universe.log(self, "Destroying unit #{unit.id}")
+
+        @units.delete( unit )
+        @universe.units.delete( unit )
+
+        if( @units.empty? )
+          @universe.log(self, "Planet without units, surrender")
+          return :surrender
+        end
+
+        return :still_combat
       end
 
       def build_mine
         universe.log(self, "Building a mine")
         construction = S2C::Models::Mine.new(self)
-        @constructions << construction
-        @universe.units << contruction
+        @units << construction
+        @universe.units << construction
 
         construction
       end
 
       def remove_ship( ship_id )
         @ships.delete_if { |e| e.id == ship_id }
-        @constructions.delete_if { |e| e.id == ship_id }
+        @units.delete_if { |e| e.id == ship_id }
       end
 
       def build_ship
         universe.log(self, "Building a ship")
         construction = S2C::Models::Ship.new(self)
-        @constructions << construction
+        @units << construction
         @ships << construction
         @universe.units << construction
 
@@ -84,12 +104,12 @@ module S2C
       end
 
       def to_hash
-        constructions_hash = constructions.map { |e| e.to_hash }
+        units_hash = units.map { |e| e.to_hash }
         ship_ids = ships.map( &:id )
 
         {
           :black_stuff   => black_stuff,
-          # :constructions => constructions_hash,
+          # :units => units_hash,
           :ship_ids      => ship_ids,
           :position      => position,
           :id            => id

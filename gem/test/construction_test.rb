@@ -4,7 +4,7 @@ class ConstructionTest < Test::Unit::TestCase
   def setup
     @config   = S2C::Config.new("#{FIXTURES_PATH}/config.yml")
     @universe = S2C::Universe.new(@config)
-    @planet   = @universe.create_planet( 'jupiter', [1, 1] )
+    @planet   = @universe.create_planet( [1, 1] )
   end
 
   def test_initialize
@@ -155,7 +155,7 @@ class ConstructionTest < Test::Unit::TestCase
     construction.stubs(:level).returns(78)
 
     assert_equal('CONSTRUCTION', construction.to_hash[:id])
-    assert_equal('jupiter', construction.to_hash[:planet_id])
+    assert_equal(@planet.id, construction.to_hash[:planet_id])
     assert_equal(78, construction.to_hash[:level])
     assert_equal('TYPE', construction.to_hash[:type])
     assert_equal('STATUS', construction.to_hash[:status])

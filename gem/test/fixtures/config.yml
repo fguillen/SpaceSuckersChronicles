@@ -6,6 +6,7 @@ planet:
   initial_black_stuff: 1000
 
 mine:
+  attack: 0
   defense: 11
   life: 12
   upgrade_timing: 13

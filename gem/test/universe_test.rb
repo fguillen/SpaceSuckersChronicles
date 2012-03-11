@@ -17,7 +17,7 @@ class UniverseTest < Test::Unit::TestCase
   def test_create_planet
     universe = S2C::Universe.new(@config)
 
-    planet = universe.create_planet('jupiter', [1,2])
+    planet = universe.create_planet( [1,2] )
 
     assert_equal(1, universe.planets.size)
     assert_equal(planet, universe.planets.first)
@@ -27,7 +27,7 @@ class UniverseTest < Test::Unit::TestCase
   def test_cycle
     universe = S2C::Universe.new(@config)
     universe.instance_variable_set(:@tick, 1)
-    planet = universe.create_planet('jupiter', [1, 1])
+    planet = universe.create_planet( [1, 1] )
     mine = planet.build_mine
     ship = planet.build_ship
 
@@ -43,12 +43,12 @@ class UniverseTest < Test::Unit::TestCase
   def test_ships
     universe = S2C::Universe.new(@config)
 
-    planet1 = universe.create_planet('jupiter', [1, 1])
+    planet1 = universe.create_planet( [1, 1] )
     mine1 = planet1.build_mine
     ship1 = planet1.build_ship
     ship2 = planet1.build_ship
 
-    planet2 = universe.create_planet('mercurio', [1, 1])
+    planet2 = universe.create_planet( [1, 1] )
     ship3 = planet2.build_ship
 
     assert_equal([ship1, ship2, ship3], universe.ships)
@@ -56,15 +56,15 @@ class UniverseTest < Test::Unit::TestCase
 
   def test_get_planet
     universe = S2C::Universe.new(@config)
-    planet1 = universe.create_planet('jupiter', [1, 1])
-    planet2 = universe.create_planet('mercurio', [1, 1])
+    planet1 = universe.create_planet( [1, 1] )
+    planet2 = universe.create_planet( [1, 1], "id" => "mercurio" )
 
-    assert_equal(planet2, universe.get_planet('mercurio'))
+    assert_equal( planet2, universe.get_planet( "mercurio" ) )
   end
 
   def test_get_ship
     universe = S2C::Universe.new(@config)
-    planet1  = universe.create_planet('jupiter', [1, 1])
+    planet1  = universe.create_planet( [1, 1] )
     ship1    = planet1.build_ship
 
     assert_equal(ship1, universe.get_ship(ship1.id))
@@ -73,8 +73,8 @@ class UniverseTest < Test::Unit::TestCase
   def test_to_hash
     universe = S2C::Universe.new(@config)
 
-    planet1 = universe.create_planet('jupiter', [1, 1])
-    planet2 = universe.create_planet('mercurio', [20, 20])
+    planet1 = universe.create_planet( [1, 1] )
+    planet2 = universe.create_planet( [20, 20] )
 
     ship1   = planet1.build_ship
     ship2   = planet1.build_ship
@@ -93,7 +93,7 @@ class UniverseTest < Test::Unit::TestCase
     assert_equal(2, universe_hash[:planets].size)
     # assert_equal(
     #   ship1.id,
-    #   universe_hash[:planets][0][:constructions][0][:id]
+    #   universe_hash[:planets][0][:units][0][:id]
     # )
     assert_equal(
       fleet1.id,

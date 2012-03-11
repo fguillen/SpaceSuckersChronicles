@@ -7,6 +7,8 @@ module S2C
         :combat_type
       )
 
+      attr_accessor :in_fleet
+
       def initialize(planet, opts = {} )
         @traveling_to = nil
         id = planet.universe.generate_id( "A" )
@@ -18,8 +20,13 @@ module S2C
         property_value('velocity')
       end
 
-      def attack
-        property_value('attack')
+      def damage( points )
+        @life -= points
+        universe.log(self, "Damaged with #{points}, remains #{@life}")
+
+        @status = :destroyed if @life <= 0
+
+        @status
       end
 
       def combat( navy, opts )
@@ -27,7 +34,6 @@ module S2C
         @combat_against = navy
         @combat_type = opts[:type]
       end
-
 
       def travel(planet_destiny)
         universe.log(self, "Traveling to #{planet.id}")
@@ -65,14 +71,20 @@ module S2C
         @process_remaining_ticks = process_total_ticks
       end
 
+      def combat_reward
+        universe.log(self, "Combat reward")
+        @status = :standby
+        @level += 1
+      end
+
       def work_traveling
         universe.log(self, "Traveling")
 
         if(@process_remaining_ticks == 0)
           universe.log(self, "Has arrive to planet #{traveling_to.id}")
 
-          planet.constructions.delete(self)
-          traveling_to.constructions << self
+          planet.units.delete(self)
+          traveling_to.units << self
 
           @planet = traveling_to
           @traveling_to = nil
@@ -81,7 +93,31 @@ module S2C
       end
 
       def work_combat
-        universe.log( self, "Fighting against #{combat_against.id}" )
+        universe.log( self, "Fighting against #{@combat_against.id}" )
+        unit_against = S2C::Utils.get_random( @combat_against.units )
+        if( hit( unit_against ) == :destroyed )
+          if( @combat_against.destroy_unit( unit_against ) == :surrender )
+            if( @combat_type == :fleet )
+              @planet.conquer( @combat_against )
+            else
+              @in_fleet.conquer( @combat_against )
+            end
+          end
+        end
+      end
+
+      def hit( unit )
+        universe.log( self, "Atacking #{unit.id}" )
+
+        points_damage = attack - ( unit.defense / 2 )
+
+        if( points_damage > 0 )
+          universe.log( self, "Making a damage of #{points_damage}" )
+          unit.damage( points_damage )
+        else
+          universe.log( self, "Atack failed against #{points_damage}" )
+          :untouched
+        end
       end
 
       def to_hash

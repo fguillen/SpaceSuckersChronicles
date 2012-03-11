@@ -16,8 +16,45 @@ module S2C
         super( planet, 'fleet', opts )
       end
 
+      def units
+        @ships
+      end
+
+      def conquer( planet )
+        universe.log( self, "Navy conquered #{planet.id}" )
+        @combat_against = nil
+        @status = :standby
+
+        @ships.each do |ship|
+          ship.combat_reward
+          planet.ships << ship
+          planet.units << ship
+        end
+
+        disolve
+      end
+
+      def destroy_unit( ship )
+        universe.log(self, "Destroying ship #{ship.id}")
+
+        ships.delete( ship )
+
+        if( ships.empty? )
+          universe.log(self, "Fleet without ships, removing")
+
+          return :surrender
+        end
+
+        return :still_combat
+      end
+
       def add_ships( ships )
         @ships.concat( ships )
+
+        ships.each do |ship|
+          ship.in_fleet = self
+          ship.instance_variable_set( :@status, :traveling )
+        end
       end
 
       def velocity
@@ -83,8 +120,9 @@ module S2C
         ships.each { |e| e.combat( planet, :type => :planet ) }
       end
 
-      def remove
-        planet.constructions.delete(self)
+      def disolve
+        @status = :disolved
+        @universe.units.delete( self )
       end
 
       def to_hash

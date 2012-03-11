@@ -22,15 +22,13 @@ module S2C
       @last_id  = opts["last_id"] || 0
     end
 
-    def create_planet(position)
-      planet =
-        S2C::Models::Planet.new(
-          self,
-          {
-            "id"        => self.generate_id( "X" ),
-            "position"  => position
-          }
-        )
+    def create_planet(position, opts = {})
+      opts = {
+        "id"        => self.generate_id( "X" ),
+        "position"  => position
+      }.merge( opts )
+
+      planet = S2C::Models::Planet.new( self, opts )
 
       @planets << planet
 
@@ -44,9 +42,9 @@ module S2C
         unit.work
       end
 
-      @tick += 1
-
       log(self, "End cycle")
+
+      @tick += 1
     end
 
     def start
@@ -108,27 +106,11 @@ module S2C
     end
 
     def ships
-      result = []
-
-      planets.each do |planet|
-        result += planet.constructions.select { |e| e.type == 'ship' }
-      end
-
-      fleets.each do |fleet|
-        result.concat( fleet.ships )
-      end
-
-      result
+      units.select { |e| e.type == 'ship' }
     end
 
     def fleets
-      result = []
-
-      planets.each do |planet|
-        result += planet.constructions.select { |e| e.type == 'fleet' }
-      end
-
-      result
+      units.select { |e| e.type == 'fleet' }
     end
 
     def get_planet(id)
@@ -174,11 +156,12 @@ module S2C
             ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
             ship = S2C::Models::Ship.new( planet, ship_opts )
 
-            planet.constructions << ship
+            planet.units << ship
             planet.ships << ship
+            self.units << ship
           end
 
-          @planets << planet
+          self.planets << planet
         end
 
       fleets =
@@ -191,9 +174,10 @@ module S2C
             ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
             ship = S2C::Models::Ship.new( planet, ship_opts )
             fleet.ships << ship
+            self.units << ship
           end
 
-          planet.constructions << fleet
+          self.units << fleet
         end
     end
   end

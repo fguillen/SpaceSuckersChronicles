@@ -11,7 +11,8 @@ module S2C
         :status,
         :process_remaining_ticks,
         :process_total_ticks,
-        :universe
+        :universe,
+        :life
      )
 
       def initialize(planet, type, opts = {})
@@ -22,9 +23,14 @@ module S2C
         @planet                   = planet
         @level                    = opts["level"] || 0
         @type                     = opts["type"] || type
+        @life                     = opts["level"] || universe.config[type]['life']
         @status                   = opts["status"] || :under_construction
         @process_total_ticks      = opts["process_total_ticks"] || upgrade_timing
         @process_remaining_ticks  = opts["process_remaining_ticks"] || process_total_ticks
+      end
+
+      def attack
+        property_value('attack')
       end
 
       def defense
@@ -109,6 +115,7 @@ module S2C
           :planet_id                => planet.id,
           :level                    => level,
           :type                     => type,
+          :life                     => life,
           :status                   => status,
           :process_remaining_ticks  => process_remaining_ticks,
           :process_total_ticks      => process_total_ticks,

@@ -3,6 +3,10 @@ module S2C
 
     extend self
 
+    def get_random( array )
+      array.sample
+    end
+
     def save_universe( universe, path )
       File.open( path, "w" ) do |f|
         f.write JSON.pretty_generate( universe.to_hash )
