@@ -3,8 +3,7 @@ module S2C
     class Fleet < S2C::Models::Construction
       attr_reader(
         :traveling_to,
-        :ships,
-        :combat_against
+        :ships
       )
 
       def initialize( planet, opts = {} )
@@ -54,7 +53,7 @@ module S2C
 
         ships.each do |ship|
           ship.in_fleet = self
-          ship.instance_variable_set( :@status, :traveling )
+          ship.instance_variable_set( :@status, :traveling ) if ship.status != "combat"
         end
       end
 
@@ -117,8 +116,9 @@ module S2C
 
         @status = :combat
         @combat_against = planet
+        @combat_type = "planet"
 
-        ships.each { |e| e.combat( planet, :type => :planet ) }
+        ships.each { |e| e.combat( planet, :type => "planet" ) }
       end
 
       def remove

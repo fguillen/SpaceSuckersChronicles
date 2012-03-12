@@ -22,9 +22,9 @@ $(function(){
         }, 1000);
     },
 
-    refresh: function(opts){
+    refresh: function(){
       console.log( "Refresh Universe..." );
-      this.fetch(opts);
+      this.fetch();
     },
 
     pause: function(){
@@ -53,7 +53,8 @@ $(function(){
         planet_id:        planetOrigin.id,
         traveling_to:     planetDestination.id,
         process_percent:  0,
-        ship_ids:         ship_ids
+        ship_ids:         ship_ids,
+        status:           "traveling"
       }, {
         wait: true
       });

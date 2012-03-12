@@ -4,8 +4,6 @@ module S2C::Server
     @@universe  = S2C::Universe.new(config)
     @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
 
-    puts "XXX: db_path: #{@@db_path}"
-
     if( File.exists?( @@db_path ) )
       hash = JSON.parse( File.read( @@db_path ) )
       @@universe.from_hash( hash )
@@ -28,8 +26,7 @@ module S2C::Server
     get "/universe" do
       S2C::Utils.save_universe( @@universe, @@db_path )
 
-      result = JSON.pretty_generate universe.to_hash
-      result
+      JSON.pretty_generate universe.to_hash
     end
 
     post "/fleets" do
@@ -40,8 +37,6 @@ module S2C::Server
       ships = data["ship_ids"].map { |ship_id| universe.get_ship( ship_id ) }
 
       fleet = planet.build_fleet( planet_destination, ships )
-
-
 
       JSON.pretty_generate fleet.to_hash
     end

@@ -5,7 +5,6 @@ $(function(){
     initialize: function(){
       this.set( "selected", false );
 
-      this.set( "ships", new App.Ships( App.Game.ships.get_by_ids( this.get( "ship_ids" ) ) ) );
       this.set( "origin", App.Game.planets.get( this.get( "planet_id" ) ) );
       this.set( "destination", App.Game.planets.get( this.get( "traveling_to" ) ) );
 
@@ -18,8 +17,14 @@ $(function(){
     },
 
     updatePosition: function(){
-      var coordinates = fleetCoordinates( this, App.Game.planets );
-      this.set( "position", [ coordinates["x"], coordinates["y"] ] );
+      if( this.get( "status" ) == "traveling" ) {
+        var coordinates = fleetCoordinates( this, App.Game.planets );
+        this.set( "position", [ coordinates["x"], coordinates["y"] ] );
+      } else {
+        var planetX = this.get( "destination" ).get( "position" )[0];
+        var planetY = this.get( "destination" ).get( "position" )[1];
+        this.set( "position", [ planetX, planetY ] );
+      }
     },
 
     updateShips: function(){

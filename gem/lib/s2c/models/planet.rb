@@ -39,7 +39,8 @@ module S2C
       def combat( fleet )
         @status = :combat
         @combat_against = fleet
-        ships.each { |e| e.combat( fleet, :type => :fleet ) }
+        @combat_type = "fleet"
+        ships.each { |e| e.combat( fleet, :type => "fleet" ) }
       end
 
 

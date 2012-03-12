@@ -6,10 +6,10 @@ universe:
   travel_black_stuff: 10
 
 planet:
-  initial_black_stuff: 10000
+  initial_black_stuff: 1000
 
 mine:
-  defense: 10
+  defense: 18
   life: 10
   upgrade_timing: 30
   upgrade_black_stuff: 100
@@ -17,8 +17,8 @@ mine:
 
 ship:
   attack: 10
-  defense: 10
-  life: 10
+  defense: 18
+  life: 1000
   upgrade_timing: 40
   upgrade_black_stuff: 100
   velocity: 1
@@ -26,8 +26,8 @@ ship:
 
 fleet:
   attack: 10
-  defense: 10
-  life: 10
+  defense: 18
+  life: 1000
   upgrade_timing: 0
   upgrade_black_stuff: 10
   velocity: 1

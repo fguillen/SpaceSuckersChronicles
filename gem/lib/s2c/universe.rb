@@ -124,7 +124,6 @@ module S2C
     end
 
     def get_fleet(id)
-      puts "XXX: Universe.get_fleet: #{id}"
       fleets.select { |e| e.id == id }.first
     end
 
@@ -184,6 +183,18 @@ module S2C
           self.units.concat( ships )
           self.units << fleet
         end
+
+      # FIXME: needed because the circular dependency between planets-fleets-ships in case ship.status = combat
+      ships.select{ |ship| ship.status == "combat" }.each do |ship|
+        ship_opts = hash["ships"].select{ |e| e["id"] == ship.id }.first
+        ship.update_combat_against( ship_opts["combat_against"] )
+      end
+
+      # FIXME: needed because the circular dependency between planets-fleets-ships in case ship.in_fleet
+      ships.each do |ship|
+        ship_opts = hash["ships"].select{ |e| e["id"] == ship.id }.first
+        ship.update_combat_against( ship_opts["combat_against"] )
+      end
     end
   end
 end

@@ -25,15 +25,19 @@ module S2C
         @planet                   = planet
         @level                    = opts["level"] || 0
         @type                     = opts["type"] || type
-        @life                     = opts["level"] || universe.config[type]['life']
+        @life                     = opts["life"] || universe.config[type]['life']
         @status                   = opts["status"] || :under_construction
         @process_total_ticks      = opts["process_total_ticks"] || upgrade_timing
         @process_remaining_ticks  = opts["process_remaining_ticks"] || process_total_ticks
         @combat_type              = opts["combat_type"]
 
+        update_combat_against( opts["combat_against"] )
+      end
+
+      def update_combat_against( combat_against )
         @combat_against = nil
-        @combat_against = universe.get_fleet( opts["combat_against"] )  if combat_type == :fleet
-        @combat_against = universe.get_planet( opts["combat_against"] ) if combat_type == :planet
+        @combat_against = universe.get_fleet( combat_against )  if combat_type == "fleet"
+        @combat_against = universe.get_planet( combat_against ) if combat_type == "planet"
       end
 
       def attack
