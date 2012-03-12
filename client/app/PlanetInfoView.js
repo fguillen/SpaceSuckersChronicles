@@ -15,10 +15,27 @@ $(function(){
       this.planet = opts.planet;
       this.planet.on( "change:selected", this.toggle, this );
       this.planet.on( "change:blackstuff", this.render, this );
+      this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
+      this.planet.ships.on( "change:selected", this.updateNavyControls, this );
 
       this.$el.attr( "id", "planet-info-" + this.planet.id );
 
       this.shipsView = new App.ShipsView({ ships: this.planet.ships });
+    },
+
+    updateNavyControls: function(){
+      if( this.planet.ships.anySelected() && !this.planet.get( "creatingFleet" ) ){
+        this.$el.find( ".create-fleet" ).fadeIn();
+        this.$el.find( ".cancel-fleet" ).fadeOut();
+
+      } else if( this.planet.ships.anySelected() && this.planet.get( "creatingFleet" ) ){
+        this.$el.find( ".create-fleet" ).fadeOut();
+        this.$el.find( ".cancel-fleet" ).fadeIn();
+
+      } else {
+        this.$el.find( ".create-fleet" ).fadeOut();
+        this.$el.find( ".cancel-fleet" ).fadeOut();
+      }
     },
 
     creatingFleet: function(){

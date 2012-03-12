@@ -19,7 +19,6 @@ $(function(){
     },
 
     removeOne: function( model ) {
-      console.log( "ShipsView.removeOne", model.id );
       model.trigger( "s2c:remove:from_planet" );
     },
 

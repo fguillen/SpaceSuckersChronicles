@@ -8,7 +8,7 @@ $(function(){
     },
 
     anySelected: function(){
-      return selected().size > 0;
+      return this.selected().length > 0;
     },
 
     selected: function(){

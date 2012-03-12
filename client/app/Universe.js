@@ -13,13 +13,18 @@ $(function(){
     },
 
     synch: function(){
-      this.fetch();
+      this.refresh();
 
       var _self = this;
       this.interval =
         setInterval(function() {
-          _self.fetch();
+          _self.refresh();
         }, 1000);
+    },
+
+    refresh: function(opts){
+      console.log( "Refresh Universe..." );
+      this.fetch(opts);
     },
 
     pause: function(){

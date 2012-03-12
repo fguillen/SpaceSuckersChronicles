@@ -37,6 +37,7 @@ a {
 
 .planet {
   position: absolute;
+  cursor: pointer
 }
 
 .planet h1 {
@@ -80,6 +81,7 @@ a {
 
 .fleet {
   position: absolute;
+  cursor: pointer;
 }
 
 .fleet h1 {
@@ -118,7 +120,7 @@ a {
 
 .panel-info {
   box-sizing: border-box;
-  padding: 30px 20px 0px 40px;
+  padding: 30px 20px 30px 40px;
   background-color: white;
   position: absolute;
 
@@ -188,7 +190,7 @@ a {
   margin-left: 10px;
 }
 
-.panel-info .navy ul li.selected {
+.panel-info .navy ul li.selected h1 {
   font-weight: bold;
 }
 
@@ -196,11 +198,11 @@ a {
   margin-top: 10px;
 }
 
-.panel-info .navy .ship {
+.panel-info.planet-info .navy .ship {
   cursor: pointer;
 }
 
-.panel-info .navy .ship:before {
+.panel-info .navy .ship h1:before {
   content:"♆";
 }
 

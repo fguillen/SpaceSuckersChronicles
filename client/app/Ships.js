@@ -11,6 +11,10 @@ $(function(){
       return result;
     },
 
+    anySelected: function(){
+      return this.selected().length > 0;
+    },
+
     get_by_ids: function( ids ){
       var result =
         this.filter( function( ship ){
