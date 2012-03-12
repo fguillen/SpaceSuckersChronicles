@@ -123,17 +123,18 @@ a {
   position: absolute;
 
   right: -400px;
-  /*right: 0px;*/
   top: 0px;
   bottom: 0px;
   width: 400px;
   border-left: 8px solid black;
+  overflow: auto;
 }
 
 .panel-info > h1 {
   margin-left: -20px;
   font-size: 40px;
   font-family: 'Asap', sans-serif;
+
 }
 
 .panel-info .info {

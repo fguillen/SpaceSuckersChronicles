@@ -46,7 +46,16 @@
 
 <!-- TEMPLATES -->
 
-<script type="text/template" id="planet-ship"><%= id %></script>
+<script type="text/template" id="ship">
+  <div>
+    <%= id %>
+    <dl class="details">
+      <dt>Level</dt><dd><span><%= level %></span></dd>
+      <dt>Life</dt><dd><span><%= life %></span>♈</dd>
+      <dt>Status</dt><dd><span><%= status %></span></dd>
+    </dl>
+  </div>
+</script>
 
 <script type="text/template" id="planet">
   <h1><%= id %></h1>
@@ -62,7 +71,6 @@
   <h1>Planet <span><%= id %></h1>
   <div class="info">
     <dl class="details">
-      <dt>Nivel</dt><dd><span>XX</span></dd>
       <dt>Black Stuff</dt><dd><span><%= black_stuff %></span></dd>
       <dt>Position</dt><dd><span>⩟<%= position[0] %> ⩠<%= position[1] %></span></dd>
       <dt>Defense</dt><dd><span>10 missiles</span></dd>
@@ -123,11 +131,6 @@
   <div class="constructions">
     <div class="construction navy">
       <h1>Navy</h1>
-      <ul class="details">
-        <% ships.each( function( ship ){ %>
-          <li class="ship"><%= ship.get( "id" ) %></li>
-        <% }); %>
-      </ul>
     </div>
   </div>
 

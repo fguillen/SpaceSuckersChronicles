@@ -1,7 +1,7 @@
 $(function(){
   App.ShipView = Backbone.View.extend({
     tagName: 'li',
-    template: _.template( $("#planet-ship").html() ),
+    template: _.template( $("#ship").html() ),
 
     attributes: {
       "class": "ship"
@@ -18,7 +18,13 @@ $(function(){
     initialize: function(opts){
       this.ship = opts.ship;
       this.ship.on( "change:selected", this.updateSelected, this );
+      this.ship.on( "change" , this.refresh, this );
       this.ship.on( "s2c:remove:from_planet", this.remove, this );
+    },
+
+    refresh: function(){
+      this.$el.html( "" );
+      this.render();
     },
 
     updateSelected: function(){

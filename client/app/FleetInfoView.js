@@ -13,6 +13,8 @@ $(function(){
       this.fleet.on( "remove", this.fadeOut, this );
 
       this.$el.attr( "id", "fleet-info-" + this.fleet.id );
+
+      this.shipsView = new App.ShipsView({ ships: this.fleet.ships });
     },
 
     fadeOut: function(){
@@ -32,6 +34,7 @@ $(function(){
 
     render: function(){
       this.$el.html( this.template( this.fleet.toJSON() ) );
+      this.$el.find( ".navy" ).append( this.shipsView.render().el );
 
       return this;
     }
