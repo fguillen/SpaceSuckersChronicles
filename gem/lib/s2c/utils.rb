@@ -1,47 +1,41 @@
 module S2C
   module Utils
+    @@last_id = 0
 
-    extend self
+    def self.log( element, message )
+      message =
+        Kernel.sprintf(
+          "(%010d) [%10s] > %s",
+          0,
+          element.id,
+          message
+       )
 
-    def get_random( array )
+      puts message
+    end
+
+    def self.next_id( prefix )
+      @@last_id += 1
+      Kernel.sprintf( "#{prefix}%03d", @@last_id )
+    end
+
+    def self.get_random( array )
       array.sample
     end
 
-    def save_universe( universe, path )
-      File.open( path, "w" ) do |f|
-        f.write JSON.pretty_generate( universe.to_hash )
-      end
-    end
-
-    def remaining_ticks_to_time(remaining_ticks, tick_seconds)
-      seconds = remaining_ticks * tick_seconds
-      Time.now + seconds
-    end
-
-    def planet_distance(planet1, planet2)
+    def self.planet_distance(planet1, planet2)
       Math.sqrt(
         (planet2.position[0] - planet1.position[0]) ** 2 +
         (planet2.position[1] - planet1.position[1]) ** 2
      ).round
     end
 
-    def travel_consume_black_stuff(planet1, planet2, travel_black_stuff)
-      distance = S2C::Utils.planet_distance(planet1, planet2)
-      distance * travel_black_stuff
-    end
-
-    def travel_ticks(planet1, planet2, velocity)
+    def self.travel_ticks(planet1, planet2, velocity)
       distance = S2C::Utils.planet_distance(planet1, planet2)
       (distance / velocity).round
     end
 
-    def process_percent( process_total_ticks, process_remaining_ticks )
-      return 100 if process_total_ticks == 0
-
-      100 - ( ( 100 * process_remaining_ticks ) / process_total_ticks )
-    end
-
-    def feed_universe( universe )
+    def self.feed_universe( universe )
       planet1 = universe.create_planet( [200,10] )
       planet2 = universe.create_planet( [50, 120] )
       planet3 = universe.create_planet( [150, 200] )

@@ -5,46 +5,25 @@ module S2C
     attr_accessor(
       :planets,
       :units,
-      :logs,
-      :status,
-      :tick,
-      :size,
-      :config,
-      :last_id
+      :tick
    )
 
-    def initialize(config, opts = {})
-      @logs     = []
+    def initialize
       @planets  = []
       @units    = []
-      @config   = config
-      @tick     = opts["tick"] || 0 # Universe's time
-      @last_id  = opts["last_id"] || 0
-    end
-
-    def create_planet(position, opts = {})
-      opts = {
-        "id"        => self.generate_id( "X" ),
-        "position"  => position
-      }.merge( opts )
-
-      planet = S2C::Models::Planet.new( self, opts )
-
-      @planets << planet
-
-      planet
+      @tick     = 0 # Universe's time
     end
 
     def cycle
       @tick += 1
 
-      log(self, "Start cycle")
+      S2C::Utils.log( self, "Start cycle" )
 
       @units.each do |unit|
         unit.work
       end
 
-      log(self, "End cycle")
+      S2C::Utils.log( self, "End cycle" )
     end
 
     def start
@@ -56,7 +35,7 @@ module S2C
     end
 
     def run
-      log(self, "Start run")
+      S2C::Utils.log( self, "Start run" )
 
       while(status != :ending)
         time =
@@ -64,7 +43,7 @@ module S2C
             begin
               cycle
             rescue Exception => e
-              log( self, "ERROR: #{e}" )
+              S2C::Utils.log( self, "ERROR: #{e}" )
               puts "XXX: backtrace:"
               puts e.backtrace.join( "\n" )
               raise e
@@ -72,129 +51,24 @@ module S2C
           end
 
         rest_time = config['universe']['tick_seconds'].to_f - time
-        log( self, "Resting #{rest_time * 1000} millisecond" )
+        S2C::Utils.log( self, "Resting #{rest_time * 1000} millisecond" )
         sleep( rest_time )
       end
 
-      log(self, "End run")
+      S2C::Utils.log( self, "End run" )
     end
 
     def id
       'Universe'
     end
 
-    def stats
-      "planets:#{planets.size}"
-    end
-
-    def log(element, message)
-      message =
-        Kernel.sprintf(
-          "(%010d) [%10s] > %s",
-          tick,
-          element.id,
-          message
-       )
-
-      puts "XXX: #{message}"
-
-      @logs << message
-    end
-
-    def print_logs(last_lines = 10)
-      last_lines = logs.size  if last_lines > logs.size
-
-      logs[-(last_lines),last_lines]
-    end
-
-    def ships
-      units.select { |e| e.type == 'ship' }
-    end
-
-    def fleets
-      units.select { |e| e.type == 'fleet' }
-    end
-
     def get_planet(id)
       planets.select { |e| e.id == id }.first
     end
 
-    def get_ship(id)
-      ships.select { |e| e.id == id }.first
+    def get_unit(id)
+      units.select { |e| e.id == id }.first
     end
 
-    def get_fleet(id)
-      fleets.select { |e| e.id == id }.first
-    end
-
-    def generate_id( prefix )
-      @last_id += 1
-      Kernel.sprintf( "#{prefix}%03d", last_id )
-    end
-
-    def to_hash
-      planets_hash = planets.map { |e| e.to_hash }
-      ships_hash   = ships.map { |e| e.to_hash }
-      fleets_hash  = fleets.map { |e| e.to_hash }
-
-      {
-        :planets  => planets_hash,
-        :fleets   => fleets_hash,
-        # :logs     => logs,
-        :status   => status,
-        :tick     => tick,
-        :ships    => ships_hash,
-        :id       => id,
-        :last_id  => last_id
-      }
-    end
-
-    def from_hash( hash )
-      planets =
-        hash["planets"].map do |opts|
-          planet = S2C::Models::Planet.new( self, opts )
-
-          opts["ship_ids"].each do |ship_id|
-            ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
-            ship = S2C::Models::Ship.new( planet, ship_opts )
-
-            planet.units << ship
-            planet.ships << ship
-            self.units << ship
-          end
-
-          self.planets << planet
-        end
-
-      fleets =
-        hash["fleets"].map do |opts|
-          planet = self.get_planet( opts["planet_id"] )
-
-          fleet = S2C::Models::Fleet.new( planet, opts )
-
-          ships =
-            opts["ship_ids"].map do |ship_id|
-              ship_opts = hash["ships"].select{ |e| e["id"] == ship_id }.first
-              ship = S2C::Models::Ship.new( planet, ship_opts )
-            end
-
-          fleet.add_ships( ships )
-
-          self.units.concat( ships )
-          self.units << fleet
-        end
-
-      # FIXME: needed because the circular dependency between planets-fleets-ships in case ship.status = combat
-      ships.select{ |ship| ship.status == "combat" }.each do |ship|
-        ship_opts = hash["ships"].select{ |e| e["id"] == ship.id }.first
-        ship.update_combat_against( ship_opts["combat_against"] )
-      end
-
-      # FIXME: needed because the circular dependency between planets-fleets-ships in case ship.in_fleet
-      ships.each do |ship|
-        ship_opts = hash["ships"].select{ |e| e["id"] == ship.id }.first
-        ship.update_combat_against( ship_opts["combat_against"] )
-      end
-    end
   end
 end
