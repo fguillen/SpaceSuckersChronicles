@@ -19,10 +19,13 @@ class BuilderTest < Test::Unit::TestCase
     destination = S2C::Models::Planet.new( [1, 1] )
     ship        = S2C::Models::Ship.new( planet )
 
+    planet.units = [ship]
+
     fleet = S2C::Builder.fleet( @universe, planet, destination, [ship] )
 
     assert_equal( 1, @universe.units.size )
     assert_equal( fleet.id, @universe.units.first.id )
+    assert_equal( 0, planet.units.size )
   end
 
   def test_ship

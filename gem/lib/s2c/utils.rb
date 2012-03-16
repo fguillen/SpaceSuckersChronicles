@@ -2,18 +2,6 @@ module S2C
   module Utils
     @@last_id = 0
 
-    def self.log( element, message )
-      message =
-        Kernel.sprintf(
-          "(%010d) [%10s] > %s",
-          0,
-          element.id,
-          message
-       )
-
-      puts message
-    end
-
     def self.next_id( prefix )
       @@last_id += 1
       Kernel.sprintf( "#{prefix}%03d", @@last_id )

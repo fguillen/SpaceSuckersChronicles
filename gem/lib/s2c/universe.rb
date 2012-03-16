@@ -14,16 +14,16 @@ module S2C
       @tick     = 0 # Universe's time
     end
 
-    def cycle
+    def step
       @tick += 1
 
-      S2C::Utils.log( self, "Start cycle" )
+      S2C::Utils.log( self, "Start step" )
 
       @units.each do |unit|
         unit.work
       end
 
-      S2C::Utils.log( self, "End cycle" )
+      S2C::Utils.log( self, "End step" )
     end
 
     def start
@@ -41,7 +41,7 @@ module S2C
         time =
           Benchmark.realtime do
             begin
-              cycle
+              step
             rescue Exception => e
               S2C::Utils.log( self, "ERROR: #{e}" )
               puts "XXX: backtrace:"

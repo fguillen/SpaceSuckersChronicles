@@ -15,10 +15,6 @@ module S2C
       end
 
       def start_trip
-        @ships.each do |ship|
-          ship.fleet  = self
-        end
-
         @job =
           S2C::Jobs::Travel.new(
             :unit         => self,
@@ -30,6 +26,8 @@ module S2C
       def end_trip
         S2C::Utils.log( self, "Arrived to planet #{destination.id}" )
         @job = nil
+        @destination.units.concat( self.ships )
+        @planet.universe.units.delete( self )
       end
 
       def velocity

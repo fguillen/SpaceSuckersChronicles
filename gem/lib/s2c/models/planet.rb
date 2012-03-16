@@ -2,7 +2,7 @@ module S2C
   module Models
     class Planet
 
-      attr_reader(
+      attr_accessor(
         :universe,
         :id,
         :units,
