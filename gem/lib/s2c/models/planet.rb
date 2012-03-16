@@ -10,9 +10,9 @@ module S2C
      )
 
       def initialize( position )
-        S2C::Utils.log( self, "Creating planet" )
+        S2C::Global.logger.log( self, "Creating planet" )
 
-        @id        = S2C::Utils.next_id( "X" )
+        @id        = S2C::Global.store.next_id( "X" )
         @units     = []
         @position  = position
       end

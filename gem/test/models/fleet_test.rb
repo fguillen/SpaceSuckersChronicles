@@ -28,7 +28,6 @@ class FleetTest < Test::Unit::TestCase
 
     @fleet.start_trip
 
-    assert_equal( @fleet.id,  @fleet.ships.first.fleet.id )
     assert_equal( "job",      @fleet.job )
   end
 end

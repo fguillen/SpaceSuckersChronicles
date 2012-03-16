@@ -10,7 +10,7 @@ module S2C
       )
 
       def initialize(planet)
-        S2C::Utils.log( self, "Starting contruction Construction" )
+        S2C::Global.logger.log( self, "Starting contruction Construction" )
 
         @id     ||= (Time.now.to_i + rand(1000)).to_s
         @planet ||= planet
@@ -19,7 +19,7 @@ module S2C
       end
 
       def work
-        S2C::Utils.log( self, "Working" )
+        S2C::Global.logger.log( self, "Working" )
 
         @job.step if @job
       end

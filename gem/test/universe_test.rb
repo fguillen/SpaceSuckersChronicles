@@ -13,7 +13,7 @@ class UniverseTest < Test::Unit::TestCase
   end
 
 
-  def test_cycle
+  def test_step
     unit1 = mock()
     unit2 = mock()
     unit1.expects( :work )
@@ -22,7 +22,7 @@ class UniverseTest < Test::Unit::TestCase
     @universe.instance_variable_set( :@tick, 1 )
     @universe.instance_variable_set( :@units, [unit1, unit2] )
 
-    @universe.cycle
+    @universe.step
 
     assert_equal(2, @universe.tick)
   end

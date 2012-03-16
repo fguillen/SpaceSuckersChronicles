@@ -24,10 +24,10 @@ module S2C
       end
 
       def end_trip
-        S2C::Utils.log( self, "Arrived to planet #{destination.id}" )
+        S2C::Global.logger.log( self, "Arrived to planet #{destination.id}" )
         @job = nil
         @destination.units.concat( self.ships )
-        @planet.universe.units.delete( self )
+        S2C::Global.store.remove_fleet( self )
       end
 
       def velocity

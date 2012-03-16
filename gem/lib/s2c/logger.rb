@@ -4,11 +4,11 @@ module S2C
       @universe = universe
     end
 
-    def self.log( element, message )
+    def log( element, message )
       message =
         Kernel.sprintf(
           "(%010d) [%10s] > %s",
-          @universer.tick,
+          @universe.tick,
           element.id,
           message
        )

@@ -3,13 +3,13 @@ require_relative '../test_helper'
 class FleetTravelTest < Test::Unit::TestCase
 
   def setup
-    @universe   = S2C::Universe.new
-    @planet1    = S2C::Builder.planet( @universe, [1, 1] )
-    @planet2    = S2C::Builder.planet( @universe, [1, 3] )
+    @universe   = S2C::Global.universe
+    @planet1    = S2C::Global.store.create_planet( [1, 1] )
+    @planet2    = S2C::Global.store.create_planet( [1, 3] )
 
-    @ship1      = S2C::Builder.ship( @universe, @planet1 )
-    @ship2      = S2C::Builder.ship( @universe, @planet1 )
-    @ship3      = S2C::Builder.ship( @universe, @planet1 )
+    @ship1      = S2C::Global.store.create_ship( @planet1 )
+    @ship2      = S2C::Global.store.create_ship( @planet1 )
+    @ship3      = S2C::Global.store.create_ship( @planet1 )
 
     @ship1.stubs( :id ).returns( "ship1" )
     @ship2.stubs( :id ).returns( "ship2" )
@@ -21,7 +21,7 @@ class FleetTravelTest < Test::Unit::TestCase
     assert_equal( 3, @planet1.units.size )
     assert_equal( 0, @planet2.units.size )
 
-    fleet = S2C::Builder.fleet( @universe, @planet1, @planet2, [@ship1, @ship2] )
+    fleet = S2C::Global.store.create_fleet( @planet1, @planet2, [@ship1, @ship2] )
 
     assert_equal( 4, @universe.units.size )
     assert_equal( 1, @planet1.units.size )

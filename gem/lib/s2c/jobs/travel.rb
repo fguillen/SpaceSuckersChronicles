@@ -25,7 +25,7 @@ module S2C
 
       def step
         @ticks_remain -= 1
-        S2C::Utils.log( @unit, "Traveling to #{@destination.id} remains #{@ticks_remain}" )
+        S2C::Global.logger.log( @unit, "Traveling to #{@destination.id} remains #{@ticks_remain}" )
         @unit.send( @callback ) if finish?
       end
 

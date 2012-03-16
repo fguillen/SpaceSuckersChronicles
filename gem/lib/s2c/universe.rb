@@ -17,13 +17,13 @@ module S2C
     def step
       @tick += 1
 
-      S2C::Utils.log( self, "Start step" )
+      S2C::Global.logger.log( self, "Start step" )
 
       @units.each do |unit|
         unit.work
       end
 
-      S2C::Utils.log( self, "End step" )
+      S2C::Global.logger.log( self, "End step" )
     end
 
     def start
@@ -35,7 +35,7 @@ module S2C
     end
 
     def run
-      S2C::Utils.log( self, "Start run" )
+      S2C::Global.logger.log( self, "Start run" )
 
       while(status != :ending)
         time =
@@ -43,7 +43,7 @@ module S2C
             begin
               step
             rescue Exception => e
-              S2C::Utils.log( self, "ERROR: #{e}" )
+              S2C::Global.logger.log( self, "ERROR: #{e}" )
               puts "XXX: backtrace:"
               puts e.backtrace.join( "\n" )
               raise e
@@ -51,11 +51,11 @@ module S2C
           end
 
         rest_time = config['universe']['tick_seconds'].to_f - time
-        S2C::Utils.log( self, "Resting #{rest_time * 1000} millisecond" )
+        S2C::Global.logger.log( self, "Resting #{rest_time * 1000} millisecond" )
         sleep( rest_time )
       end
 
-      S2C::Utils.log( self, "End run" )
+      S2C::Global.logger.log( self, "End run" )
     end
 
     def id

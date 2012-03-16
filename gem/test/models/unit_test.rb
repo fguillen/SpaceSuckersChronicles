@@ -3,7 +3,7 @@ require_relative "../test_helper"
 class UnitTest < Test::Unit::TestCase
   def setup
     @universe = S2C::Universe.new
-    @planet   = S2C::Builder.planet( @universe, [1, 1] )
+    @planet   = S2C::Global.store.create_planet( [1, 1] )
   end
 
   def test_initialize

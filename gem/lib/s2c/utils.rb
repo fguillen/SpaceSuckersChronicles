@@ -1,12 +1,5 @@
 module S2C
   module Utils
-    @@last_id = 0
-
-    def self.next_id( prefix )
-      @@last_id += 1
-      Kernel.sprintf( "#{prefix}%03d", @@last_id )
-    end
-
     def self.get_random( array )
       array.sample
     end
@@ -15,7 +8,7 @@ module S2C
       Math.sqrt(
         (planet2.position[0] - planet1.position[0]) ** 2 +
         (planet2.position[1] - planet1.position[1]) ** 2
-     ).round
+      ).round
     end
 
     def self.travel_ticks(planet1, planet2, velocity)

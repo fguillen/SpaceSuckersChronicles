@@ -4,13 +4,6 @@ class UtilsTest < Test::Unit::TestCase
   def setup
   end
 
-  def test_next_id
-    S2C::Utils.class_variable_set( :@@last_id, 23 )
-
-    assert_equal( "X024", S2C::Utils.next_id( "X" ) )
-    assert_equal( "X025", S2C::Utils.next_id( "X" ) )
-  end
-
   def test_planet_distance
     planet1 = S2C::Models::Planet.new( [0,0] )
     planet2 = S2C::Models::Planet.new( [0,0] )
