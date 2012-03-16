@@ -20,6 +20,11 @@ body {
   /*font-weight: bold;*/
 }
 
+.card.vertical .sash {
+  width: auto;
+  float: right;
+}
+
 .card.vertical .sash-cell {
   box-sizing: border-box;
   float: left;
@@ -27,6 +32,10 @@ body {
   padding: 5px 0px;
   font-size: 20px;
   text-align: center;
+}
+
+.card.selected {
+  border: 1px solid #521f29;
 }
 
 #wrapper {
@@ -41,6 +50,7 @@ body {
   float: left;
   margin: 10px;
   border: 2px solid #F1F1F2;
+  position: relative;
 }
 
 .shadow {
@@ -89,6 +99,7 @@ body {
 
 .bottom{
   position: absolute;
+  width: 100%;
   bottom: 0px;
 }
 
@@ -128,6 +139,11 @@ body {
 
 #infos {
   float: left;
+}
+
+#navy #controls {
+  clear: both;
+  text-align: right;
 }
 
 #infos #details {
