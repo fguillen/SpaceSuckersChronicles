@@ -1,6 +1,7 @@
 module S2C
   module Models
     class Ship < S2C::Models::Unit
+      ID_PREFIX = "A"
 
       attr_accessor(
         :fleet,

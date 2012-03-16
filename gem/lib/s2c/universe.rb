@@ -62,6 +62,14 @@ module S2C
       'Universe'
     end
 
+    def ships
+      units.select{ |e| e.instance_of? S2C::Models::Ship }
+    end
+
+    def fleets
+      units.select{ |e| e.instance_of? S2C::Models::Fleet }
+    end
+
     def get_planet(id)
       planets.select { |e| e.id == id }.first
     end

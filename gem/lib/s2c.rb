@@ -12,5 +12,6 @@ require_relative 's2c/jobs/base'
 require_relative 's2c/jobs/travel'
 require_relative 's2c/universe'
 require_relative 's2c/global'
+require_relative 's2c/jsoner'
 
 puts "Loaded S2C gem version #{S2C::VERSION}"

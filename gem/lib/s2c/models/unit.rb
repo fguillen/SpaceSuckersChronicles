@@ -1,18 +1,19 @@
 module S2C
   module Models
     class Unit
+      ID_PREFIX = "U"
+
       attr_reader(
         :id,
         :planet,
         :level,
-        :type,
         :job
       )
 
       def initialize(planet)
         S2C::Global.logger.log( self, "Starting contruction Construction" )
 
-        @id     ||= (Time.now.to_i + rand(1000)).to_s
+        @id     ||= S2C::Global.store.next_id( ID_PREFIX )
         @planet ||= planet
         @level  ||= 0
         @job    ||= nil

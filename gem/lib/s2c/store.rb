@@ -2,6 +2,9 @@ require 'benchmark'
 
 module S2C
   class Store
+
+    attr_reader :universe
+
     def initialize( universe )
       @universe = universe
       @last_id = 0
@@ -23,7 +26,7 @@ module S2C
       fleet = S2C::Models::Fleet.new( planet, destination, ships )
 
       ships.each do |ship|
-        ship.fleet  = self
+        ship.fleet = fleet
         planet.units.delete( ship )
       end
 
@@ -45,6 +48,10 @@ module S2C
       @universe.units << ship
 
       ship
+    end
+
+    def to_hash
+
     end
   end
 end

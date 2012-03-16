@@ -1,6 +1,7 @@
 module S2C
   module Models
     class Fleet < S2C::Models::Unit
+      ID_PREFIX = "F"
 
       attr_reader(
         :destination,

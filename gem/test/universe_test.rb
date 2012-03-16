@@ -27,6 +27,16 @@ class UniverseTest < Test::Unit::TestCase
     assert_equal(2, @universe.tick)
   end
 
+  def test_ships
+    fleet  = S2C::Models::Fleet.new( nil, nil, nil )
+    ship1  = S2C::Models::Ship.new( nil )
+    ship2  = S2C::Models::Ship.new( nil )
+
+    @universe.instance_variable_set( :@units, [fleet, ship1, ship2] )
+
+    assert_equal( [ship1, ship2].map( &:id ), @universe.ships.map( &:id ) )
+  end
+
   def test_get_planet
     planet1 = S2C::Models::Planet.new( [1, 1] )
     planet2 = S2C::Models::Planet.new( [1, 1] )
