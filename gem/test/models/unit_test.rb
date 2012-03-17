@@ -2,6 +2,8 @@ require_relative "../test_helper"
 
 class UnitTest < Test::Unit::TestCase
   def setup
+    super
+
     @universe = S2C::Universe.new
     @planet   = S2C::Global.store.create_planet( [1, 1] )
   end
@@ -11,7 +13,6 @@ class UnitTest < Test::Unit::TestCase
 
     assert_not_nil( unit.id )
     assert_equal( @planet,  unit.base )
-    assert_equal( 0,        unit.level )
     assert_equal( nil,      unit.job )
   end
 

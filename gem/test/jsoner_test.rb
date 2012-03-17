@@ -3,6 +3,8 @@ require "json"
 
 class JSONerTest < Test::Unit::TestCase
   def setup
+    super
+
     @universe = S2C::Universe.new
     @store    = S2C::Store.new( @universe )
   end
@@ -21,7 +23,7 @@ class JSONerTest < Test::Unit::TestCase
 
     hash = S2C::JSONer.to_hash( @universe )
 
-    puts S2C::JSONer.to_json( @universe )
+    # puts S2C::JSONer.to_json( @universe )
 
     assert_equal( 2, hash["planets"].size )
     assert_equal( 5, hash["ships"].size )

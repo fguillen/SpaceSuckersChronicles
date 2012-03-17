@@ -70,6 +70,10 @@ module S2C
       units.select{ |e| e.instance_of? S2C::Models::Fleet }
     end
 
+    def planets
+      units.select{ |e| e.instance_of? S2C::Models::Planet }
+    end
+
     def get_planet(id)
       planets.select { |e| e.id == id }.first
     end

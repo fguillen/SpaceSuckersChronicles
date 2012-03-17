@@ -17,7 +17,7 @@ module S2C
 
     def create_planet( position )
       planet = S2C::Models::Planet.new( position )
-      @universe.planets << planet
+      @universe.units << planet
 
       planet
     end
@@ -40,6 +40,7 @@ module S2C
     def remove_fleet( fleet )
       S2C::Global.logger.log( fleet, "Removing..." )
 
+      fleet.job = nil
       @universe.units.delete( fleet )
     end
 
@@ -64,6 +65,10 @@ module S2C
       @universe.units  << ship
 
       ship
+    end
+
+    def reset
+      @universe.units.clear
     end
 
   end

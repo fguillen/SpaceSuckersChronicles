@@ -3,6 +3,8 @@ require "json"
 
 class StoreTest < Test::Unit::TestCase
   def setup
+    super
+
     @universe = S2C::Universe.new
     @store  = S2C::Store.new( @universe )
   end

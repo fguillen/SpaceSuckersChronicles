@@ -3,6 +3,8 @@ require "json"
 
 class UniverseTest < Test::Unit::TestCase
   def setup
+    super
+
     @universe = S2C::Universe.new
   end
 
@@ -41,9 +43,9 @@ class UniverseTest < Test::Unit::TestCase
     planet1 = S2C::Models::Planet.new( [1, 1] )
     planet2 = S2C::Models::Planet.new( [1, 1] )
 
-    @universe.instance_variable_set( :@planets, [planet1, planet2] )
+    @universe.instance_variable_set( :@units, [planet1, planet2] )
 
-    assert_equal( planet2, @universe.get_planet( planet2.id ) )
+    assert_equal( planet2.id, @universe.get_planet( planet2.id ).id )
   end
 
   def test_get_unit

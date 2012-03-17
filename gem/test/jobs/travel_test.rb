@@ -3,6 +3,8 @@ require_relative "../test_helper"
 class TravelTest < Test::Unit::TestCase
 
   def setup
+    super
+
     @planet       = S2C::Models::Planet.new( [1, 1] )
     @destination  = S2C::Models::Planet.new( [1, 2] )
     @unit         = S2C::Models::Unit.new( @planet )

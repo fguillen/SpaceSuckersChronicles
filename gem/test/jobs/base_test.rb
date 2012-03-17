@@ -3,6 +3,8 @@ require_relative "../test_helper"
 class BaseTest < Test::Unit::TestCase
 
   def setup
+    super
+
     @job = S2C::Jobs::Base.new( "unit", "callback" )
   end
 

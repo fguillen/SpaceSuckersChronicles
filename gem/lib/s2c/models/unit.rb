@@ -6,7 +6,6 @@ module S2C
       attr_accessor(
         :id,
         :base,
-        :level,
         :job
       )
 
@@ -15,7 +14,6 @@ module S2C
 
         @id     ||= S2C::Global.store.next_id( ID_PREFIX )
         @base   ||= base
-        @level  ||= 0
         @job    ||= nil
       end
 

@@ -3,6 +3,8 @@ require_relative "../test_helper"
 class CombatTest < Test::Unit::TestCase
 
   def setup
+    super
+
     @planet = S2C::Models::Planet.new( [1, 1] )
     @ship1  = S2C::Models::Ship.new( @planet )
     @ship2  = S2C::Models::Ship.new( @planet )
@@ -91,7 +93,7 @@ class CombatTest < Test::Unit::TestCase
     @ship2.defense = 6
     @ship2.life    = 4
 
-    S2C::Global.expects( :remove_ship).with( @ship2 )
+    S2C::Global.store.expects( :remove_ship ).with( @ship2 )
 
     @combat.hit( @ship1, @ship2 )
   end

@@ -2,6 +2,7 @@ require_relative 'test_helper'
 
 class UtilsTest < Test::Unit::TestCase
   def setup
+    super
   end
 
   def test_planet_distance

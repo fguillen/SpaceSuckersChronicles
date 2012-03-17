@@ -3,6 +3,8 @@ require_relative "../test_helper"
 class FleetTest < Test::Unit::TestCase
 
   def setup
+    super
+
     @planet      = S2C::Models::Planet.new( [1, 1] )
     @destination = S2C::Models::Planet.new( [1, 2] )
     @ship1       = S2C::Models::Ship.new( @planet )

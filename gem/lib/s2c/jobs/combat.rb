@@ -29,8 +29,8 @@ module S2C
 
         S2C::Global.logger.log( unit, "Hit '#{target_unit.id}' with #{result} points" )
 
-        target_unit.life -= result              if( result > 0 )
-        S2C::Global.remove_ship( target_unit )  if( target_unit.life <= 0 )
+        target_unit.life -= result                    if( result > 0 )
+        S2C::Global.store.remove_ship( target_unit )  if( target_unit.life <= 0 )
       end
 
       def random_target_unit

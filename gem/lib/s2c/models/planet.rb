@@ -1,10 +1,9 @@
 module S2C
   module Models
-    class Planet
+    class Planet < S2C::Models::Unit
       ID_PREFIX = "X"
 
       attr_accessor(
-        :id,
         :units,
         :position
       )
@@ -12,9 +11,14 @@ module S2C
       def initialize( position )
         S2C::Global.logger.log( self, "Creating planet" )
 
-        @id        = S2C::Global.store.next_id( ID_PREFIX )
         @units     = []
         @position  = position
+        super( S2C::Global.universe )
+      end
+
+      def after_battle
+        S2C::Global.logger.log( self, "Battle finished" )
+        @job = nil
       end
 
     end

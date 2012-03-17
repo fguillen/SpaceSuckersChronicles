@@ -5,15 +5,17 @@ module S2C
     end
 
     def log( element, message )
-      message =
-        Kernel.sprintf(
-          "(%010d) [%10s] > %s",
-          @universe.tick,
-          element.id,
-          message
-       )
-
+      message = format( element, message )
       puts message
+    end
+
+    def format( element, message )
+      Kernel.sprintf(
+        "(%010d) [%10s] > %s",
+        @universe.tick,
+        element.id,
+        message
+      )
     end
   end
 end

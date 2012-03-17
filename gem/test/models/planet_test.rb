@@ -2,6 +2,8 @@ require_relative "../test_helper"
 
 class PlanetTest < Test::Unit::TestCase
   def setup
+    super
+
     @planet = S2C::Models::Planet.new( [1, 1] )
   end
 

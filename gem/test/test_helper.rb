@@ -3,6 +3,12 @@ require 'mocha'
 require 'ruby-debug'
 require 'delorean'
 
-require_relative '../lib/s2c' 
+require_relative '../lib/s2c'
 
-FIXTURES_PATH = File.expand_path("#{File.dirname(__FILE__)}/fixtures")
+class Test::Unit::TestCase
+  FIXTURES_PATH = File.expand_path("#{File.dirname(__FILE__)}/fixtures")
+
+  def setup
+    S2C::Logger.any_instance.stubs( :log )
+  end
+end
