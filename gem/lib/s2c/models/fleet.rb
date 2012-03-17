@@ -1,7 +1,6 @@
 module S2C
   module Models
     class Fleet < S2C::Models::Unit
-      ID_PREFIX = "F"
 
       attr_reader(
         :destination,
@@ -9,6 +8,8 @@ module S2C
       )
 
       def initialize( planet, destination, units )
+        @id_prefix = "F"
+
         @destination  = destination
         @units        = units
 

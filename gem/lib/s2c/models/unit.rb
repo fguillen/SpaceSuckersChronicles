@@ -1,7 +1,6 @@
 module S2C
   module Models
     class Unit
-      ID_PREFIX = "U"
 
       attr_accessor(
         :id,
@@ -12,7 +11,9 @@ module S2C
       def initialize( base )
         S2C::Global.logger.log( self, "Starting contruction Construction" )
 
-        @id     ||= S2C::Global.store.next_id( ID_PREFIX )
+        @id_prefix ||= "U"
+
+        @id     ||= S2C::Global.store.next_id( @id_prefix )
         @base   ||= base
         @job    ||= nil
       end

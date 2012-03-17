@@ -1,7 +1,6 @@
 module S2C
   module Models
     class Ship < S2C::Models::Unit
-      ID_PREFIX = "A"
 
       attr_accessor(
         :life,
@@ -11,6 +10,8 @@ module S2C
       )
 
       def initialize( base )
+        @id_prefix = "A"
+
         @life     = 10
         @fleet    = nil
         @velocity = 10

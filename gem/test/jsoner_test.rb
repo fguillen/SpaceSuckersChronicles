@@ -6,24 +6,22 @@ class JSONerTest < Test::Unit::TestCase
     super
 
     @universe = S2C::Universe.new
-    @store    = S2C::Store.new( @universe )
+    store    = S2C::Store.new( @universe )
+
+    planet1 = store.create_planet( [1, 1] )
+    planet2 = store.create_planet( [1, 2] )
+
+    ship1   = store.create_ship( planet1 )
+    ship2   = store.create_ship( planet1 )
+    ship3   = store.create_ship( planet1 )
+    ship4   = store.create_ship( planet2 )
+    ship5   = store.create_ship( planet2 )
+
+    fleet   = store.create_fleet( planet1, planet2, [ship2, ship3] )
   end
 
   def test_to_hash
-    planet1 = @store.create_planet( [1, 1] )
-    planet2 = @store.create_planet( [1, 2] )
-
-    ship1   = @store.create_ship( planet1 )
-    ship2   = @store.create_ship( planet1 )
-    ship3   = @store.create_ship( planet1 )
-    ship4   = @store.create_ship( planet2 )
-    ship5   = @store.create_ship( planet2 )
-
-    fleet   = @store.create_fleet( planet1, planet2, [ship2, ship3] )
-
     hash = S2C::JSONer.to_hash( @universe )
-
-    # puts S2C::JSONer.to_json( @universe )
 
     assert_equal( 2, hash["planets"].size )
     assert_equal( 5, hash["ships"].size )
@@ -31,8 +29,12 @@ class JSONerTest < Test::Unit::TestCase
   end
 
   def test_to_json
-    S2C::JSONer.expects( :to_hash ).with( "universe" ).returns( [1, 2] )
+    universe_json = S2C::JSONer.to_json( @universe )
 
-    assert_equal( [1, 2], JSON.parse( S2C::JSONer.to_json( "universe" ) ) )
+    # File.open( "#{FIXTURES}/universe.json", "w" ) do |f|
+    #   f.write universe_json
+    # end
+
+    assert_equal( File.read( "#{FIXTURES}/universe.json" ), universe_json )
   end
 end

@@ -1,7 +1,6 @@
 module S2C
   module Models
     class Planet < S2C::Models::Unit
-      ID_PREFIX = "X"
 
       attr_accessor(
         :units,
@@ -10,6 +9,8 @@ module S2C
 
       def initialize( position )
         S2C::Global.logger.log( self, "Creating planet" )
+
+        @id_prefix = "X"
 
         @units     = []
         @position  = position
