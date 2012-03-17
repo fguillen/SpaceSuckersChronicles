@@ -29,8 +29,7 @@ module S2C
     def self.ship_to_hash( ship )
       {
         "id"         => ship.id,
-        "planet_id"  => ship.planet.id,
-        "fleet_id"   => (ship.fleet ? ship.fleet.id : nil),
+        "base_id"    => ship.base.id,
         "life"       => ship.life,
         "atack"      => ship.atack,
         "defense"    => ship.defense
@@ -40,7 +39,7 @@ module S2C
     def self.fleet_to_hash( fleet )
       {
         "id"             => fleet.id,
-        "planet_id"      => fleet.planet.id,
+        "base_id"        => fleet.base.id,
         "destination_id" => fleet.destination.id
       }
     end

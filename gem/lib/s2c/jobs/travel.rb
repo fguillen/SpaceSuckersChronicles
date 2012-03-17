@@ -1,6 +1,7 @@
 module S2C
   module Jobs
     class Travel < Base
+
       attr_accessor(
         :name,
         :ticks_total,
@@ -15,7 +16,7 @@ module S2C
 
         @ticks_total  =
           S2C::Utils.travel_ticks(
-            @unit.planet,
+            @unit.base,
             @destination,
             1
           )

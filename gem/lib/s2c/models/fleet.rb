@@ -5,12 +5,12 @@ module S2C
 
       attr_reader(
         :destination,
-        :ships
+        :units
       )
 
-      def initialize( planet, destination, ships )
+      def initialize( planet, destination, units )
         @destination  = destination
-        @ships        = ships
+        @units        = units
 
         super( planet )
       end
@@ -27,7 +27,7 @@ module S2C
       def end_trip
         S2C::Global.logger.log( self, "Arrived to planet #{destination.id}" )
         @job = nil
-        @destination.units.concat( self.ships )
+        @destination.units.concat( self.units )
         S2C::Global.store.remove_fleet( self )
       end
 

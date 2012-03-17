@@ -3,18 +3,18 @@ module S2C
     class Unit
       ID_PREFIX = "U"
 
-      attr_reader(
+      attr_accessor(
         :id,
-        :planet,
+        :base,
         :level,
         :job
       )
 
-      def initialize(planet)
+      def initialize( base )
         S2C::Global.logger.log( self, "Starting contruction Construction" )
 
         @id     ||= S2C::Global.store.next_id( ID_PREFIX )
-        @planet ||= planet
+        @base   ||= base
         @level  ||= 0
         @job    ||= nil
       end

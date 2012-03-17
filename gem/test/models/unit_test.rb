@@ -10,7 +10,7 @@ class UnitTest < Test::Unit::TestCase
     unit = S2C::Models::Unit.new( @planet )
 
     assert_not_nil( unit.id )
-    assert_equal( @planet,  unit.planet )
+    assert_equal( @planet,  unit.base )
     assert_equal( 0,        unit.level )
     assert_equal( nil,      unit.job )
   end

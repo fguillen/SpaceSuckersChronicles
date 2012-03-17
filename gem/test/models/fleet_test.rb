@@ -13,10 +13,10 @@ class FleetTest < Test::Unit::TestCase
 
   def test_initialize
     assert_equal( false,            @fleet.id.nil? )
-    assert_equal( @planet.id,       @fleet.planet.id )
+    assert_equal( @planet.id,       @fleet.base.id )
     assert_equal( @destination.id,  @fleet.destination.id )
-    assert_equal( 2,                @fleet.ships.size )
-    assert_equal( @ship1.id,        @fleet.ships.first.id )
+    assert_equal( 2,                @fleet.units.size )
+    assert_equal( @ship1.id,        @fleet.units.first.id )
   end
 
   def test_start_trip

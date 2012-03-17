@@ -26,21 +26,21 @@ class FleetTravelTest < Test::Unit::TestCase
     assert_equal( 4, @universe.units.size )
     assert_equal( 1, @planet1.units.size )
     assert_equal( 0, @planet2.units.size )
-    assert_equal( 2, fleet.ships.size )
+    assert_equal( 2, fleet.units.size )
     assert_equal( 2, fleet.job.ticks_remain )
 
     @universe.step
     assert_equal( 4, @universe.units.size )
     assert_equal( 1, @planet1.units.size )
     assert_equal( 0, @planet2.units.size )
-    assert_equal( 2, fleet.ships.size )
+    assert_equal( 2, fleet.units.size )
     assert_equal( 1, fleet.job.ticks_remain )
 
     @universe.step
     assert_equal( 3, @universe.units.size )
     assert_equal( 1, @planet1.units.size )
     assert_equal( 2, @planet2.units.size )
-    assert_equal( 2, fleet.ships.size )
+    assert_equal( 2, fleet.units.size )
     assert_equal( true, fleet.job.nil? )
   end
 

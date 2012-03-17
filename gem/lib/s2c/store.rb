@@ -22,12 +22,12 @@ module S2C
       planet
     end
 
-    def create_fleet( planet, destination, ships )
-      fleet = S2C::Models::Fleet.new( planet, destination, ships )
+    def create_fleet( planet, destination, units )
+      fleet = S2C::Models::Fleet.new( planet, destination, units )
 
-      ships.each do |ship|
-        ship.fleet = fleet
-        planet.units.delete( ship )
+      units.each do |unit|
+        unit.base.units.delete( unit )
+        unit.base = fleet
       end
 
       fleet.start_trip
@@ -38,20 +38,33 @@ module S2C
     end
 
     def remove_fleet( fleet )
+      S2C::Global.logger.log( fleet, "Removing..." )
+
       @universe.units.delete( fleet )
     end
 
-    def create_ship( planet )
-      ship = S2C::Models::Ship.new( planet )
+    def remove_ship( ship )
+      S2C::Global.logger.log( ship, "Removing..." )
 
-      planet.units   << ship
-      @universe.units << ship
+      @universe.units.delete( ship )
+      ship.base.units.delete( ship )
+
+      if(
+        ship.base.units.empty? &&
+        ship.base.instance_of?( S2C::Models::Fleet )
+      )
+        remove_fleet( ship.base )
+      end
+    end
+
+    def create_ship( base )
+      ship = S2C::Models::Ship.new( base )
+
+      base.units       << ship
+      @universe.units  << ship
 
       ship
     end
 
-    def to_hash
-
-    end
   end
 end

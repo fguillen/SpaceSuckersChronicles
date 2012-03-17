@@ -4,21 +4,20 @@ module S2C
       ID_PREFIX = "A"
 
       attr_accessor(
-        :fleet,
         :life,
         :velocity,
         :atack,
         :defense
       )
 
-      def initialize( planet )
+      def initialize( base )
         @life     = 10
         @fleet    = nil
         @velocity = 10
         @atack    = 10
         @defense  = 5
 
-        super( planet )
+        super( base )
       end
 
     end

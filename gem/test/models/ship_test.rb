@@ -4,7 +4,7 @@ class ShipTest < Test::Unit::TestCase
 
   def setup
     @planet = S2C::Models::Planet.new( [1, 1] )
-    @ship = S2C::Models::Ship.new( @planet )
+    @ship   = S2C::Models::Ship.new( @planet )
   end
 
   def test_initialize
@@ -12,7 +12,7 @@ class ShipTest < Test::Unit::TestCase
     assert_equal( 10,       @ship.life )
     assert_equal( 10,       @ship.atack )
     assert_equal( 5,        @ship.defense )
-    assert_equal( @planet,  @ship.planet)
+    assert_equal( @planet,  @ship.base)
   end
 
 end
