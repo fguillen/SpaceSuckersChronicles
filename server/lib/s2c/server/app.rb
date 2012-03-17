@@ -1,16 +1,17 @@
 module S2C::Server
   class App < Sinatra::Base
-    config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../../config/config.yml")
-    @@universe  = S2C::Universe.new(config)
-    @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
+    # config      = S2C::Config.new("#{File.dirname(__FILE__)}/../../../config/config.yml")
+    @@universe  = S2C::Global.universe
+    # @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
 
-    if( File.exists?( @@db_path ) )
-      hash = JSON.parse( File.read( @@db_path ) )
-      @@universe.from_hash( hash )
-    else
-      S2C::Utils.feed_universe( @@universe )
-    end
+    # if( File.exists?( @@db_path ) )
+    #   hash = JSON.parse( File.read( @@db_path ) )
+    #   @@universe.from_hash( hash )
+    # else
+    #   S2C::Utils.feed_universe( @@universe )
+    # end
 
+    S2C::Utils.feed_universe( @@universe )
     @@universe.start
 
     before do
@@ -24,9 +25,9 @@ module S2C::Server
     end
 
     get "/universe" do
-      S2C::Utils.save_universe( @@universe, @@db_path )
+      # S2C::Utils.save_universe( @@universe, @@db_path )
 
-      JSON.pretty_generate universe.to_hash
+      S2C::JSONer.to_json( @@universe )
     end
 
     post "/fleets" do

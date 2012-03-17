@@ -5,8 +5,6 @@ class FleetTravelToEmptyPlanetTest < Test::Unit::TestCase
   def setup
     super
 
-    S2C::Global.store.reset
-
     @universe   = S2C::Global.universe
     @planet1    = S2C::Global.store.create_planet( [1, 1] )
     @planet2    = S2C::Global.store.create_planet( [1, 3] )

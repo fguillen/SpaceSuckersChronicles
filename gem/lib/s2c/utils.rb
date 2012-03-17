@@ -17,26 +17,27 @@ module S2C
     end
 
     def self.feed_universe( universe )
-      planet1 = universe.create_planet( [200,10] )
-      planet2 = universe.create_planet( [50, 120] )
-      planet3 = universe.create_planet( [150, 200] )
-      planet4 = universe.create_planet( [300, 150] )
-      planet5 = universe.create_planet( [400, 250] )
-      planet6 = universe.create_planet( [500, 200] )
-      planet7 = universe.create_planet( [450, 380] )
-      planet8 = universe.create_planet( [100, 350] )
-      planet9 = universe.create_planet( [260, 420] )
-      planet10 = universe.create_planet( [30, 250] )
-      planet11 = universe.create_planet( [430, 50] )
+      store = S2C::Store.new( universe )
 
-      3.times { planet1.build_ship }
-      3.times { planet2.build_ship }
-      3.times { planet3.build_ship }
-      3.times { planet4.build_ship }
-      3.times { planet5.build_ship }
-      3.times { planet6.build_ship }
-      3.times { planet7.build_ship }
-      3.times { planet8.build_ship }
+      planet1  = store.create_planet( [1, 1] )
+      planet2  = store.create_planet( [1, 2] )
+      planet3  = store.create_planet( [1, 3] )
+      planet4  = store.create_planet( [1, 4] )
+      planet5  = store.create_planet( [2, 1] )
+      planet6  = store.create_planet( [2, 2] )
+      planet7  = store.create_planet( [2, 3] )
+      planet8  = store.create_planet( [2, 4] )
+      planet9  = store.create_planet( [3, 1] )
+      planet10 = store.create_planet( [3, 2] )
+      planet11 = store.create_planet( [3, 3] )
+      planet12 = store.create_planet( [3, 4] )
+
+
+      3.times { store.create_ship( planet1 ) }
+      3.times { store.create_ship( planet2 ) }
+      3.times { store.create_ship( planet3 ) }
+      3.times { store.create_ship( planet4 ) }
+      3.times { store.create_ship( planet5 ) }
 
       universe
     end

@@ -10,5 +10,6 @@ class Test::Unit::TestCase
 
   def setup
     S2C::Logger.any_instance.stubs( :log )
+    S2C::Global.store.reset
   end
 end

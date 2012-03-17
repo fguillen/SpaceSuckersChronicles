@@ -35,4 +35,13 @@ class UtilsTest < Test::Unit::TestCase
     assert_equal( 4, S2C::Utils.travel_ticks( nil, nil, 2 ) )
   end
 
+  def test_feed_universe
+    universe = S2C::Universe.new
+    S2C::Utils.feed_universe( universe )
+
+    assert_equal( 12, universe.planets.size )
+    assert_equal( 15, universe.ships.size )
+    assert_equal( 0, universe.fleets.size )
+  end
+
 end

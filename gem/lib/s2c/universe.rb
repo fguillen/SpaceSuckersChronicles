@@ -9,6 +9,7 @@ module S2C
    )
 
     def initialize
+      @status   = :alive
       @planets  = []
       @units    = []
       @tick     = 0 # Universe's time
@@ -37,7 +38,7 @@ module S2C
     def run
       S2C::Global.logger.log( self, "Start run" )
 
-      while(status != :ending)
+      while( @status != :ending )
         time =
           Benchmark.realtime do
             begin
@@ -50,7 +51,7 @@ module S2C
             end
           end
 
-        rest_time = config['universe']['tick_seconds'].to_f - time
+        rest_time = 1 - time
         S2C::Global.logger.log( self, "Resting #{rest_time * 1000} millisecond" )
         sleep( rest_time )
       end
