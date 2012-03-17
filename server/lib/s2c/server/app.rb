@@ -12,7 +12,7 @@ module S2C::Server
     # end
 
     S2C::Utils.feed_universe( @@universe )
-    @@universe.start
+    # @@universe.start
 
     before do
       headers(

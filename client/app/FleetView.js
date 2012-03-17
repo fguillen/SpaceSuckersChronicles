@@ -17,7 +17,6 @@ $(function(){
     initialize: function(opts){
       this.fleet = opts.fleet;
       this.fleet.on( "change:selected", this.updateSelected, this );
-      this.fleet.on( "change:position", this.updatePosition, this );
       this.fleet.on( "remove", this.fadeOut, this );
 
       this.updateAttributes();
@@ -29,13 +28,7 @@ $(function(){
     },
 
     updateAttributes: function(){
-      this.updatePosition();
       this.updateSelected();
-    },
-
-    updatePosition: function(){
-      this.$el.css({ "left":  (this.fleet.get( "position" )[0] - 5) });
-      this.$el.css({ "top":   (this.fleet.get( "position" )[1] - 5) });
     },
 
     updateSelected: function(){

@@ -3,9 +3,9 @@ $(function(){
     url: "http://localhost:4567/universe",
 
     initialize: function( opts ){
-      this.ships = new App.Ships();
-      this.planets = new App.Planets();
-      this.fleets = new App.Fleets();
+      this.ships    = new App.Ships();
+      this.planets  = new App.Planets();
+      this.fleets   = new App.Fleets();
 
       this.interval;
 
@@ -32,9 +32,9 @@ $(function(){
     },
 
     setup: function(){
-      App.Utils.refreshCollection( this.ships, this.get( "ships" ) );
-      App.Utils.refreshCollection( this.planets, this.get( "planets" ) );
-      App.Utils.refreshCollection( this.fleets, this.get( "fleets" ) );
+      App.Utils.refreshCollection( this.ships,    this.get( "ships" ) );
+      App.Utils.refreshCollection( this.planets,  this.get( "planets" ) );
+      App.Utils.refreshCollection( this.fleets,   this.get( "fleets" ) );
     },
 
     sendFleetToPlanet: function( planetDestination ){

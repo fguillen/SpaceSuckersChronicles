@@ -32,12 +32,16 @@ module S2C
       planet11 = store.create_planet( [3, 3] )
       planet12 = store.create_planet( [3, 4] )
 
+      ship1    = store.create_ship( planet1 )
+      ship2    = store.create_ship( planet1 )
+      ship3    = store.create_ship( planet1 )
 
-      3.times { store.create_ship( planet1 ) }
       3.times { store.create_ship( planet2 ) }
       3.times { store.create_ship( planet3 ) }
       3.times { store.create_ship( planet4 ) }
       3.times { store.create_ship( planet5 ) }
+
+      fleet1 = store.create_fleet( planet1, planet2, [ship1, ship2] )
 
       universe
     end

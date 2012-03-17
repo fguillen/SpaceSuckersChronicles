@@ -1,16 +1,17 @@
 <html>
 <head>
-  <title>Planets</title>
-  <script type="text/javascript" src="./jquery.js"></script>
-  <script type="text/javascript" src="./underscore.js"></script>
-  <script type="text/javascript" src="./backbone.js"></script>
-  <script type="text/javascript" src="./data.js"></script>
-  <script type="text/javascript" src="./maths.js"></script>
+  <title>S2C</title>
+  <script type="text/javascript" src="./libs/jquery.js"></script>
+  <script type="text/javascript" src="./libs/underscore.js"></script>
+  <script type="text/javascript" src="./libs/backbone.js"></script>
+  <script type="text/javascript" src="./libs/data.js"></script>
+  <script type="text/javascript" src="./libs/maths.js"></script>
   <script type="text/javascript" src="./app/App.js"></script>
   <script type="text/javascript" src="./app/ControlsView.js"></script>
   <script type="text/javascript" src="./app/Fleet.js"></script>
   <script type="text/javascript" src="./app/FleetView.js"></script>
   <script type="text/javascript" src="./app/Fleets.js"></script>
+  <script type="text/javascript" src="./app/FleetsView.js"></script>
   <script type="text/javascript" src="./app/Ship.js"></script>
   <script type="text/javascript" src="./app/ShipView.js"></script>
   <script type="text/javascript" src="./app/Ships.js"></script>
@@ -18,22 +19,36 @@
   <script type="text/javascript" src="./app/Planet.js"></script>
   <script type="text/javascript" src="./app/PlanetView.js"></script>
   <script type="text/javascript" src="./app/Planets.js"></script>
+  <script type="text/javascript" src="./app/PlanetsView.js"></script>
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/InfoPanelView.js"></script>
-  <script type="text/javascript" src="./app/MapView.js"></script>
   <script type="text/javascript" src="./app/Universe.js"></script>
   <script type="text/javascript" src="./app/UniverseView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
   <script type="text/javascript" src="./app/LoadGame.js"></script>
 
-
   <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="./reset.css">
-  <link rel="stylesheet" type="text/css" href="./planets.css">
+  <link rel="stylesheet" type="text/css" href="./csss/reset.css">
+  <link rel="stylesheet" type="text/css" href="./csss/planets.css">
 </head>
 <body>
   <div id="wrapper">
+
+    <div id="dashboard">
+      <div id="planets" class="folder shadow cards4">
+        <h1>planets</h1>
+        <ul></ul>
+      </div> <!-- planets -->
+
+      <div id="fleets" class="folder shadow small">
+        <h1>fleets</h1>
+        <ul></ul>
+      </div> <!-- fleets -->
+    </div> <!-- dashboard -->
+
+
+
     <div id="controls">
       <a href="#" id="synch" style="display:none">synch</a>
       <a href="#" id="pause">pause</a>
@@ -58,20 +73,44 @@
 </script>
 
 <script type="text/template" id="planet">
-  <h1><%= id %></h1>
-  <div class="sphere"></div>
+  <div id="<%= id %>" class="planet card vertical">
+    <div class="header">
+      <div id="icon">☐</div>
+      <h1><%= id %></h1>
+    </div>
+    <div id="controls" class="sash bottom">
+      <div id="own" class="sash-cell">20</div>
+      <div id="enemy" class="sash-cell">20</div>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="fleet">
-  <h1><%= id %></h1>
-  <div class="sphere"></div>
+  <div id="<%= id %>" class="fleet card horizontal">
+    <div id="planets">
+      <div id="origin" class="planet">
+        <div id="icon">☐</div>
+        <h1><%= base_id %></h1>
+      </div>
+
+      <div id="destination" class="planet">
+        <div id="icon">☐</div>
+        <h1><%= destination_id %></h1>
+      </div>
+    </div>
+
+    <div id="status" class="sash right">
+        <h1>24</h1>
+        <div id="bar">...</div>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="planet-info">
   <h1>Planet <span><%= id %></h1>
   <div class="info">
     <dl class="details">
-      <dt>Black Stuff</dt><dd><span><%= black_stuff %></span></dd>
+      <dt>Black Stuff</dt><dd><span>black_stuff</span></dd>
       <dt>Position</dt><dd><span>⩟<%= position[0] %> ⩠<%= position[1] %></span></dd>
       <dt>Defense</dt><dd><span>10 missiles</span></dd>
     </dl>
@@ -121,11 +160,11 @@
   <h1>Fleet <span><%= id %></h1>
   <div class="info">
     <dl class="details">
-      <dt>Position</dt><dd><span>⩟<%= position[0] %> ⩠<%= position[1] %></span></dd>
-      <dt>Status</dt><dd><span><%= status %></span></dd>
-      <dt>Origin</dt><dd><span><%= origin.get( "id" ) %></span></dd>
-      <dt>Destination</dt><dd><span><%= destination.get( "id" ) %></span></dd>
-      <dt>Percent</dt><dd><span><%= process_percent %></span></dd>
+      <dt>Position</dt><dd><span>⩟position[0] ⩠position[1]</span></dd>
+      <dt>Status</dt><dd><span>status</span></dd>
+      <dt>Origin</dt><dd><span><%= base_id %></span></dd>
+      <dt>Destination</dt><dd><span><%= destination_id %></span></dd>
+      <dt>Percent</dt><dd><span>process_percent</span></dd>
     </dl>
   </div>
 

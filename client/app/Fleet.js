@@ -12,19 +12,6 @@ $(function(){
 
       this.on( "change:process_percent", this.updatePosition, this );
       this.on( "change:ship_ids", this.updateShips, this );
-
-      this.updatePosition();
-    },
-
-    updatePosition: function(){
-      if( this.get( "status" ) == "traveling" ) {
-        var coordinates = fleetCoordinates( this, App.Game.planets );
-        this.set( "position", [ coordinates["x"], coordinates["y"] ] );
-      } else {
-        var planetX = this.get( "destination" ).get( "position" )[0];
-        var planetY = this.get( "destination" ).get( "position" )[1];
-        this.set( "position", [ planetX, planetY ] );
-      }
     },
 
     updateShips: function(){

@@ -1,0 +1,153 @@
+body {
+  font-family: 'PT Mono', sans-serif;
+  /*font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;*/
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.card.vertical .header #icon,
+#details .header #icon {
+  text-align: center;
+  font-size: 100px;
+  line-height: 80px;
+  text-shadow: 2px 2px 4px #111;
+}
+
+.card.vertical .header h1,
+#details .header h1 {
+  font-size: 26px;
+  text-align: center;
+  /*font-weight: bold;*/
+}
+
+.card.vertical .sash {
+  width: auto;
+  float: right;
+}
+
+.card.vertical .sash-cell {
+  box-sizing: border-box;
+  float: left;
+  width: 50px;
+  padding: 5px 0px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.card.selected {
+  border: 1px solid #521f29;
+}
+
+#wrapper {
+  padding: 20px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.folder{
+  white-space: nowrap;
+  overflow: hidden;
+  float: left;
+  margin: 10px;
+  border: 2px solid #F1F1F2;
+  position: relative;
+}
+
+.shadow {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.folder.cards4 {
+   width: 456px;
+}
+
+.folder.cards3 {
+   width: 343px;
+}
+
+.folder.small {
+  width: 195px;
+}
+
+.folder > h1 {
+  background: #F1F1F2;
+  padding: 15px 15px 10px 15px;
+}
+
+.card {
+  border: 2px solid #F1F1F2;
+  margin: 5px;
+  position: relative;
+  float: left;
+}
+
+.card.vertical {
+  width: 100px;
+  height: 150px;
+}
+
+.card.horizontal {
+  width: 180px;
+  height: 60px;
+}
+
+
+
+.sash {
+  background: #F1F1F2;
+}
+
+.bottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+
+
+
+
+.fleet.card #planets {
+  float: left;
+  text-align: center;
+}
+
+.fleet.card #planets .planet {
+  width: 50px;
+  float: left;
+}
+
+.fleet.card #planets .planet #icon {
+  font-size: 60px;
+  line-height: 40px;
+  text-shadow: 2px 2px 4px #111;
+}
+
+.fleet.card #planets .planet > h1 {
+  font-size: 14px;
+}
+
+.fleet.card #status{
+  width: 80px;
+  height: 50px;
+  float: left;
+  text-align: center;
+  padding: 10px 0px 0px 0px;
+}
+.fleet.card #status h1 {
+  font-size: 35px;
+}
+
+#infos {
+  float: left;
+}
+
+#navy #controls {
+  clear: both;
+  text-align: right;
+}
+
+#infos #details {
+  float: left;
+  width: 100px;
+}
+
