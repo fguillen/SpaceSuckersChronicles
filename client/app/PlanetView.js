@@ -23,6 +23,7 @@ $(function(){
       this.planet.on( "change:x change:y", this.updateAttributes, this );
       this.planet.on( "change:selected", this.updateSelected, this );
       this.planet.on( "change:selectable", this.updateSelectable, this );
+      this.planet.ships.on( "add remove", this.render, this )
 
       this.updateAttributes();
     },
@@ -54,7 +55,8 @@ $(function(){
     },
 
     render: function(){
-      this.$el.html( this.template( this.planet.toJSON() ) );
+      var planetDecorator = new App.PlanetDecorator({ planet: this.planet });
+      this.$el.html( this.template( planetDecorator.toJSON() ) );
       return this;
     }
   });

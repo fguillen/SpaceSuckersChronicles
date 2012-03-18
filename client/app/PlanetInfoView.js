@@ -2,10 +2,6 @@ $(function(){
   App.PlanetInfoView = Backbone.View.extend({
     template  : _.template( $('#planet-info').html() ),
 
-    attributes: {
-      "class": "panel-info planet-info"
-    },
-
     events: {
       "click .create-fleet": "creatingFleet",
       "click .cancel-fleet": "cancelFleet"
@@ -17,8 +13,6 @@ $(function(){
       this.planet.on( "change:blackstuff", this.render, this );
       this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
       this.planet.ships.on( "change:selected", this.updateNavyControls, this );
-
-      this.$el.attr( "id", "planet-info-" + this.planet.id );
 
       this.shipsView = new App.ShipsView({ ships: this.planet.ships });
     },
@@ -40,10 +34,12 @@ $(function(){
 
     creatingFleet: function(){
       this.planet.set( "creatingFleet", true );
+      this.planet.set( "selected", true );
     },
 
     cancelFleet: function(){
       this.planet.set( "creatingFleet", false );
+      this.planet.set( "selected", false );
     },
 
     toggle: function(){
@@ -58,7 +54,7 @@ $(function(){
 
     render: function(){
       this.$el.html( this.template( this.planet.toJSON() ) );
-      this.$el.find( ".navy" ).append( this.shipsView.render().el );
+      this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
 
       return this;
     }

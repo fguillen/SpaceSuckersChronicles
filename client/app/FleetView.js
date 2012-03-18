@@ -19,6 +19,8 @@ $(function(){
       this.fleet.on( "change:selected", this.updateSelected, this );
       this.fleet.on( "remove", this.fadeOut, this );
 
+      this.fleet.ships.on( "add remove", this.render, this );
+
       this.updateAttributes();
     },
 
@@ -40,7 +42,8 @@ $(function(){
     },
 
     render: function(){
-      this.$el.html( this.template( this.fleet.toJSON() ) );
+      var fleetDecorator = new App.FleetDecorator({ fleet: this.fleet });
+      this.$el.html( this.template( fleetDecorator.toJSON() ) );
       return this;
     }
   });

@@ -17,7 +17,6 @@ $(function(){
 
     initialize: function(opts){
       this.ship = opts.ship;
-      this.ship.on( "change:selected", this.updateSelected, this );
       this.ship.on( "change" , this.refresh, this );
       this.ship.on( "s2c:remove:from_planet", this.remove, this );
     },
@@ -27,12 +26,10 @@ $(function(){
       this.render();
     },
 
-    updateSelected: function(){
-      this.$el.toggleClass( "selected", this.ship.get( "selected" ) );
-    },
-
     render: function(){
-      this.$el.html( this.template( this.ship.toJSON() ) );
+      var shipDecorator = new App.ShipDecorator({ ship: this.ship });
+      this.$el.html( this.template( shipDecorator.toJSON() ) );
+      this.$el.find( "div.ship" ).toggleClass( "selected", this.ship.get( "selected" ) );
       return this;
     }
   });

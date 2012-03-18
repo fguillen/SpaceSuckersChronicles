@@ -23,6 +23,7 @@ module S2C
       {
         "id"         => planet.id,
         "position"   => planet.position,
+        "job"        => job_to_hash( planet.job )
       }
     end
 
@@ -32,7 +33,8 @@ module S2C
         "base_id"    => ship.base.id,
         "life"       => ship.life,
         "atack"      => ship.atack,
-        "defense"    => ship.defense
+        "defense"    => ship.defense,
+        "job"        => job_to_hash( ship.job )
       }
     end
 
@@ -40,7 +42,31 @@ module S2C
       {
         "id"             => fleet.id,
         "base_id"        => fleet.base.id,
-        "destination_id" => fleet.destination.id
+        "destination_id" => fleet.destination.id,
+        "job"            => job_to_hash( fleet.job )
+      }
+    end
+
+    def self.job_to_hash( job )
+      puts "XXX: job_to_hash: #{job}"
+      return job_travel_to_hash( job ) if job.instance_of?( S2C::Jobs::Travel )
+      return job_combat_to_hash( job ) if job.instance_of?( S2C::Jobs::Combat )
+      return nil
+    end
+
+    def self.job_travel_to_hash( job )
+      {
+        "type"            => "travel",
+        "ticks_total"     => job.ticks_total,
+        "ticks_remain"    => job.ticks_remain,
+        "destination_id"  => job.destination.id
+      }
+    end
+
+    def self.job_combat_to_hash( job )
+      {
+        "type"          => "combat",
+        "target_ids"    => job.targets.map { |e| e.id }
       }
     end
   end

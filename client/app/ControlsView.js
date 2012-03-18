@@ -1,6 +1,6 @@
 $(function(){
   App.ControlsView = Backbone.View.extend({
-    el: "#controls",
+    el: "#universe-controls",
 
     events: {
       "click #synch": "synch",

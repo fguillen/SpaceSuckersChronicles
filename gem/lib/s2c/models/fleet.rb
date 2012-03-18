@@ -56,7 +56,7 @@ module S2C
         S2C::Global.logger.log( self, "Planet conquered #{destination.id}" )
         @job = nil
         @destination.job = nil
-        @destination.units.concat( self.units )
+        S2C::Global.store.move_units( self.units, @destination )
         S2C::Global.store.remove_fleet( self )
       end
 

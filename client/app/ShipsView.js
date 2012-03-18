@@ -2,10 +2,6 @@ $(function(){
   App.ShipsView = Backbone.View.extend({
     tagName: 'ul',
 
-    attributes: {
-      "class": "details"
-    },
-
     initialize: function(opts){
       this.ships = opts.ships;
       this.ships.bind( 'remove', this.removeOne, this );

@@ -5,12 +5,31 @@ body {
   line-height: 24px;
 }
 
+#universe-controls {
+  position: fixed;
+  top: 0px;
+  padding: 5px 30px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+}
+
+#universe-controls a {
+  color: #111;
+}
+
 .card.vertical .header #icon,
 #details .header #icon {
   text-align: center;
   font-size: 100px;
   line-height: 80px;
   text-shadow: 2px 2px 4px #111;
+}
+
+.card.vertical.ship .header #icon {
+  margin-top: 10px;
+  line-height: 50px
 }
 
 .card.vertical .header h1,
@@ -41,7 +60,7 @@ body {
 #wrapper {
   padding: 20px;
   width: 700px;
-  margin: 0 auto;
+  margin: 10px;
 }
 
 .folder{
@@ -84,6 +103,7 @@ body {
 .card.vertical {
   width: 100px;
   height: 150px;
+  text-align: center;
 }
 
 .card.horizontal {
@@ -91,6 +111,18 @@ body {
   height: 60px;
 }
 
+.percent-bar {
+  width: 60px;
+  height: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 0 auto;
+}
+.percent-value {
+  background-color: black;
+  width: 0%;
+  height: 4px;
+}
 
 
 .sash {
@@ -126,6 +158,8 @@ body {
   font-size: 14px;
 }
 
+
+
 .fleet.card #status{
   width: 80px;
   height: 50px;
@@ -135,6 +169,14 @@ body {
 }
 .fleet.card #status h1 {
   font-size: 35px;
+}
+
+.fleet.card #status #travel {
+  margin-top: 12px;
+}
+
+.ship.card #life{
+  margin-top: 12px;
 }
 
 #infos {

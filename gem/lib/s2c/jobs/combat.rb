@@ -14,12 +14,11 @@ module S2C
       end
 
       def step
-        if finish?
-          @unit.send( @callback )
-          return
-        end
-
         @unit.units.each do |unit|
+          if finish?
+            @unit.send( @callback )
+            return
+          end
           hit( unit, random_target_unit )
         end
       end

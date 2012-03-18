@@ -1,6 +1,6 @@
 $(function(){
   App.InfoPanelView = Backbone.View.extend({
-    el: "#info-panel",
+    el: "#infos ul",
 
     initialize: function(opts){
       this.planets = opts.planets;

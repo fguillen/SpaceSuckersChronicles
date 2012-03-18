@@ -67,6 +67,16 @@ module S2C
       ship
     end
 
+    def move_units( units, destination )
+      S2C::Global.logger.log( destination, "Moving #{units.size} units here" );
+
+      units.each do |unit|
+        unit.base.units.delete( unit )
+        destination.units.push( unit )
+        unit.base = destination
+      end
+    end
+
     def reset
       @universe.units.clear
     end

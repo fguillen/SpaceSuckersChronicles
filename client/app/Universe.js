@@ -19,7 +19,7 @@ $(function(){
       this.interval =
         setInterval(function() {
           _self.refresh();
-        }, 1000);
+        }, 10000);
     },
 
     refresh: function(){
@@ -32,9 +32,9 @@ $(function(){
     },
 
     setup: function(){
-      App.Utils.refreshCollection( this.ships,    this.get( "ships" ) );
       App.Utils.refreshCollection( this.planets,  this.get( "planets" ) );
       App.Utils.refreshCollection( this.fleets,   this.get( "fleets" ) );
+      App.Utils.refreshCollection( this.ships,    this.get( "ships" ) );
     },
 
     sendFleetToPlanet: function( planetDestination ){
