@@ -4,7 +4,8 @@ $(function(){
 
     events: {
       "click #synch": "synch",
-      "click #pause": "pause"
+      "click #pause": "pause",
+      "click #step":  "step"
     },
 
     initialize: function(opts){
@@ -21,6 +22,10 @@ $(function(){
       this.universe.pause();
       this.$el.find("#synch").show();
       this.$el.find("#pause").hide();
+    },
+
+    step: function(){
+      App.Game.refresh();
     }
 
   });

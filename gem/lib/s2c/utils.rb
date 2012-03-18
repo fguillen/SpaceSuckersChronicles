@@ -13,7 +13,11 @@ module S2C
 
     def self.travel_ticks(planet1, planet2, velocity)
       distance = S2C::Utils.planet_distance(planet1, planet2)
-      (distance / velocity).round
+      result = (distance / velocity).round
+
+      puts "XXX: travel_ticks, distance: #{distance}, result: #{result}"
+
+      result
     end
 
     def self.feed_universe( universe )

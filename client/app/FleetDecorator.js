@@ -1,7 +1,8 @@
 $(function(){
   App.FleetDecorator = Backbone.Model.extend({
     initialize: function( opts ){
-      this.fleet = opts.fleet
+      this.fleet = opts.fleet;
+      this.job = this.fleet.get( "job" ) || {};
     },
 
     toJSON: function(){
@@ -9,21 +10,36 @@ $(function(){
         _.extend(
           this.fleet.toJSON(),
           {
-            units_count: this.fleet.ships.size(),
-            travel_percent: this.travelPercent()
+            id:             ( this.fleet.id || "?" ),
+            units_count:    this.fleet.ships.size(),
+            travel_percent: this.travelPercent(),
+            display_travel: this.displayTravel(),
+            display_combat: this.displayCombat(),
           }
         );
 
-      return json
+      return json;
+    },
+
+    displayTravel: function(){
+      if( this.job.type == "travel" ){
+        return "block";
+      } else {
+        return "none";
+      }
+    },
+
+    displayCombat: function(){
+      if( this.job.type == "combat" ){
+        return "block";
+      } else {
+        return "none";
+      }
     },
 
     travelPercent: function(){
-      var job = this.fleet.get( "job" );
-
-      console.log( "travelPercent", job );
-
-      if( job.type == "travel" ){
-        return toPercent( ( job.ticks_total - job.ticks_remain ), job.ticks_total );
+      if( this.job.type == "travel" ){
+        return toPercent( ( this.job.ticks_total - this.job.ticks_remain ), this.job.ticks_total );
       } else {
         return 100;
       }

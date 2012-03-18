@@ -48,7 +48,6 @@ module S2C
     end
 
     def self.job_to_hash( job )
-      puts "XXX: job_to_hash: #{job}"
       return job_travel_to_hash( job ) if job.instance_of?( S2C::Jobs::Travel )
       return job_combat_to_hash( job ) if job.instance_of?( S2C::Jobs::Combat )
       return nil

@@ -13,9 +13,8 @@ $(function(){
           fleets: this.universe.fleets,
         });
 
-      this.infoPanel = new App.InfoPanelView({
-        planets: this.universe.planets,
-        fleets: this.universe.fleets,
+      this.planetInfos = new App.PlanetInfosView({
+        planets: this.universe.planets
       });
     },
 

@@ -638,6 +638,8 @@
     // collection immediately, unless `wait: true` is passed, in which case we
     // wait for the server to agree.
     create: function(model, options) {
+      console.log( "create", options );
+
       var coll = this;
       options = options ? _.clone(options) : {};
       model = this._prepareModel(model, options);

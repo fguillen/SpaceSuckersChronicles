@@ -3,5 +3,6 @@ $(function(){
   new App.UniverseView({ universe: App.Game });
   new App.ControlsView({ universe: App.Game });
 
-  App.Game.synch();
+  // App.Game.synch();
+  App.Game.refresh();
 });

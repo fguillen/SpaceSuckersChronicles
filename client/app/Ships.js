@@ -2,6 +2,15 @@ $(function(){
   App.Ships = Backbone.Collection.extend({
     model: App.Ship,
 
+    initialize: function(){
+      this.on( "app:removed", this.removeModel, this );
+    },
+
+    removeModel: function( model ){
+      console.log( "Ships.removeModel", model );
+      this.remove( model );
+    },
+
     selected: function(){
       var result =
         this.filter( function( ship ){

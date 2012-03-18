@@ -183,9 +183,18 @@ body {
   float: left;
 }
 
+#infos .planet #enemy-fleets {
+  float: left;
+}
+
 #navy #controls {
   clear: both;
   text-align: right;
+  padding-right: 10px;
+}
+
+#navy #controls a {
+  color: black;
 }
 
 #infos #details {

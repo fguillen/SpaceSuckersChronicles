@@ -25,7 +25,7 @@
   <script type="text/javascript" src="./app/PlanetsView.js"></script>
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
-  <script type="text/javascript" src="./app/InfoPanelView.js"></script>
+  <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
   <script type="text/javascript" src="./app/Universe.js"></script>
   <script type="text/javascript" src="./app/UniverseView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
@@ -37,8 +37,9 @@
 </head>
 <body>
   <div id="universe-controls">
-    <a href="#" id="synch" style="display:none">synch</a>
-    <a href="#" id="pause">pause</a>
+    <a href="#" id="synch" onclick="return false;">synch</a>
+    <a href="#" id="pause" style="display:none" onclick="return false;">pause</a>
+    <a href="#" id="step" onclick="return false;">step</a>
   </div>
 
   <div id="wrapper">
@@ -114,8 +115,11 @@
 
     <div id="status" class="sash right">
         <h1><%= units_count %></h1>
-        <div id="travel" class="percent-bar">
+        <div id="travel" class="percent-bar" style="display: <%= display_travel %>">
           <div class="percent-value" style="width:<%= travel_percent %>%" />
+        </div>
+        <div id="combat" style="display: <%= display_combat %>">
+          combat
         </div>
     </div>
   </div>
@@ -132,9 +136,8 @@
 
     <div id="navy" class="folder shadow cards3">
       <h1>navy</h1>
-      <ul></ul>
 
-      <div id="controls" class="">
+      <div id="controls" class="sash">
         <div class="sash-cell">
           <a href="#" class="create-fleet" style="display:none" onclick="return false;">Send Fleet</a>
           <a href="#" class="cancel-fleet" style="display:none" onclick="return false;">Cancel Fleet</a>
@@ -142,65 +145,18 @@
       </div>
     </div> <!-- navy -->
 
-    <div class="enemy folder shadow cards3">
-      <h1>enemy</h1>
-
-      <div id="A001" class="ship card vertical">
-        <div class="header">
-
-          <div id="icon">▻</div>
-          <h1>A001</h1>
-        </div>
-
-        <div id="forces" class="sash bottom">
-          <div id="atack" class="sash-cell">123</div>
-          <div id="defense" class="sash-cell">223</div>
-        </div>
-      </div> <!-- ship -->
-
-    </div> <!-- navy -->
-
-    <div class="enemy folder shadow cards3">
-      <h1>enemy comming</h1>
-
-      <div id="A001" class="ship card vertical">
-        <div class="header">
-
-          <div id="icon">▻</div>
-          <h1>A001</h1>
-        </div>
-
-        <div id="forces" class="sash bottom">
-          <div id="atack" class="sash-cell">123</div>
-          <div id="defense" class="sash-cell">223</div>
-        </div>
-      </div> <!-- ship -->
-
-    </div> <!-- navy -->
+    <div id="enemy-fleets">
+      <ul></ul>
+    </div> <!-- enemy-fleets -->
 
   </div> <!-- planet-info -->
 </script>
 
 <script type="text/template" id="fleet-info">
-  <h1>Fleet <span><%= id %></span></h1>
-  <div class="info">
-    <dl class="details">
-      <dt>Position</dt><dd><span>⩟position[0] ⩠position[1]</span></dd>
-      <dt>Status</dt><dd><span>status</span></dd>
-      <dt>Origin</dt><dd><span><%= base_id %></span></dd>
-      <dt>Destination</dt><dd><span><%= destination_id %></span></dd>
-      <dt>Percent</dt><dd><span>process_percent</span></dd>
-    </dl>
-  </div>
-
-  <div class="constructions">
-    <div class="construction navy">
-      <h1>Navy</h1>
-    </div>
-  </div>
-
-  <div class="controls">
-  </div>
+  <div id="<%= id %>" class="enemy-fleet folder shadow cards3">
+    <h1><%= id %></h1>
+    <ul></ul>
+  </div> <!-- enemy -->
 </script>
 
 

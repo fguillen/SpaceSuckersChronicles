@@ -19,7 +19,7 @@ $(function(){
       this.interval =
         setInterval(function() {
           _self.refresh();
-        }, 10000);
+        }, 1000);
     },
 
     refresh: function(){
@@ -49,15 +49,18 @@ $(function(){
           return ship.get( "id" )
         });
 
-      this.fleets.create({
-        planet_id:        planetOrigin.id,
-        traveling_to:     planetDestination.id,
-        process_percent:  0,
-        ship_ids:         ship_ids,
-        status:           "traveling"
-      }, {
-        wait: true
-      });
+      console.log( "creatingFleet" );
+      this.fleets.create(
+        {
+          base_id:         planetOrigin.id,
+          destination_id:  planetDestination.id,
+          ship_ids:        ship_ids
+        },
+        {
+          wait: true
+        }
+      );
+      console.log( "creatingFleet:END" );
 
       planetOrigin.set( "creatingFleet", false );
     },

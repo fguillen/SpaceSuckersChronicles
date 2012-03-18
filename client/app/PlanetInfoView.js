@@ -1,5 +1,6 @@
 $(function(){
   App.PlanetInfoView = Backbone.View.extend({
+    tagName   : "li",
     template  : _.template( $('#planet-info').html() ),
 
     events: {
@@ -14,17 +15,23 @@ $(function(){
       this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
       this.planet.ships.on( "change:selected", this.updateNavyControls, this );
 
+      this.planet.enemyFleets.on( "all", this.render, this );
+
       this.shipsView = new App.ShipsView({ ships: this.planet.ships });
     },
 
     updateNavyControls: function(){
+      var _self = this;
+
       if( this.planet.ships.anySelected() && !this.planet.get( "creatingFleet" ) ){
-        this.$el.find( ".create-fleet" ).fadeIn();
-        this.$el.find( ".cancel-fleet" ).fadeOut();
+        this.$el.find( ".cancel-fleet" ).fadeOut( "fast", function(){
+          _self.$el.find( ".create-fleet" ).fadeIn();
+        } );
 
       } else if( this.planet.ships.anySelected() && this.planet.get( "creatingFleet" ) ){
-        this.$el.find( ".create-fleet" ).fadeOut();
-        this.$el.find( ".cancel-fleet" ).fadeIn();
+        this.$el.find( ".create-fleet" ).fadeOut( "fast", function(){
+          _self.$el.find( ".cancel-fleet" ).fadeIn();
+        } );
 
       } else {
         this.$el.find( ".create-fleet" ).fadeOut();
@@ -53,8 +60,15 @@ $(function(){
     },
 
     render: function(){
+      console.log( "PlanetInfoView.render" );
       this.$el.html( this.template( this.planet.toJSON() ) );
       this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
+
+      var _self = this;
+      this.planet.enemyFleets.each( function( fleet ){
+        var view = new App.FleetInfoView({ fleet: fleet });
+        _self.$el.find( "#enemy-fleets ul" ).append( view.render().el );
+      });
 
       return this;
     }

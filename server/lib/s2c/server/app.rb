@@ -11,11 +11,9 @@ module S2C::Server
     #   S2C::Utils.feed_universe( @@universe )
     # end
 
-    puts "XXX: feed_universe"
     S2C::Utils.feed_universe( @@universe )
     # @@universe.start
 
-    puts "XXX: feed_universe: END #{Time.now}"
 
     before do
       headers(
@@ -28,26 +26,20 @@ module S2C::Server
     end
 
     get "/universe" do
-      puts "XXX: get universe #{Time.now}"
-      # S2C::Utils.save_universe( @@universe, @@db_path )
-
-      result = "ok" # S2C::JSONer.to_json( @@universe )
-
-      puts "XXX: get universe: END #{Time.now}"
-
-      result
+      @@universe.step
+      S2C::JSONer.to_json( @@universe )
     end
 
     post "/fleets" do
       data = JSON.parse( request.body.read )
 
-      planet = universe.get_planet( data["planet_id"] )
-      planet_destination = universe.get_planet( data["traveling_to"] )
+      planet = universe.get_planet( data["base_id"] )
+      planet_destination = universe.get_planet( data["destination_id"] )
       ships = data["ship_ids"].map { |ship_id| universe.get_unit( ship_id ) }
 
       fleet = S2C::Global.store.create_fleet( planet, planet_destination, ships )
 
-      "ok"
+      JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
     end
 
     def universe

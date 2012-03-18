@@ -17,6 +17,8 @@ $(function(){
       var model_ids_to_remove   = _( model_ids ).difference( model_ids_to_keep )
 
       _( model_ids_to_remove ).each( function( model_id_to_remove ){
+        var model = collection.get( model_id_to_remove );
+        model.trigger( "app:removed", model );
         collection.remove( model_id_to_remove );
       });
     },

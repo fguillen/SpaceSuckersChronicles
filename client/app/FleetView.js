@@ -16,12 +16,10 @@ $(function(){
 
     initialize: function(opts){
       this.fleet = opts.fleet;
-      this.fleet.on( "change:selected", this.updateSelected, this );
       this.fleet.on( "remove", this.fadeOut, this );
 
-      this.fleet.ships.on( "add remove", this.render, this );
-
-      this.updateAttributes();
+      this.fleet.on( "change", this.render, this );
+      this.fleet.ships.on( "all", this.render, this );
     },
 
     fadeOut: function(){
@@ -29,19 +27,8 @@ $(function(){
       this.$el.fadeOut( "slow", function() { _self.remove() } );
     },
 
-    updateAttributes: function(){
-      this.updateSelected();
-    },
-
-    updateSelected: function(){
-      if( this.fleet.get( "selected" ) ){
-        this.$el.addClass( "selected" );
-      } else {
-        this.$el.removeClass( "selected" );
-      }
-    },
-
     render: function(){
+      console.log( "FleetView.render", this.fleet.ships.size() );
       var fleetDecorator = new App.FleetDecorator({ fleet: this.fleet });
       this.$el.html( this.template( fleetDecorator.toJSON() ) );
       return this;

@@ -36,8 +36,6 @@ $(function(){
 
     changeSelected: function( model, val, opts ){
       if( val ){
-        App.Game.fleets.deselectAll();
-
         this.each( function( e ){
           if( e != model && e.get( "selected" ) ) {
             e.set( "selected", false );
