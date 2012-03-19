@@ -2,7 +2,11 @@ $(function(){
   App.Game = new App.Universe();
   new App.UniverseView({ universe: App.Game });
   new App.ControlsView({ universe: App.Game });
+  App.Navigator = new App.Router();
 
   // App.Game.synch();
   App.Game.refresh();
+
+  Backbone.history.start();
+
 });

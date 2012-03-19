@@ -42,6 +42,7 @@ $(function(){
     creatingFleet: function(){
       this.planet.set( "creatingFleet", true );
       this.planet.set( "selected", true );
+      App.Navigator.navigate( "dashboard", {trigger: true} );
     },
 
     cancelFleet: function(){

@@ -1,7 +1,7 @@
 body {
 
-  /*font-family: 'Ropa Sans', sans-serif;*/
-  font-family: 'PT Mono', sans-serif;
+  font-family: 'Ropa Sans', sans-serif;
+  /*font-family: 'PT Mono', sans-serif;*/
   /*font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;*/
   font-size: 16px;
   line-height: 24px;
@@ -21,7 +21,41 @@ body {
   color: #111;
 }
 
-.card.vertical .header #icon,
+.card {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card .reverse {
+  display: none;
+  background-color: rgba(241, 241, 242, 0.9);
+  color: black;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  white-space: normal;
+  padding: 90% 5px 0px 5px;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+/*.card:hover .reverse {
+  display: block;
+}*/
+
+.card:hover .header #icon {
+  font-size: 110px;
+  text-shadow: 3px 3px 6px #111;
+}
+
+.card:active .header #icon {
+  font-size: 90px;
+  text-shadow: 1px 1px 2px #111;
+}
+
+.card .header #icon,
 #details .header #icon {
   text-align: center;
   font-size: 100px;
@@ -42,14 +76,13 @@ body {
 }
 
 .card.vertical .sash {
-  width: auto;
+  width: 98px;
   float: right;
 }
 
 .card.vertical .sash-cell {
-  box-sizing: border-box;
   float: left;
-  width: 50px;
+  width: 50%;
   padding: 5px 0px;
   font-size: 20px;
   text-align: center;
@@ -163,7 +196,7 @@ body {
 
 
 .fleet.card #status{
-  width: 80px;
+  width: 78px;
   height: 50px;
   float: left;
   text-align: center;
@@ -203,4 +236,23 @@ body {
   float: left;
   width: 100px;
 }
+
+
+#planets .planet.creating-fleet #creating-fleet,
+#planets .planet.possible-fleet-destination #possible-fleet-destination{
+  display: block;
+}
+
+#planets .planet.creating-fleet:hover .header #icon,
+#planets .planet.possible-fleet-destination:hover .header #icon {
+  font-size: 100px;
+  text-shadow: 2px 2px 3px #111;
+}
+
+#planets .planet.creating-fleet:active .header #icon,
+#planets .planet.possible-fleet-destination:active .header #icon {
+  font-size: 100px;
+  text-shadow: 2px 2px 3px #111;
+}
+
 

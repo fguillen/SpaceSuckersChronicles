@@ -18,5 +18,6 @@ $(function(){
     addAll: function() {
       this.planets.each( $.proxy( this.addOne, this ) );
     },
+
   });
 });

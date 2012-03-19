@@ -3,9 +3,10 @@ $(function(){
     el: "#universe-controls",
 
     events: {
-      "click #synch": "synch",
-      "click #pause": "pause",
-      "click #step":  "step"
+      "click #synch":     "synch",
+      "click #pause":     "pause",
+      "click #step":      "step",
+      "click #dashboard": "dashboard",
     },
 
     initialize: function(opts){
@@ -26,6 +27,10 @@ $(function(){
 
     step: function(){
       App.Game.refresh();
+    },
+
+    dashboard: function(){
+      App.Navigator.navigate( "dashboard", {trigger: true} );
     }
 
   });

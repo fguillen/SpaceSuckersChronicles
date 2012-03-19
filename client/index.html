@@ -30,9 +30,10 @@
   <script type="text/javascript" src="./app/Universe.js"></script>
   <script type="text/javascript" src="./app/UniverseView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
+  <script type="text/javascript" src="./app/Router.js"></script>
   <script type="text/javascript" src="./app/LoadGame.js"></script>
 
-  <!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./csss/reset.css">
   <link rel="stylesheet" type="text/css" href="./csss/planets.css">
 </head>
@@ -41,6 +42,7 @@
     <a href="#" id="synch" onclick="return false;">synch</a>
     <a href="#" id="pause" style="display:none" onclick="return false;">pause</a>
     <a href="#" id="step" onclick="return false;">step</a>
+    <a href="#" id="dashboard" onclick="return false;">dashboard</a>
   </div>
 
   <div id="wrapper">
@@ -88,7 +90,7 @@
 </script>
 
 <script type="text/template" id="planet">
-  <div id="<%= id %>" class="planet card vertical">
+  <div id="<%= id %>" class="planet card vertical <%= creating_fleet_class %> <%= possible_fleet_destination_class %>">
     <div class="header">
       <div id="icon">☐</div>
       <h1><%= id %></h1>
@@ -96,6 +98,12 @@
     <div id="controls" class="sash bottom">
       <div id="own" class="sash-cell"><%= units_count %></div>
       <div id="enemy" class="sash-cell"><%= units_enemy_count %></div>
+    </div>
+    <div id="creating-fleet" class="reverse">
+      Creating fleet
+    </div>
+    <div id="possible-fleet-destination" class="reverse">
+      Send fleet here
     </div>
   </div>
 </script>

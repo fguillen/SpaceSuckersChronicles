@@ -3,45 +3,38 @@ $(function(){
     model: App.Planet,
 
     initialize: function() {
-      this.on( "change:selected", this.changeSelected );
-      this.on( "change:creatingFleet", this.creatingFleet );
+      this.on( "change:creatingFleet", this.changeCreatingFleet );
     },
 
-    anySelected: function(){
-      return this.selected().length > 0;
-    },
-
-    selected: function(){
+    creatingFleet: function(){
       var result =
         this.filter( function( planet ){
-          return planet.get( "selected" );
+          return planet.get( "creatingFleet" );
         });
 
       return result;
     },
 
-    creatingFleet: function( model, val, opts ){
-      this.each( function( e ){
-        if( e != model ) {
-          e.set( "selectable", val );
-        }
-      });
+    anyCreatingFleet: function(){
+      return this.creatingFleet().length > 0;
     },
 
-    deselectAll: function(){
-      this.each( function( e ){
-        e.set( "selected", false );
-      });
-    },
-
-    changeSelected: function( model, val, opts ){
+    changeCreatingFleet: function( model, val, opts ){
       if( val ){
         this.each( function( e ){
-          if( e != model && e.get( "selected" ) ) {
-            e.set( "selected", false );
+          if( e == model ) {
+            e.set( "possibleFleetDestination", false );
+          } else {
+            console.log( "deactiving planet", e.id );
+            e.set( "possibleFleetDestination", true );
+            if( e.get( "creatingFleet" ) ) e.set( "creatingFleet", false );
           }
         });
-      };
+      } else {
+        this.each( function( e ){
+          e.set( "possibleFleetDestination", false );
+        });
+      }
     },
   });
 });

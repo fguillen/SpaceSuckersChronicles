@@ -38,7 +38,7 @@ $(function(){
     },
 
     sendFleetToPlanet: function( planetDestination ){
-      var planetOrigin      = this.planets.selected()[0];
+      var planetOrigin      = this.planets.creatingFleet()[0];
       var planetDestination = planetDestination;
       var ships             = planetOrigin.ships.selected();
 

@@ -4,6 +4,9 @@ $(function(){
       this.set( "selected", false );
       this.ships = new App.Ships( App.Game.ships.get_by_ids( this.get( "ship_ids" ) ) );
       this.enemyFleets = new App.Fleets();
+
+      this.set( "creatingFleet", false );
+      this.set( "possibleFleetDestination", false );
     },
 
     selectToggle: function(){

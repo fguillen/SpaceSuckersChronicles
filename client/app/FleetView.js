@@ -7,11 +7,7 @@ $(function(){
     },
 
     events: {
-      "click": "select"
-    },
-
-    select: function(){
-      this.fleet.selectToggle();
+      "click": "openPlanetInfo"
     },
 
     initialize: function(opts){
@@ -25,6 +21,10 @@ $(function(){
     fadeOut: function(){
       var _self = this;
       this.$el.fadeOut( "slow", function() { _self.remove() } );
+    },
+
+    openPlanetInfo: function(){
+      App.Navigator.navigate( "planet/" + this.fleet.get( "destination_id" ), {trigger: true} );
     },
 
     render: function(){
