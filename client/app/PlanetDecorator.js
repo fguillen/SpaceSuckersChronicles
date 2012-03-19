@@ -10,13 +10,17 @@ $(function(){
           this.planet.toJSON(),
           {
             units_count: this.planet.ships.size(),
-            units_enemy_count: 0,
+            units_enemy_count: this.unitsEnemyCount(),
             creating_fleet_class: this.creatingFleetClass(),
             possible_fleet_destination_class: this.possibleFleetDestinationClass()
           }
         );
 
       return json
+    },
+
+    unitsEnemyCount: function() {
+      return this.planet.enemyFleets.reduce( function( memo, fleet ) { return memo + fleet.ships.size(); }, 0);
     },
 
     creatingFleetClass: function(){
