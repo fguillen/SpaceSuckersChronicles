@@ -67,7 +67,7 @@ $(function(){
       var _self = this;
       this.planet.enemyFleets.each( function( fleet ){
         var view = new App.FleetInfoView({ fleet: fleet });
-        _self.$el.find( "#enemy-fleets ul" ).append( view.render().el );
+        _self.$el.find( "#enemy-fleets > ul" ).append( view.render().el );
       });
 
       return this;
