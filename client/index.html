@@ -33,7 +33,7 @@
   <script type="text/javascript" src="./app/Router.js"></script>
   <script type="text/javascript" src="./app/LoadGame.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="./csss/reset.css">
   <link rel="stylesheet" type="text/css" href="./csss/planets.css">
 </head>
@@ -109,7 +109,7 @@
 </script>
 
 <script type="text/template" id="fleet">
-  <div id="<%= id %>" class="fleet card horizontal">
+  <div id="<%= id %>" class="fleet card horizontal <%= traveling_class %>">
     <div id="planets">
       <div id="origin" class="planet">
         <div id="icon">☐</div>
@@ -124,10 +124,10 @@
 
     <div id="status" class="sash right">
         <h1><%= units_count %></h1>
-        <div id="travel" class="percent-bar" style="display: <%= display_travel %>">
+        <div id="travel" class="percent-bar">
           <div class="percent-value" style="width:<%= travel_percent %>%" />
         </div>
-        <div id="combat" style="display: <%= display_combat %>">
+        <div id="combat">
           combat
         </div>
     </div>
@@ -162,8 +162,8 @@
 </script>
 
 <script type="text/template" id="fleet-info">
-  <div id="<%= id %>" class="enemy-fleet folder shadow cards3">
-    <h1><%= id %></h1>
+  <div id="<%= id %>" class="fleet enemy folder shadow cards3 <%= traveling_class %>">
+    <h1><%= id %> <span id="travel">comming</span><span id="combat">combat</span></h1>
     <ul></ul>
   </div> <!-- enemy -->
 </script>

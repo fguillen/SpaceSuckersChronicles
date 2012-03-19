@@ -13,27 +13,18 @@ $(function(){
             id:             ( this.fleet.id || "?" ),
             units_count:    this.fleet.ships.size(),
             travel_percent: this.travelPercent(),
-            display_travel: this.displayTravel(),
-            display_combat: this.displayCombat(),
+            traveling_class: this.travelingClass(),
           }
         );
 
       return json;
     },
 
-    displayTravel: function(){
+    travelingClass: function(){
       if( this.job.type == "travel" ){
-        return "block";
+        return "traveling";
       } else {
-        return "none";
-      }
-    },
-
-    displayCombat: function(){
-      if( this.job.type == "combat" ){
-        return "block";
-      } else {
-        return "none";
+        return "no-traveling";
       }
     },
 
