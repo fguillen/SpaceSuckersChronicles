@@ -63,8 +63,16 @@ $(function(){
     render: function(){
       console.log( "PlanetInfoView.render" );
       this.$el.html( this.template( this.planet.toJSON() ) );
+
+      // constructions
+      // silo
+      var siloView = new App.SiloView({ silo: this.planet.silo });
+      this.$el.find( "#constructions ul" ).append( siloView.render().el );
+
+      // navy
       this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
 
+      // enemy fleets
       var _self = this;
       this.planet.enemyFleets.each( function( fleet ){
         var view = new App.FleetInfoView({ fleet: fleet });

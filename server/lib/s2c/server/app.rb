@@ -42,6 +42,15 @@ module S2C::Server
       JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
     end
 
+    post "/silo_upgrading" do
+      data = JSON.parse( request.body.read )
+      planet = universe.get_planet( data["base_id"] )
+
+      planet.silo.start_upgrade
+
+      "ok"
+    end
+
     def universe
       @@universe
     end

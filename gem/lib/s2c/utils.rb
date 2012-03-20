@@ -21,29 +21,35 @@ module S2C
     def self.feed_universe( universe )
       store = S2C::Store.new( universe )
 
-      planet1  = store.create_planet( [1, 1] )
-      planet2  = store.create_planet( [1, 2] )
-      planet3  = store.create_planet( [1, 3] )
-      planet4  = store.create_planet( [1, 4] )
-      planet5  = store.create_planet( [2, 1] )
-      planet6  = store.create_planet( [2, 2] )
-      planet7  = store.create_planet( [2, 3] )
-      planet8  = store.create_planet( [2, 4] )
-      planet9  = store.create_planet( [3, 1] )
-      planet10 = store.create_planet( [3, 2] )
-      planet11 = store.create_planet( [3, 3] )
-      planet12 = store.create_planet( [3, 4] )
+      planets = []
 
-      ship1    = store.create_ship( planet1 )
-      ship2    = store.create_ship( planet1 )
-      ship3    = store.create_ship( planet1 )
+      planets[0]  = store.create_planet( [1, 1] )
+      planets[1]  = store.create_planet( [1, 2] )
+      planets[2]  = store.create_planet( [1, 3] )
+      planets[3]  = store.create_planet( [1, 4] )
+      planets[4]  = store.create_planet( [2, 1] )
+      planets[5]  = store.create_planet( [2, 2] )
+      planets[6]  = store.create_planet( [2, 3] )
+      planets[7]  = store.create_planet( [2, 4] )
+      planets[8]  = store.create_planet( [3, 1] )
+      planets[9] = store.create_planet( [3, 2] )
+      planets[10] = store.create_planet( [3, 3] )
+      planets[11] = store.create_planet( [3, 4] )
 
-      3.times { store.create_ship( planet2 ) }
-      3.times { store.create_ship( planet3 ) }
-      3.times { store.create_ship( planet4 ) }
-      3.times { store.create_ship( planet5 ) }
+      planets.each do |planet|
+        store.create_silo( planet )
+      end
 
-      fleet1 = store.create_fleet( planet1, planet2, [ship1, ship2] )
+      ship1    = store.create_ship( planets[0] )
+      ship2    = store.create_ship( planets[0] )
+      ship3    = store.create_ship( planets[0] )
+
+      3.times { store.create_ship( planets[1] ) }
+      3.times { store.create_ship( planets[2] ) }
+      3.times { store.create_ship( planets[3] ) }
+      3.times { store.create_ship( planets[4] ) }
+
+      fleet1 = store.create_fleet( planets[0], planets[1], [ship1, ship2] )
 
       universe
     end

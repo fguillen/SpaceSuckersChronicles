@@ -24,6 +24,9 @@
   <script type="text/javascript" src="./app/PlanetView.js"></script>
   <script type="text/javascript" src="./app/Planets.js"></script>
   <script type="text/javascript" src="./app/PlanetsView.js"></script>
+  <script type="text/javascript" src="./app/Silo.js"></script>
+  <script type="text/javascript" src="./app/SiloDecorator.js"></script>
+  <script type="text/javascript" src="./app/SiloView.js"></script>
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
@@ -134,6 +137,35 @@
   </div>
 </script>
 
+<script type="text/template" id="silo">
+  <div id="<%= id %>" class="construction card bigbox">
+    <div class="header">
+      <div id="icon">⋀</div>
+      <h1>silo</h1>
+    </div>
+    <div id="controls">
+      <div id="stuff" class="data">
+        <span><%= stuff %> </span> stuff
+      </div>
+
+      <div id="capacity" class="percent-bar">
+        <div class="percent-value" style="width:<%= capacity_percent %>%" />
+      </div>
+
+      <div id="level" class="">
+        Level <%= level %>
+        <div id="upgrading" class="percent-bar">
+          <div class="percent-value" style="width:30%" />
+        </div>
+
+        <div class="reverse">
+          upgrade 12355 stuff
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="planet-info">
   <div id="<%= id %>" class="planet folder">
     <div id="details">
@@ -146,34 +178,6 @@
     <div id="constructions" class="folder shadow">
       <h1>constructions</h1>
       <ul>
-        <li>
-          <div id="id" class="construction card bigbox">
-            <div class="header">
-              <div id="icon">⋀</div>
-              <h1>silo</h1>
-            </div>
-            <div id="controls">
-              <div id="stuff" class="data">
-                <span>12.344</span> stuff
-              </div>
-
-              <div id="capacity" class="percent-bar">
-                <div class="percent-value" style="width:30%" />
-              </div>
-
-              <div id="level" class="">
-                Level 5
-                <div id="upgrading" class="percent-bar">
-                  <div class="percent-value" style="width:30%" />
-                </div>
-
-                <div class="reverse">
-                  upgrade 12355 stuff
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
 
         <li>
           <div id="id" class="construction card bigbox">

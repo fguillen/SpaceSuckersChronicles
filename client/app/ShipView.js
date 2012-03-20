@@ -3,10 +3,6 @@ $(function(){
     tagName: 'li',
     template: _.template( $("#ship").html() ),
 
-    attributes: {
-      "class": "ship"
-    },
-
     events: {
       "click": "select"
     },
@@ -17,13 +13,8 @@ $(function(){
 
     initialize: function(opts){
       this.ship = opts.ship;
-      this.ship.on( "change" , this.refresh, this );
+      this.ship.on( "change" , this.render, this );
       this.ship.on( "s2c:remove:from_planet", this.remove, this );
-    },
-
-    refresh: function(){
-      this.$el.html( "" );
-      this.render();
     },
 
     render: function(){
