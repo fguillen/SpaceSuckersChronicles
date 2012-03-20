@@ -1,31 +1,23 @@
 module S2C
   module Jobs
-    class Travel < Base
+    class Upgrade < Base
 
       attr_accessor(
         :ticks_total,
-        :ticks_remain,
-        :destination
+        :ticks_remain
       )
 
       def initialize( opts )
         @unit         = opts[:unit]
         @callback     = opts[:callback]
-        @destination  = opts[:destination]
 
-        @ticks_total  =
-          S2C::Utils.travel_ticks(
-            @unit.base,
-            @destination,
-            0.5
-          )
-
+        @ticks_total  = 100
         @ticks_remain = @ticks_total
       end
 
       def step
         @ticks_remain -= 1
-        S2C::Global.logger.log( @unit, "Traveling to #{@destination.id} remains #{@ticks_remain}" )
+        S2C::Global.logger.log( @unit, "Upgrading, remains #{@ticks_remain}" )
         @unit.send( @callback ) if finish?
       end
 
