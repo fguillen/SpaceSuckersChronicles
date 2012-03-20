@@ -72,7 +72,7 @@
 <!-- TEMPLATES -->
 
 <script type="text/template" id="ship">
-  <div id="<%= id %>" class="ship card vertical">
+  <div id="<%= id %>" class="ship card vertical active">
     <div class="header">
       <div id="icon">▻</div>
       <h1><%= id %></h1>
@@ -90,7 +90,7 @@
 </script>
 
 <script type="text/template" id="planet">
-  <div id="<%= id %>" class="planet card vertical <%= creating_fleet_class %> <%= possible_fleet_destination_class %>">
+  <div id="<%= id %>" class="planet card vertical active <%= creating_fleet_class %> <%= possible_fleet_destination_class %>">
     <div class="header">
       <div id="icon">☐</div>
       <h1><%= id %></h1>
@@ -143,6 +143,35 @@
       </div>
     </div>
 
+    <div id="constructions" class="folder shadow">
+      <h1>constructions</h1>
+      <ul>
+        <li>
+          <div id="id" class="construction card bigbox">
+            <div class="header">
+              <div id="icon">∩</div>
+              <h1>hangar</h1>
+            </div>
+            <div id="controls">
+              <div id="velocity" class="data">
+                <span class="icon">▻<span> each 1234
+              </div>
+              <div id="level" class="">
+                Level 4
+                <div id="upgrading" class="percent-bar">
+                  <div class="percent-value" style="width:30%" />
+                </div>
+
+                <div class="reverse">
+                  upgrade 12355
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
     <div id="navy" class="folder shadow cards3">
       <h1>navy</h1>
 
@@ -153,6 +182,8 @@
         </div>
       </div>
     </div> <!-- navy -->
+
+
 
     <div id="enemy-fleets">
       <ul></ul>

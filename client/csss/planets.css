@@ -23,6 +23,9 @@ body {
 
 .card {
   box-sizing: border-box;
+}
+
+.card.active {
   cursor: pointer;
 }
 
@@ -45,12 +48,12 @@ body {
   display: block;
 }*/
 
-.card:hover .header #icon {
+.card.active:hover .header #icon {
   font-size: 110px;
   text-shadow: 3px 3px 6px #111;
 }
 
-.card:active .header #icon {
+.card.active:active .header #icon {
   font-size: 90px;
   text-shadow: 1px 1px 2px #111;
 }
@@ -69,6 +72,7 @@ body {
 }
 
 .card.vertical .header h1,
+.card.bigbox .header h1,
 #details .header h1 {
   font-size: 26px;
   text-align: center;
@@ -146,6 +150,33 @@ body {
   height: 60px;
 }
 
+.card.bigbox {
+  width: 200px;
+  padding: 10px 0px;
+}
+
+.card.bigbox .header {
+  margin-top: -20px;
+  width: 100px;
+  float: left;
+}
+
+.card.bigbox #controls {
+  text-align: center;
+  float: left;
+}
+
+.card.bigbox:hover #controls #level {
+  position: relative;
+  padding: 5px;
+}
+
+.card.bigbox:hover #controls #level .reverse {
+  padding: 5px;
+  display: block;
+  font-size: 0.8em;
+}
+
 .percent-bar {
   width: 60px;
   height: 4px;
@@ -158,6 +189,8 @@ body {
   width: 0%;
   height: 4px;
 }
+
+
 
 
 .sash {
