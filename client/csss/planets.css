@@ -151,30 +151,45 @@ body {
 }
 
 .card.bigbox {
-  width: 200px;
-  padding: 10px 0px;
+  box-sizing: border-box;
+  width: 220px;
+  padding: 10px 10px 10px 10px;
 }
 
 .card.bigbox .header {
   margin-top: -20px;
-  width: 100px;
+  width: 40%;
   float: left;
 }
 
 .card.bigbox #controls {
+  width: 50%;
   text-align: center;
-  float: left;
+  float: right;
 }
 
-.card.bigbox:hover #controls #level {
+.card.bigbox #controls .data {
+  margin-top: 10px;
+}
+
+.card.bigbox #controls #level {
   position: relative;
   padding: 5px;
 }
 
-.card.bigbox:hover #controls #level .reverse {
+.card.bigbox #controls #level:hover .reverse {
+  font-weight: normal;
   padding: 5px;
   display: block;
   font-size: 0.8em;
+}
+
+
+.card #controls .data {
+}
+
+.card #controls .data span {
+  font-size: 1.3em;
 }
 
 .percent-bar {
