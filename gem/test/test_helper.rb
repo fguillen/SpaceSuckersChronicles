@@ -1,11 +1,12 @@
+require 'simplecov'
 require 'test/unit'
 require 'mocha'
 require 'ruby-debug'
 require 'delorean'
-require 'simplecov'
 
 SimpleCov.start do
   add_filter "/test/"
+  command_name "test"
 end
 
 require_relative '../lib/s2c'

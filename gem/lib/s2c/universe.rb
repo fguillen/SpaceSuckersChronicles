@@ -36,6 +36,7 @@ module S2C
     end
 
     def run
+      xx
       S2C::Global.logger.log( self, "Start run" )
 
       while( @status != :ending )
