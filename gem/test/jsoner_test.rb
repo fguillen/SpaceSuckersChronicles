@@ -11,6 +11,8 @@ class JSONerTest < Test::Unit::TestCase
     planet1 = store.create_planet( [1, 1] )
     planet2 = store.create_planet( [1, 2] )
 
+    silo    = store.create_silo( planet1 )
+
     ship1   = store.create_ship( planet1 )
     ship2   = store.create_ship( planet1 )
     ship3   = store.create_ship( planet1 )

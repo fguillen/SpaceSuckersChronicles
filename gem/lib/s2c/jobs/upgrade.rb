@@ -11,7 +11,7 @@ module S2C
         @unit         = opts[:unit]
         @callback     = opts[:callback]
 
-        @ticks_total  = 100
+        @ticks_total  = 1
         @ticks_remain = @ticks_total
       end
 

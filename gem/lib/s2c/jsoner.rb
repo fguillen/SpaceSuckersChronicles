@@ -23,7 +23,20 @@ module S2C
       {
         "id"         => planet.id,
         "position"   => planet.position,
+        "silo"       => silo_to_hash( planet.silo ),
         "job"        => job_to_hash( planet.job )
+      }
+    end
+
+    def self.silo_to_hash( silo )
+      return {} if silo.nil?
+
+      {
+        "id"        => silo.id,
+        "capacity"  => silo.capacity,
+        "stuff"     => silo.stuff,
+        "level"     => silo.level,
+        "job"       => job_to_hash( silo.job )
       }
     end
 

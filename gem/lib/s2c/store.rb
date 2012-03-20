@@ -22,6 +22,15 @@ module S2C
       planet
     end
 
+    def create_silo( planet )
+      silo = S2C::Models::Silo.new( planet )
+
+      planet.silo = silo
+      @universe.units << silo
+
+      silo
+    end
+
     def create_fleet( planet, destination, units )
       fleet = S2C::Models::Fleet.new( planet, destination, units )
 

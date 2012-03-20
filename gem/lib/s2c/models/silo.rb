@@ -3,14 +3,16 @@ module S2C
     class Silo < S2C::Models::Unit
 
       attr_accessor(
-        :velocity,
+        :capacity,
+        :stuff,
         :level
       )
 
       def initialize( base )
         @id_prefix = "S"
 
-        @velocity = 10
+        @capacity = 10
+        @stuff    = 4
         @level    = 1
 
         super( base )
@@ -25,8 +27,9 @@ module S2C
       end
 
       def end_upgrade
-        @job = nil
-        @level += 1
+        @job      = nil
+        @level    += 1
+        @capacity += 10
       end
 
     end
