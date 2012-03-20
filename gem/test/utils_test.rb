@@ -41,7 +41,7 @@ class UtilsTest < Test::Unit::TestCase
 
     assert_equal( 12, universe.planets.size )
     assert_equal( 15, universe.ships.size )
-    assert_equal( 0, universe.fleets.size )
+    assert_equal( 1, universe.fleets.size )
   end
 
 end

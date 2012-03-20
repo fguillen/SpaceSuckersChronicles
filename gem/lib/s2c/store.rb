@@ -70,7 +70,7 @@ module S2C
     def move_units( units, destination )
       S2C::Global.logger.log( destination, "Moving #{units.size} units here" );
 
-      units.each do |unit|
+      units.dup.each do |unit|
         unit.base.units.delete( unit )
         destination.units.push( unit )
         unit.base = destination
@@ -79,6 +79,7 @@ module S2C
 
     def reset
       @universe.units.clear
+      @last_id = 0
     end
 
   end

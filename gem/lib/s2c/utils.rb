@@ -15,8 +15,6 @@ module S2C
       distance = S2C::Utils.planet_distance(planet1, planet2)
       result = (distance / velocity).round
 
-      puts "XXX: travel_ticks, distance: #{distance}, result: #{result}"
-
       result
     end
 

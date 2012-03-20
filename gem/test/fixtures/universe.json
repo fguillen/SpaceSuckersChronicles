@@ -4,62 +4,75 @@
   },
   "ships": [
     {
-      "id": "A131",
-      "base_id": "X129",
+      "id": "A003",
+      "base_id": "X001",
       "life": 10,
       "atack": 10,
-      "defense": 5
+      "defense": 5,
+      "job": null
     },
     {
-      "id": "A132",
-      "base_id": "F136",
+      "id": "A004",
+      "base_id": "F008",
       "life": 10,
       "atack": 10,
-      "defense": 5
+      "defense": 5,
+      "job": null
     },
     {
-      "id": "A133",
-      "base_id": "F136",
+      "id": "A005",
+      "base_id": "F008",
       "life": 10,
       "atack": 10,
-      "defense": 5
+      "defense": 5,
+      "job": null
     },
     {
-      "id": "A134",
-      "base_id": "X130",
+      "id": "A006",
+      "base_id": "X002",
       "life": 10,
       "atack": 10,
-      "defense": 5
+      "defense": 5,
+      "job": null
     },
     {
-      "id": "A135",
-      "base_id": "X130",
+      "id": "A007",
+      "base_id": "X002",
       "life": 10,
       "atack": 10,
-      "defense": 5
+      "defense": 5,
+      "job": null
     }
   ],
   "planets": [
     {
-      "id": "X129",
+      "id": "X001",
       "position": [
         1,
         1
-      ]
+      ],
+      "job": null
     },
     {
-      "id": "X130",
+      "id": "X002",
       "position": [
         1,
         2
-      ]
+      ],
+      "job": null
     }
   ],
   "fleets": [
     {
-      "id": "F136",
-      "base_id": "X129",
-      "destination_id": "X130"
+      "id": "F008",
+      "base_id": "X001",
+      "destination_id": "X002",
+      "job": {
+        "type": "travel",
+        "ticks_total": 1,
+        "ticks_remain": 1,
+        "destination_id": "X002"
+      }
     }
   ]
 }
