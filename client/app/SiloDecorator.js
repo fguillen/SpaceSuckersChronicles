@@ -1,6 +1,7 @@
 $(function(){
   App.SiloDecorator = Backbone.Model.extend({
     initialize: function( opts ){
+      console.log( "SiloDecorator.initialize", opts );
       this.silo = opts.silo;
     },
 

@@ -1,7 +1,7 @@
 $(function(){
   App.MineView = Backbone.View.extend({
     tagName: 'li',
-    template: _.template( $("#silo").html() ),
+    template: _.template( $("#mine").html() ),
 
     initialize: function(opts){
       console.log( "MineView.initialize", opts );
@@ -11,7 +11,8 @@ $(function(){
     },
 
     render: function(){
-      var mineDecorator = new App.SiloDecorator({ mine: this.mine });
+      var mineDecorator = new App.MineDecorator({ mine: this.mine });
+      console.log( "MineView.render.mineDecorator.toJSON()", mineDecorator.toJSON() );
       this.$el.html( this.template( mineDecorator.toJSON() ) );
       return this;
     }

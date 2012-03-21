@@ -66,7 +66,7 @@ $(function(){
 
       // constructions
       // mine
-      var mine = new App.MineView({ mine: this.planet.mine });
+      var mineView = new App.MineView({ mine: this.planet.mine });
       this.$el.find( "#constructions ul" ).append( mineView.render().el );
 
       // silo

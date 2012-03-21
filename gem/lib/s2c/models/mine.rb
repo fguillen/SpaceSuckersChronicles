@@ -10,7 +10,7 @@ module S2C
       def initialize( base )
         @id_prefix = "M"
 
-        @production = 10
+        @production = 1
         @level      = 1
 
         super( base )

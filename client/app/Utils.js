@@ -5,6 +5,7 @@ $(function(){
       _( collectionJSON ).each( function( modelJSON ) {
         var model = collection.get( modelJSON.id );
         if( model ) {
+          console.log( "modelJSON", model, modelJSON );
           model.set( modelJSON );
         } else {
           collection.add( modelJSON );
