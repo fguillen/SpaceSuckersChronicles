@@ -37,7 +37,9 @@ module S2C
       planets[11] = store.create_planet( [3, 4] )
 
       planets.each do |planet|
-        store.create_silo( planet )
+        silo = store.create_silo( planet )
+        mine = store.create_mine( planet )
+        mine.start_produce
       end
 
       ship1    = store.create_ship( planets[0] )

@@ -27,6 +27,11 @@
   <script type="text/javascript" src="./app/Silo.js"></script>
   <script type="text/javascript" src="./app/SiloDecorator.js"></script>
   <script type="text/javascript" src="./app/SiloView.js"></script>
+
+  <script type="text/javascript" src="./app/Mine.js"></script>
+  <script type="text/javascript" src="./app/MineDecorator.js"></script>
+  <script type="text/javascript" src="./app/MineView.js"></script>
+
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
@@ -166,6 +171,30 @@
   </div>
 </script>
 
+<script type="text/template" id="mine">
+  <div id="<%= id %>" class="construction card bigbox">
+    <div class="header">
+      <div id="icon">⧫</div>
+      <h1>mine</h1>
+    </div>
+    <div id="controls">
+      <div id="velocity" class="data">
+        <span><%= production %></span> stuff/tick
+      </div>
+      <div id="level" class="">
+        Level <%= level %>
+        <div id="upgrading" class="percent-bar">
+          <div class="percent-value" style="width:30%" />
+        </div>
+
+        <div class="reverse">
+          upgrade 12355 stuff
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="planet-info">
   <div id="<%= id %>" class="planet folder">
     <div id="details">
@@ -179,29 +208,6 @@
       <h1>constructions</h1>
       <ul>
 
-        <li>
-          <div id="id" class="construction card bigbox">
-            <div class="header">
-              <div id="icon">⧫</div>
-              <h1>mine</h1>
-            </div>
-            <div id="controls">
-              <div id="velocity" class="data">
-                <span>0.8</span> stuff/tick
-              </div>
-              <div id="level" class="">
-                Level 4
-                <div id="upgrading" class="percent-bar">
-                  <div class="percent-value" style="width:30%" />
-                </div>
-
-                <div class="reverse">
-                  upgrade 12355 stuff
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
 
         <li>
           <div id="id" class="construction card bigbox">

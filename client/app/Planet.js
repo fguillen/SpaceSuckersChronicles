@@ -4,6 +4,7 @@ $(function(){
       this.set( "selected", false );
       this.ships        = new App.Ships();
       this.enemyFleets  = new App.Fleets();
+      this.mine         = new App.Silo( this.get( "mine" ) );
       this.silo         = new App.Silo( this.get( "silo" ) );
 
       this.set( "creatingFleet", false );

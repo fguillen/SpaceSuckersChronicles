@@ -4,7 +4,7 @@
   },
   "ships": [
     {
-      "id": "A004",
+      "id": "A005",
       "base_id": "X001",
       "life": 10,
       "atack": 10,
@@ -12,16 +12,8 @@
       "job": null
     },
     {
-      "id": "A005",
-      "base_id": "F009",
-      "life": 10,
-      "atack": 10,
-      "defense": 5,
-      "job": null
-    },
-    {
       "id": "A006",
-      "base_id": "F009",
+      "base_id": "F010",
       "life": 10,
       "atack": 10,
       "defense": 5,
@@ -29,7 +21,7 @@
     },
     {
       "id": "A007",
-      "base_id": "X002",
+      "base_id": "F010",
       "life": 10,
       "atack": 10,
       "defense": 5,
@@ -37,6 +29,14 @@
     },
     {
       "id": "A008",
+      "base_id": "X002",
+      "life": 10,
+      "atack": 10,
+      "defense": 5,
+      "job": null
+    },
+    {
+      "id": "A009",
       "base_id": "X002",
       "life": 10,
       "atack": 10,
@@ -51,12 +51,24 @@
         1,
         1
       ],
+      "mine": {
+        "id": "M004",
+        "production": 10,
+        "level": 1,
+        "job": {
+          "type": "produce_stuff"
+        }
+      },
       "silo": {
         "id": "S003",
         "capacity": 10,
-        "stuff": 4,
+        "stuff": 0,
         "level": 1,
-        "job": null
+        "job": {
+          "type": "upgrade",
+          "ticks_total": 1,
+          "ticks_remain": 1
+        }
       },
       "job": null
     },
@@ -66,6 +78,8 @@
         1,
         2
       ],
+      "mine": {
+      },
       "silo": {
       },
       "job": null
@@ -73,7 +87,7 @@
   ],
   "fleets": [
     {
-      "id": "F009",
+      "id": "F010",
       "base_id": "X001",
       "destination_id": "X002",
       "job": {

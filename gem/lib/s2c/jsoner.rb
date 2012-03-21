@@ -23,8 +23,20 @@ module S2C
       {
         "id"         => planet.id,
         "position"   => planet.position,
+        "mine"       => mine_to_hash( planet.mine ),
         "silo"       => silo_to_hash( planet.silo ),
         "job"        => job_to_hash( planet.job )
+      }
+    end
+
+    def self.mine_to_hash( mine )
+      return {} if mine.nil?
+
+      {
+        "id"          => mine.id,
+        "production"  => mine.production,
+        "level"       => mine.level,
+        "job"         => job_to_hash( mine.job )
       }
     end
 
@@ -61,9 +73,12 @@ module S2C
     end
 
     def self.job_to_hash( job )
-      return job_travel_to_hash( job ) if job.instance_of?( S2C::Jobs::Travel )
-      return job_combat_to_hash( job ) if job.instance_of?( S2C::Jobs::Combat )
-      return nil
+      return nil                                if job.nil?
+      return job_travel_to_hash( job )          if job.instance_of?( S2C::Jobs::Travel )
+      return job_combat_to_hash( job )          if job.instance_of?( S2C::Jobs::Combat )
+      return job_upgrade_to_hash( job )         if job.instance_of?( S2C::Jobs::Upgrade )
+      return job_produce_stuff_to_hash( job )   if job.instance_of?( S2C::Jobs::ProduceStuff )
+      raise "job type not supported: '#{job.class}'"
     end
 
     def self.job_travel_to_hash( job )
@@ -72,6 +87,20 @@ module S2C
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain,
         "destination_id"  => job.destination.id
+      }
+    end
+
+    def self.job_upgrade_to_hash( job )
+      {
+        "type"            => "upgrade",
+        "ticks_total"     => job.ticks_total,
+        "ticks_remain"    => job.ticks_remain
+      }
+    end
+
+    def self.job_produce_stuff_to_hash( job )
+      {
+        "type"            => "produce_stuff"
       }
     end
 

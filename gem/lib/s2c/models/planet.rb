@@ -5,7 +5,8 @@ module S2C
       attr_accessor(
         :units,
         :position,
-        :silo
+        :silo,
+        :mine
       )
 
       def initialize( position )
@@ -16,6 +17,7 @@ module S2C
         @units     = []
         @position  = position
         @silo      = nil
+        @mine      = nil
 
         super( S2C::Global.universe )
       end

@@ -65,6 +65,10 @@ $(function(){
       this.$el.html( this.template( this.planet.toJSON() ) );
 
       // constructions
+      // mine
+      var mine = new App.MineView({ mine: this.planet.mine });
+      this.$el.find( "#constructions ul" ).append( mineView.render().el );
+
       // silo
       var siloView = new App.SiloView({ silo: this.planet.silo });
       this.$el.find( "#constructions ul" ).append( siloView.render().el );

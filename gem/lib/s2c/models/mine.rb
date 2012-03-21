@@ -1,21 +1,27 @@
 module S2C
   module Models
-    class Silo < S2C::Models::Unit
+    class Mine < S2C::Models::Unit
 
       attr_accessor(
-        :capacity,
-        :stuff,
+        :production,
         :level
       )
 
       def initialize( base )
-        @id_prefix = "S"
+        @id_prefix = "M"
 
-        @capacity = 10
-        @stuff    = 0
-        @level    = 1
+        @production = 10
+        @level      = 1
 
         super( base )
+      end
+
+      def start_produce
+        @job =
+          S2C::Jobs::ProduceStuff.new(
+            :unit     => self,
+            :deposit  => base.silo
+          )
       end
 
       def start_upgrade
@@ -30,14 +36,8 @@ module S2C
         @job      = nil
         @level    += 1
         @capacity += 10
-      end
 
-      def add_stuff( stuff )
-        self.stuff += stuff if !full?
-      end
-
-      def full?
-        stuff >= capacity
+        start_produccing
       end
 
     end
