@@ -37,8 +37,11 @@ module S2C
       planets[11] = store.create_planet( [3, 4] )
 
       planets.each do |planet|
-        silo = store.create_silo( planet )
-        mine = store.create_mine( planet )
+        silo    = store.create_silo( planet )
+        mine    = store.create_mine( planet )
+        hangar  = store.create_hangar( planet )
+        parking = store.create_parking( planet )
+
         mine.start_produce
       end
 
@@ -50,6 +53,8 @@ module S2C
       3.times { store.create_ship( planets[2] ) }
       3.times { store.create_ship( planets[3] ) }
       3.times { store.create_ship( planets[4] ) }
+
+      3.times { planets[0].hangar.build_ship }
 
       fleet1 = store.create_fleet( planets[0], planets[1], [ship1, ship2] )
 

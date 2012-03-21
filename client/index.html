@@ -32,6 +32,14 @@
   <script type="text/javascript" src="./app/MineDecorator.js"></script>
   <script type="text/javascript" src="./app/MineView.js"></script>
 
+  <script type="text/javascript" src="./app/Hangar.js"></script>
+  <script type="text/javascript" src="./app/HangarDecorator.js"></script>
+  <script type="text/javascript" src="./app/HangarView.js"></script>
+
+  <script type="text/javascript" src="./app/Parking.js"></script>
+  <script type="text/javascript" src="./app/ParkingDecorator.js"></script>
+  <script type="text/javascript" src="./app/ParkingView.js"></script>
+
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
@@ -195,6 +203,69 @@
   </div>
 </script>
 
+<script type="text/template" id="hangar">
+  <div id="<%= id %>" class="construction card bigbox">
+    <div class="header">
+      <div id="icon">∩</div>
+      <h1>hangar</h1>
+    </div>
+    <div id="controls">
+
+      <div id="velocity" class="data">
+        <span><%= production_ticks %></span> ticks/▻
+        <div id="building" class="percent-bar">
+          <div class="percent-value" style="width:30%" /> <%= building_ships %>
+        </div>
+
+        <div class="reverse">
+          build ▻ 12355 stuff
+        </div>
+      </div>
+
+      <div id="level" class="">
+        Level <%= level %>
+        <div id="upgrading" class="percent-bar">
+          <div class="percent-value" style="width:30%" />
+        </div>
+
+        <div class="reverse">
+          upgrade 12355 stuff
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="parking">
+  <div id="<%= id %>" class="construction card bigbox">
+    <div class="header">
+      <div id="icon">⋕</div>
+      <h1>parking</h1>
+    </div>
+    <div id="controls">
+
+      <div id="ships" class="data">
+        <span><%= capacity %></span> ▻
+      </div>
+
+      <div id="capacity" class="percent-bar">
+        <div class="percent-value" style="width:<%= capacity_percent %>%" />
+      </div>
+
+      <div id="level" class="data">
+        Level <%= level %>
+        <div id="upgrading" class="percent-bar" style="display: none">
+          <div class="percent-value" style="width:30%" />
+        </div>
+
+        <div class="reverse">
+          upgrade 12355 stuff
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="planet-info">
   <div id="<%= id %>" class="planet folder">
     <div id="details">
@@ -206,64 +277,7 @@
 
     <div id="constructions" class="folder shadow">
       <h1>constructions</h1>
-      <ul>
-
-
-        <li>
-          <div id="id" class="construction card bigbox">
-            <div class="header">
-              <div id="icon">⋕</div>
-              <h1>parking</h1>
-            </div>
-            <div id="controls">
-
-              <div id="ships" class="data">
-                <span>24</span> ▻
-              </div>
-
-              <div id="capacity" class="percent-bar">
-                <div class="percent-value" style="width:30%" />
-              </div>
-
-              <div id="level" class="data">
-                Level 4
-                <div id="upgrading" class="percent-bar" style="display: none">
-                  <div class="percent-value" style="width:30%" />
-                </div>
-
-                <div class="reverse">
-                  upgrade 12355 stuff
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div id="id" class="construction card bigbox">
-            <div class="header">
-              <div id="icon">∩</div>
-              <h1>hangar</h1>
-            </div>
-            <div id="controls">
-              <div id="velocity" class="data">
-                <span>1.100</span> ticks/▻
-              </div>
-              <div id="level" class="">
-                Level 4
-                <div id="upgrading" class="percent-bar">
-                  <div class="percent-value" style="width:30%" />
-                </div>
-
-                <div class="reverse">
-                  upgrade 12355 stuff
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-
-      </ul>
+      <ul></ul>
     </div>
 
     <div id="navy" class="folder shadow cards3">

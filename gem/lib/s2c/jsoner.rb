@@ -60,6 +60,7 @@ module S2C
       {
         "id"        => parking.id,
         "capacity"  => parking.capacity,
+        "ships"     => parking.base.units.size,
         "level"     => parking.level,
         "job"       => job_to_hash( parking.job )
       }

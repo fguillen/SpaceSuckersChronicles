@@ -19,9 +19,13 @@ $(function(){
       console.log( "Planet.updateConstructions", this );
       if( !this.mine ) this.mine = new App.Mine();
       if( !this.silo ) this.silo = new App.Silo();
+      if( !this.hangar ) this.hangar = new App.Hangar();
+      if( !this.parking ) this.parking = new App.Parking();
 
       this.mine.set( this.get( "mine" ) );
       this.silo.set( this.get( "silo" ) );
+      this.hangar.set( this.get( "hangar" ) );
+      this.parking.set( this.get( "parking" ) );
     },
 
     selectToggle: function(){

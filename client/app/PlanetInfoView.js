@@ -73,6 +73,14 @@ $(function(){
       var siloView = new App.SiloView({ silo: this.planet.silo });
       this.$el.find( "#constructions ul" ).append( siloView.render().el );
 
+      // hangar
+      var hangarView = new App.HangarView({ hangar: this.planet.hangar });
+      this.$el.find( "#constructions ul" ).append( hangarView.render().el );
+
+      // parking
+      var parkingView = new App.ParkingView({ parking: this.planet.parking });
+      this.$el.find( "#constructions ul" ).append( parkingView.render().el );
+
       // navy
       this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
 
