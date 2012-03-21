@@ -40,6 +40,24 @@ module S2C
       mine
     end
 
+    def create_parking( planet )
+      parking = S2C::Models::Parking.new( planet )
+
+      planet.parking = parking
+      @universe.units << parking
+
+      parking
+    end
+
+    def create_hangar( planet )
+      hangar = S2C::Models::Hangar.new( planet )
+
+      planet.hangar = hangar
+      @universe.units << hangar
+
+      hangar
+    end
+
     def create_fleet( planet, destination, units )
       fleet = S2C::Models::Fleet.new( planet, destination, units )
 

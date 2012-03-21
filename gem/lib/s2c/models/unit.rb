@@ -21,7 +21,7 @@ module S2C
       def work
         S2C::Global.logger.log( self, "Working" )
 
-        @job.step if @job
+        self.job.step if self.job
       end
     end
   end

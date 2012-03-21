@@ -6,7 +6,9 @@ module S2C
         :units,
         :position,
         :silo,
-        :mine
+        :mine,
+        :parking,
+        :hangar
       )
 
       def initialize( position )
@@ -18,6 +20,8 @@ module S2C
         @position  = position
         @silo      = nil
         @mine      = nil
+        @parking   = nil
+        @hangar    = nil
 
         super( S2C::Global.universe )
       end

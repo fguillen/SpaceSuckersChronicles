@@ -23,8 +23,10 @@ module S2C
       {
         "id"         => planet.id,
         "position"   => planet.position,
-        "mine"       => mine_to_hash( planet.mine ),
         "silo"       => silo_to_hash( planet.silo ),
+        "mine"       => mine_to_hash( planet.mine ),
+        "parking"    => parking_to_hash( planet.parking ),
+        "hangar"     => hangar_to_hash( planet.hangar ),
         "job"        => job_to_hash( planet.job )
       }
     end
@@ -49,6 +51,29 @@ module S2C
         "stuff"     => silo.stuff,
         "level"     => silo.level,
         "job"       => job_to_hash( silo.job )
+      }
+    end
+
+    def self.parking_to_hash( parking )
+      return {} if parking.nil?
+
+      {
+        "id"        => parking.id,
+        "capacity"  => parking.capacity,
+        "level"     => parking.level,
+        "job"       => job_to_hash( parking.job )
+      }
+    end
+
+    def self.hangar_to_hash( hangar )
+      return {} if hangar.nil?
+
+      {
+        "id"                => hangar.id,
+        "production_ticks"  => hangar.production_ticks,
+        "building_ships"    => hangar.building_ships.size,
+        "level"             => hangar.level,
+        "job"               => job_to_hash( hangar.job )
       }
     end
 
@@ -78,6 +103,7 @@ module S2C
       return job_combat_to_hash( job )          if job.instance_of?( S2C::Jobs::Combat )
       return job_upgrade_to_hash( job )         if job.instance_of?( S2C::Jobs::Upgrade )
       return job_produce_stuff_to_hash( job )   if job.instance_of?( S2C::Jobs::ProduceStuff )
+      return job_build_ship_to_hash( job )      if job.instance_of?( S2C::Jobs::BuildShip )
       raise "job type not supported: '#{job.class}'"
     end
 
@@ -93,6 +119,14 @@ module S2C
     def self.job_upgrade_to_hash( job )
       {
         "type"            => "upgrade",
+        "ticks_total"     => job.ticks_total,
+        "ticks_remain"    => job.ticks_remain
+      }
+    end
+
+    def self.job_build_ship_to_hash( job )
+      {
+        "type"            => "build_ship",
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain
       }
