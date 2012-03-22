@@ -33,11 +33,11 @@ module S2C
       end
 
       def end_upgrade
-        @job      = nil
-        @level    += 1
-        @capacity += 10
+        @job        = nil
+        @level      += 1
+        @production += 10
 
-        start_produccing
+        start_produce
       end
 
     end

@@ -3,11 +3,19 @@ $(function(){
     tagName: 'li',
     template: _.template( $("#hangar").html() ),
 
+    events: {
+      "click #upgrade": "upgrade",
+    },
+
     initialize: function(opts){
       console.log( "HangarView.initialize", opts );
 
       this.hangar = opts.hangar;
       this.hangar.on( "change" , this.render, this );
+    },
+
+    upgrade: function(){
+      this.hangar.upgrade();
     },
 
     render: function(){

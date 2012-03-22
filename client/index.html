@@ -9,21 +9,26 @@
   <script type="text/javascript" src="./libs/maths.js"></script>
   <script type="text/javascript" src="./app/App.js"></script>
   <script type="text/javascript" src="./app/ControlsView.js"></script>
+  <script type="text/javascript" src="./app/CommandUpgrade.js"></script>
+
   <script type="text/javascript" src="./app/Fleet.js"></script>
   <script type="text/javascript" src="./app/FleetDecorator.js"></script>
   <script type="text/javascript" src="./app/FleetView.js"></script>
   <script type="text/javascript" src="./app/Fleets.js"></script>
   <script type="text/javascript" src="./app/FleetsView.js"></script>
+
   <script type="text/javascript" src="./app/Ship.js"></script>
   <script type="text/javascript" src="./app/ShipDecorator.js"></script>
   <script type="text/javascript" src="./app/ShipView.js"></script>
   <script type="text/javascript" src="./app/Ships.js"></script>
   <script type="text/javascript" src="./app/ShipsView.js"></script>
+
   <script type="text/javascript" src="./app/Planet.js"></script>
   <script type="text/javascript" src="./app/PlanetDecorator.js"></script>
   <script type="text/javascript" src="./app/PlanetView.js"></script>
   <script type="text/javascript" src="./app/Planets.js"></script>
   <script type="text/javascript" src="./app/PlanetsView.js"></script>
+
   <script type="text/javascript" src="./app/Silo.js"></script>
   <script type="text/javascript" src="./app/SiloDecorator.js"></script>
   <script type="text/javascript" src="./app/SiloView.js"></script>
@@ -43,6 +48,7 @@
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
+
   <script type="text/javascript" src="./app/Universe.js"></script>
   <script type="text/javascript" src="./app/UniverseView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
@@ -150,8 +156,32 @@
   </div>
 </script>
 
+<script type="text/template" id="mine">
+  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
+    <div class="header">
+      <div id="icon">⧫</div>
+      <h1>mine</h1>
+    </div>
+    <div id="controls">
+      <div id="velocity" class="data">
+        <span><%= production %></span> stuff/tick
+      </div>
+      <div id="level" class="">
+        Level <%= level %>
+        <div id="upgrading" class="percent-bar">
+          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
+        </div>
+
+        <div class="reverse">
+          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="silo">
-  <div id="<%= id %>" class="construction card bigbox">
+  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
     <div class="header">
       <div id="icon">⋀</div>
       <h1>silo</h1>
@@ -168,43 +198,21 @@
       <div id="level" class="">
         Level <%= level %>
         <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:30%" />
+          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
         </div>
 
         <div class="reverse">
-          upgrade 12355 stuff
+          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
         </div>
       </div>
     </div>
   </div>
 </script>
 
-<script type="text/template" id="mine">
-  <div id="<%= id %>" class="construction card bigbox">
-    <div class="header">
-      <div id="icon">⧫</div>
-      <h1>mine</h1>
-    </div>
-    <div id="controls">
-      <div id="velocity" class="data">
-        <span><%= production %></span> stuff/tick
-      </div>
-      <div id="level" class="">
-        Level <%= level %>
-        <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:30%" />
-        </div>
 
-        <div class="reverse">
-          upgrade 12355 stuff
-        </div>
-      </div>
-    </div>
-  </div>
-</script>
 
 <script type="text/template" id="hangar">
-  <div id="<%= id %>" class="construction card bigbox">
+  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
     <div class="header">
       <div id="icon">∩</div>
       <h1>hangar</h1>
@@ -225,11 +233,11 @@
       <div id="level" class="">
         Level <%= level %>
         <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:30%" />
+          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
         </div>
 
         <div class="reverse">
-          upgrade 12355 stuff
+          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
         </div>
       </div>
     </div>
@@ -237,7 +245,7 @@
 </script>
 
 <script type="text/template" id="parking">
-  <div id="<%= id %>" class="construction card bigbox">
+  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
     <div class="header">
       <div id="icon">⋕</div>
       <h1>parking</h1>
@@ -255,11 +263,11 @@
       <div id="level" class="data">
         Level <%= level %>
         <div id="upgrading" class="percent-bar" style="display: none">
-          <div class="percent-value" style="width:30%" />
+          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
         </div>
 
         <div class="reverse">
-          upgrade 12355 stuff
+          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
         </div>
       </div>
     </div>

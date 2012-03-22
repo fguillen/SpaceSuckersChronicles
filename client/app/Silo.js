@@ -1,7 +1,7 @@
 $(function(){
   App.Silo = Backbone.Model.extend({
-    initialize: function(opts){
-      console.log( "Silo.initialize", this );
+    upgrade: function(){
+      new App.CommandUpgrade({ unit: this }).save();
     }
   });
 });

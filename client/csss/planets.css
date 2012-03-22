@@ -1,3 +1,5 @@
+/* VERSION: 1 */
+
 body {
 
   font-family: 'Ropa Sans', sans-serif;
@@ -315,4 +317,9 @@ body {
   text-shadow: 2px 2px 3px #111;
 }
 
-
+.construction #upgrading {
+  display: none;
+}
+.construction.upgrading #upgrading {
+  display: block;
+}

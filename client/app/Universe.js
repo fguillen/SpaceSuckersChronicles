@@ -1,6 +1,6 @@
 $(function(){
   App.Universe = Backbone.Model.extend({
-    url: "http://localhost:4567/universe",
+    url: App.RootUrl + "/universe",
 
     initialize: function( opts ){
       this.ships    = new App.Ships();

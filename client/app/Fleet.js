@@ -1,6 +1,6 @@
 $(function(){
   App.Fleet = Backbone.Model.extend({
-    url: "http://localhost:4567/fleets",
+    url: App.RootUrl + "/fleets",
 
     initialize: function(){
       this.on( "change:destination_id", this.updateDestination, this );

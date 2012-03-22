@@ -3,11 +3,19 @@ $(function(){
     tagName: 'li',
     template: _.template( $("#mine").html() ),
 
+    events: {
+      "click #upgrade": "upgrade",
+    },
+
     initialize: function(opts){
       console.log( "MineView.initialize", opts );
 
       this.mine = opts.mine;
       this.mine.on( "change" , this.render, this );
+    },
+
+    upgrade: function(){
+      this.mine.upgrade();
     },
 
     render: function(){

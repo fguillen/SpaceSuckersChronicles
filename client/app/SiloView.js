@@ -3,11 +3,19 @@ $(function(){
     tagName: 'li',
     template: _.template( $("#silo").html() ),
 
+    events: {
+      "click #upgrade": "upgrade",
+    },
+
     initialize: function(opts){
       console.log( "SiloView.initialize", opts );
 
       this.silo = opts.silo;
       this.silo.on( "change" , this.render, this );
+    },
+
+    upgrade: function(){
+      this.silo.upgrade();
     },
 
     render: function(){

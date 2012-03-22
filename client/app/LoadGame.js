@@ -1,3 +1,5 @@
+App.RootUrl = "http://localhost:4567";
+
 $(function(){
   App.Game = new App.Universe();
   new App.UniverseView({ universe: App.Game });

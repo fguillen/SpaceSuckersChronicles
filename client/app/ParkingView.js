@@ -3,11 +3,19 @@ $(function(){
     tagName: 'li',
     template: _.template( $("#parking").html() ),
 
+    events: {
+      "click #upgrade": "upgrade",
+    },
+
     initialize: function(opts){
       console.log( "ParkingView.initialize", opts );
 
       this.parking = opts.parking;
       this.parking.on( "change" , this.render, this );
+    },
+
+    upgrade: function(){
+      this.parking.upgrade();
     },
 
     render: function(){
