@@ -46,6 +46,10 @@ body {
   font-weight: bold;
 }
 
+.card .reverse a {
+  color: black;
+}
+
 /*.card:hover .reverse {
   display: block;
 }*/

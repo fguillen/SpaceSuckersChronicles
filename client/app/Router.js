@@ -7,8 +7,6 @@
       },
 
       dashboard: function() {
-        console.log( "Router.dashboard" );
-
         $("html,body").animate(
           {
             scrollTop: $("#wrapper > #dashboard").offset().top
@@ -19,7 +17,6 @@
       },
 
       planet: function( id ) {
-        console.log( "Router.planet", id );
         $("html,body").animate(
           {
             scrollTop: $("#infos #" + id).offset().top

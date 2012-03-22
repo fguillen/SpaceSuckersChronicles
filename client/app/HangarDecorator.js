@@ -22,13 +22,8 @@ $(function(){
     extraCSSClasses: function(){
       result = "";
 
-      console.log( "HangarDecorator.id", this.hangar.id );
-      console.log( "HangarDecorator.job", this.hangar.get( "job" ) );
-
       if( this.job.type == "upgrade" ) result += "upgrading";
       if( this.job.type == "build_ship" ) result += "building";
-
-      console.log( "HangarDecorator.result", result );
 
       return result;
     },

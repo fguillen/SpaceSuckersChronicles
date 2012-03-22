@@ -25,9 +25,9 @@ module S2C
       end
 
       def end_upgrade
-        @job              = nil
-        @level            += 1
-        @production_ticks /= 2
+        @job      = nil
+        @level    += 1
+        @capacity += 10
       end
 
       def add_ship

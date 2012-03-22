@@ -49,18 +49,13 @@ $(function(){
           return ship.get( "id" )
         });
 
-      console.log( "creatingFleet" );
-      this.fleets.create(
-        {
+      this.fleets.create({
           base_id:         planetOrigin.id,
           destination_id:  planetDestination.id,
           ship_ids:        ship_ids
         },
-        {
-          wait: true
-        }
+        { wait: true }
       );
-      console.log( "creatingFleet:END" );
 
       planetOrigin.set( "creatingFleet", false );
     },

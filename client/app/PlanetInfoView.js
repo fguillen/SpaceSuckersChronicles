@@ -61,7 +61,6 @@ $(function(){
     },
 
     render: function(){
-      console.log( "PlanetInfoView.render" );
       this.$el.html( this.template( this.planet.toJSON() ) );
 
       // constructions

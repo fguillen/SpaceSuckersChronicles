@@ -28,7 +28,6 @@ $(function(){
     },
 
     render: function(){
-      console.log( "FleetView.render", this.fleet.ships.size() );
       var fleetDecorator = new App.FleetDecorator({ fleet: this.fleet });
       this.$el.html( this.template( fleetDecorator.toJSON() ) );
       return this;

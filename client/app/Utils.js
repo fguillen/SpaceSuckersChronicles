@@ -5,7 +5,8 @@ $(function(){
       _( collectionJSON ).each( function( modelJSON ) {
         var model = collection.get( modelJSON.id );
         if( model ) {
-          console.log( "modelJSON", model, modelJSON );
+          console.log( "refreshCollection.model", model.id, model.get( "base_id" ) );
+          console.log( "refreshCollection.modelJSON", modelJSON.id, modelJSON.base_id );
           model.set( modelJSON );
         } else {
           collection.add( modelJSON );

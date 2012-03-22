@@ -8,8 +8,6 @@ $(function(){
     },
 
     initialize: function(opts){
-      console.log( "SiloView.initialize", opts );
-
       this.silo = opts.silo;
       this.silo.on( "change" , this.render, this );
     },

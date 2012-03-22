@@ -27,11 +27,15 @@ module S2C::Server
 
     get "/universe" do
       @@universe.step
-      S2C::JSONer.to_json( @@universe )
+      result = S2C::JSONer.to_json( @@universe )
+      puts result
+      result
     end
 
     post "/fleets" do
       data = JSON.parse( request.body.read )
+
+      puts "XXX: data: #{data}"
 
       planet = universe.get_planet( data["base_id"] )
       planet_destination = universe.get_planet( data["destination_id"] )

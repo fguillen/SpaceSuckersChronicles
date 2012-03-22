@@ -33,7 +33,8 @@ module S2C
       end
 
       def add_stuff( stuff )
-        self.stuff += stuff if !full?
+        self.stuff += stuff
+        self.stuff = capacity if full?
       end
 
       def full?

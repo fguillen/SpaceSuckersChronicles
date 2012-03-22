@@ -7,7 +7,6 @@ $(function(){
     },
 
     removeModel: function( model ){
-      console.log( "Ships.removeModel", model );
       this.remove( model );
     },
 

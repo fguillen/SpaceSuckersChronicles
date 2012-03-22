@@ -8,8 +8,6 @@ $(function(){
     },
 
     initialize: function(opts){
-      console.log( "MineView.initialize", opts );
-
       this.mine = opts.mine;
       this.mine.on( "change" , this.render, this );
     },
@@ -20,7 +18,6 @@ $(function(){
 
     render: function(){
       var mineDecorator = new App.MineDecorator({ mine: this.mine });
-      console.log( "MineView.render.mineDecorator.toJSON()", mineDecorator.toJSON() );
       this.$el.html( this.template( mineDecorator.toJSON() ) );
       return this;
     }

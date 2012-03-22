@@ -17,7 +17,7 @@ module S2C
           S2C::Utils.travel_ticks(
             @unit.base,
             @destination,
-            1
+            0.1
           )
 
         @ticks_remain = @ticks_total

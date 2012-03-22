@@ -25,7 +25,6 @@ $(function(){
           if( e == model ) {
             e.set( "possibleFleetDestination", false );
           } else {
-            console.log( "deactiving planet", e.id );
             e.set( "possibleFleetDestination", true );
             if( e.get( "creatingFleet" ) ) e.set( "creatingFleet", false );
           }
