@@ -12,6 +12,7 @@ $(function(){
           {
             extra_css_classes: this.extraCSSClasses(),
             upgrade_percent: this.upgradePercent(),
+            build_percent: this.buildPercent()
           }
         );
 
@@ -21,13 +22,27 @@ $(function(){
     extraCSSClasses: function(){
       result = "";
 
+      console.log( "HangarDecorator.id", this.hangar.id );
+      console.log( "HangarDecorator.job", this.hangar.get( "job" ) );
+
       if( this.job.type == "upgrade" ) result += "upgrading";
+      if( this.job.type == "build_ship" ) result += "building";
+
+      console.log( "HangarDecorator.result", result );
 
       return result;
     },
 
     upgradePercent: function(){
       if( this.job.type == "upgrade" ){
+        return toPercent( ( this.job.ticks_total - this.job.ticks_remain ), this.job.ticks_total );
+      } else {
+        return 100;
+      }
+    },
+
+    buildPercent: function(){
+      if( this.job.type == "build_ship" ){
         return toPercent( ( this.job.ticks_total - this.job.ticks_remain ), this.job.ticks_total );
       } else {
         return 100;

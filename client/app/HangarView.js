@@ -5,6 +5,7 @@ $(function(){
 
     events: {
       "click #upgrade": "upgrade",
+      "click #build-ship": "buildShip",
     },
 
     initialize: function(opts){
@@ -16,6 +17,11 @@ $(function(){
 
     upgrade: function(){
       this.hangar.upgrade();
+    },
+
+    buildShip: function(){
+      console.log( "HangarView.buildShip" );
+      this.hangar.buildShip();
     },
 
     render: function(){

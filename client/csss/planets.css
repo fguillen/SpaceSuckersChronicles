@@ -1,4 +1,4 @@
-/* VERSION: 1 */
+/* VERSION: 2 */
 
 body {
 
@@ -174,17 +174,20 @@ body {
   margin-top: 10px;
 }
 
-.card.bigbox #controls #level {
+.card.bigbox #controls #level,
+.card.bigbox #controls #velocity {
   position: relative;
   padding: 5px;
 }
 
-.card.bigbox #controls #level:hover .reverse {
+.card.bigbox #controls #level:hover .reverse,
+.card.bigbox #controls #velocity:hover .reverse {
   font-weight: normal;
   padding: 5px;
   display: block;
   font-size: 0.8em;
 }
+
 
 
 .card #controls .data {
@@ -321,5 +324,13 @@ body {
   display: none;
 }
 .construction.upgrading #upgrading {
+  display: block;
+}
+
+#hangar.construction #building {
+  display: none;
+}
+
+#hangar.construction.building #building {
   display: block;
 }

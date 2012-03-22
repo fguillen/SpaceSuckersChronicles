@@ -49,6 +49,13 @@ module S2C::Server
       "ok"
     end
 
+    post "/build_ship/:hangar_id" do
+      unit = universe.get_unit( params[:hangar_id] )
+      unit.build_ship
+
+      "ok"
+    end
+
     def universe
       @@universe
     end

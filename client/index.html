@@ -10,6 +10,7 @@
   <script type="text/javascript" src="./app/App.js"></script>
   <script type="text/javascript" src="./app/ControlsView.js"></script>
   <script type="text/javascript" src="./app/CommandUpgrade.js"></script>
+  <script type="text/javascript" src="./app/CommandBuildShip.js"></script>
 
   <script type="text/javascript" src="./app/Fleet.js"></script>
   <script type="text/javascript" src="./app/FleetDecorator.js"></script>
@@ -157,7 +158,9 @@
 </script>
 
 <script type="text/template" id="mine">
-  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
+  <div id="mine" class="construction card bigbox <%= extra_css_classes %>">
+    <!-- ID: '<%= id %>' -->
+
     <div class="header">
       <div id="icon">⧫</div>
       <h1>mine</h1>
@@ -181,7 +184,9 @@
 </script>
 
 <script type="text/template" id="silo">
-  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
+  <div id="silo" class="construction card bigbox <%= extra_css_classes %>">
+    <!-- ID: '<%= id %>' -->
+
     <div class="header">
       <div id="icon">⋀</div>
       <h1>silo</h1>
@@ -212,7 +217,8 @@
 
 
 <script type="text/template" id="hangar">
-  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
+  <div id="hangar" class="construction card bigbox <%= extra_css_classes %>">
+    <!-- ID: '<%= id %>' -->
     <div class="header">
       <div id="icon">∩</div>
       <h1>hangar</h1>
@@ -221,12 +227,17 @@
 
       <div id="velocity" class="data">
         <span><%= production_ticks %></span> ticks/▻
-        <div id="building" class="percent-bar">
-          <div class="percent-value" style="width:30%" /> <%= building_ships %>
+
+        <div id="building">
+          <div class="percent-bar">
+            <div class="percent-value" style="width:<%= build_percent %>%" />
+          </div>
+
+          <%= building_ships %>
         </div>
 
         <div class="reverse">
-          build ▻ 12355 stuff
+          <a id="build-ship" href="#" onclick="return false;">build ▻</a>
         </div>
       </div>
 
@@ -245,7 +256,9 @@
 </script>
 
 <script type="text/template" id="parking">
-  <div id="<%= id %>" class="construction card bigbox <%= extra_css_classes %>">
+  <div id="parking" class="construction card bigbox <%= extra_css_classes %>">
+    <!-- ID: '<%= id %>' -->
+
     <div class="header">
       <div id="icon">⋕</div>
       <h1>parking</h1>
@@ -262,7 +275,7 @@
 
       <div id="level" class="data">
         Level <%= level %>
-        <div id="upgrading" class="percent-bar" style="display: none">
+        <div id="upgrading" class="percent-bar">
           <div class="percent-value" style="width:<%= upgrade_percent %>%" />
         </div>
 
