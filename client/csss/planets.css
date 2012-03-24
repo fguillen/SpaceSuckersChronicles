@@ -55,7 +55,7 @@ body {
 }*/
 
 #icon {
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 
 .card.active:hover .header #icon {
