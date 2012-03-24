@@ -7,7 +7,7 @@
       "id": "A007",
       "base_id": "X001",
       "life": 10,
-      "atack": 10,
+      "attack": 10,
       "defense": 5,
       "job": null
     },
@@ -15,7 +15,7 @@
       "id": "A008",
       "base_id": "F012",
       "life": 10,
-      "atack": 10,
+      "attack": 10,
       "defense": 5,
       "job": null
     },
@@ -23,7 +23,7 @@
       "id": "A009",
       "base_id": "F012",
       "life": 10,
-      "atack": 10,
+      "attack": 10,
       "defense": 5,
       "job": null
     },
@@ -31,7 +31,7 @@
       "id": "A010",
       "base_id": "X002",
       "life": 10,
-      "atack": 10,
+      "attack": 10,
       "defense": 5,
       "job": null
     },
@@ -39,7 +39,7 @@
       "id": "A011",
       "base_id": "X002",
       "life": 10,
-      "atack": 10,
+      "attack": 10,
       "defense": 5,
       "job": null
     }

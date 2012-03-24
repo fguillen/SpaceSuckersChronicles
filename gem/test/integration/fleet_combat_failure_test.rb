@@ -36,13 +36,13 @@ class FleetCombatFailureTest < Test::Unit::TestCase
     @planet2.id = "planet2"
 
     @planet2.units.each do |ship|
-      ship.atack   = 10
+      ship.attack   = 10
       ship.defense = 7
       ship.life    = 8
     end
 
     @fleet.units.each do |ship|
-      ship.atack   = 10
+      ship.attack   = 10
       ship.defense = 7
       ship.life    = 4
     end
@@ -55,7 +55,7 @@ class FleetCombatFailureTest < Test::Unit::TestCase
   end
 
   def test_start_combat
-    @universe.step # Fleet arrives to the planet and decide to atack
+    @universe.step # Fleet arrives to the planet and decide to attack
 
     assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
     assert_equal( 1, @fleet.job.targets.size )
@@ -67,7 +67,7 @@ class FleetCombatFailureTest < Test::Unit::TestCase
   end
 
   def test_combat
-    @universe.step # Fleet arrives to the planet and decide to atack
+    @universe.step # Fleet arrives to the planet and decide to attack
 
     assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
     assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
@@ -79,7 +79,7 @@ class FleetCombatFailureTest < Test::Unit::TestCase
     assert_equal( true,   @planet2.units.include?( @ship4 ) )
     assert_equal( true,   @planet2.units.include?( @ship5 ) )
     assert_equal( true,   @universe.fleets.include?( @fleet ) )
-    assert_equal( 10,      @ship1.life )
+    assert_equal( 10,     @ship1.life )
     assert_equal( 4,      @ship2.life )
     assert_equal( 4,      @ship3.life )
     assert_equal( 8,      @ship4.life )

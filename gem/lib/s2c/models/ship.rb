@@ -4,19 +4,19 @@ module S2C
 
       attr_accessor(
         :life,
-        :velocity,
-        :atack,
+        :power,
+        :attack,
         :defense
       )
 
       def initialize( base )
         @id_prefix = "A"
 
-        @life     = 100
+        @life     = S2C::Global.config["ship"]["life"]
         @fleet    = nil
-        @velocity = 10
-        @atack    = 10
-        @defense  = 5
+        @power    = S2C::Global.config["ship"]["power"]
+        @attack    = S2C::Global.config["ship"]["attack"]
+        @defense  = S2C::Global.config["ship"]["defense"]
 
         super( base )
       end

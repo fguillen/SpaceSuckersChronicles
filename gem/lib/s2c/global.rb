@@ -2,11 +2,16 @@ require 'benchmark'
 
 module S2C
   module Global
-    attr_reader :universe, :logger, :store
+    def self.setup( config_path )
+      @config   = S2C::Config.new( config_path )
+      @universe = S2C::Universe.new
+      @logger   = S2C::Logger.new( @universe )
+      @store    = S2C::Store.new( @universe )
+    end
 
-    @universe = S2C::Universe.new
-    @logger   = S2C::Logger.new( @universe )
-    @store    = S2C::Store.new( @universe )
+    def self.config
+      @config
+    end
 
     def self.universe
       @universe

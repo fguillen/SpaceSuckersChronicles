@@ -24,7 +24,7 @@ module S2C
       end
 
       def hit( unit, target_unit )
-        result = unit.atack - target_unit.defense
+        result = unit.attack - target_unit.defense
 
         S2C::Global.logger.log( unit, "Hit '#{target_unit.id}' with #{result} points" )
 

@@ -83,7 +83,7 @@ module S2C
         "id"         => ship.id,
         "base_id"    => ship.base.id,
         "life"       => ship.life,
-        "atack"      => ship.atack,
+        "attack"      => ship.attack,
         "defense"    => ship.defense,
         "job"        => job_to_hash( ship.job )
       }

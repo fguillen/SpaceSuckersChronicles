@@ -17,7 +17,7 @@ module S2C
           S2C::Utils.travel_ticks(
             @unit.base,
             @destination,
-            0.1
+            S2C::Global.config["fleet"]["velocity"]
           )
 
         @ticks_remain = @ticks_total

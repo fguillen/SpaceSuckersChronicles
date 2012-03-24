@@ -16,6 +16,6 @@ class Test::Unit::TestCase
 
   def setup
     S2C::Logger.any_instance.stubs( :log )
-    S2C::Global.store.reset
+    S2C::Global.setup( "#{FIXTURES}/config.yml" );
   end
 end

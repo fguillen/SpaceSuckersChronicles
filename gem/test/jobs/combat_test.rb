@@ -69,7 +69,7 @@ class CombatTest < Test::Unit::TestCase
   end
 
   def test_hit_with_damage
-    @ship1.atack   = 10
+    @ship1.attack   = 10
     @ship2.defense = 8
     @ship2.life    = 4
 
@@ -79,7 +79,7 @@ class CombatTest < Test::Unit::TestCase
   end
 
   def test_hit_without_damage
-    @ship1.atack   = 10
+    @ship1.attack   = 10
     @ship2.defense = 20
     @ship2.life    = 4
 
@@ -89,7 +89,7 @@ class CombatTest < Test::Unit::TestCase
   end
 
   def test_hit_with_total_destruction
-    @ship1.atack   = 10
+    @ship1.attack   = 10
     @ship2.defense = 6
     @ship2.life    = 4
 

@@ -11,7 +11,7 @@ module S2C
         @unit         = opts[:unit]
         @callback     = opts[:callback]
 
-        @ticks_total  = 10
+        @ticks_total  = S2C::Global.config["universe"]["upgrade_ticks"]
         @ticks_remain = @ticks_total
       end
 

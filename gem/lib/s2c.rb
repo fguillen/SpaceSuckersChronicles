@@ -1,6 +1,7 @@
 require 'rubygems'
 
 require_relative 's2c/version'
+require_relative 's2c/config'
 require_relative 's2c/utils'
 require_relative 's2c/logger'
 require_relative 's2c/store'

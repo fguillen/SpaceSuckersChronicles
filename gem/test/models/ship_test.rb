@@ -12,8 +12,9 @@ class ShipTest < Test::Unit::TestCase
   def test_initialize
     assert_equal( false,    @ship.id.nil? )
     assert_equal( 10,       @ship.life )
-    assert_equal( 10,       @ship.atack )
-    assert_equal( 5,        @ship.defense )
+    assert_equal( 20,       @ship.power )
+    assert_equal( 12,       @ship.attack )
+    assert_equal( 8,        @ship.defense )
     assert_equal( @planet,  @ship.base)
   end
 

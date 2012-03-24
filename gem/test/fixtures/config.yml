@@ -1,6 +1,7 @@
 universe:
   tick_seconds: 1
   travel_black_stuff: 2
+  upgrade_ticks: 1
 
 planet:
   initial_black_stuff: 1000
@@ -12,4 +13,4 @@ ship:
   power: 20
   attack: 12
   defense: 8
-  life: 100
+  life: 10
