@@ -7,15 +7,8 @@ $(function(){
     },
 
     updateBase: function(){
-      console.log( "Ship.updateBase", this );
       var base = App.Game.planets.get( this.get( "base_id" ) )
-
-      console.log( "Ship.updateBase base1", base );
-
       if( !base ) base = App.Game.fleets.get( this.get( "base_id" ) )
-
-      console.log( "Ship.updateBase base2", base );
-
       base.ships.add( this );
     },
 

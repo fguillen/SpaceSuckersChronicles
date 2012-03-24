@@ -63,8 +63,18 @@ body {
   text-shadow: 3px 3px 6px #111;
 }
 
+.card.vertical.small:hover .header #icon {
+  font-size: 55px;
+  text-shadow: 2px 2px 3px #111;
+}
+
 .card.active:active .header #icon {
   font-size: 90px;
+  text-shadow: 1px 1px 2px #111;
+}
+
+.card.vertical.small:active .header #icon {
+  font-size: 45px;
   text-shadow: 1px 1px 2px #111;
 }
 
@@ -76,9 +86,16 @@ body {
   text-shadow: 2px 2px 4px #111;
 }
 
-.card.vertical.ship .header #icon {
+.card.vertical.small .header #icon {
+  font-size: 50px;
   margin-top: 10px;
-  line-height: 50px
+  line-height: 12px;
+  text-shadow: 1px 1px 2px #111;
+}
+
+.card.vertical.small .header h1{
+  font-size: 12px;
+  text-align: center;
 }
 
 .card.vertical .header h1,
@@ -89,9 +106,14 @@ body {
   /*font-weight: bold;*/
 }
 
-.card.vertical .sash {
-  width: 98px;
-  float: right;
+.card.vertical.small .sash {
+  /*width: 98px;
+  float: right;*/
+}
+
+.card.vertical.small .sash-cell {
+  padding: 2px 0px;
+  font-size: 12px;
 }
 
 .card.vertical .sash-cell {
@@ -129,8 +151,8 @@ body {
    width: 456px;
 }
 
-.folder.cards3 {
-   width: 343px;
+.folder.cards-small5 {
+   width: 317px;
 }
 
 .folder.small {
@@ -152,7 +174,12 @@ body {
 .card.vertical {
   width: 100px;
   height: 150px;
-  text-align: center;
+}
+
+.card.vertical.small {
+  width: 60px;
+  height: 90px;
+  margin: 2px;
 }
 
 .card.horizontal {
@@ -203,6 +230,10 @@ body {
 
 .card #controls .data span {
   font-size: 1.3em;
+}
+
+.card.small .percent-bar {
+  width: 40px;
 }
 
 .percent-bar {
@@ -284,7 +315,7 @@ body {
 
 
 .ship.card #life{
-  margin-top: 12px;
+  margin-top: 0px;
 }
 
 #infos {
