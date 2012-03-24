@@ -1,3 +1,4 @@
 .rvmrc
 server/db/universe.json
 coverage
+tmp

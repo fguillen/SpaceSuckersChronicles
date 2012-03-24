@@ -54,6 +54,10 @@ body {
   display: block;
 }*/
 
+#icon {
+  font-family: 'Lucida Sans', sans-serif;
+}
+
 .card.active:hover .header #icon {
   font-size: 110px;
   text-shadow: 3px 3px 6px #111;
