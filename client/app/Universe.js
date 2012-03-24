@@ -46,6 +46,7 @@ $(function(){
 
       var ship_ids =
         ships.map(function( ship, index ) {
+          ship.set( "selected", false );
           return ship.get( "id" )
         });
 
