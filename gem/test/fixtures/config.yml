@@ -5,8 +5,11 @@ universe:
 planet:
   initial_black_stuff: 1000
 
+fleet:
+  velocity: 1
+
 ship:
-  attack: 30
-  defense: 31
-  life: 32
-  velocity: 35
+  power: 20
+  attack: 12
+  defense: 8
+  life: 100
