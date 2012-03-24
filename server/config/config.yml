@@ -1,34 +1,16 @@
-db: "db/universe.json"
-
 universe:
-  tick_seconds: 0.1
-  size: 50
-  travel_black_stuff: 10
+  tick_seconds: 1
+  travel_black_stuff: 2
+  upgrade_ticks: 1
 
 planet:
   initial_black_stuff: 1000
 
-mine:
-  defense: 18
-  life: 10
-  upgrade_timing: 30
-  upgrade_black_stuff: 100
-  power: 1
+fleet:
+  velocity: 1
 
 ship:
-  attack: 10
-  defense: 18
-  life: 1000
-  upgrade_timing: 40
-  upgrade_black_stuff: 100
-  velocity: 1
-  power: 1
-
-fleet:
-  attack: 10
-  defense: 18
-  life: 1000
-  upgrade_timing: 0
-  upgrade_black_stuff: 10
-  velocity: 1
-  power: 1
+  power: 20
+  attack: 12
+  defense: 8
+  life: 10
