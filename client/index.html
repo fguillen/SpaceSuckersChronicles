@@ -355,8 +355,13 @@
 </script>
 
 <script type="text/template" id="fleet-info">
-  <div id="<%= id %>" class="fleet enemy folder shadow cards3 <%= traveling_class %>">
-    <h1><%= id %> <span id="travel">comming</span><span id="combat">combat</span></h1>
+  <div id="<%= id %>" class="fleet enemy folder shadow cards-small5 <%= traveling_class %>">
+    <h1>
+      <%= id %>
+      <div id="travel" class="percent-bar">
+        <div class="percent-value" style="width:<%= travel_percent %>%" />
+      </div>
+    </h1>
     <ul></ul>
   </div> <!-- enemy -->
 </script>

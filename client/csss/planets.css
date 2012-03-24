@@ -313,6 +313,18 @@ body {
   display:block;
 }
 
+.fleet.enemy.no-traveling {
+  box-shadow: 2px 2px 10px rgba(100, 0, 0, 0.5);
+}
+
+.fleet.enemy.traveling {
+  opacity:.6;
+}
+
+.fleet.enemy.traveling #travel {
+  float: right;
+}
+
 
 .ship.card #life{
   margin-top: 0px;
