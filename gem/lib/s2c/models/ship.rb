@@ -12,7 +12,7 @@ module S2C
       def initialize( base )
         @id_prefix = "A"
 
-        @life     = 10
+        @life     = 100
         @fleet    = nil
         @velocity = 10
         @atack    = 10
