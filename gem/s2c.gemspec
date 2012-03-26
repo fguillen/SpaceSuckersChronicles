@@ -19,6 +19,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency "mocha"
   s.add_development_dependency "delorean"
   s.add_development_dependency "simplecov"
+  s.add_development_dependency "database_cleaner"
+
+  s.add_dependency "activerecord"
+  s.add_dependency "sqlite3"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

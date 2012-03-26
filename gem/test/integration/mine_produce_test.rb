@@ -23,12 +23,12 @@ class MineProduceTest < Test::Unit::TestCase
   def test_produce
     @mine.start_produce
 
-    assert( @mine.job.instance_of?( S2C::Jobs::ProduceStuff ) )
+    assert( @mine.job.instance_of?( S2C::Models::Jobs::ProduceStuff ) )
     assert_equal( 0, @silo.stuff )
 
     @universe.step
 
-    assert( @mine.job.instance_of?( S2C::Jobs::ProduceStuff ) )
+    assert( @mine.job.instance_of?( S2C::Models::Jobs::ProduceStuff ) )
     assert_equal( 1, @silo.stuff )
   end
 
@@ -37,12 +37,12 @@ class MineProduceTest < Test::Unit::TestCase
 
     @mine.start_produce
 
-    assert( @mine.job.instance_of?( S2C::Jobs::ProduceStuff ) )
+    assert( @mine.job.instance_of?( S2C::Models::Jobs::ProduceStuff ) )
     assert_equal( 0, @silo.stuff )
 
     @universe.step
 
-    assert( @mine.job.instance_of?( S2C::Jobs::ProduceStuff ) )
+    assert( @mine.job.instance_of?( S2C::Models::Jobs::ProduceStuff ) )
     assert_equal( 0, @silo.stuff )
   end
 

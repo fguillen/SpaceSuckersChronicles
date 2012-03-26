@@ -2,48 +2,6 @@
   "universe": {
     "tick": 0
   },
-  "ships": [
-    {
-      "id": "A007",
-      "base_id": "X001",
-      "life": 10,
-      "attack": 10,
-      "defense": 5,
-      "job": null
-    },
-    {
-      "id": "A008",
-      "base_id": "F012",
-      "life": 10,
-      "attack": 10,
-      "defense": 5,
-      "job": null
-    },
-    {
-      "id": "A009",
-      "base_id": "F012",
-      "life": 10,
-      "attack": 10,
-      "defense": 5,
-      "job": null
-    },
-    {
-      "id": "A010",
-      "base_id": "X002",
-      "life": 10,
-      "attack": 10,
-      "defense": 5,
-      "job": null
-    },
-    {
-      "id": "A011",
-      "base_id": "X002",
-      "life": 10,
-      "attack": 10,
-      "defense": 5,
-      "job": null
-    }
-  ],
   "planets": [
     {
       "id": "X001",
@@ -71,13 +29,14 @@
         }
       },
       "parking": {
-        "id": "P005",
+        "id": "P006",
         "capacity": 10,
+        "ships": 1,
         "level": 1,
         "job": null
       },
       "hangar": {
-        "id": "H006",
+        "id": "H005",
         "production_ticks": 10,
         "building_ships": 1,
         "level": 1,
@@ -96,19 +55,38 @@
         2
       ],
       "silo": {
+        "id": "S007",
+        "capacity": 10,
+        "stuff": 0,
+        "level": 1,
+        "job": null
       },
       "mine": {
+        "id": "M008",
+        "production": 1,
+        "level": 1,
+        "job": null
       },
       "parking": {
+        "id": "P010",
+        "capacity": 10,
+        "ships": 2,
+        "level": 1,
+        "job": null
       },
       "hangar": {
+        "id": "H009",
+        "production_ticks": 10,
+        "building_ships": 0,
+        "level": 1,
+        "job": null
       },
       "job": null
     }
   ],
   "fleets": [
     {
-      "id": "F012",
+      "id": "F016",
       "base_id": "X001",
       "destination_id": "X002",
       "job": {
@@ -117,6 +95,48 @@
         "ticks_remain": 1,
         "destination_id": "X002"
       }
+    }
+  ],
+  "ships": [
+    {
+      "id": "A011",
+      "base_id": "X001",
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": "A012",
+      "base_id": "F016",
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": "A013",
+      "base_id": "F016",
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": "A014",
+      "base_id": "X002",
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": "A015",
+      "base_id": "X002",
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
     }
   ]
 }

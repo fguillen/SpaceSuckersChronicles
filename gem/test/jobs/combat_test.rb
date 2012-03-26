@@ -18,7 +18,7 @@ class CombatTest < Test::Unit::TestCase
     @fleet  = S2C::Models::Fleet.new( @planet, nil, [@ship3, @ship4, @ship5] )
 
     @combat =
-      S2C::Jobs::Combat.new(
+      S2C::Models::Jobs::Combat.new(
         :unit         => @fleet,
         :callback     => :callback_method,
         :targets      => [@planet]

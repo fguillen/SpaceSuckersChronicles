@@ -22,6 +22,13 @@ module S2C
       planet
     end
 
+    def furnish_planet( planet )
+      create_silo( planet )
+      create_mine( planet )
+      create_hangar( planet )
+      create_parking( planet )
+    end
+
     def create_silo( planet )
       silo = S2C::Models::Silo.new( planet )
 
@@ -101,16 +108,6 @@ module S2C
       @universe.units  << ship
 
       ship
-    end
-
-    def move_units( units, destination )
-      S2C::Global.logger.log( destination, "Moving #{units.size} units here" );
-
-      units.dup.each do |unit|
-        unit.base.units.delete( unit )
-        destination.units.push( unit )
-        unit.base = destination
-      end
     end
 
     def reset

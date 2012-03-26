@@ -12,7 +12,7 @@ class TravelTest < Test::Unit::TestCase
     S2C::Utils.expects( :travel_ticks ).with( @planet, @destination, 1 ).returns( 1 )
 
     @travel =
-      S2C::Jobs::Travel.new(
+      S2C::Models::Jobs::Travel.new(
         :unit         => @unit,
         :callback     => :callback_method,
         :destination  => @destination

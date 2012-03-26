@@ -1,0 +1,4 @@
+# Logfile created on 2012-03-26 18:22:12 +0200 by logger.rb/25413
+D, [2012-03-26T18:22:12.925409 #43414] DEBUG -- :   [1m[36m (2.8ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:22:12.926029 #43414] DEBUG -- :   [1m[35m (0.2ms)[0m  CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:22:12.926092 #43414] DEBUG -- : SQLite3::SQLException: table "languages" already exists: CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 

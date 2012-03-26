@@ -1,26 +1,17 @@
 require 'benchmark'
 
 module S2C
-  class Universe
-    attr_accessor(
-      :planets,
-      :units,
-      :tick
-   )
+  class Universe < ActiveRecord::Base
+    self.table_name = :universes
 
-    def initialize
-      @status   = :alive
-      @planets  = []
-      @units    = []
-      @tick     = 0 # Universe's time
-    end
+    has_many :units
 
     def step
-      @tick += 1
+      self.tick += 1
 
       S2C::Global.logger.log( self, "Start step" )
 
-      @units.each do |unit|
+      units.each do |unit|
         unit.work
       end
 

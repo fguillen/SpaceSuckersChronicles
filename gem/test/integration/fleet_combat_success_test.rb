@@ -49,7 +49,7 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
   end
 
   def test_setup
-    assert( @fleet.job.instance_of?( S2C::Jobs::Travel ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Travel ) )
     assert_equal( @planet2.id, @fleet.destination.id )
     assert_equal( 1, @fleet.job.ticks_remain )
   end
@@ -57,11 +57,11 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
   def test_start_combat
     @universe.step # Fleet arrives to the planet and decide to attack
 
-    assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( 1, @fleet.job.targets.size )
     assert_equal( @planet2.id, @fleet.job.targets.first.id )
 
-    assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @planet2.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( 1, @planet2.job.targets.size )
     assert_equal( @fleet.id, @planet2.job.targets.first.id )
   end
@@ -69,8 +69,8 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
   def test_combat
     @universe.step # Fleet arrives to the planet and decide to attack
 
-    assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
-    assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Combat ) )
+    assert( @planet2.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( true,   @universe.units.include?( @ship1 ) )
     assert_equal( true,   @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )
@@ -87,8 +87,8 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
 
     @universe.step
 
-    assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
-    assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Combat ) )
+    assert( @planet2.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( true,   @universe.units.include?( @ship1 ) )
     assert_equal( true,   @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )
@@ -105,8 +105,8 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
 
     @universe.step
 
-    assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
-    assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Combat ) )
+    assert( @planet2.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( true,   @universe.units.include?( @ship1 ) )
     assert_equal( false,  @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )
@@ -123,8 +123,8 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
 
     @universe.step
 
-    assert( @fleet.job.instance_of?( S2C::Jobs::Combat ) )
-    assert( @planet2.job.instance_of?( S2C::Jobs::Combat ) )
+    assert( @fleet.job.instance_of?( S2C::Models::Jobs::Combat ) )
+    assert( @planet2.job.instance_of?( S2C::Models::Jobs::Combat ) )
     assert_equal( true,   @universe.units.include?( @ship1 ) )
     assert_equal( false,  @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )

@@ -7,9 +7,9 @@ module S2C
     def self.to_hash( universe )
       {
         "universe" => universe_to_hash( universe ),
-        "ships"    => universe.ships.map   { |e| ship_to_hash( e ) },
         "planets"  => universe.planets.map { |e| planet_to_hash( e ) },
         "fleets"   => universe.fleets.map  { |e| fleet_to_hash( e ) },
+        "ships"    => universe.ships.map   { |e| ship_to_hash( e ) }
       }
     end
 
@@ -100,11 +100,11 @@ module S2C
 
     def self.job_to_hash( job )
       return nil                                if job.nil?
-      return job_travel_to_hash( job )          if job.instance_of?( S2C::Jobs::Travel )
-      return job_combat_to_hash( job )          if job.instance_of?( S2C::Jobs::Combat )
-      return job_upgrade_to_hash( job )         if job.instance_of?( S2C::Jobs::Upgrade )
-      return job_produce_stuff_to_hash( job )   if job.instance_of?( S2C::Jobs::ProduceStuff )
-      return job_build_ship_to_hash( job )      if job.instance_of?( S2C::Jobs::BuildShip )
+      return job_travel_to_hash( job )          if job.instance_of?( S2C::Models::Jobs::Travel )
+      return job_combat_to_hash( job )          if job.instance_of?( S2C::Models::Jobs::Combat )
+      return job_upgrade_to_hash( job )         if job.instance_of?( S2C::Models::Jobs::Upgrade )
+      return job_produce_stuff_to_hash( job )   if job.instance_of?( S2C::Models::Jobs::ProduceStuff )
+      return job_build_ship_to_hash( job )      if job.instance_of?( S2C::Models::Jobs::BuildShip )
       raise "job type not supported: '#{job.class}'"
     end
 

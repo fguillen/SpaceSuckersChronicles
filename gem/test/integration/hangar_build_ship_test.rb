@@ -26,7 +26,7 @@ class HangarBuildShipTest < Test::Unit::TestCase
   def test_build_ship
     @hangar.build_ship
 
-    assert( @hangar.job.instance_of?( S2C::Jobs::BuildShip ) )
+    assert( @hangar.job.instance_of?( S2C::Models::Jobs::BuildShip ) )
     assert_equal( 3, @universe.units.size )
     assert_equal( 0, @planet.units.size )
     assert_equal( 1, @hangar.building_ships.size )
@@ -35,7 +35,7 @@ class HangarBuildShipTest < Test::Unit::TestCase
     @hangar.build_ship # adding a new ship to build
     @universe.step
 
-    assert( @hangar.job.instance_of?( S2C::Jobs::BuildShip ) )
+    assert( @hangar.job.instance_of?( S2C::Models::Jobs::BuildShip ) )
     assert_equal( 3, @universe.units.size )
     assert_equal( 0, @planet.units.size )
     assert_equal( 2, @hangar.building_ships.size )
@@ -44,7 +44,7 @@ class HangarBuildShipTest < Test::Unit::TestCase
 
     @universe.step # finish one build, start next
 
-    assert( @hangar.job.instance_of?( S2C::Jobs::BuildShip ) )
+    assert( @hangar.job.instance_of?( S2C::Models::Jobs::BuildShip ) )
     assert_equal( 4, @universe.units.size )
     assert_equal( 1, @planet.units.size )
     assert_equal( 1, @hangar.building_ships.size )
@@ -52,7 +52,7 @@ class HangarBuildShipTest < Test::Unit::TestCase
 
     @universe.step
 
-    assert( @hangar.job.instance_of?( S2C::Jobs::BuildShip ) )
+    assert( @hangar.job.instance_of?( S2C::Models::Jobs::BuildShip ) )
     assert_equal( 4, @universe.units.size )
     assert_equal( 1, @planet.units.size )
     assert_equal( 1, @hangar.building_ships.size )
@@ -72,7 +72,7 @@ class HangarBuildShipTest < Test::Unit::TestCase
     @hangar.build_ship
     @universe.step
 
-    assert( @hangar.job.instance_of?( S2C::Jobs::BuildShip ) )
+    assert( @hangar.job.instance_of?( S2C::Models::Jobs::BuildShip ) )
     assert_equal( 3, @universe.units.size )
     assert_equal( 0, @planet.units.size )
     assert_equal( 1, @hangar.building_ships.size )

@@ -5,7 +5,7 @@ class BaseTest < Test::Unit::TestCase
   def setup
     super
 
-    @job = S2C::Jobs::Base.new( "unit", "callback" )
+    @job = S2C::Models::Jobs::Base.new( "unit", "callback" )
   end
 
   def test_initialize

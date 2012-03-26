@@ -21,7 +21,7 @@ class SiloUpgradeTest < Test::Unit::TestCase
   def test_upgrade
     @silo.start_upgrade
 
-    assert( @silo.job.instance_of?( S2C::Jobs::Upgrade ) )
+    assert( @silo.job.instance_of?( S2C::Models::Jobs::Upgrade ) )
     assert_equal( 1, @silo.job.ticks_remain )
     assert_equal( 1, @silo.level )
 

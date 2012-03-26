@@ -5,30 +5,28 @@ class JSONerTest < Test::Unit::TestCase
   def setup
     super
 
-    @universe = S2C::Universe.new
-    store    = S2C::Store.new( @universe )
+    S2C::Global.setup( "#{FIXTURES}/config.yml" )
+
+    @universe   = S2C::Global.universe
+    store       = S2C::Global.store
 
     planet1 = store.create_planet( [1, 1] )
     planet2 = store.create_planet( [1, 2] )
 
-    silo    = store.create_silo( planet1 )
-    silo.start_upgrade
+    store.furnish_planet( planet1 )
+    store.furnish_planet( planet2 )
 
-    mine    = store.create_mine( planet1 )
-    mine.start_produce
+    planet1.mine.start_produce
+    planet1.silo.start_upgrade
+    planet1.hangar.build_ship
 
-    parking = store.create_parking( planet1 )
+    ship1 = store.create_ship( planet1 )
+    ship2 = store.create_ship( planet1 )
+    ship3 = store.create_ship( planet1 )
+    ship4 = store.create_ship( planet2 )
+    ship5 = store.create_ship( planet2 )
 
-    hangar  = store.create_hangar( planet1 )
-    hangar.build_ship
-
-    ship1   = store.create_ship( planet1 )
-    ship2   = store.create_ship( planet1 )
-    ship3   = store.create_ship( planet1 )
-    ship4   = store.create_ship( planet2 )
-    ship5   = store.create_ship( planet2 )
-
-    fleet   = store.create_fleet( planet1, planet2, [ship2, ship3] )
+    fleet = store.create_fleet( planet1, planet2, [ship2, ship3] )
   end
 
   def test_to_hash
@@ -42,9 +40,9 @@ class JSONerTest < Test::Unit::TestCase
   def test_to_json
     universe_json = S2C::JSONer.to_json( @universe )
 
-    # File.open( "#{FIXTURES}/universe.json", "w" ) do |f|
-    #   f.write universe_json
-    # end
+    File.open( "#{FIXTURES}/universe.json", "w" ) do |f|
+      f.write universe_json
+    end
 
     assert_equal( File.read( "#{FIXTURES}/universe.json" ), universe_json )
   end

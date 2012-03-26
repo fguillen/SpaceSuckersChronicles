@@ -4,7 +4,7 @@ module S2C
   module Global
     def self.setup( config_path )
       @config   = S2C::Config.new( config_path )
-      @universe = S2C::Universe.new
+      @universe = S2C::Universe.create
       @logger   = S2C::Logger.new( @universe )
       @store    = S2C::Store.new( @universe )
     end

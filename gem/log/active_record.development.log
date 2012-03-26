@@ -1,0 +1,13 @@
+# Logfile created on 2012-03-26 19:34:32 +0200 by logger.rb/25413
+D, [2012-03-26T19:34:32.318050 #43945] DEBUG -- :   [1m[36m (16.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T19:34:32.321018 #43945] DEBUG -- :   [1m[35m (2.3ms)[0m  CREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "base_id" integer, "target_id" integer, "level" integer, "production" integer, "stuff" integer, "capacity" integer, "building_ships" integer) 
+D, [2012-03-26T19:34:32.322993 #43945] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mCREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "unit_id" integer, "target_id" integer, "callback" varchar(255), "ticks_total" integer, "ticks_remain" integer) [0m
+D, [2012-03-26T19:34:32.323811 #43945] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T19:37:43.268767 #43987] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T19:37:43.271675 #43987] DEBUG -- :   [1m[35m (2.3ms)[0m  CREATE TABLE "units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "base_id" integer, "target_id" integer, "level" integer, "production" integer, "stuff" integer, "capacity" integer, "building_ships" integer) 
+D, [2012-03-26T19:37:43.273696 #43987] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "unit_id" integer, "target_id" integer, "callback" varchar(255), "ticks_total" integer, "ticks_remain" integer) [0m
+D, [2012-03-26T19:37:43.275149 #43987] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2012-03-26T19:37:43.275298 #43987] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+D, [2012-03-26T19:37:43.276175 #43987] DEBUG -- :   [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+D, [2012-03-26T19:37:43.276687 #43987] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2012-03-26T19:37:43.277497 #43987] DEBUG -- :   [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')

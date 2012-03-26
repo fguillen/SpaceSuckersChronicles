@@ -1,0 +1,61 @@
+# Logfile created on 2012-03-26 18:14:54 +0200 by logger.rb/25413
+D, [2012-03-26T18:14:54.758641 #43063] DEBUG -- :   [1m[36m (16.9ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:14:54.760894 #43063] DEBUG -- :   [1m[35m (1.6ms)[0m  CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:14:54.762414 #43063] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2012-03-26T18:14:54.762651 #43063] DEBUG -- :   [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2012-03-26T18:14:54.763970 #43063] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2012-03-26T18:14:54.764625 #43063] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:14:54.765584 #43063] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('0')[0m
+D, [2012-03-26T18:14:59.560356 #43080] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:14:59.563515 #43080] DEBUG -- :   [1m[35m (2.6ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:14:59.565301 #43080] DEBUG -- :   [1m[36m (1.4ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:14:59.565906 #43080] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:16.978759 #43098] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:15:16.981702 #43098] DEBUG -- :   [1m[35m (2.5ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:15:16.982803 #43098] DEBUG -- :   [1m[36m (0.9ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:16.983405 #43098] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:19.045705 #43114] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:15:19.049205 #43114] DEBUG -- :   [1m[35m (3.0ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:15:19.051045 #43114] DEBUG -- :   [1m[36m (1.5ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:19.051648 #43114] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:20.497533 #43130] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:15:20.501067 #43130] DEBUG -- :   [1m[35m (3.0ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:15:20.503027 #43130] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:20.503788 #43130] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:44.772896 #43148] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:15:44.776409 #43148] DEBUG -- :   [1m[35m (3.0ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:15:44.778323 #43148] DEBUG -- :   [1m[36m (1.5ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:44.778969 #43148] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:44.780851 #43148] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "languages2" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:44.781457 #43148] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:44.782516 #43148] DEBUG -- :   [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+D, [2012-03-26T18:15:47.627171 #43195] DEBUG -- :   [1m[36m (2.2ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:15:47.630264 #43195] DEBUG -- :   [1m[35m (2.6ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:15:47.631637 #43195] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:15:47.632381 #43195] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:15:47.634106 #43195] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mDROP TABLE "languages2"[0m
+D, [2012-03-26T18:15:47.635256 #43195] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE TABLE "languages2" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:15:47.635831 #43195] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2012-03-26T18:19:02.386466 #43291] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:19:02.389659 #43291] DEBUG -- :   [1m[35m (2.8ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:19:02.391092 #43291] DEBUG -- :   [1m[36m (1.2ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:19:02.393308 #43291] DEBUG -- :   [1m[35m (1.1ms)[0m  DROP TABLE "languages2"
+D, [2012-03-26T18:19:02.394313 #43291] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mCREATE TABLE "languages2" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:19:02.395586 #43291] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:19:07.159570 #43306] DEBUG -- :   [1m[36m (1.9ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:19:07.162769 #43306] DEBUG -- :   [1m[35m (2.8ms)[0m  DROP TABLE "languages"
+D, [2012-03-26T18:19:07.164231 #43306] DEBUG -- :   [1m[36m (1.2ms)[0m  [1mCREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:19:07.165875 #43306] DEBUG -- :   [1m[35m (0.9ms)[0m  DROP TABLE "languages2"
+D, [2012-03-26T18:19:07.167135 #43306] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "languages2" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:19:07.167679 #43306] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2012-03-26T18:19:21.646141 #43321] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:19:21.646523 #43321] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:19:21.646565 #43321] DEBUG -- : SQLite3::SQLException: table "languages" already exists: CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:21:37.536593 #43397] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-03-26T18:21:37.539748 #43397] DEBUG -- :   [1m[35m (2.8ms)[0m  CREATE TABLE "languages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+D, [2012-03-26T18:21:37.541594 #43397] DEBUG -- :   [1m[36m (1.2ms)[0m  [1mCREATE TABLE "languages2" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+D, [2012-03-26T18:21:37.542975 #43397] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2012-03-26T18:21:37.543128 #43397] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+D, [2012-03-26T18:21:37.544236 #43397] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+D, [2012-03-26T18:21:37.544658 #43397] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+D, [2012-03-26T18:21:37.545504 #43397] DEBUG -- :   [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('0')
