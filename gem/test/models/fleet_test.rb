@@ -16,19 +16,9 @@ class FleetTest < Test::Unit::TestCase
         :target => @destination,
         :ships  => [@ship1, @ship2]
       )
-
-    puts "XXX: @planet: #{@planet.id}"
-    puts "XXX: @planet.base: #{@planet.base_id}"
-    puts "XXX: @destination: #{@destination.id}"
-    puts "XXX: @ship1: #{@ship1.id}"
-    puts "XXX: @ship2: #{@ship2.id}"
-    puts "XXX: @fleet: #{@fleet.id}"
   end
 
   def test_initialize
-    puts "XXX: @fleet: #{@fleet.id}"
-    puts "XXX: @fleet.units: #{@fleet.units}"
-
     assert_equal( false,            @fleet.id.nil? )
     assert_equal( @planet.id,       @fleet.base.id )
     assert_equal( @destination.id,  @fleet.target.id )
@@ -37,13 +27,8 @@ class FleetTest < Test::Unit::TestCase
   end
 
   def test_start_trip
-    S2C::Models::Jobs::Travel.expects( :new ).with(
-      :unit         => @fleet,
-      :callback     => :end_trip,
-      :destination  => @destination
-    ).returns( "job" )
-
     @fleet.start_trip
+    @fleet.reload
 
     assert_equal( "job",      @fleet.job )
   end

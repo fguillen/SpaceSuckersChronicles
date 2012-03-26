@@ -19,7 +19,7 @@ module S2C
           self.ticks_total  =
             S2C::Utils.travel_ticks(
               unit.base,
-              unit.destination,
+              unit.target,
               S2C::Global.config["fleet"]["velocity"]
             )
 

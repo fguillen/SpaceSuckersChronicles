@@ -4,6 +4,8 @@ module S2C
       class Base < ActiveRecord::Base
         self.table_name = "jobs"
 
+        belongs_to :unit, :class_name => "S2C::Models::Units::Base"
+
         def step
           raise Exception, "Job.step should be defined"
         end

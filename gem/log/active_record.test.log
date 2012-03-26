@@ -1658,3 +1658,1373 @@ D, [2012-03-26T20:25:43.431169 #44582] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEP
 D, [2012-03-26T20:25:43.432029 #44582] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
 D, [2012-03-26T20:25:43.432311 #44582] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 D, [2012-03-26T20:25:43.435481 #44582] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:30:36.753458 #44728] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:30:36.774534 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.786342 #44728] DEBUG -- :   [1m[36mSQL (10.0ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:30:36.786658 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.810577 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.813813 #44728] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:30:36.814154 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.814512 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.815206 #44728] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:30:36.815421 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.835847 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.836168 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.836564 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.838052 #44728] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:30:36.840367 #44728] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.840676 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.841058 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.841250 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.841437 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.842201 #44728] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:30:36.842998 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.843172 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.855844 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.856240 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.861745 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.863856 #44728] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:30:36.864992 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.865278 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.865472 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.866291 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.867253 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:30:36.867964 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.868617 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.905583 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.907133 #44728] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:30:36.907547 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.907797 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.908917 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.909650 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:30:36.910367 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.910817 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.910964 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.911515 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:30:36.911675 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.920034 #44728] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:30:36.921527 #44728] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.2ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:30:36.924198 #44728] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:30:36.924698 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:30:36.925583 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.926394 #44728] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:30:36.926605 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.927070 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.928304 #44728] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:30:36.928614 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.928936 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.929699 #44728] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:30:36.929941 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.930308 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.930509 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.930702 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.931414 #44728] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:30:36.932262 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.932440 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.932681 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.932852 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.933004 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.933718 #44728] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:30:36.934598 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.934767 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.935091 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.935261 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.935512 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.936291 #44728] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:30:36.937034 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:30:36.937224 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.937366 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.938406 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.939408 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:30:36.940363 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.940981 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.941247 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.942067 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:30:36.942299 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.942494 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.943546 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.944479 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:30:36.945421 #44728] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:30:36.946008 #44728] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:30:36.946212 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.947006 #44728] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:30:36.947227 #44728] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:30:36.949669 #44728] DEBUG -- :   [1m[35m (0.3ms)[0m  rollback transaction
+D, [2012-03-26T20:31:00.668331 #44732] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:31:00.695414 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.704649 #44732] DEBUG -- :   [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:31:00.704962 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.731245 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.734432 #44732] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:00.734764 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.735126 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.736004 #44732] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:00.736220 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.756503 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.756823 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.757233 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.758933 #44732] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:00.760643 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.760890 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.761224 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.761428 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.761610 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.762307 #44732] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:00.763048 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.763222 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.773556 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.773800 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.778108 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.779971 #44732] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:31:00.781958 #44732] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.782447 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.782808 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.784194 #44732] DEBUG -- :   [1m[35m (0.2ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.785789 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:31:00.786927 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.787949 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.821047 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.822126 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:31:00.822387 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.822566 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.823579 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.824314 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:31:00.825004 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.825524 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.825699 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.826272 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:31:00.826429 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.834348 #44732] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:31:00.835614 #44732] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:31:00.838045 #44732] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:31:00.838818 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:31:00.839623 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.840436 #44732] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:31:00.840645 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.841116 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.842220 #44732] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:00.842501 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.842798 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.843537 #44732] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:00.843760 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.844102 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.844295 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.844487 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.845195 #44732] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:00.846069 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.846268 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.846537 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.846821 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.847011 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.847801 #44732] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:00.848600 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.848853 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.849380 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.849676 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.850051 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.851241 #44732] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:31:00.852061 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:00.852295 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.852475 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.853360 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.854121 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:31:00.854887 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.855399 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.855676 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.856363 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:31:00.856611 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.856774 #44732] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.857565 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.858355 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:31:00.859290 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:00.860325 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:00.860650 #44732] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.861421 #44732] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:31:00.861647 #44732] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:00.863920 #44732] DEBUG -- :   [1m[35m (0.4ms)[0m  rollback transaction
+D, [2012-03-26T20:31:23.763708 #44735] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:31:23.788149 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.800637 #44735] DEBUG -- :   [1m[36mSQL (10.8ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:31:23.801131 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.828794 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.832246 #44735] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:23.832643 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.833055 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.833836 #44735] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:23.834078 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.856297 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.856621 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.857023 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.858546 #44735] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:23.860170 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.860415 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.860741 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.860919 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.861098 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.861779 #44735] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:23.862566 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.862736 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.872783 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.873028 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.877104 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.878887 #44735] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:31:23.879883 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.880096 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.880261 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.881018 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.881914 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:31:23.882735 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.883462 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.919638 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.921149 #44735] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:31:23.921508 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.921740 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.922832 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.923565 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:31:23.924225 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.924671 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.924821 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.925353 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:31:23.925518 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.934543 #44735] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:31:23.936825 #44735] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.2ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:31:23.939771 #44735] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:31:23.940483 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:31:23.941952 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.943393 #44735] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:31:23.943775 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.944637 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.946577 #44735] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:23.946973 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.947411 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.948578 #44735] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:31:23.948922 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.949442 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.949734 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.950022 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.950888 #44735] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:23.951829 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.952045 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.952339 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.952524 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.952702 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.953370 #44735] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:31:23.954134 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.954321 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.954661 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.954847 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.955132 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.956307 #44735] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:31:23.957303 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:31:23.957573 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.957784 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.958865 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.959847 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:31:23.960705 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.961200 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.961397 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.962026 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:31:23.962216 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.962373 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.963170 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.963893 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:31:23.964632 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:31:23.965098 #44735] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:31:23.965259 #44735] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.966083 #44735] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:31:23.966495 #44735] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:31:23.978938 #44735] DEBUG -- :   [1m[35m (0.4ms)[0m  rollback transaction
+D, [2012-03-26T20:33:25.352694 #44749] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:33:25.372747 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.384462 #44749] DEBUG -- :   [1m[36mSQL (9.8ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:33:25.384841 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.407094 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.410501 #44749] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:33:25.410825 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.411171 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.411883 #44749] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:33:25.412118 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.431336 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.431646 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.432033 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.433507 #44749] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:33:25.435130 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.435393 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.435748 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.435965 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.436186 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.437029 #44749] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:33:25.437894 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.438069 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.448528 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.448783 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.452917 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.454727 #44749] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:33:25.455643 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.455848 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.456014 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.456751 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.457638 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:33:25.458376 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.459019 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.495762 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.497106 #44749] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:33:25.497379 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.497579 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.498705 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.499614 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:33:25.500899 #44749] DEBUG -- :   [1m[35m (0.2ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.501626 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.501889 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.502754 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:33:25.503041 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.511814 #44749] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:33:25.513167 #44749] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:33:25.515380 #44749] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:33:25.515866 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:33:25.516562 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.517266 #44749] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:33:25.517439 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.517878 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.518941 #44749] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:33:25.519186 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.519576 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.520373 #44749] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:33:25.520586 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.520906 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.521073 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.521248 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.521889 #44749] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:33:25.522668 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.522841 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.523075 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.523230 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.523410 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.524040 #44749] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:33:25.524845 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.525022 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.525372 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.525538 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.525782 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.526554 #44749] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:33:25.527227 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:33:25.527415 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.527562 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.528267 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.528899 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:33:25.529542 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.529966 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.530230 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.530846 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:33:25.531011 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.531145 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.531858 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.532786 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:33:25.533716 #44749] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:33:25.534356 #44749] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:33:25.534560 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.535347 #44749] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:33:25.535573 #44749] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:33:25.559286 #44749] DEBUG -- :   [1m[35m (0.5ms)[0m  rollback transaction
+D, [2012-03-26T20:34:46.842545 #44760] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:34:46.866395 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.874942 #44760] DEBUG -- :   [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:34:46.875244 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.901486 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.904747 #44760] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:34:46.905073 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.905414 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.906186 #44760] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:34:46.906384 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.925648 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.925982 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.926850 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.929730 #44760] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:34:46.932348 #44760] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:46.932719 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.933219 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.933500 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.933809 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.934862 #44760] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:34:46.935855 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:46.936053 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.951026 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.951308 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.955329 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.957208 #44760] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:34:46.958117 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:46.958356 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.958527 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.959269 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:46.960482 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:34:46.961200 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:46.961850 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.994832 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.995784 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:34:46.995997 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.996154 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.997078 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:46.997772 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:34:46.998421 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:46.998869 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:46.999012 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:46.999545 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:34:46.999705 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.007554 #44760] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:34:47.008886 #44760] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:34:47.011332 #44760] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:34:47.011894 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:34:47.012541 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.013303 #44760] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:34:47.013541 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.013990 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.015068 #44760] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:34:47.015325 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.015617 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.016341 #44760] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:34:47.016558 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.016896 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.017080 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.017270 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.017965 #44760] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:34:47.018830 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:47.019023 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.019285 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.019464 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.019638 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.020365 #44760] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:34:47.021180 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:47.021370 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.021715 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.021913 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.022208 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.023126 #44760] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:34:47.023944 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:34:47.024243 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.024449 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.025462 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:47.026361 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:34:47.027283 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:47.027884 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.028121 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.028886 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:34:47.029112 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.029295 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.030320 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:47.031213 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:34:47.032080 #44760] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:34:47.032533 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.032691 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.033272 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:34:47.033475 #44760] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:34:47.049565 #44760] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.051921 #44760] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:34:47.052180 #44760] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:34:47.058992 #44760] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:35:47.155661 #44768] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:35:47.181061 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.192439 #44768] DEBUG -- :   [1m[36mSQL (9.3ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:35:47.192875 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.219739 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.223099 #44768] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:35:47.223430 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.223789 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.224511 #44768] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:35:47.224717 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.249976 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.250297 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.250692 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.252205 #44768] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:35:47.253917 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.254200 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.254600 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.254801 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.255005 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.255721 #44768] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:35:47.256467 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.256634 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.270050 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.270327 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.275455 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.277528 #44768] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:35:47.278758 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.279017 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.279208 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.280128 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.281054 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:35:47.281769 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.282446 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.317778 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.318735 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:35:47.318936 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.319086 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.320023 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.320793 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:35:47.321450 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.321885 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.322037 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.322597 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:35:47.322759 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.331039 #44768] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:35:47.332400 #44768] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:35:47.334567 #44768] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:35:47.334912 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:35:47.335538 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.336298 #44768] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:35:47.336491 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.336947 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.338065 #44768] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:35:47.338327 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.338622 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.339345 #44768] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:35:47.339575 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.339911 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.340105 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.340300 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.341094 #44768] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:35:47.341979 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.342178 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.342499 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.342700 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.342883 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.343569 #44768] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:35:47.344504 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.344707 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.345069 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.345255 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.345533 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.346410 #44768] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:35:47.347175 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:35:47.347382 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.347592 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.348406 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.349181 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:35:47.349915 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.350394 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.350591 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.351194 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:35:47.351376 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.351529 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.352314 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.353010 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:35:47.353776 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:35:47.354493 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.354904 #44768] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.355898 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:35:47.356082 #44768] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:35:47.369353 #44768] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.371171 #44768] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:35:47.371391 #44768] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:35:47.375576 #44768] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:35:59.996669 #44771] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:36:00.020282 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.031961 #44771] DEBUG -- :   [1m[36mSQL (9.8ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:36:00.032288 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.055491 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.058779 #44771] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:00.059103 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.059477 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.060191 #44771] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:00.060394 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.084342 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.084697 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.085127 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.086668 #44771] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:00.088304 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.088548 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.088873 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.089053 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.089227 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.089891 #44771] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:00.090730 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.090921 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.100896 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.101164 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.105104 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.106813 #44771] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:00.107759 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.107970 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.108137 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.108960 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.109932 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:00.110732 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.111441 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.142635 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.143692 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:36:00.143921 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.144077 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.145036 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.145843 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:00.146595 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.147093 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.147263 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.147923 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:36:00.148107 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.156014 #44771] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:36:00.157239 #44771] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:00.159769 #44771] DEBUG -- :   [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:36:00.160228 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:36:00.160925 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.161637 #44771] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:36:00.161814 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.162221 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.163260 #44771] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:00.163548 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.163838 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.164610 #44771] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:00.164856 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.165225 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.165424 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.165622 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.166382 #44771] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:00.167295 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.167498 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.167759 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.167940 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.168191 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.168968 #44771] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:00.169781 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.169973 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.170325 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.170514 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.170792 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.171654 #44771] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:00.172447 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:00.172663 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.172828 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.173627 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.174385 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:00.175218 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.175716 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.175912 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.176533 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:36:00.176713 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.176866 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.177662 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.178394 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:00.179117 #44771] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:00.179580 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.179750 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.180332 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:36:00.180509 #44771] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:00.193951 #44771] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.195780 #44771] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:36:00.195994 #44771] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:00.198391 #44771] DEBUG -- :   [1m[36mS2C::Models::Jobs::Base Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."base_id" = 5 LIMIT 1[0m
+D, [2012-03-26T20:36:00.198493 #44771] DEBUG -- : SQLite3::SQLException: no such column: jobs.base_id: SELECT  "jobs".* FROM "jobs"  WHERE "jobs"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:00.199437 #44771] DEBUG -- :   [1m[35m (0.6ms)[0m  rollback transaction
+D, [2012-03-26T20:36:24.693613 #44774] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:36:24.715619 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.726906 #44774] DEBUG -- :   [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:36:24.727335 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.751800 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.755237 #44774] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:24.755580 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.755938 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.756723 #44774] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:24.756925 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.782406 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.782836 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.783306 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.785038 #44774] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:24.786654 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.786901 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.787282 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.787494 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.787696 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.788421 #44774] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:24.789307 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.789581 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.801757 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.802215 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.808839 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.811318 #44774] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:24.812606 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.812878 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.813074 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.814005 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.815137 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:24.815929 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.816852 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.854761 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.855784 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:36:24.856003 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.856163 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.857174 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.857948 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:24.858605 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.859043 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.859204 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.859790 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:36:24.859978 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.868221 #44774] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:36:24.869636 #44774] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:24.871958 #44774] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:36:24.872410 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:36:24.873161 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.873952 #44774] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:36:24.874148 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.874573 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.875635 #44774] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:24.875873 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.876140 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.876791 #44774] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:24.876990 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.877298 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.877464 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.877639 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.878285 #44774] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:24.879053 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.879228 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.879473 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.879664 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.879861 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.880836 #44774] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:24.882694 #44774] DEBUG -- :   [1m[35m (0.2ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.883136 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.883909 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.884258 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.884857 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.886674 #44774] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:24.888153 #44774] DEBUG -- :   [1m[35m (0.2ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:24.888578 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.888915 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.890049 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.890769 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:24.891492 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.891976 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.892172 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.892794 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:36:24.892979 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.893128 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.893940 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.894728 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:24.895671 #44774] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:24.896317 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.896525 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.897346 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:36:24.897584 #44774] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:24.913927 #44774] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.915735 #44774] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:36:24.915947 #44774] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:24.918088 #44774] DEBUG -- :   [1m[36mS2C::Models::Jobs::Base Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."base_id" = 5 LIMIT 1[0m
+D, [2012-03-26T20:36:24.918145 #44774] DEBUG -- : SQLite3::SQLException: no such column: jobs.base_id: SELECT  "jobs".* FROM "jobs"  WHERE "jobs"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:24.918808 #44774] DEBUG -- :   [1m[35m (0.5ms)[0m  rollback transaction
+D, [2012-03-26T20:36:38.463997 #44779] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:36:38.486340 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.497302 #44779] DEBUG -- :   [1m[36mSQL (9.2ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:36:38.497746 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.520080 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.523507 #44779] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:38.523883 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.524312 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.525219 #44779] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:38.525485 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.547007 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.547328 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.547727 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.549299 #44779] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:38.550931 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.551183 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.551513 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.551690 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.551874 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.552561 #44779] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:38.553404 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.553598 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.564966 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.565495 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.572121 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.574468 #44779] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:38.575635 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.575898 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.576097 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.577000 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.578082 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:38.578943 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.579699 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.624508 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.626000 #44779] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:36:38.626350 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.626597 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.627736 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.628528 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:38.629204 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.629637 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.629784 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.630312 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:36:38.630535 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.639190 #44779] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:36:38.640393 #44779] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:38.643178 #44779] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:36:38.643852 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:36:38.644523 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.645300 #44779] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:36:38.645503 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.645947 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.647033 #44779] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:38.647298 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.647592 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.648307 #44779] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:38.648548 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.648885 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.649074 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.649269 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.650047 #44779] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:38.650913 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.651110 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.651458 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.651644 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.651825 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.652519 #44779] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:38.653288 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.653476 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.653818 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.654014 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.654393 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.655540 #44779] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:38.656633 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:38.656905 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.657113 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.658128 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.659069 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:38.660021 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.660636 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.660882 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.661643 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:36:38.661875 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.662063 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.663068 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.663954 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:38.664679 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:38.665136 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.665333 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.666253 #44779] DEBUG -- :   [1m[35m (0.2ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:36:38.666637 #44779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.680374 #44779] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.683169 #44779] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:36:38.683469 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.685750 #44779] DEBUG -- :   [1m[36mS2C::Models::Jobs::Base Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."unit_id" = 5 LIMIT 1[0m
+D, [2012-03-26T20:36:38.686242 #44779] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:38.686962 #44779] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:38.687856 #44779] DEBUG -- :   [1m[35m (0.4ms)[0m  rollback transaction
+D, [2012-03-26T20:36:59.649188 #44783] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+D, [2012-03-26T20:36:59.672137 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.680215 #44783] DEBUG -- :   [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "universes" ("id") VALUES (?)[0m  [["id", nil]]
+D, [2012-03-26T20:36:59.680487 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.705859 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.709447 #44783] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:59.709839 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.710196 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.710975 #44783] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:59.711176 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.730514 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.730875 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.731284 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.732829 #44783] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:59.734445 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.734696 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.735063 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.735321 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.735515 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.736254 #44783] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:59.736989 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.737158 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.747169 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.747413 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.751399 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.753124 #44783] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:59.754117 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.754330 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.754494 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.755326 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.756258 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:59.756963 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.757617 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.789712 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.790713 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3[0m
+D, [2012-03-26T20:36:59.790937 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.791096 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.792104 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.792921 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5[0m
+D, [2012-03-26T20:36:59.793654 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.794144 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.794310 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.794974 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4[0m
+D, [2012-03-26T20:36:59.795163 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.803744 #44783] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5[0m
+D, [2012-03-26T20:36:59.805062 #44783] DEBUG -- :   [1m[35mS2C::Models::Units::Ship Load (0.1ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."base_id" = 5 LIMIT 1
+D, [2012-03-26T20:36:59.807301 #44783] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+D, [2012-03-26T20:36:59.807785 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2012-03-26T20:36:59.808712 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.809713 #44783] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO "universes" ("id") VALUES (?)  [["id", nil]]
+D, [2012-03-26T20:36:59.809982 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.810645 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.812203 #44783] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 1\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:59.812537 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.812904 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.814000 #44783] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", "--- \n- 1\n- 2\n"], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Planet"]]
+D, [2012-03-26T20:36:59.814314 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.814762 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.814993 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.815228 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.816250 #44783] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:59.817242 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.817449 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.817727 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.817916 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.818099 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.818851 #44783] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", nil], ["type", "S2C::Models::Units::Ship"]]
+D, [2012-03-26T20:36:59.819642 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.819836 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.820186 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.820394 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.820667 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.821522 #44783] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "units" ("attack", "base_id", "building_ships", "capacity", "defense", "level", "live", "position", "power", "production", "stuff", "target_id", "type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attack", nil], ["base_id", nil], ["building_ships", nil], ["capacity", nil], ["defense", nil], ["level", nil], ["live", nil], ["position", nil], ["power", nil], ["production", nil], ["stuff", nil], ["target_id", 2], ["type", "S2C::Models::Units::Fleet"]]
+D, [2012-03-26T20:36:59.822298 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1
+D, [2012-03-26T20:36:59.822504 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.822672 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.823553 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.824279 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 3 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:59.825015 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.825498 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.825695 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.826300 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 3
+D, [2012-03-26T20:36:59.826482 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.826632 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.827443 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = NULL, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.828146 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 4 WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = 5
+D, [2012-03-26T20:36:59.828858 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mUPDATE "units" SET "base_id" = 5, "position" = '--- 
+- 1
+- 1
+' WHERE "units"."type" IN ('S2C::Models::Units::Planet') AND "units"."id" = 1[0m
+D, [2012-03-26T20:36:59.829305 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.829464 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.830046 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  UPDATE "units" SET "base_id" = 5 WHERE "units"."type" IN ('S2C::Models::Units::Ship') AND "units"."id" = 4
+D, [2012-03-26T20:36:59.830230 #44783] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.844595 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.846543 #44783] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "jobs" ("callback", "target_id", "ticks_remain", "ticks_total", "type", "unit_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["callback", :end_trip], ["target_id", nil], ["ticks_remain", 1], ["ticks_total", 1], ["type", "S2C::Models::Jobs::Travel"], ["unit_id", 5]]
+D, [2012-03-26T20:36:59.846757 #44783] DEBUG -- :   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.851023 #44783] DEBUG -- :   [1m[36mS2C::Models::Jobs::Base Load (0.2ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."unit_id" = 5 LIMIT 1[0m
+D, [2012-03-26T20:36:59.851881 #44783] DEBUG -- :   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+D, [2012-03-26T20:36:59.852984 #44783] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+D, [2012-03-26T20:36:59.854049 #44783] DEBUG -- :   [1m[35mS2C::Models::Units::Fleet Load (0.2ms)[0m  SELECT "units".* FROM "units" WHERE "units"."type" IN ('S2C::Models::Units::Fleet') AND "units"."id" = ? LIMIT 1  [["id", 5]]
+D, [2012-03-26T20:36:59.855329 #44783] DEBUG -- :   [1m[36mS2C::Models::Jobs::Base Load (0.1ms)[0m  [1mSELECT "jobs".* FROM "jobs" WHERE "jobs"."unit_id" = 5 LIMIT 1[0m
+D, [2012-03-26T20:36:59.856961 #44783] DEBUG -- :   [1m[35m (0.6ms)[0m  rollback transaction

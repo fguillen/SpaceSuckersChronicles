@@ -2,18 +2,6 @@ module S2C
   module Models
     module Jobs
       class Combat < Base
-
-        attr_accessor(
-          :unit,
-          :targets
-        )
-
-        def initialize( opts )
-          @unit      = opts[:unit]
-          @callback  = opts[:callback]
-          @targets   = opts[:targets]
-        end
-
         def step
           @unit.units.each do |unit|
             if finish?
