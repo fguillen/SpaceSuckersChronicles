@@ -5,7 +5,7 @@ class MineTest < Test::Unit::TestCase
   def setup
     super
 
-    @planet = S2C::Models::Units::Planet.create!
+    @planet = S2C::Models::Units::Planet.create!( :position => [1, 1] )
     @mine   = S2C::Models::Units::Mine.create!( :base => @planet )
   end
 
@@ -45,7 +45,7 @@ class MineTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @mine.job = S2C::Models::Jobs::Upgrade.create!( :unit => @mine )
+    @mine.job = S2C::Models::Jobs::Upgrade.create!( :unit => @mine, :callback => :callback )
 
     assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
       @mine.end_upgrade

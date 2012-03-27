@@ -1,6 +1,6 @@
 require_relative "../../test_helper"
 
-class BaseTest < Test::Unit::TestCase
+class UnitBaseTest < Test::Unit::TestCase
 
   def setup
     super

@@ -5,7 +5,7 @@ class ParkingTest < Test::Unit::TestCase
   def setup
     super
 
-    @planet   = S2C::Models::Units::Planet.create!
+    @planet   = S2C::Models::Units::Planet.create!( :position => [1, 1] )
     @parking  = S2C::Models::Units::Parking.create!( :base => @planet )
   end
 
@@ -30,7 +30,7 @@ class ParkingTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @parking.job = S2C::Models::Jobs::Upgrade.create!( :unit => @parking )
+    @parking.job = S2C::Models::Jobs::Upgrade.create!( :unit => @parking, :callback => :callback )
 
     assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
       @parking.end_upgrade

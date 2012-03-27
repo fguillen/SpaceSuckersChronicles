@@ -30,7 +30,7 @@ class SiloTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @silo.job = S2C::Models::Jobs::Upgrade.create!( :unit => @silo )
+    @silo.job = S2C::Models::Jobs::Upgrade.create!( :unit => @silo, :callback => :callback )
 
     assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
       @silo.end_upgrade

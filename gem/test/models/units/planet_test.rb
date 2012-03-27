@@ -14,18 +14,6 @@ class PlanetTest < Test::Unit::TestCase
     assert_equal( 1000, @planet.stuff )
   end
 
-  def test_after_battle
-    @planet.job = S2C::Models::Jobs::Combat.create!( :unit => @planet )
-
-    assert_difference "S2C::Models::Jobs::Combat.count", -1 do
-      @planet.after_battle
-    end
-
-    @planet.reload
-
-    assert_equal( true, @planet.job.nil? )
-  end
-
   def test_add_ship
     @planet.add_ship
     @planet.reload

@@ -28,7 +28,7 @@ module S2C
         end
 
         def callback
-          read_attribute( :callback ).to_sym
+          read_attribute( :callback ) ? read_attribute( :callback ).to_sym : nil
         end
       end
     end

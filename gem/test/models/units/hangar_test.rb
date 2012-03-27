@@ -5,7 +5,7 @@ class HangarTest < Test::Unit::TestCase
   def setup
     super
 
-    @planet   = S2C::Models::Units::Planet.create!
+    @planet   = S2C::Models::Units::Planet.create!( :position => [1, 1] )
     @hangar   = S2C::Models::Units::Hangar.create!( :base => @planet )
 
     @planet.reload
@@ -36,7 +36,7 @@ class HangarTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @hangar.job = S2C::Models::Jobs::Upgrade.create( :unit => @hangar )
+    @hangar.job = S2C::Models::Jobs::Upgrade.create!( :unit => @hangar, :callback => :callback )
 
     assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
       @hangar.end_upgrade
@@ -70,7 +70,7 @@ class HangarTest < Test::Unit::TestCase
   end
 
   def test_end_build_ship
-    @hangar.job = S2C::Models::Jobs::BuildShip.create( :unit => @hangar )
+    @hangar.job = S2C::Models::Jobs::BuildShip.create!( :unit => @hangar, :callback => :callback )
     @hangar.building_ships = 1
 
     @hangar.expects( :start_build_ship ).never
@@ -84,7 +84,7 @@ class HangarTest < Test::Unit::TestCase
   end
 
   def test_end_build_ship_when_building_ships
-    @hangar.job = S2C::Models::Jobs::BuildShip.create( :unit => @hangar )
+    @hangar.job = S2C::Models::Jobs::BuildShip.create!( :unit => @hangar, :callback => :callback )
     @hangar.building_ships = 2
 
     @hangar.expects( :start_build_ship )
