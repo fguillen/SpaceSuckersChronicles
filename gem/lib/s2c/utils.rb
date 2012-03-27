@@ -4,14 +4,14 @@ module S2C
       array.sample
     end
 
-    def self.planet_distance(planet1, planet2)
+    def self.planet_distance( planet1, planet2 )
       Math.sqrt(
         (planet2.position[0] - planet1.position[0]) ** 2 +
         (planet2.position[1] - planet1.position[1]) ** 2
       ).round
     end
 
-    def self.travel_ticks(planet1, planet2, velocity)
+    def self.travel_ticks( planet1, planet2, velocity )
       distance = S2C::Utils.planet_distance(planet1, planet2)
       result = (distance / velocity).round
 

@@ -3,9 +3,7 @@ require 'yaml'
 module S2C
   class Config
 
-    CONFIG_PATH = "#{File.dirname(__FILE__)}/../../config/config.yml"
-
-    def initialize( config_path = CONFIG_PATH )
+    def initialize( config_path )
       load( config_path )
     end
 

@@ -1,19 +1,19 @@
 module S2C::Server
   class App < Sinatra::Base
-    config_path = "#{File.dirname(__FILE__)}/../../../config/config.yml"
-    S2C::Global.setup( config_path )
-    @@universe  = S2C::Global.universe
-    # @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
+    # config_path = "#{File.dirname(__FILE__)}/../../../config/config.yml"
+    # S2C::Global.setup( config_path )
+    # @@universe  = S2C::Global.universe
+    # # @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
 
-    # if( File.exists?( @@db_path ) )
-    #   hash = JSON.parse( File.read( @@db_path ) )
-    #   @@universe.from_hash( hash )
-    # else
-    #   S2C::Utils.feed_universe( @@universe )
-    # end
+    # # if( File.exists?( @@db_path ) )
+    # #   hash = JSON.parse( File.read( @@db_path ) )
+    # #   @@universe.from_hash( hash )
+    # # else
+    # #   S2C::Utils.feed_universe( @@universe )
+    # # end
 
-    S2C::Utils.feed_universe( @@universe )
-    @@universe.start
+    # S2C::Utils.feed_universe( @@universe )
+    # @@universe.start
 
 
     before do

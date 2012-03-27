@@ -4,9 +4,14 @@ module S2C
       class Fleet < Base
 
         belongs_to :target, :class_name => "S2C::Models::Units::Planet"
-        has_many :units, :class_name => "S2C::Models::Units::Ship", :foreign_key => :base_id
+        has_many :ships, :class_name => "S2C::Models::Units::Ship", :foreign_key => :base_id
 
+        validates_presence_of :base_id
         validates_presence_of :target_id
+
+        def setup
+          super
+        end
 
         def self.arrange( opts )
           fleet =
@@ -17,7 +22,7 @@ module S2C
 
           opts[:ships].each do |ship|
             ship.update_attributes( :base => fleet )
-            fleet.units << ship
+            fleet.ships << ship
           end
 
           fleet
@@ -26,47 +31,55 @@ module S2C
         def start_trip
           self.job =
             S2C::Models::Jobs::Travel.create(
-              :unit         => self,
-              :callback     => :end_trip
+              :unit     => self,
+              :target   => self.target,
+              :callback => :end_trip
             )
         end
 
         def end_trip
-          S2C::Global.logger.log( self, "Arrived to planet #{destination.id}" )
+          S2C::Global.logger.log( self, "Arrived to planet #{target.id}" )
 
-          if( destination.units.empty? )
+          if( target.ships.empty? )
             conquer_planet
           else
             combat_planet
           end
         end
 
-        def combat_planet
-          S2C::Global.logger.log( self, "Start combat against planet #{destination.id}" )
+        def start_combat
+          S2C::Global.logger.log( self, "Start combat against planet #{target.id}" )
+
           self.job =
             S2C::Models::Jobs::Combat.create(
               :unit     => self,
               :target   => target,
-              :callback => :conquer_planet
-            )
-
-          target.job =
-            S2C::Models::Jobs::Combat.create(
-              :unit     => target,
-              :target   => self,
-              :callback => :after_battle
+              :callback => :end_combat
             )
         end
 
-        def conquer_planet
-          S2C::Global.logger.log( self, "Planet conquered #{destination.id}" )
+        def end_combat
+          if( ships.empty? )
+            surrender
+          else
+            conquer_planet
+          end
+        end
 
-          self.units.each do |units|
-            unit.update_attributes( :base, destination )
-            destination.units.push( unit )
+        def surrender
+          S2C::Global.logger.log( self, "Has been destroyed" )
+          destroy
+        end
+
+        def conquer_planet
+          S2C::Global.logger.log( self, "Planet conquered #{target.id}" )
+
+          ships.each do |unit|
+            unit.update_attributes( :base => target )
+            target.ships.push( unit )
           end
 
-          self.destroy
+          destroy
         end
 
       end

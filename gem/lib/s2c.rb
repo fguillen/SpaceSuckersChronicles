@@ -1,7 +1,8 @@
 require "rubygems"
+require "active_record"
+require "sqlite3"
+require "logger"
 
-require_relative "s2c/initializers/environment"
-require_relative "s2c/initializers/active_record"
 require_relative "s2c/version"
 require_relative "s2c/config"
 require_relative "s2c/utils"
@@ -24,5 +25,7 @@ require_relative "s2c/models/jobs/build_ship"
 require_relative "s2c/models/universe"
 require_relative "s2c/global"
 require_relative "s2c/jsoner"
+
+
 
 puts "Loaded S2C gem version #{S2C::VERSION}"

@@ -1,78 +1,70 @@
 require 'benchmark'
 
 module S2C
-  class Universe < ActiveRecord::Base
-    self.table_name = :universes
+  module Models
+    class Universe < ActiveRecord::Base
+      self.table_name = :universe
+      before_validation( :on => :create ) { setup }
 
-    has_many :units
+      validates_presence_of :tick
+      validates_presence_of :name
+      validates_uniqueness_of :name
 
-    def step
-      self.tick += 1
+      has_many :units,    :class_name => "S2C::Models::Units::Base"
+      has_many :planets,  :class_name => "S2C::Models::Units::Planet"
+      has_many :fleets,   :class_name => "S2C::Models::Units::Fleet"
+      has_many :ships,    :class_name => "S2C::Models::Units::Ship"
 
-      S2C::Global.logger.log( self, "Start step" )
-
-      units.each do |unit|
-        unit.work
+      def setup
+        self.tick = 0
       end
 
-      S2C::Global.logger.log( self, "End step" )
-    end
+      def step
+        self.tick += 1
 
-    def start
-      Thread.new { run }
-    end
+        S2C::Global.logger.log( self, "Start step" )
 
-    def end
-      @status = :ending
-    end
+        units.each do |unit|
+          unit.work
+        end
 
-    def run
-      S2C::Global.logger.log( self, "Start run" )
+        self.save!
 
-      while( @status != :ending )
-        time =
-          Benchmark.realtime do
-            begin
-              step
-            rescue Exception => e
-              S2C::Global.logger.log( self, "ERROR: #{e}" )
-              puts "XXX: backtrace:"
-              puts e.backtrace.join( "\n" )
-              raise e
+        S2C::Global.logger.log( self, "End step" )
+      end
+
+      def start
+        Thread.new { run }
+      end
+
+      def end
+        @status = :ending
+      end
+
+      def run
+        S2C::Global.logger.log( self, "Start run" )
+
+        while( @status != :ending )
+          time =
+            Benchmark.realtime do
+              begin
+                step
+              rescue Exception => e
+                S2C::Global.logger.log( self, "ERROR: #{e}" )
+                puts "XXX: backtrace:"
+                puts e.backtrace.join( "\n" )
+                raise e
+              end
             end
-          end
 
-        rest_time = 1 - time
-        S2C::Global.logger.log( self, "Resting #{rest_time * 1000} millisecond" )
-        sleep( rest_time )
+          rest_time = 1 - time
+          S2C::Global.logger.log( self, "Resting #{rest_time * 1000} millisecond" )
+          sleep( rest_time )
+        end
+
+        S2C::Global.logger.log( self, "End run" )
       end
 
-      S2C::Global.logger.log( self, "End run" )
     end
-
-    def id
-      'Universe'
-    end
-
-    def ships
-      units.select{ |e| e.instance_of? S2C::Models::Ship }
-    end
-
-    def fleets
-      units.select{ |e| e.instance_of? S2C::Models::Fleet }
-    end
-
-    def planets
-      units.select{ |e| e.instance_of? S2C::Models::Planet }
-    end
-
-    def get_planet(id)
-      planets.select { |e| e.id == id }.first
-    end
-
-    def get_unit(id)
-      units.select { |e| e.id == id }.first
-    end
-
   end
 end

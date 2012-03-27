@@ -3,43 +3,35 @@ module S2C
     module Units
       class Silo < Base
 
-        attr_accessor(
-          :capacity,
-          :stuff,
-          :level
-        )
+        validates_presence_of :base_id
+        validates_presence_of :capacity
+        validates_presence_of :level
 
-        def initialize( base )
-          @id_prefix = "S"
+        def setup
+          super
 
-          @capacity = 10
-          @stuff    = 0
-          @level    = 1
-
-          super( base )
+          self.capacity = S2C::Global.config["silo"]["capacity"]
+          self.level    = 0
         end
 
         def start_upgrade
-          @job =
-            S2C::Models::Jobs::Upgrade.new(
+          self.job =
+            S2C::Models::Jobs::Upgrade.create!(
               :unit     => self,
               :callback => :end_upgrade
             )
         end
 
         def end_upgrade
-          @job      = nil
-          @level    += 1
-          @capacity += 10
-        end
+          self.job.destroy
+          self.level    += 1
+          self.capacity += 10
 
-        def add_stuff( stuff )
-          self.stuff += stuff
-          self.stuff = capacity if full?
+          self.save!
         end
 
         def full?
-          stuff >= capacity
+          base.stuff >= capacity
         end
 
       end
