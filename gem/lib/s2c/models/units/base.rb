@@ -36,7 +36,7 @@ module S2C
         def end_job
           S2C::Global.logger.log( self, "Ended job" )
           send( job.callback )
-          job.destroy
+          job.destroy if job
         end
 
         def job

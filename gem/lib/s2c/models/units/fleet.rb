@@ -10,7 +10,7 @@ module S2C
 
         def self.arrange( opts )
           fleet =
-            create(
+            create!(
               :base   => opts[:base],
               :target => opts[:target]
             )
@@ -24,7 +24,7 @@ module S2C
         end
 
         def start_trip
-          self.job =
+          self.jobs <<
             S2C::Models::Jobs::Travel.create!(
               :unit     => self,
               :target   => self.target,
