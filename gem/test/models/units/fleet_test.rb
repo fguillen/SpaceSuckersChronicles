@@ -6,10 +6,10 @@ class FleetTest < Test::Unit::TestCase
     super
 
     @universe    = S2C::Global.universe
-    @planet      = S2C::Models::Units::Planet.create( :position => [1, 1] )
-    @destination = S2C::Models::Units::Planet.create( :position => [1, 2] )
-    @ship1       = S2C::Models::Units::Ship.create( :base => @planet )
-    @ship2       = S2C::Models::Units::Ship.create( :base => @planet )
+    @planet      = S2C::Models::Units::Planet.create!( :position => [1, 1] )
+    @destination = S2C::Models::Units::Planet.create!( :position => [1, 2] )
+    @ship1       = S2C::Models::Units::Ship.create!( :base => @planet )
+    @ship2       = S2C::Models::Units::Ship.create!( :base => @planet )
 
     @fleet =
       S2C::Models::Units::Fleet.arrange(
@@ -26,6 +26,7 @@ class FleetTest < Test::Unit::TestCase
     assert_equal( 2,                @fleet.ships.size )
     assert_equal( @ship1.id,        @fleet.ships.first.id )
     assert_equal( @universe,        @fleet.universe )
+    assert_equal( "fleet",          @fleet.name )
   end
 
   def test_start_trip
@@ -44,7 +45,7 @@ class FleetTest < Test::Unit::TestCase
   end
 
   def test_end_trip_when_planet_not_empty
-    @destination.ships << S2C::Models::Units::Ship.create
+    @destination.ships.create!
 
     @fleet.expects( :combat_planet )
     @fleet.end_trip

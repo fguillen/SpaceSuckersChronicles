@@ -5,8 +5,9 @@ class UnitBaseTest < Test::Unit::TestCase
   def setup
     super
 
+    @planet    = S2C::Models::Units::Planet.create!( :position => [1, 1] )
     @universe  = S2C::Global.universe
-    @base_unit = S2C::Models::Units::Base.create!
+    @base_unit = S2C::Models::Units::Base.create!( :base => @planet )
   end
 
   def test_setup

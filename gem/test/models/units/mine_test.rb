@@ -10,11 +10,13 @@ class MineTest < Test::Unit::TestCase
   end
 
   def test_setup
-    assert_equal( true, @mine.job.nil? )
-    assert_equal( @mine, @planet.mine )
-    assert_equal( @planet, @mine.base )
-    assert_equal( 10, @mine.production )
-    assert_equal( 0, @mine.level )
+    assert_equal( true,     @mine.job.nil? )
+    assert_equal( @mine,    @planet.mine )
+    assert_equal( @planet,  @mine.base )
+    assert_equal( 10,       @mine.production )
+    assert_equal( 0,        @mine.level )
+    assert_equal( "mine",   @mine.name )
+
   end
 
   def test_start_produce

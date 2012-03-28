@@ -30,6 +30,7 @@ class CombatTest < Test::Unit::TestCase
     assert_equal( :callback, @combat.callback )
     assert_equal( @planet2,  @combat.target )
     assert_equal( "combat",  @combat.name )
+    assert_equal( 0,         @combat.cost )
   end
 
   def test_step

@@ -7,6 +7,8 @@ module S2C
         validates_presence_of :ticks_remain
 
         def setup
+          super
+
           self.ticks_total  = unit.production
           self.ticks_remain = unit.production
         end
@@ -23,6 +25,11 @@ module S2C
         def name
           "build_ship"
         end
+
+        def calculate_cost
+          S2C::Global.config["ship"]["construction_cost"]
+        end
+
       end
     end
   end

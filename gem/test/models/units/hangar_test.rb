@@ -18,6 +18,7 @@ class HangarTest < Test::Unit::TestCase
     assert_equal( true,         @hangar.job.nil? )
     assert_equal( 0,            @hangar.level )
     assert_equal( 100,          @hangar.production )
+    assert_equal( "hangar",     @hangar.name )
     assert_equal( 0,            @planet.ships.count )
   end
 

@@ -25,6 +25,10 @@ module S2C
           target_ship.base.remove_ship( target_ship ) if( target_ship.life <= 0 )
         end
 
+        def name
+          "ship"
+        end
+
       end
     end
   end

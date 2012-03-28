@@ -10,6 +10,7 @@ module S2C
         belongs_to :base,     :class_name => "S2C::Models::Units::Base"
         belongs_to :universe, :class_name => "S2C::Models::Universe"
 
+        validates_presence_of :base_id
         validates_presence_of :universe_id
 
         def setup
@@ -37,6 +38,9 @@ module S2C
           send( job.callback )
         end
 
+        def name
+          raise Exception, "Unit.name should be defined"
+        end
 
       end
     end

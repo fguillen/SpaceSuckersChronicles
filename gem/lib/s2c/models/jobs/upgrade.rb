@@ -7,7 +7,9 @@ module S2C
         validates_presence_of :ticks_remain
 
         def setup
-          self.ticks_total  = S2C::Global.config["universe"]["upgrade_ticks"]
+          super
+
+          self.ticks_total  = S2C::Global.config[ unit.name ]["upgrade_ticks"]
           self.ticks_remain = ticks_total
         end
 
@@ -22,6 +24,10 @@ module S2C
 
         def name
           "upgrade"
+        end
+
+        def calculate_cost
+          S2C::Global.config[ unit.name ]["upgrade_cost"]
         end
 
       end

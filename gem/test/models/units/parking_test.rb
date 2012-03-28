@@ -10,11 +10,12 @@ class ParkingTest < Test::Unit::TestCase
   end
 
   def test_setup
-    assert_equal( true,     @parking.job.nil? )
-    assert_equal( @parking, @planet.parking )
-    assert_equal( @planet,  @parking.base )
-    assert_equal( 10,       @parking.capacity )
-    assert_equal( 0,        @parking.level )
+    assert_equal( true,       @parking.job.nil? )
+    assert_equal( @parking,   @planet.parking )
+    assert_equal( @planet,    @parking.base )
+    assert_equal( 10,         @parking.capacity )
+    assert_equal( 0,          @parking.level )
+    assert_equal( "parking",  @parking.name )
   end
 
   def test_start_upgrade

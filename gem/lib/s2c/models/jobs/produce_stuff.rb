@@ -16,6 +16,10 @@ module S2C
           "produce"
         end
 
+        def calculate_cost
+          0
+        end
+
       end
     end
   end

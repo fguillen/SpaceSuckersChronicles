@@ -34,6 +34,10 @@ module S2C
           base.stuff >= capacity
         end
 
+        def name
+          "silo"
+        end
+
       end
     end
   end

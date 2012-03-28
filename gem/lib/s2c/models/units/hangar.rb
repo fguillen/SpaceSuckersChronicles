@@ -3,7 +3,6 @@ module S2C
     module Units
       class Hangar < Base
         validates_presence_of :level
-        validates_presence_of :base_id
         validates_presence_of :production
         validates_presence_of :building_ships
 
@@ -40,7 +39,7 @@ module S2C
 
         def start_build_ship
           self.job =
-            S2C::Models::Jobs::BuildShip.create(
+            S2C::Models::Jobs::BuildShip.create!(
               :unit     => self,
               :callback => :end_build_ship
             )
@@ -65,6 +64,10 @@ module S2C
 
         def to_s
           to_hash.to_s
+        end
+
+        def name
+          "hangar"
         end
 
       end

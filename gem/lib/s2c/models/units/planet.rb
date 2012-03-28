@@ -15,10 +15,13 @@ module S2C
         validates_presence_of :position
         validates_presence_of :stuff
 
+        after_create :update_base_id
+
         def setup
           super
 
-          self.stuff = S2C::Global.config["planet"]["stuff"]
+          self.stuff    = S2C::Global.config["planet"]["stuff"]
+          self.base_id  = 0
         end
 
         def add_ship
@@ -27,8 +30,20 @@ module S2C
 
         def add_stuff( stuff )
           self.stuff += stuff
-
           self.save!
+        end
+
+        def remove_stuff( stuff )
+          self.stuff -= stuff
+          self.save!
+        end
+
+        def update_base_id
+          self.update_attributes( :base_id => self.id )
+        end
+
+        def name
+          "planet"
         end
 
       end

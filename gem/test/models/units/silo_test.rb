@@ -15,6 +15,7 @@ class SiloTest < Test::Unit::TestCase
     assert_equal( @planet,  @silo.base )
     assert_equal( 10,       @silo.capacity )
     assert_equal( 0,        @silo.level )
+    assert_equal( "silo",   @silo.name )
   end
 
   def test_start_upgrade

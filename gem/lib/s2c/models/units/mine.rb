@@ -5,7 +5,6 @@ module S2C
 
         validates_presence_of :production
         validates_presence_of :level
-        validates_presence_of :base_id
 
         def setup
           super
@@ -44,6 +43,10 @@ module S2C
           self.save!
 
           start_produce
+        end
+
+        def name
+          "mine"
         end
 
       end

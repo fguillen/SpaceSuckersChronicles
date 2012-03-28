@@ -30,6 +30,7 @@ ActiveRecord::Schema.define :version => 0 do
     t.string  :callback
     t.integer :ticks_total
     t.integer :ticks_remain
+    t.integer :cost
     t.timestamps
   end
 end

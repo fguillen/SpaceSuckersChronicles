@@ -6,12 +6,7 @@ module S2C
         belongs_to :target, :class_name => "S2C::Models::Units::Planet"
         has_many :ships, :class_name => "S2C::Models::Units::Ship", :foreign_key => :base_id
 
-        validates_presence_of :base_id
         validates_presence_of :target_id
-
-        def setup
-          super
-        end
 
         def self.arrange( opts )
           fleet =
@@ -30,7 +25,7 @@ module S2C
 
         def start_trip
           self.job =
-            S2C::Models::Jobs::Travel.create(
+            S2C::Models::Jobs::Travel.create!(
               :unit     => self,
               :target   => self.target,
               :callback => :end_trip
@@ -51,7 +46,7 @@ module S2C
           S2C::Global.logger.log( self, "Start combat against planet #{target.id}" )
 
           self.job =
-            S2C::Models::Jobs::Combat.create(
+            S2C::Models::Jobs::Combat.create!(
               :unit     => self,
               :target   => target,
               :callback => :end_combat
@@ -80,6 +75,10 @@ module S2C
           end
 
           destroy
+        end
+
+        def name
+          "fleet"
         end
 
       end

@@ -21,6 +21,7 @@ class ProduceStuffTest < Test::Unit::TestCase
     assert_equal( @mine,      @produce_stuff.unit )
     assert_equal( :callback,  @produce_stuff.callback )
     assert_equal( "produce",  @produce_stuff.name )
+    assert_equal( 0,          @produce_stuff.cost )
   end
 
   def test_step

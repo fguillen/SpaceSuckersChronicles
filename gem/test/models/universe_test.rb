@@ -27,10 +27,10 @@ class UniverseTest < Test::Unit::TestCase
   end
 
   def test_units
-    S2C::Models::Units::Base.create!
+    @planet = S2C::Models::Units::Planet.create!( :position => [1, 2] )
     assert_equal( 1, @universe.units.count )
 
-    S2C::Models::Units::Planet.create!( :position => [1, 2] )
+    @unit = S2C::Models::Units::Base.create!( :base => @planet )
     assert_equal( 2, @universe.units.count )
   end
 

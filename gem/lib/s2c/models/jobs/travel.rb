@@ -10,13 +10,9 @@ module S2C
         validates_presence_of :target_id
 
         def setup
-          self.ticks_total  =
-            S2C::Utils.travel_ticks(
-              unit.base,
-              target,
-              S2C::Global.config["fleet"]["velocity"]
-            )
+          super
 
+          self.ticks_total  = calculate_ticks
           self.ticks_remain = ticks_total
         end
 
@@ -33,6 +29,18 @@ module S2C
 
         def name
           "travel"
+        end
+
+        def calculate_ticks
+          S2C::Utils.travel_ticks(
+            unit.base,
+            target,
+            S2C::Global.config["fleet"]["velocity"]
+          )
+        end
+
+        def calculate_cost
+          calculate_ticks * S2C::Global.config["fleet"]["travel_cost"] * unit.ships.count
         end
       end
     end

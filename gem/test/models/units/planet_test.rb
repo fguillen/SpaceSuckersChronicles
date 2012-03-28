@@ -8,10 +8,11 @@ class PlanetTest < Test::Unit::TestCase
   end
 
   def test_setup
-    assert_equal( 1,    @planet.position[0] )
-    assert_equal( 2,    @planet.position[1] )
-    assert_equal( 0,    @planet.ships.count )
-    assert_equal( 1000, @planet.stuff )
+    assert_equal( 1,        @planet.position[0] )
+    assert_equal( 2,        @planet.position[1] )
+    assert_equal( 0,        @planet.ships.count )
+    assert_equal( 1000,     @planet.stuff )
+    assert_equal( "planet", @planet.name )
   end
 
   def test_add_ship

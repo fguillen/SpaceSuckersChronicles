@@ -17,6 +17,7 @@ class ShipTest < Test::Unit::TestCase
     assert_equal( 20,       @ship1.power )
     assert_equal( 12,       @ship1.attack )
     assert_equal( 8,        @ship1.defense )
+    assert_equal( "ship",   @ship1.name )
   end
 
   def test_hit_with_damage

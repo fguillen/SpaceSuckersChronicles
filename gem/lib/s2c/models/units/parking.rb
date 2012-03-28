@@ -3,7 +3,6 @@ module S2C
     module Units
       class Parking < Base
 
-        validates_presence_of :base_id
         validates_presence_of :capacity
         validates_presence_of :level
 
@@ -32,6 +31,10 @@ module S2C
 
         def full?
           base.ships.size >= capacity
+        end
+
+        def name
+          "parking"
         end
 
       end
