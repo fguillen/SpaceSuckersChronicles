@@ -30,7 +30,7 @@ module S2C
         end
 
         def full?
-          base.ships.size >= capacity
+          base.ships.count >= capacity
         end
 
         def name

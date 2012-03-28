@@ -25,11 +25,13 @@ module S2C
         end
 
         def add_ship
-          self.ships.create!
+          self.ships.create! if !parking.full?
         end
 
-        def add_stuff( stuff )
-          self.stuff += stuff
+        def add_stuff( _stuff )
+          self.stuff += _stuff
+          self.stuff = silo.capacity if stuff > silo.capacity
+
           self.save!
         end
 

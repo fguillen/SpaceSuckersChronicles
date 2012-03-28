@@ -6,7 +6,7 @@ module S2C
 
         before_validation( :on => :create ) { setup }
 
-        has_one :job,         :class_name => "S2C::Models::Jobs::Base", :foreign_key => :unit_id
+        has_many   :jobs,     :class_name => "S2C::Models::Jobs::Base", :foreign_key => :unit_id, :dependent => :destroy, :order => "created_at asc"
         belongs_to :base,     :class_name => "S2C::Models::Units::Base"
         belongs_to :universe, :class_name => "S2C::Models::Universe"
 
@@ -34,8 +34,13 @@ module S2C
         end
 
         def end_job
-          job.destroy
+          S2C::Global.logger.log( self, "Ended job" )
           send( job.callback )
+          job.destroy
+        end
+
+        def job
+          jobs.first
         end
 
         def name

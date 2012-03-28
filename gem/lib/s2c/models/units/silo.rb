@@ -30,10 +30,6 @@ module S2C
           self.save!
         end
 
-        def full?
-          base.stuff >= capacity
-        end
-
         def name
           "silo"
         end

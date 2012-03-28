@@ -27,7 +27,7 @@ mine:
   upgrade_ticks: 1
 
 silo:
-  capacity: 10
+  capacity: 2000
   upgrade_cost: 20
   upgrade_ticks: 1
 
@@ -37,6 +37,6 @@ parking:
   upgrade_ticks: 1
 
 hangar:
-  production: 100
+  production: 2
   upgrade_cost: 20
   upgrade_ticks: 1

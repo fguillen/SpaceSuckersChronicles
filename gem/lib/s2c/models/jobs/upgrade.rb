@@ -16,6 +16,8 @@ module S2C
         def step
           self.ticks_remain -= 1
           S2C::Global.logger.log( unit, "Upgrading, remains #{ticks_remain}" )
+
+          self.save!
         end
 
         def finish?

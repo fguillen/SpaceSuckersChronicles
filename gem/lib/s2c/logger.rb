@@ -18,7 +18,7 @@ module S2C
     def format( element, message )
       Kernel.sprintf(
         "(%010d) [%10s] > %s",
-        S2C::Models::Universe.first.tick,
+        S2C::Global.universe.tick,
         element.id,
         message
       )

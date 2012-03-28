@@ -15,7 +15,7 @@ module S2C
         end
 
         def start_upgrade
-          self.job =
+          self.jobs <<
             S2C::Models::Jobs::Upgrade.create!(
               :unit     => self,
               :callback => :end_upgrade
@@ -23,22 +23,16 @@ module S2C
         end
 
         def end_upgrade
-          self.job.destroy
+          S2C::Global.logger.log( self, "Upgraded" )
+
           self.level      += 1
           self.production /= 2
 
           self.save!
         end
 
-        def build_ship
-          self.building_ships += 1
-          start_build_ship if job.nil?
-
-          self.save!
-        end
-
         def start_build_ship
-          self.job =
+          self.jobs <<
             S2C::Models::Jobs::BuildShip.create!(
               :unit     => self,
               :callback => :end_build_ship
@@ -46,11 +40,9 @@ module S2C
         end
 
         def end_build_ship
-          self.job.destroy
-          self.building_ships -= 1
+          S2C::Global.logger.log( self, "Ship built" )
           base.add_ship
-
-          start_build_ship if( building_ships > 0 )
+          remove_building_ships if base.parking.full?
         end
 
         def to_hash
@@ -64,6 +56,14 @@ module S2C
 
         def to_s
           to_hash.to_s
+        end
+
+        def building_ships
+          jobs.count { |e| e.name == "build_ship" }
+        end
+
+        def remove_building_ships
+          jobs.select { |e| e.name == "build_ship" }.each { |e| e.destroy }
         end
 
         def name
