@@ -38,14 +38,14 @@ module S2C
           if( target.ships.empty? )
             conquer_planet
           else
-            combat_planet
+            start_combat
           end
         end
 
         def start_combat
           S2C::Global.logger.log( self, "Start combat against planet #{target.id}" )
 
-          self.job =
+          self.jobs <<
             S2C::Models::Jobs::Combat.create!(
               :unit     => self,
               :target   => target,
@@ -59,6 +59,10 @@ module S2C
           else
             conquer_planet
           end
+        end
+
+        def remove_ship( ship )
+          ship.destroy
         end
 
         def surrender

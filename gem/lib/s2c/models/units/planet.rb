@@ -40,6 +40,10 @@ module S2C
           self.save!
         end
 
+        def remove_ship( ship )
+          ship.destroy
+        end
+
         def update_base_id
           self.update_attributes( :base_id => self.id )
         end
