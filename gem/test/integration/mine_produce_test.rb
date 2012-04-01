@@ -9,8 +9,6 @@ class MineProduceTest < Test::Unit::TestCase
     @planet     = @universe.planets.create!( :position => [1, 1] )
     @silo       = @planet.create_silo!
     @mine       = @planet.create_mine!
-
-    puts "XXX: mine.id: #{@mine.id}"
   end
 
   def test_setup
