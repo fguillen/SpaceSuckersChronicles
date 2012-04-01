@@ -5,6 +5,8 @@ class PlanetTest < Test::Unit::TestCase
     super
 
     @planet = S2C::Models::Units::Planet.create!( :position => [1, 2] )
+    @planet.create_parking!
+    @planet.create_silo!
   end
 
   def test_setup

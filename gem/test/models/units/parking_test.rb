@@ -31,11 +31,7 @@ class ParkingTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @parking.job = S2C::Models::Jobs::Upgrade.create!( :unit => @parking, :callback => :callback )
-
-    assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
-      @parking.end_upgrade
-    end
+    @parking.end_upgrade
 
     @parking.reload
 

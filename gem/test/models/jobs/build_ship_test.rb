@@ -20,8 +20,8 @@ class BuildShipTest < Test::Unit::TestCase
   def test_setup
     assert_equal( @hangar,      @build_ship.unit )
     assert_equal( :callback,    @build_ship.callback )
-    assert_equal( 100,          @build_ship.ticks_total )
-    assert_equal( 100,          @build_ship.ticks_remain )
+    assert_equal( 2,            @build_ship.ticks_total )
+    assert_equal( 2,            @build_ship.ticks_remain )
     assert_equal( "build_ship", @build_ship.name )
     assert_equal( 10,           @build_ship.cost )
   end

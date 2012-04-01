@@ -8,20 +8,22 @@ module S2C
 
         def step
           unit.ships.each do |ship|
-            ship.hit( random_target_ship )
+            target_ship = random_target_ship
+            ship.hit( random_target_ship ) if target_ship
           end
 
           target.ships.each do |ship|
-            ship.hit( random_unit_ship )
+            unit_ship = random_unit_ship
+            ship.hit( random_unit_ship ) if unit_ship
           end
         end
 
         def random_unit_ship
-          S2C::Utils.get_random( unit.ships )
+          S2C::Utils.get_random( unit.ships( true ) )
         end
 
         def random_target_ship
-          S2C::Utils.get_random( target.ships )
+          S2C::Utils.get_random( target.ships( true ) )
         end
 
         def finish?

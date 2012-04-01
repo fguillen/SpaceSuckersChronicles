@@ -47,11 +47,7 @@ class MineTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @mine.job = S2C::Models::Jobs::Upgrade.create!( :unit => @mine, :callback => :callback )
-
-    assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
-      @mine.end_upgrade
-    end
+    @mine.end_upgrade
 
     assert_equal( "produce", @mine.job.name )
     assert_equal( 1, @mine.level )

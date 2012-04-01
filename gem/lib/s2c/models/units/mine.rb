@@ -14,7 +14,7 @@ module S2C
         end
 
         def start_produce
-          self.job =
+          jobs <<
             S2C::Models::Jobs::ProduceStuff.create!(
               :unit     => self,
               :callback => :produce
@@ -26,9 +26,9 @@ module S2C
         end
 
         def start_upgrade
-          self.job.destroy if self.job
+          job.destroy if job
 
-          self.job =
+          jobs <<
             S2C::Models::Jobs::Upgrade.create!(
               :unit     => self,
               :callback => :end_upgrade
@@ -36,11 +36,10 @@ module S2C
         end
 
         def end_upgrade
-          self.job.destroy
           self.level      += 1
           self.production += 10
 
-          self.save!
+          save!
 
           start_produce
         end

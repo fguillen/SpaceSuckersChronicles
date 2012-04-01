@@ -47,7 +47,7 @@ class FleetTest < Test::Unit::TestCase
   def test_end_trip_when_planet_not_empty
     @destination.ships.create!
 
-    @fleet.expects( :combat_planet )
+    @fleet.expects( :start_combat )
     @fleet.end_trip
   end
 

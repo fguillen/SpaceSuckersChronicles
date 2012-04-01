@@ -30,7 +30,7 @@ class SiloUpgradeTest < Test::Unit::TestCase
     @universe.step
     @silo.reload
     assert( @silo.job.instance_of?( S2C::Models::Jobs::Upgrade ) )
-    assert_equal( 1, @silo.job.ticks_remain )
+    assert_equal( 0, @silo.job.ticks_remain )
     assert_equal( 0, @silo.level )
 
     @universe.step

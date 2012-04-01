@@ -15,7 +15,7 @@ module S2C
         end
 
         def start_upgrade
-          self.job =
+          self.jobs <<
             S2C::Models::Jobs::Upgrade.create!(
               :unit     => self,
               :callback => :end_upgrade
@@ -23,7 +23,6 @@ module S2C
         end
 
         def end_upgrade
-          self.job.destroy
           self.level    += 1
           self.capacity += 10
 

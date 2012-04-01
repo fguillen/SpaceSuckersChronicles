@@ -31,23 +31,23 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
     @fleet.start_trip
   end
 
-  # def test_setup
-  #   assert_equal( "travel", @fleet.job.name )
-  #   assert_equal( @planet1.id, @fleet.base.id )
-  #   assert_equal( @planet2.id, @fleet.target.id )
-  #   assert_equal( 2, @fleet.ships.size )
-  #   assert_equal( 2, @fleet.job.ticks_remain )
-  # end
+  def test_setup
+    assert_equal( "travel", @fleet.job.name )
+    assert_equal( @planet1.id, @fleet.base.id )
+    assert_equal( @planet2.id, @fleet.target.id )
+    assert_equal( 2, @fleet.ships.size )
+    assert_equal( 2, @fleet.job.ticks_remain )
+  end
 
-  # def test_start_combat
-  #   @universe.step
-  #   @universe.step
-  #   @universe.step # Fleet arrives to the planet and decide to attack
-  #   reload_units
+  def test_start_combat
+    @universe.step
+    @universe.step
+    @universe.step # Fleet arrives to the planet and decide to attack
+    reload_units
 
-  #   assert_equal( "combat", @fleet.job.name )
-  #   assert_equal( @planet2.id, @fleet.job.target.id )
-  # end
+    assert_equal( "combat", @fleet.job.name )
+    assert_equal( @planet2.id, @fleet.job.target.id )
+  end
 
   def test_combat
     @universe.step
@@ -61,6 +61,7 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
     assert_equal( true,   @universe.units.include?( @ship3 ) )
     assert_equal( true,   @universe.units.include?( @ship4 ) )
     assert_equal( true,   @universe.units.include?( @ship5 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship2 ) )
     assert_equal( true,   @planet2.ships.include?( @ship4 ) )
     assert_equal( true,   @planet2.ships.include?( @ship5 ) )
     assert_equal( true,   @universe.fleets.include?( @fleet ) )
@@ -79,10 +80,11 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
     assert_equal( true,   @universe.units.include?( @ship3 ) )
     assert_equal( true,   @universe.units.include?( @ship4 ) )
     assert_equal( true,   @universe.units.include?( @ship5 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship2 ) )
     assert_equal( true,   @planet2.ships.include?( @ship4 ) )
     assert_equal( true,   @planet2.ships.include?( @ship5 ) )
     assert_equal( true,   @universe.fleets.include?( @fleet ) )
-    assert_equal( 2,      @ship1.life )
+    assert_equal( 2,      @ship1.life ) # deleted
     assert_equal( 10,     @ship2.life )
     assert_equal( 10,     @ship3.life )
     assert_equal( 2,      @ship4.life )
@@ -97,51 +99,72 @@ class FleetCombatSuccessTest < Test::Unit::TestCase
     assert_equal( true,   @universe.units.include?( @ship3 ) )
     assert_equal( false,  @universe.units.include?( @ship4 ) )
     assert_equal( true,   @universe.units.include?( @ship5 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship2 ) )
     assert_equal( false,  @planet2.ships.include?( @ship4 ) )
     assert_equal( true,   @planet2.ships.include?( @ship5 ) )
     assert_equal( true,   @universe.fleets.include?( @fleet ) )
-    assert_equal( 2,      @ship1.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship1 ) )
     assert_equal( 10,     @ship2.life )
     assert_equal( 10,     @ship3.life )
-    assert_equal( 2,      @ship4.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship4 ) )
     assert_equal( 6,      @ship5.life )
 
     @universe.step
     reload_units
 
     assert_equal( "combat", @fleet.job.name )
-    assert_equal( true,   @universe.units.include?( @ship1 ) )
-    assert_equal( false,  @universe.units.include?( @ship2 ) )
+    assert_equal( false,  @universe.units.include?( @ship1 ) )
+    assert_equal( true,   @universe.units.include?( @ship2 ) )
+    assert_equal( true,   @universe.units.include?( @ship3 ) )
+    assert_equal( false,  @universe.units.include?( @ship4 ) )
+    assert_equal( true,   @universe.units.include?( @ship5 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship2 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship4 ) )
+    assert_equal( true,   @planet2.ships.include?( @ship5 ) )
+    assert_equal( true,   @universe.fleets.include?( @fleet ) )
+    assert( !S2C::Models::Units::Base.exists?( @ship1 ) )
+    assert_equal( 6,      @ship2.life )
+    assert_equal( 10,     @ship3.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship4 ) )
+    assert_equal( 2,      @ship5.life )
+
+    @universe.step
+    reload_units
+
+    assert_equal( "combat", @fleet.job.name )
+    assert_equal( false,  @universe.units.include?( @ship1 ) )
+    assert_equal( true,   @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )
     assert_equal( false,  @universe.units.include?( @ship4 ) )
     assert_equal( false,  @universe.units.include?( @ship5 ) )
+    assert_equal( false,  @planet2.ships.include?( @ship2 ) )
     assert_equal( false,  @planet2.ships.include?( @ship4 ) )
     assert_equal( false,  @planet2.ships.include?( @ship5 ) )
     assert_equal( true,   @universe.fleets.include?( @fleet ) )
-    assert_equal( 10,     @ship1.life )
-    assert_equal( -1,     @ship2.life )
-    assert_equal( 5,      @ship3.life )
-    assert_equal( -2,     @ship4.life )
-    assert_equal( -2,     @ship5.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship1 ) )
+    assert_equal( 2,      @ship2.life )
+    assert_equal( 10,     @ship3.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship4 ) )
+    assert( !S2C::Models::Units::Base.exists?( @ship5 ) )
 
     @universe.step
     reload_units
 
     assert( @fleet.job.nil? )
-    assert_equal( true,   @universe.units.include?( @ship1 ) )
-    assert_equal( false,  @universe.units.include?( @ship2 ) )
+    assert_equal( false,  @universe.units.include?( @ship1 ) )
+    assert_equal( true,   @universe.units.include?( @ship2 ) )
     assert_equal( true,   @universe.units.include?( @ship3 ) )
     assert_equal( false,  @universe.units.include?( @ship4 ) )
     assert_equal( false,  @universe.units.include?( @ship5 ) )
+    assert_equal( true,   @planet2.ships.include?( @ship2 ) )
     assert_equal( false,  @planet2.ships.include?( @ship4 ) )
     assert_equal( false,  @planet2.ships.include?( @ship5 ) )
-    assert_equal( true,   @planet2.ships.include?( @ship3 ) )
     assert_equal( false,  @universe.fleets.include?( @fleet ) )
-    assert_equal( 10,     @ship1.life )
-    assert_equal( -1,     @ship2.life )
-    assert_equal( 5,      @ship3.life )
-    assert_equal( -2,     @ship4.life )
-    assert_equal( -2,     @ship5.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship1 ) )
+    assert_equal( 2,      @ship2.life )
+    assert_equal( 10,     @ship3.life )
+    assert( !S2C::Models::Units::Base.exists?( @ship4 ) )
+    assert( !S2C::Models::Units::Base.exists?( @ship5 ) )
   end
 
   def reload_units

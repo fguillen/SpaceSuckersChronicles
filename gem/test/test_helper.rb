@@ -22,7 +22,7 @@ class Test::Unit::TestCase
   FIXTURES = File.expand_path("#{File.dirname(__FILE__)}/fixtures")
 
   def setup
-    # S2C::Logger.any_instance.stubs( :log )
+    S2C::Logger.any_instance.stubs( :log )
     S2C::Global.setup( "#{FIXTURES}/config.yml" );
     DatabaseCleaner.start
   end

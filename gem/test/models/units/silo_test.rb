@@ -13,7 +13,7 @@ class SiloTest < Test::Unit::TestCase
     assert_equal( true,     @silo.job.nil? )
     assert_equal( @silo,    @planet.silo )
     assert_equal( @planet,  @silo.base )
-    assert_equal( 10,       @silo.capacity )
+    assert_equal( 2000,     @silo.capacity )
     assert_equal( 0,        @silo.level )
     assert_equal( "silo",   @silo.name )
   end
@@ -31,24 +31,12 @@ class SiloTest < Test::Unit::TestCase
   end
 
   def test_end_upgrade
-    @silo.job = S2C::Models::Jobs::Upgrade.create!( :unit => @silo, :callback => :callback )
-
-    assert_difference "S2C::Models::Jobs::Upgrade.count", -1 do
-      @silo.end_upgrade
-    end
+    @silo.end_upgrade
 
     @silo.reload
 
-    assert_equal( true, @silo.job.nil? )
-    assert_equal( 1,    @silo.level )
-    assert_equal( 20,   @silo.capacity )
-  end
-
-  def test_full
-    @planet.stuff = 9
-    assert_equal( false, @silo.full? )
-
-    @planet.stuff = 10
-    assert_equal( true, @silo.full? )
+    assert_equal( true,   @silo.job.nil? )
+    assert_equal( 1,      @silo.level )
+    assert_equal( 2010,   @silo.capacity )
   end
 end
