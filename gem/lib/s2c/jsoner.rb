@@ -60,7 +60,7 @@ module S2C
       {
         "id"        => parking.id,
         "capacity"  => parking.capacity,
-        "ships"     => parking.base.units.size,
+        "ships"     => parking.base.ships.size,
         "level"     => parking.level,
         "job"       => job_to_hash( parking.job )
       }
@@ -71,8 +71,8 @@ module S2C
 
       {
         "id"                => hangar.id,
-        "production_ticks"  => hangar.production_ticks,
-        "building_ships"    => hangar.building_ships.size,
+        "production_ticks"  => hangar.production,
+        "building_ships"    => hangar.building_ships,
         "level"             => hangar.level,
         "job"               => job_to_hash( hangar.job )
       }
@@ -81,9 +81,9 @@ module S2C
     def self.ship_to_hash( ship )
       {
         "id"         => ship.id,
-        "base_id"    => ship.base.id,
+        "base_id"    => ship.base_id,
         "life"       => ship.life,
-        "attack"      => ship.attack,
+        "attack"     => ship.attack,
         "defense"    => ship.defense,
         "job"        => job_to_hash( ship.job )
       }
@@ -92,34 +92,34 @@ module S2C
     def self.fleet_to_hash( fleet )
       {
         "id"             => fleet.id,
-        "base_id"        => fleet.base.id,
-        "destination_id" => fleet.destination.id,
+        "base_id"        => fleet.base_id,
+        "destination_id" => fleet.target_id,
         "job"            => job_to_hash( fleet.job )
       }
     end
 
     def self.job_to_hash( job )
       return nil                                if job.nil?
-      return job_travel_to_hash( job )          if job.instance_of?( S2C::Models::Jobs::Travel )
-      return job_combat_to_hash( job )          if job.instance_of?( S2C::Models::Jobs::Combat )
-      return job_upgrade_to_hash( job )         if job.instance_of?( S2C::Models::Jobs::Upgrade )
-      return job_produce_stuff_to_hash( job )   if job.instance_of?( S2C::Models::Jobs::ProduceStuff )
-      return job_build_ship_to_hash( job )      if job.instance_of?( S2C::Models::Jobs::BuildShip )
+      return job_travel_to_hash( job )          if job.name == "travel"
+      return job_combat_to_hash( job )          if job.name == "combat"
+      return job_upgrade_to_hash( job )         if job.name == "upgrade"
+      return job_produce_stuff_to_hash( job )   if job.name == "produce_stuff"
+      return job_build_ship_to_hash( job )      if job.name == "build_ship"
       raise "job type not supported: '#{job.class}'"
     end
 
     def self.job_travel_to_hash( job )
       {
-        "type"            => "travel",
+        "name"            => job.name,
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain,
-        "destination_id"  => job.destination.id
+        "destination_id"  => job.target_id
       }
     end
 
     def self.job_upgrade_to_hash( job )
       {
-        "type"            => "upgrade",
+        "name"            => job.name,
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain
       }
@@ -127,7 +127,7 @@ module S2C
 
     def self.job_build_ship_to_hash( job )
       {
-        "type"            => "build_ship",
+        "name"            => job.name,
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain
       }
@@ -135,14 +135,14 @@ module S2C
 
     def self.job_produce_stuff_to_hash( job )
       {
-        "type"            => "produce_stuff"
+        "name"            => job.name,
       }
     end
 
     def self.job_combat_to_hash( job )
       {
-        "type"          => "combat",
-        "target_ids"    => job.targets.map { |e| e.id }
+        "name"            => job.name,
+        "target_ids"      => job.target_id
       }
     end
   end

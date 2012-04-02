@@ -4,81 +4,161 @@
   },
   "planets": [
     {
-      "id": "X001",
+      "id": 1,
       "position": [
         1,
         1
       ],
       "silo": {
-        "id": "S003",
-        "capacity": 10,
-        "stuff": 0,
-        "level": 1,
+        "id": 4,
+        "capacity": 2000,
+        "stuff": null,
+        "level": 0,
         "job": {
-          "type": "upgrade",
+          "name": "upgrade",
           "ticks_total": 1,
           "ticks_remain": 1
         }
       },
       "mine": {
-        "id": "M004",
-        "production": 1,
-        "level": 1,
+        "id": 3,
+        "production": 10,
+        "level": 0,
         "job": {
-          "type": "produce_stuff"
+          "name": "produce_stuff"
         }
       },
       "parking": {
-        "id": "P006",
+        "id": 6,
         "capacity": 10,
-        "ships": 1,
-        "level": 1,
+        "ships": 3,
+        "level": 0,
         "job": null
       },
       "hangar": {
-        "id": "H005",
-        "production_ticks": 10,
+        "id": 5,
+        "production_ticks": 2,
         "building_ships": 1,
-        "level": 1,
+        "level": 0,
         "job": {
-          "type": "build_ship",
-          "ticks_total": 10,
-          "ticks_remain": 10
+          "name": "build_ship",
+          "ticks_total": 2,
+          "ticks_remain": 2
         }
       },
       "job": null
     },
     {
-      "id": "X002",
+      "id": 2,
       "position": [
         1,
         2
       ],
       "silo": {
-        "id": "S007",
-        "capacity": 10,
-        "stuff": 0,
-        "level": 1,
+        "id": 8,
+        "capacity": 2000,
+        "stuff": null,
+        "level": 0,
         "job": null
       },
       "mine": {
-        "id": "M008",
-        "production": 1,
-        "level": 1,
+        "id": 7,
+        "production": 10,
+        "level": 0,
         "job": null
       },
       "parking": {
-        "id": "P010",
+        "id": 10,
         "capacity": 10,
-        "ships": 2,
-        "level": 1,
+        "ships": 0,
+        "level": 0,
         "job": null
       },
       "hangar": {
-        "id": "H009",
-        "production_ticks": 10,
+        "id": 9,
+        "production_ticks": 2,
         "building_ships": 0,
-        "level": 1,
+        "level": 0,
+        "job": null
+      },
+      "job": null
+    },
+    {
+      "id": 17,
+      "position": [
+        1,
+        1
+      ],
+      "silo": {
+        "id": 20,
+        "capacity": 2000,
+        "stuff": null,
+        "level": 0,
+        "job": {
+          "name": "upgrade",
+          "ticks_total": 1,
+          "ticks_remain": 1
+        }
+      },
+      "mine": {
+        "id": 19,
+        "production": 10,
+        "level": 0,
+        "job": {
+          "name": "produce_stuff"
+        }
+      },
+      "parking": {
+        "id": 22,
+        "capacity": 10,
+        "ships": 3,
+        "level": 0,
+        "job": null
+      },
+      "hangar": {
+        "id": 21,
+        "production_ticks": 2,
+        "building_ships": 1,
+        "level": 0,
+        "job": {
+          "name": "build_ship",
+          "ticks_total": 2,
+          "ticks_remain": 2
+        }
+      },
+      "job": null
+    },
+    {
+      "id": 18,
+      "position": [
+        1,
+        2
+      ],
+      "silo": {
+        "id": 24,
+        "capacity": 2000,
+        "stuff": null,
+        "level": 0,
+        "job": null
+      },
+      "mine": {
+        "id": 23,
+        "production": 10,
+        "level": 0,
+        "job": null
+      },
+      "parking": {
+        "id": 26,
+        "capacity": 10,
+        "ships": 0,
+        "level": 0,
+        "job": null
+      },
+      "hangar": {
+        "id": 25,
+        "production_ticks": 2,
+        "building_ships": 0,
+        "level": 0,
         "job": null
       },
       "job": null
@@ -86,53 +166,94 @@
   ],
   "fleets": [
     {
-      "id": "F016",
-      "base_id": "X001",
-      "destination_id": "X002",
-      "job": {
-        "type": "travel",
-        "ticks_total": 1,
-        "ticks_remain": 1,
-        "destination_id": "X002"
-      }
+      "id": 16,
+      "base_id": 1,
+      "destination_id": 2,
+      "job": null
+    },
+    {
+      "id": 32,
+      "base_id": 17,
+      "destination_id": 18,
+      "job": null
     }
   ],
   "ships": [
     {
-      "id": "A011",
-      "base_id": "X001",
+      "id": 11,
+      "base_id": 1,
       "life": 10,
       "attack": 12,
       "defense": 8,
       "job": null
     },
     {
-      "id": "A012",
-      "base_id": "F016",
+      "id": 12,
+      "base_id": 16,
       "life": 10,
       "attack": 12,
       "defense": 8,
       "job": null
     },
     {
-      "id": "A013",
-      "base_id": "F016",
+      "id": 13,
+      "base_id": 16,
       "life": 10,
       "attack": 12,
       "defense": 8,
       "job": null
     },
     {
-      "id": "A014",
-      "base_id": "X002",
+      "id": 14,
+      "base_id": 1,
       "life": 10,
       "attack": 12,
       "defense": 8,
       "job": null
     },
     {
-      "id": "A015",
-      "base_id": "X002",
+      "id": 15,
+      "base_id": 1,
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": 27,
+      "base_id": 17,
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": 28,
+      "base_id": 32,
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": 29,
+      "base_id": 32,
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": 30,
+      "base_id": 17,
+      "life": 10,
+      "attack": 12,
+      "defense": 8,
+      "job": null
+    },
+    {
+      "id": 31,
+      "base_id": 17,
       "life": 10,
       "attack": 12,
       "defense": 8,

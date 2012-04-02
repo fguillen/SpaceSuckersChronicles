@@ -24,6 +24,13 @@ module S2C
           self.base_id  = 0
         end
 
+        def furnish
+          create_mine!
+          create_silo!
+          create_hangar!
+          create_parking!
+        end
+
         def add_ship
           self.ships.create! if !parking.full?
         end

@@ -13,7 +13,7 @@ module S2C
         end
 
         def name
-          "produce"
+          "produce_stuff"
         end
 
         def calculate_cost
