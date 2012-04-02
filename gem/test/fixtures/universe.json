@@ -82,86 +82,6 @@
         "job": null
       },
       "job": null
-    },
-    {
-      "id": 17,
-      "position": [
-        1,
-        1
-      ],
-      "silo": {
-        "id": 20,
-        "capacity": 2000,
-        "stuff": null,
-        "level": 0,
-        "job": {
-          "name": "upgrade",
-          "ticks_total": 1,
-          "ticks_remain": 1
-        }
-      },
-      "mine": {
-        "id": 19,
-        "production": 10,
-        "level": 0,
-        "job": {
-          "name": "produce_stuff"
-        }
-      },
-      "parking": {
-        "id": 22,
-        "capacity": 10,
-        "ships": 3,
-        "level": 0,
-        "job": null
-      },
-      "hangar": {
-        "id": 21,
-        "production_ticks": 2,
-        "building_ships": 1,
-        "level": 0,
-        "job": {
-          "name": "build_ship",
-          "ticks_total": 2,
-          "ticks_remain": 2
-        }
-      },
-      "job": null
-    },
-    {
-      "id": 18,
-      "position": [
-        1,
-        2
-      ],
-      "silo": {
-        "id": 24,
-        "capacity": 2000,
-        "stuff": null,
-        "level": 0,
-        "job": null
-      },
-      "mine": {
-        "id": 23,
-        "production": 10,
-        "level": 0,
-        "job": null
-      },
-      "parking": {
-        "id": 26,
-        "capacity": 10,
-        "ships": 0,
-        "level": 0,
-        "job": null
-      },
-      "hangar": {
-        "id": 25,
-        "production_ticks": 2,
-        "building_ships": 0,
-        "level": 0,
-        "job": null
-      },
-      "job": null
     }
   ],
   "fleets": [
@@ -169,12 +89,6 @@
       "id": 16,
       "base_id": 1,
       "destination_id": 2,
-      "job": null
-    },
-    {
-      "id": 32,
-      "base_id": 17,
-      "destination_id": 18,
       "job": null
     }
   ],
@@ -214,46 +128,6 @@
     {
       "id": 15,
       "base_id": 1,
-      "life": 10,
-      "attack": 12,
-      "defense": 8,
-      "job": null
-    },
-    {
-      "id": 27,
-      "base_id": 17,
-      "life": 10,
-      "attack": 12,
-      "defense": 8,
-      "job": null
-    },
-    {
-      "id": 28,
-      "base_id": 32,
-      "life": 10,
-      "attack": 12,
-      "defense": 8,
-      "job": null
-    },
-    {
-      "id": 29,
-      "base_id": 32,
-      "life": 10,
-      "attack": 12,
-      "defense": 8,
-      "job": null
-    },
-    {
-      "id": 30,
-      "base_id": 17,
-      "life": 10,
-      "attack": 12,
-      "defense": 8,
-      "job": null
-    },
-    {
-      "id": 31,
-      "base_id": 17,
       "life": 10,
       "attack": 12,
       "defense": 8,

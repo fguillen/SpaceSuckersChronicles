@@ -7,8 +7,6 @@ module S2C
       @logger = S2C::Logger.new( @config )
 
       initialize_active_record
-
-      @universe = initialize_universe
     end
 
     def self.initialize_active_record
@@ -26,7 +24,7 @@ module S2C
       end
    end
 
-    def self.initialize_universe
+    def self.universe
       S2C::Models::Universe.find_or_create_by_name( config["universe"]["name"] )
     end
 
@@ -36,10 +34,6 @@ module S2C
 
     def self.logger
       @logger
-    end
-
-    def self.universe
-      @universe
     end
   end
 end

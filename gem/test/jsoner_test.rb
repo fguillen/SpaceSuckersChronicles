@@ -5,9 +5,7 @@ class JSONerTest < Test::Unit::TestCase
   def setup
     super
 
-    S2C::Global.setup( "#{FIXTURES}/config.yml" )
-
-    @universe   = S2C::Global.universe
+    @universe = S2C::Global.universe
 
     planet1 = S2C::Models::Units::Planet.create!( :position => [1, 1] )
     planet2 = S2C::Models::Units::Planet.create!( :position => [1, 2] )
@@ -35,7 +33,6 @@ class JSONerTest < Test::Unit::TestCase
 
   def test_to_hash
     hash = S2C::JSONer.to_hash( @universe )
-    puts "XXX: planets: #{hash["planets"].map { |e| puts "XXX2: #{e}" } }"
 
     assert_equal( 2, hash["planets"].size )
     assert_equal( 5, hash["ships"].size )

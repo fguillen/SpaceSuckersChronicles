@@ -18,10 +18,10 @@ class ProduceStuffTest < Test::Unit::TestCase
   end
 
   def test_setup
-    assert_equal( @mine,      @produce_stuff.unit )
-    assert_equal( :callback,  @produce_stuff.callback )
-    assert_equal( "produce",  @produce_stuff.name )
-    assert_equal( 0,          @produce_stuff.cost )
+    assert_equal( @mine,            @produce_stuff.unit )
+    assert_equal( :callback,        @produce_stuff.callback )
+    assert_equal( "produce_stuff",  @produce_stuff.name )
+    assert_equal( 0,                @produce_stuff.cost )
   end
 
   def test_step

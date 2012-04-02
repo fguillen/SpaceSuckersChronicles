@@ -24,7 +24,7 @@ class MineTest < Test::Unit::TestCase
       @mine.start_produce
     end
 
-    assert_equal( "produce", @mine.job.name )
+    assert_equal( "produce_stuff", @mine.job.name )
     assert_equal( @mine, @mine.job.unit )
     assert_equal( :produce, @mine.job.callback )
   end
@@ -49,7 +49,7 @@ class MineTest < Test::Unit::TestCase
   def test_end_upgrade
     @mine.end_upgrade
 
-    assert_equal( "produce", @mine.job.name )
+    assert_equal( "produce_stuff", @mine.job.name )
     assert_equal( 1, @mine.level )
     assert_equal( 20, @mine.production )
   end
