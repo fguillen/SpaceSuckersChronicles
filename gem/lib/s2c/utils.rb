@@ -19,40 +19,45 @@ module S2C
     end
 
     def self.feed_universe( universe )
-      store = S2C::Store.new( universe )
+      universe = S2C::Global.universe
 
       planets = []
 
-      planets[0]  = store.create_planet( [1, 1] )
-      planets[1]  = store.create_planet( [1, 2] )
-      planets[2]  = store.create_planet( [1, 3] )
-      planets[3]  = store.create_planet( [1, 4] )
-      planets[4]  = store.create_planet( [2, 1] )
-      planets[5]  = store.create_planet( [2, 2] )
-      planets[6]  = store.create_planet( [2, 3] )
-      planets[7]  = store.create_planet( [2, 4] )
-      planets[8]  = store.create_planet( [3, 1] )
-      planets[9] = store.create_planet( [3, 2] )
-      planets[10] = store.create_planet( [3, 3] )
-      planets[11] = store.create_planet( [3, 4] )
+      planets[0]  = universe.planets.create!( :position =>  [1, 1] )
+      planets[1]  = universe.planets.create!( :position =>  [1, 2] )
+      planets[2]  = universe.planets.create!( :position =>  [1, 3] )
+      planets[3]  = universe.planets.create!( :position =>  [1, 4] )
+      planets[4]  = universe.planets.create!( :position =>  [2, 1] )
+      planets[5]  = universe.planets.create!( :position =>  [2, 2] )
+      planets[6]  = universe.planets.create!( :position =>  [2, 3] )
+      planets[7]  = universe.planets.create!( :position =>  [2, 4] )
+      planets[8]  = universe.planets.create!( :position =>  [3, 1] )
+      planets[9]  = universe.planets.create!( :position =>  [3, 2] )
+      planets[10] = universe.planets.create!( :position =>  [3, 3] )
+      planets[11] = universe.planets.create!( :position =>  [3, 4] )
 
       planets.each do |planet|
-        store.furnish_planet( planet )
+        planet.furnish
         planet.mine.start_produce
       end
 
-      ship1    = store.create_ship( planets[0] )
-      ship2    = store.create_ship( planets[0] )
-      ship3    = store.create_ship( planets[0] )
+      ship1    = planets[0].ships.create!
+      ship2    = planets[0].ships.create!
+      ship3    = planets[0].ships.create!
 
-      3.times { store.create_ship( planets[1] ) }
-      3.times { store.create_ship( planets[2] ) }
-      3.times { store.create_ship( planets[3] ) }
-      3.times { store.create_ship( planets[4] ) }
+      3.times { planets[1].ships.create! }
+      3.times { planets[2].ships.create! }
+      3.times { planets[3].ships.create! }
+      3.times { planets[4].ships.create! }
 
-      3.times { planets[0].hangar.build_ship }
+      3.times { planets[0].hangar.start_build_ship }
 
-      fleet1 = store.create_fleet( planets[0], planets[1], [ship1, ship2] )
+      fleet =
+        S2C::Models::Units::Fleet.arrange(
+          :base   => planets[0],
+          :target => planets[1],
+          :ships  => [ship1, ship2]
+        )
 
       universe
     end

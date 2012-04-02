@@ -1,16 +1,42 @@
+log_path: "/tmp"
+db_path: "/tmp/db.server.sqlite3"
+
 universe:
+  name: "UniverseServer"
   tick_seconds: 1
-  travel_black_stuff: 2
-  upgrade_ticks: 1
 
 planet:
-  initial_black_stuff: 1000
+  stuff: 1000
 
 fleet:
   velocity: 1
+  travel_cost: 2
 
 ship:
+  construction_cost: 10
+  upgrade_cost: 20
+  upgrade_ticks: 10
   power: 20
   attack: 12
   defense: 8
   life: 10
+
+mine:
+  production: 10
+  upgrade_cost: 20
+  upgrade_ticks: 10
+
+silo:
+  capacity: 2000
+  upgrade_cost: 20
+  upgrade_ticks: 10
+
+parking:
+  capacity: 10
+  upgrade_cost: 20
+  upgrade_ticks: 10
+
+hangar:
+  production: 10
+  upgrade_cost: 20
+  upgrade_ticks: 10

@@ -21,13 +21,13 @@ $(function(){
     extraCSSClasses: function(){
       result = "";
 
-      if( this.job.type == "upgrade" ) result += "upgrading";
+      if( this.job.name == "upgrade" ) result += "upgrading";
 
       return result;
     },
 
     upgradePercent: function(){
-      if( this.job.type == "upgrade" ){
+      if( this.job.name == "upgrade" ){
         return toPercent( ( this.job.ticks_total - this.job.ticks_remain ), this.job.ticks_total );
       } else {
         return 100;

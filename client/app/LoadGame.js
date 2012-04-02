@@ -6,8 +6,8 @@ $(function(){
   new App.ControlsView({ universe: App.Game });
   App.Navigator = new App.Router();
 
-  App.Game.synch();
-  // App.Game.refresh();
+  // App.Game.synch();
+  App.Game.refresh();
 
   Backbone.history.start();
 

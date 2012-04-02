@@ -1,20 +1,16 @@
 module S2C::Server
   class App < Sinatra::Base
-    # config_path = "#{File.dirname(__FILE__)}/../../../config/config.yml"
-    # S2C::Global.setup( config_path )
-    # @@universe  = S2C::Global.universe
-    # # @@db_path   = File.expand_path( "#{File.dirname(__FILE__)}/../../../#{config["db"]}" )
+    puts "XXX: S2C::VERSION: #{S2C::VERSION}"
 
-    # # if( File.exists?( @@db_path ) )
-    # #   hash = JSON.parse( File.read( @@db_path ) )
-    # #   @@universe.from_hash( hash )
-    # # else
-    # #   S2C::Utils.feed_universe( @@universe )
-    # # end
+    config_path = "#{File.dirname(__FILE__)}/../../../config/config.yml"
+    S2C::Global.setup( config_path )
 
-    # S2C::Utils.feed_universe( @@universe )
+    @@universe  = S2C::Global.universe
+    if @@universe.planets.empty?
+      S2C::Utils.feed_universe( @@universe )
+      @@universe.reload
+    end
     # @@universe.start
-
 
     before do
       headers(
@@ -27,7 +23,7 @@ module S2C::Server
     end
 
     get "/universe" do
-      # @@universe.step
+      @@universe.step
       result = S2C::JSONer.to_json( @@universe )
       puts result
       result
@@ -38,25 +34,30 @@ module S2C::Server
 
       puts "XXX: data: #{data}"
 
-      planet = universe.get_planet( data["base_id"] )
-      planet_destination = universe.get_planet( data["destination_id"] )
-      ships = data["ship_ids"].map { |ship_id| universe.get_unit( ship_id ) }
+      base    = universe.planets.find( data["base_id"] )
+      target  = universe.planets.find( data["destination_id"] )
+      ships   = universe.ships.find( data["ship_ids"] )
 
-      fleet = S2C::Global.store.create_fleet( planet, planet_destination, ships )
+      fleet =
+        S2C::Models::Units::Fleet.arrange(
+          :base   => base,
+          :target => target,
+          :ships  => ships
+        )
 
       JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
     end
 
     post "/upgrade/:id" do
-      unit = universe.get_unit( params[:id] )
+      unit = universe.units.find( params[:id] )
       unit.start_upgrade
 
       "ok"
     end
 
     post "/build_ship/:hangar_id" do
-      unit = universe.get_unit( params[:hangar_id] )
-      unit.build_ship
+      unit = universe.units.find( params[:hangar_id] )
+      unit.start_build_ship
 
       "ok"
     end

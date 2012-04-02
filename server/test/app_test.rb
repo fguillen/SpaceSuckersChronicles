@@ -35,7 +35,7 @@ class ThimblSingingTest < Test::Unit::TestCase
   def test_show_universe
     get '/universe'
 
-    json_response = JSON.parse(last_response.body)
+    json_response = JSON.parse( last_response.body )
 
     assert_equal(3, json_response['planets'].size)
     assert_equal(0, json_response['tick'])

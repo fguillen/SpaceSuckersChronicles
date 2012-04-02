@@ -21,7 +21,7 @@ $(function(){
     },
 
     travelingClass: function(){
-      if( this.job.type == "travel" ){
+      if( this.job.name == "travel" ){
         return "traveling";
       } else {
         return "no-traveling";
@@ -29,7 +29,7 @@ $(function(){
     },
 
     travelPercent: function(){
-      if( this.job.type == "travel" ){
+      if( this.job.name == "travel" ){
         return toPercent( ( this.job.ticks_total - this.job.ticks_remain ), this.job.ticks_total );
       } else {
         return 100;
