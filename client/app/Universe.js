@@ -6,6 +6,7 @@ $(function(){
       this.ships    = new App.Ships();
       this.planets  = new App.Planets();
       this.fleets   = new App.Fleets();
+      this.notices  = new App.Notices();
 
       this.interval;
 
@@ -35,6 +36,7 @@ $(function(){
       App.Utils.refreshCollection( this.planets,  this.get( "planets" ) );
       App.Utils.refreshCollection( this.fleets,   this.get( "fleets" ) );
       App.Utils.refreshCollection( this.ships,    this.get( "ships" ) );
+      App.Utils.refreshCollection( this.notices,  this.get( "events" ) );
     },
 
     sendFleetToPlanet: function( planetDestination ){

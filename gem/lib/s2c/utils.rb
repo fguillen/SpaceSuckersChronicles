@@ -59,6 +59,8 @@ module S2C
           :ships  => [ship1, ship2]
         )
 
+      fleet.start_trip
+
       universe
     end
 

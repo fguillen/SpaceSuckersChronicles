@@ -5,6 +5,7 @@ module S2C
 
         belongs_to :target, :class_name => "S2C::Models::Units::Planet"
         has_many :ships, :class_name => "S2C::Models::Units::Ship", :foreign_key => :base_id
+        has_many :jobs, :class_name => "S2C::Models::Jobs::Base", :foreign_key => :unit_id
 
         validates_presence_of :target_id
 
@@ -45,6 +46,7 @@ module S2C
 
         def start_combat
           S2C::Global.logger.log( self, "Start combat against planet #{target.id}" )
+          S2C::Global.logger.event( :fleet, "**#{id}** start combat against planet **#{target.id}**")
 
           self.jobs <<
             S2C::Models::Jobs::Combat.create!(

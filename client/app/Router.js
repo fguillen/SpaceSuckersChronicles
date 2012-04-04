@@ -8,14 +8,9 @@
 
       dashboard: function() {
         console.log( "Router.dashboard" );
-
-        $("html,body").animate(
-          {
-            scrollTop: $("#wrapper > #dashboard").offset().top
-          },
-            1000,
-            "swing"
-        );
+        $("#wrapper #infos .planet").fadeOut( "fast", function(){
+          $("#wrapper #dashboard").fadeIn( "slow" );
+        });
 
         console.log( "Router.dashboard END" );
       },
@@ -23,13 +18,9 @@
       planet: function( id ) {
         console.log( "Router.planet", id );
 
-        $("html,body").animate(
-          {
-            scrollTop: $("#planet-info-" + id).offset().top
-          },
-            1000,
-            "swing"
-        );
+        $("#wrapper #dashboard").fadeOut( "fast", function(){
+          $("#wrapper #infos #planet-info-" + id).fadeIn( "slow" );
+        });
 
         console.log( "Router.planet END" );
       }

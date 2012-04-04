@@ -16,9 +16,10 @@ module S2C
 
     def self.event_to_hash( event )
       {
+        "id"      => event.id,
         "tick"    => event.tick,
         "family"  => event.family,
-        "message" => event.message
+        "message" => RDiscount.new( event.message ).to_html
       }
     end
 

@@ -12,6 +12,11 @@
   <script type="text/javascript" src="./app/CommandUpgrade.js"></script>
   <script type="text/javascript" src="./app/CommandBuildShip.js"></script>
 
+  <script type="text/javascript" src="./app/Notice.js"></script>
+  <script type="text/javascript" src="./app/NoticeView.js"></script>
+  <script type="text/javascript" src="./app/Notices.js"></script>
+  <script type="text/javascript" src="./app/NoticesView.js"></script>
+
   <script type="text/javascript" src="./app/Fleet.js"></script>
   <script type="text/javascript" src="./app/FleetDecorator.js"></script>
   <script type="text/javascript" src="./app/FleetView.js"></script>
@@ -63,16 +68,16 @@
 </head>
 <body>
   <div id="universe-controls">
-    <!-- <a href="#" id="synch" onclick="return false;">synch</a>
+    <a href="#" id="synch" onclick="return false;">synch</a>
     <a href="#" id="pause" style="display:none" onclick="return false;">pause</a>
-    <a href="#" id="step" onclick="return false;">step</a> -->
+    <a href="#" id="step" onclick="return false;">step</a>
     <a href="#" id="dashboard" onclick="return false;">dashboard</a>
   </div>
 
   <div id="wrapper">
 
 
-    <div id="test" style="font-family: 'Ubuntu Mono', sans-serif;">
+<!--     <div id="test" style="font-family: 'Ubuntu Mono', sans-serif;">
       planet: Ѳ º ο ò ó ô õ ö ŏ ő ō ơ ǒ ȍ ȏ ȯ <br />
 
       planet: ☐ <br />
@@ -98,12 +103,20 @@
       silo: Ʌ Δ<br />
       hangar: П<br />
       parking: ψ ӝ Ӝ ǂ<br />
-    </div>
+    </div> -->
 
 
 
+    <div id="notices" class="folder shadow small-long">
+      <h1>notices</h1>
+      <ul></ul>
+    </div> <!-- notices -->
 
     <div id="dashboard">
+
+
+
+
       <div id="planets" class="folder shadow cards4">
         <h1>planets</h1>
         <ul></ul>
@@ -113,6 +126,9 @@
         <h1>fleets</h1>
         <ul></ul>
       </div> <!-- fleets -->
+
+
+
     </div> <!-- dashboard -->
 
 
@@ -126,6 +142,18 @@
 </body>
 
 <!-- TEMPLATES -->
+
+<script type="text/template" id="notice">
+  <div id="<%= id %>" class="notice card horizontal-long <%= family %>">
+    <div class="header">
+      <div id="icon" class="ship">▻</div>
+      <div id="icon" class="planet">☐</div>
+      <div id="icon" class="fleet">▻</div>
+    </div>
+
+    <div id="message"><%= message %></div>
+  </div> <!-- notice -->
+</script>
 
 <script type="text/template" id="ship">
   <div id="<%= id %>" class="ship card small vertical active">

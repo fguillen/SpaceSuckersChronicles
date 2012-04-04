@@ -10,6 +10,10 @@ body {
   background-color: #F1F1F2;
 }
 
+strong {
+  font-weight: bold;
+}
+
 #universe-controls {
   position: fixed;
   top: 0px;
@@ -99,6 +103,43 @@ body {
   text-align: center;
 }
 
+.card.horizontal-long .header {
+  float: left;
+  height: 100%;
+  width: 40px;
+  background-color: #F1F1F2;
+}
+
+.card.horizontal-long #message {
+  float: left;
+  padding: 5px;
+}
+
+.card.horizontal-long .header #icon {
+  font-size: 40px;
+  margin-top: 5px;
+  line-height: 15px;
+  text-shadow: 1px 1px 2px #111;
+}
+
+.card.horizontal-long.notice .header #icon {
+  display: none;
+}
+
+.card.horizontal-long.notice.ship .header #icon.ship,
+.card.horizontal-long.notice.planet .header #icon.planet,
+.card.horizontal-long.notice.fleet .header #icon.fleet {
+  display: block;
+}
+
+
+#notices ul  {
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: inset 0px -10px 20px 0px #d1d1d1;
+}
+
 .card.vertical .header h1,
 .card.bigbox .header h1,
 #details .header h1 {
@@ -130,8 +171,8 @@ body {
 }
 
 #wrapper {
-  padding: 20px;
-  width: 700px;
+  padding: 40px;
+  width: 1050px;
   margin: 10px;
 }
 
@@ -161,6 +202,10 @@ body {
   width: 195px;
 }
 
+.folder.small-long {
+  width: 315px;
+}
+
 .folder > h1 {
   background: #F1F1F2;
   padding: 15px 15px 10px 15px;
@@ -187,6 +232,11 @@ body {
 .card.horizontal {
   width: 180px;
   height: 60px;
+}
+
+.card.horizontal-long {
+  width: 300px;
+  height: 35px;
 }
 
 .card.bigbox {
@@ -334,6 +384,10 @@ body {
 
 #infos {
   float: left;
+}
+
+#infos .planet {
+  display: none;
 }
 
 #infos .planet #enemy-fleets {

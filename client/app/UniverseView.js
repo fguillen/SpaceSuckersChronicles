@@ -13,6 +13,11 @@ $(function(){
           fleets: this.universe.fleets,
         });
 
+      this.noticesView =
+        new App.NoticesView({
+          notices: this.universe.notices,
+        });
+
       this.planetInfos = new App.PlanetInfosView({
         planets: this.universe.planets
       });

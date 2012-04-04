@@ -10,7 +10,7 @@ module S2C::Server
       S2C::Utils.feed_universe( @@universe )
       @@universe.reload
     end
-    # @@universe.start
+    @@universe.start
 
     before do
       headers(
@@ -23,8 +23,8 @@ module S2C::Server
     end
 
     get "/universe" do
-      @@universe.step
-      @@universe.reload
+      # @@universe.step
+      # @@universe.reload
       result = S2C::JSONer.to_json( @@universe )
       puts result
       result
@@ -45,6 +45,8 @@ module S2C::Server
           :target => target,
           :ships  => ships
         )
+
+      fleet.start_trip
 
       JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
     end

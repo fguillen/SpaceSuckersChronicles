@@ -2,6 +2,7 @@ require "rubygems"
 require "active_record"
 require "sqlite3"
 require "logger"
+require "rdiscount"
 
 require_relative "s2c/version"
 require_relative "s2c/config"
