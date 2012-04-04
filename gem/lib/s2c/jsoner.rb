@@ -9,7 +9,16 @@ module S2C
         "universe" => universe_to_hash( universe ),
         "planets"  => universe.planets.map { |e| planet_to_hash( e ) },
         "fleets"   => universe.fleets.map  { |e| fleet_to_hash( e ) },
-        "ships"    => universe.ships.map   { |e| ship_to_hash( e ) }
+        "ships"    => universe.ships.map   { |e| ship_to_hash( e ) },
+        "events"   => universe.events.map  { |e| event_to_hash( e ) },
+      }
+    end
+
+    def self.event_to_hash( event )
+      {
+        "tick"    => event.tick,
+        "family"  => event.family,
+        "message" => event.message
       }
     end
 

@@ -14,6 +14,7 @@ module S2C
       has_many :planets,  :class_name => "S2C::Models::Units::Planet"
       has_many :fleets,   :class_name => "S2C::Models::Units::Fleet"
       has_many :ships,    :class_name => "S2C::Models::Units::Ship"
+      has_many :events,   :class_name => "S2C::Models::Event"
 
       def setup
         self.tick = 0

@@ -41,6 +41,8 @@ module S2C
 
         def end_build_ship
           S2C::Global.logger.log( self, "Ship built" )
+          S2C::Global.logger.event( :ship, "**#{base.id}** has new ship" )
+
           base.add_ship
           remove_building_ships if base.parking.full?
         end

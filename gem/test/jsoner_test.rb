@@ -7,8 +7,8 @@ class JSONerTest < Test::Unit::TestCase
 
     @universe = S2C::Global.universe
 
-    planet1 = S2C::Models::Units::Planet.create!( :position => [1, 1] )
-    planet2 = S2C::Models::Units::Planet.create!( :position => [1, 2] )
+    planet1 = @universe.planets.create!( :position => [1, 1] )
+    planet2 = @universe.planets.create!( :position => [1, 2] )
 
     planet1.furnish
     planet2.furnish
@@ -29,6 +29,8 @@ class JSONerTest < Test::Unit::TestCase
         :target => planet2,
         :ships  => [ship2, ship3]
       )
+
+    fleet.start_trip
   end
 
   def test_to_hash
@@ -37,14 +39,16 @@ class JSONerTest < Test::Unit::TestCase
     assert_equal( 2, hash["planets"].size )
     assert_equal( 5, hash["ships"].size )
     assert_equal( 1, hash["fleets"].size )
+    assert_equal( 1, hash["events"].size )
   end
 
   def test_to_json
     universe_json = S2C::JSONer.to_json( @universe )
 
-    File.open( "#{FIXTURES}/universe.json", "w" ) do |f|
-      f.write universe_json
-    end
+    # puts "WARNING!: coment this!"
+    # File.open( "#{FIXTURES}/universe.json", "w" ) do |f|
+    #   f.write universe_json
+    # end
 
     assert_equal( File.read( "#{FIXTURES}/universe.json" ), universe_json )
   end

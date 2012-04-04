@@ -12,7 +12,7 @@
       "silo": {
         "id": 4,
         "capacity": 2000,
-        "stuff": null,
+        "stuff": 980,
         "level": 0,
         "job": {
           "name": "upgrade",
@@ -57,7 +57,7 @@
       "silo": {
         "id": 8,
         "capacity": 2000,
-        "stuff": null,
+        "stuff": 1000,
         "level": 0,
         "job": null
       },
@@ -89,7 +89,12 @@
       "id": 16,
       "base_id": 1,
       "destination_id": 2,
-      "job": null
+      "job": {
+        "name": "travel",
+        "ticks_total": 1,
+        "ticks_remain": 1,
+        "destination_id": 2
+      }
     }
   ],
   "ships": [
@@ -132,6 +137,13 @@
       "attack": 12,
       "defense": 8,
       "job": null
+    }
+  ],
+  "events": [
+    {
+      "tick": 0,
+      "family": "fleet",
+      "message": "**16** start trip to **2**"
     }
   ]
 }

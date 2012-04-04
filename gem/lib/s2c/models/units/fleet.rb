@@ -24,10 +24,11 @@ module S2C
         end
 
         def start_trip
+          S2C::Global.logger.event( :fleet, "**#{id}** start trip to **#{target.id}**")
           self.jobs <<
             S2C::Models::Jobs::Travel.create!(
               :unit     => self,
-              :target   => self.target,
+              :target   => target,
               :callback => :end_trip
             )
         end
@@ -67,11 +68,13 @@ module S2C
 
         def surrender
           S2C::Global.logger.log( self, "Has been destroyed" )
+          S2C::Global.logger.event( :fleet, "**#{id}** has been destroyed" )
           destroy
         end
 
         def conquer_planet
           S2C::Global.logger.log( self, "Planet conquered #{target.id}" )
+          S2C::Global.logger.event( :planet, "**#{target.id}** has been conquered" )
 
           ships.each do |unit|
             unit.update_attributes( :base => target )

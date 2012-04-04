@@ -22,6 +22,7 @@ require_relative "s2c/models/jobs/upgrade"
 require_relative "s2c/models/jobs/produce_stuff"
 require_relative "s2c/models/jobs/build_ship"
 require_relative "s2c/models/universe"
+require_relative "s2c/models/event"
 require_relative "s2c/global"
 require_relative "s2c/jsoner"
 

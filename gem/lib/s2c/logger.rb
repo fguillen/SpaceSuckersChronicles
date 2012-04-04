@@ -15,6 +15,14 @@ module S2C
       File.open( log_path, "a" ) { |f| f.write message }
     end
 
+    def event( family, message)
+      S2C::Global.universe.events.create!(
+        :tick     => S2C::Global.universe.tick,
+        :family   => family,
+        :message  => message
+      )
+    end
+
     def format( element, message )
       Kernel.sprintf(
         "(%010d) [%10s] > %s",

@@ -33,4 +33,12 @@ ActiveRecord::Schema.define :version => 0 do
     t.integer :cost
     t.timestamps
   end
+
+  create_table :events do |t|
+    t.integer   :tick
+    t.string    :family
+    t.string    :message
+    t.integer   :universe_id
+    t.timestamps
+  end
 end
