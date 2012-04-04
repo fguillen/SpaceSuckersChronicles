@@ -24,6 +24,7 @@ module S2C::Server
 
     get "/universe" do
       @@universe.step
+      @@universe.reload
       result = S2C::JSONer.to_json( @@universe )
       puts result
       result

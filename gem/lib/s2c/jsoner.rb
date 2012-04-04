@@ -48,7 +48,7 @@ module S2C
       {
         "id"        => silo.id,
         "capacity"  => silo.capacity,
-        "stuff"     => silo.stuff,
+        "stuff"     => silo.base.stuff,
         "level"     => silo.level,
         "job"       => job_to_hash( silo.job )
       }

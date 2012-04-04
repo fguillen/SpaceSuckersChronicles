@@ -7,6 +7,7 @@ body {
   /*font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;*/
   font-size: 16px;
   line-height: 24px;
+  background-color: #F1F1F2;
 }
 
 #universe-controls {
@@ -135,6 +136,7 @@ body {
 }
 
 .folder{
+  background-color: white;
   white-space: nowrap;
   overflow: hidden;
   float: left;
@@ -151,8 +153,8 @@ body {
    width: 456px;
 }
 
-.folder.cards-small5 {
-   width: 317px;
+.folder.cards-small3 {
+   width: 193px;
 }
 
 .folder.small {
@@ -277,7 +279,7 @@ body {
 
 .fleet.card #planets .planet #icon {
   font-size: 60px;
-  line-height: 40px;
+  line-height: 36px;
   text-shadow: 2px 2px 4px #111;
 }
 
@@ -288,7 +290,7 @@ body {
 
 
 .fleet.card #status{
-  width: 78px;
+  width: 76px;
   height: 50px;
   float: left;
   text-align: center;
