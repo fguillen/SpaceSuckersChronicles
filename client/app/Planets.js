@@ -4,6 +4,7 @@ $(function(){
 
     initialize: function() {
       this.on( "change:creatingFleet", this.changeCreatingFleet );
+      this.on( "change:visible", this.changeVisible );
     },
 
     creatingFleet: function(){
@@ -13,6 +14,16 @@ $(function(){
         });
 
       return result;
+    },
+
+    changeVisible: function( model, val ){
+      if( val ){
+        this.each( function( e ){
+          if( e != model ) {
+            e.set( "visible", false );
+          }
+        });
+      }
     },
 
     changeCreatingFleet: function( model, val, opts ){

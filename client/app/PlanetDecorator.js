@@ -11,8 +11,7 @@ $(function(){
           {
             units_count: this.planet.ships.size(),
             units_enemy_count: this.unitsEnemyCount(),
-            creating_fleet_class: this.creatingFleetClass(),
-            possible_fleet_destination_class: this.possibleFleetDestinationClass()
+            extra_css_classes: this.extraCSSClasses(),
           }
         );
 
@@ -23,20 +22,14 @@ $(function(){
       return this.planet.enemyFleets.reduce( function( memo, fleet ) { return memo + fleet.ships.size(); }, 0);
     },
 
-    creatingFleetClass: function(){
-      if( this.planet.get( "creatingFleet" ) ) {
-        return "creating-fleet";
-      } else {
-        return "no-creating-fleet";
-      }
-    },
+    extraCSSClasses: function(){
+      result = "";
 
-    possibleFleetDestinationClass: function(){
-      if( this.planet.get( "possibleFleetDestination" ) ) {
-        return "possible-fleet-destination";
-      } else {
-        return "no-possible-fleet-destination";
-      }
-    }
+      if( this.planet.get( "creatingFleet" ) )            result += "creating-fleet";
+      if( this.planet.get( "possibleFleetDestination" ) ) result += "possible-fleet-destination";
+      if( this.planet.get( "visible" ) )                  result += "visible";
+
+      return result;
+    },
   });
 });

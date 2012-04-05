@@ -10,6 +10,7 @@ $(function(){
     initialize: function(opts){
       this.planet = opts.planet;
       this.planet.on( "change:blackstuff", this.render, this );
+      this.planet.on( "change:visible", this.render, this );
       this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
       this.planet.ships.on( "change:selected", this.updateNavyControls, this );
 
@@ -37,7 +38,8 @@ $(function(){
     },
 
     render: function(){
-      this.$el.html( this.template( this.planet.toJSON() ) );
+      var planetDecorator = new App.PlanetDecorator({ planet: this.planet });
+      this.$el.html( this.template( planetDecorator.toJSON() ) );
 
       // constructions
       // mine
