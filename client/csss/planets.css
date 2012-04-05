@@ -433,23 +433,23 @@ strong {
   width: 100px;
 }
 
+#planets .planet .header #icon.target {
+  display:none;
+}
 
-#planets .planet.creating-fleet #creating-fleet,
-#planets .planet.possible-fleet-destination #possible-fleet-destination{
+#planets .planet.possible-fleet-destination #icon.normal {
+  display:none;
+}
+
+#planets .planet.possible-fleet-destination #icon.target {
+  display:block;
+}
+
+#planets .planet.creating-fleet #creating-fleet {
   display: block;
 }
 
-#planets .planet.creating-fleet:hover .header #icon,
-#planets .planet.possible-fleet-destination:hover .header #icon {
-  font-size: 100px;
-  text-shadow: 2px 2px 3px #111;
-}
 
-#planets .planet.creating-fleet:active .header #icon,
-#planets .planet.possible-fleet-destination:active .header #icon {
-  font-size: 100px;
-  text-shadow: 2px 2px 3px #111;
-}
 
 .construction #upgrading {
   display: none;

@@ -15,10 +15,6 @@ $(function(){
       return result;
     },
 
-    anyCreatingFleet: function(){
-      return this.creatingFleet().length > 0;
-    },
-
     changeCreatingFleet: function( model, val, opts ){
       if( val ){
         this.each( function( e ){
@@ -26,7 +22,7 @@ $(function(){
             e.set( "possibleFleetDestination", false );
           } else {
             e.set( "possibleFleetDestination", true );
-            if( e.get( "creatingFleet" ) ) e.set( "creatingFleet", false );
+            e.set( "creatingFleet", false );
           }
         });
       } else {

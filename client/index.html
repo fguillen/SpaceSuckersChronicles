@@ -35,9 +35,6 @@
   <script type="text/javascript" src="./app/Planets.js"></script>
   <script type="text/javascript" src="./app/PlanetsView.js"></script>
 
-  <script type="text/javascript" src="./app/PlanetSmallView.js"></script>
-  <script type="text/javascript" src="./app/PlanetsSmallView.js"></script>
-
   <script type="text/javascript" src="./app/Silo.js"></script>
   <script type="text/javascript" src="./app/SiloDecorator.js"></script>
   <script type="text/javascript" src="./app/SiloView.js"></script>
@@ -179,7 +176,8 @@
 <script type="text/template" id="planet">
   <div id="<%= id %>" class="planet card vertical active <%= creating_fleet_class %> <%= possible_fleet_destination_class %>">
     <div class="header">
-      <div id="icon">☐</div>
+      <div id="icon" class="normal">☐</div>
+      <div id="icon" class="target">⧇</div>
       <h1><%= id %></h1>
     </div>
     <div id="controls" class="sash bottom">
@@ -187,19 +185,7 @@
       <div id="enemy" class="sash-cell"><%= units_enemy_count %></div>
     </div>
     <div id="creating-fleet" class="reverse">
-      Creating fleet
-    </div>
-    <div id="possible-fleet-destination" class="reverse">
-      Send fleet here
-    </div>
-  </div>
-</script>
-
-<script type="text/template" id="planet-small">
-  <div id="<%= id %>" class="planet-small card vertical mini active">
-    <div class="header">
-      <div id="icon">☐</div>
-      <h1><%= id %></h1>
+      Back to planet
     </div>
   </div>
 </script>
@@ -380,15 +366,9 @@
       <div id="controls" class="sash">
         <div class="sash-cell">
           <a href="#" class="create-fleet" style="display:none" onclick="return false;">Send Fleet</a>
-          <a href="#" class="cancel-fleet" style="display:none" onclick="return false;">Cancel Fleet</a>
         </div>
       </div>
-
-      <div id="planets-small">
-      </div>
     </div> <!-- navy -->
-
-
 
     <div id="enemy-fleets">
       <ul></ul>

@@ -4,8 +4,7 @@ $(function(){
     template  : _.template( $('#planet-info').html() ),
 
     events: {
-      "click .create-fleet": "creatingFleet",
-      "click .cancel-fleet": "cancelFleet"
+      "click .create-fleet": "creatingFleet"
     },
 
     initialize: function(opts){
@@ -20,33 +19,21 @@ $(function(){
     },
 
     updateNavyControls: function(){
-      var _self = this;
-
-      if( this.planet.ships.anySelected() && !this.planet.get( "creatingFleet" ) ){
-        this.$el.find( ".cancel-fleet" ).fadeOut( "fast", function(){
-          _self.$el.find( ".create-fleet" ).fadeIn();
-        } );
-
-      } else if( this.planet.ships.anySelected() && this.planet.get( "creatingFleet" ) ){
-        this.$el.find( ".create-fleet" ).fadeOut( "fast", function(){
-          _self.$el.find( ".cancel-fleet" ).fadeIn();
-        } );
-
+      if( this.planet.ships.anySelected() ){
+        this.$el.find( ".create-fleet" ).fadeIn();
       } else {
+        this.cancelFleet();
         this.$el.find( ".create-fleet" ).fadeOut();
-        this.$el.find( ".cancel-fleet" ).fadeOut();
       }
     },
 
     creatingFleet: function(){
       this.planet.set( "creatingFleet", true );
-      this.planet.set( "selected", true );
       App.Navigator.navigate( "dashboard", {trigger: true} );
     },
 
     cancelFleet: function(){
       this.planet.set( "creatingFleet", false );
-      this.planet.set( "selected", false );
     },
 
     render: function(){
@@ -71,10 +58,6 @@ $(function(){
 
       // navy
       this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
-
-      // planets-small
-      var planetsSmallView = new App.PlanetsSmallView({ planets: App.Game.planets });
-      this.$el.find( "#planets-small" ).append( planetsSmallView.render().el );
 
       // enemy fleets
       var _self = this;
