@@ -10,7 +10,6 @@ $(function(){
 
     initialize: function(opts){
       this.planet = opts.planet;
-      this.planet.on( "change:selected", this.toggle, this );
       this.planet.on( "change:blackstuff", this.render, this );
       this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
       this.planet.ships.on( "change:selected", this.updateNavyControls, this );
@@ -50,16 +49,6 @@ $(function(){
       this.planet.set( "selected", false );
     },
 
-    toggle: function(){
-      if( this.planet.get( "selected" ) ){
-        this.$el.css({ zIndex: 100 });
-        this.$el.animate( { right: 0 }, 500 );
-      } else {
-        this.$el.css({ zIndex: 0 });
-        this.$el.animate( { right: -400 }, 500 );
-      }
-    },
-
     render: function(){
       this.$el.html( this.template( this.planet.toJSON() ) );
 
@@ -82,6 +71,10 @@ $(function(){
 
       // navy
       this.$el.find( "#navy h1" ).after( this.shipsView.render().el );
+
+      // planets-small
+      var planetsSmallView = new App.PlanetsSmallView({ planets: App.Game.planets });
+      this.$el.find( "#planets-small" ).append( planetsSmallView.render().el );
 
       // enemy fleets
       var _self = this;
