@@ -141,6 +141,15 @@ strong {
   position: relative;
 }
 
+.folder .comment {
+  padding: 5px;
+}
+
+.folder .comment.deep {
+  padding: 20px;
+  text-align: center;
+}
+
 .shadow {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -360,9 +369,10 @@ strong {
 }
 
 #infos #details,
-#fleet-builder #details {
+#fleet-builder-wrapper #details {
   float: left;
   width: 100px;
+  height: 100%;
 }
 
 #planets .planet .header #icon.target {
@@ -463,13 +473,13 @@ border-bottom:1px solid #ccc;
     border-right-color: white;
 }
 
-#fleet-builder {
-  width: 800px;
+#fleet-builder-wrapper > .folder {
+  /*width: 800px;*/
 }
 
-
-#fleet-builder-wrapper {
-  width: 689px;
+#fleet-builder-wrapper > .folder .content {
+  float: left;
+  width: 665px;
 }
 
 #fleet-builder-wrapper #admin {

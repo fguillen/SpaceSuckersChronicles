@@ -3,6 +3,33 @@
 
 .pay-button {
   background-color:#ffffff;
+  -moz-border-radius:22px;
+  -webkit-border-radius:22px;
+  border-radius:22px;
+  border:1px solid #757067;
+  display:inline-block;
+  color:#3b3834;
+  font-family:arial;
+  font-size:12px;
+  font-weight:normal;
+  padding:2px 8px;
+  text-decoration:none;
+  line-height: 12px;
+  margin: 5px 0px;
+}
+
+.pay-button:hover {
+  background-color:#ebebeb;
+}
+
+.pay-button:active {
+  position:relative;
+  top:1px;
+}
+
+/*
+.pay-button {
+  background-color:#ffffff;
   -moz-border-radius:13px;
   -webkit-border-radius:13px;
   border-radius:13px;
@@ -24,3 +51,4 @@
   position:relative;
   top:1px;
 }
+*/

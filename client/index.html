@@ -67,8 +67,7 @@
   <script type="text/javascript" src="./app/Router.js"></script>
   <script type="text/javascript" src="./app/LoadGame.js"></script>
 
-  <!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'> -->
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="./csss/reset.css">
   <link rel="stylesheet" type="text/css" href="./csss/animations.css">
   <link rel="stylesheet" type="text/css" href="./csss/buttons.css">
@@ -469,32 +468,42 @@
       </div>
     </div>
 
-    <div id="navy" class="folder shadow cards-small10">
-      <h1>navy</h1>
-      choose the <strong>ships</strong> for the fleet:
-      <ul></ul>
+    <div class="content">
 
-      <div id="controls" class="sash">
-        <div class="sash-cell">
-          <a href="#" class="cancel-fleet" onclick="return false;">Cancel Fleet</a>
+      <div id="navy" class="folder shadow cards-small10">
+        <h1>navy</h1>
+        <div class="comment">
+          choose the <strong>ships</strong> for the fleet:
+        </div>
+        <ul></ul>
+
+        <div id="controls" class="sash">
+          <div class="sash-cell">
+            <a href="#" class="cancel-fleet" onclick="return false;">Cancel Fleet</a>
+          </div>
         </div>
       </div>
+
+      <div id="planets" class="folder shadow cards-small4">
+        <h1>planets</h1>
+        <div class="comment">
+          choose the <strong>planet</strong> of destination:
+        </div>
+        <ul></ul>
+      </div> <!-- planets -->
+
+      <div id="admin" class="folder shadow">
+        <h1>admin</h1>
+        <div class="comment deep">
+          Sending fleet of <strong>12</strong> ships <br />
+          from planet <strong><%= base_id %></strong> <br />
+          to planet <strong><%= destination_id %></strong> <br />
+
+          <a href="#" id="send-fleet" onclick="return false;" class="pay-button">pay <strong>100</strong> to send fleet</a>
+        </div>
+      </div> <!-- planets -->
+
     </div>
-
-    <div id="planets" class="folder shadow cards-small4">
-      <h1>planets</h1>
-      choose the <strong>planet</strong> of destination:
-      <ul></ul>
-    </div> <!-- planets -->
-
-    <div id="admin" class="folder shadow">
-      <h1>admin</h1>
-      Sending fleet of <strong>12</strong> ships
-      from planet <strong><%= base_id %></strong>
-      to planet <strong><%= destination_id %></strong>
-
-      <a href="#" id="send-fleet" onclick="return false;" class="pay-button">pay <strong>100</strong> to send fleet</a>
-    </div> <!-- planets -->
 
   </div>
 </script>
