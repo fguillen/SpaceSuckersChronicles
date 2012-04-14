@@ -149,8 +149,8 @@ strong {
    width: 456px;
 }
 
-.folder.cards-small3 {
-   width: 193px;
+.folder.cards-small10 {
+   width: 640px;
 }
 
 .folder.small {
@@ -337,7 +337,8 @@ strong {
 }
 
 #infos .planet {
-  /*display: none;*/
+  display: none;
+  width: 1018px;
 }
 
 #infos .planet #enemy-fleets {

@@ -44,6 +44,7 @@ module S2C
       ship1    = planets[0].ships.create!
       ship2    = planets[0].ships.create!
       ship3    = planets[0].ships.create!
+      ship4    = planets[0].ships.create!
 
       40.times { planets[1].ships.create! }
       3.times { planets[2].ships.create! }
@@ -60,6 +61,16 @@ module S2C
         )
 
       fleet.start_trip
+
+
+      fleet2 =
+        S2C::Models::Units::Fleet.arrange(
+          :base   => planets[0],
+          :target => planets[1],
+          :ships  => [ship3, ship4]
+        )
+
+      fleet2.start_trip
 
       universe
     end

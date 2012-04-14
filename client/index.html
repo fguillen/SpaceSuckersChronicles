@@ -139,6 +139,33 @@
       <ul></ul>
     </div> <!-- infox -->
 
+    <div id="fleet-builder">
+      <div id="navy" class="folder shadow cards-small10">
+        <h1>navy</h1>
+
+        <div id="controls" class="sash">
+          <div class="sash-cell">
+            <a href="#" class="cancel-fleet" onclick="return false;">Cancel Fleet</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="planets" class="folder shadow cards4">
+        <h1>planets</h1>
+        <ul></ul>
+      </div> <!-- planets -->
+
+      <div id="admin" class="folder shadow cards4">
+        <h1>admin</h1>
+        Sending fleet of <strong>12</strong> ships
+        from planet <strong><%= base_id %></strong>
+        to planet <strong><%= destination_id %></strong>
+
+        <a href="#" id="send-fleet" onclick="return false;" class="pay-button">pay <strong>100</strong> to send fleet</a>
+      </div> <!-- planets -->
+
+    </div>
+
 
 
   </div>
@@ -413,12 +440,12 @@
       <ul></ul>
     </div>
 
-    <div id="navy" class="folder shadow cards-small3">
+    <div id="navy" class="folder shadow cards-small10">
       <h1>navy</h1>
 
       <div id="controls" class="sash">
         <div class="sash-cell">
-          <a href="#" class="create-fleet" style="display:none" onclick="return false;">Send Fleet</a>
+          <a href="#" class="create-fleet" onclick="return false;">Create Fleet</a>
         </div>
       </div>
     </div> <!-- navy -->
@@ -431,11 +458,14 @@
 </script>
 
 <script type="text/template" id="fleet-info">
-  <div id="<%= id %>" class="fleet enemy folder shadow cards-small3 <%= traveling_class %>">
+  <div id="<%= id %>" class="fleet enemy folder shadow cards-small10 <%= traveling_class %>">
     <h1>
       <%= id %>
-      <div id="travel" class="percent-bar">
-        <div class="percent-value" style="width:<%= travel_percent %>%" />
+      <div id="travel">
+        fleet is traveling to planet <strong><%= destination_id %></strong>
+        <div class="percent-bar">
+          <div class="percent-value" style="width:<%= travel_percent %>%" />
+        </div>
       </div>
     </h1>
     <ul></ul>

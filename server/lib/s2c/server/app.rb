@@ -23,12 +23,17 @@ module S2C::Server
     end
 
     get "/universe" do
-      @@universe.step
-      @@universe.reload
-      result = S2C::JSONer.to_json( @@universe )
-      File.open( "#{File.dirname(__FILE__)}/../../../tmp/universo.json", "w" ) { |f| f.write result }
-      puts result
-      result
+      # @@universe.step
+      # @@universe.reload
+      # result = S2C::JSONer.to_json( @@universe )
+
+      # puts result
+      # result
+
+
+      # File.open( "#{File.dirname(__FILE__)}/../../../tmp/universo.json", "w" ) { |f| f.write result }
+
+      File.read( "#{File.dirname(__FILE__)}/../../../tmp/universo.json" )
     end
 
     post "/fleets" do
