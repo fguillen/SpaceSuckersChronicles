@@ -6,8 +6,27 @@ $(function(){
 
     initialize: function( opts ){
       this.fleetBuilder  = opts.fleetBuilder;
-      this.shipsView     = new App.ShipsView({ ships: this.fleetBuilder.planet.ships });
+      this.ships         = this.fleetBuilder.planet.ships;
+      this.shipsView     = new App.ShipsView({ ships: this.ships });
       this.planetsView   = new App.PlanetsSmallView();
+
+      this.markAllShips( this.ships );
+    },
+
+    markAllShips: function(){
+      this.ships.each( function( ship ){
+        ship.set( "creatingFleet", true );
+      });
+    },
+
+    unmarkAllShips: function(){
+      this.ships.each( function( ship ){
+        ship.set( "creatingFleet", false );
+      });
+    },
+
+    remove: function(){
+      this.unmarkAllShips();
     },
 
     render: function(){

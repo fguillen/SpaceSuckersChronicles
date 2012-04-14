@@ -165,7 +165,7 @@
 </script>
 
 <script type="text/template" id="ship">
-  <div id="<%= id %>" class="ship card small vertical">
+  <div id="<%= id %>" class="ship card small vertical <%= extra_css_classes %>">
     <div class="content">
       <div class="header">
         <div id="icon">ship</div>
@@ -188,6 +188,18 @@
         has <strong><%= life %></strong> points of life<br />
         attacks with <strong><%= attack %></strong> of energy <br />
         defenses with <strong><%= defense %></strong> of energy <br />
+      </div>
+
+      <hr class="short in-creating-fleet" />
+
+      <div class="admin-option enrol-in-fleet in-creating-fleet">
+        <a href="#" onclick="return false;" class="pay-button"><strong>enrol</strong> in fleet</a>
+      </div>
+
+      <hr class="short in-creating-fleet" />
+
+      <div class="admin-option pull-out-of-fleet in-creating-fleet">
+        <a href="#" onclick="return false;" class="pay-button"><strong>pull out</strong> of fleet</a>
       </div>
     </div>
   </div> <!-- ship -->
@@ -350,7 +362,7 @@
       <hr class="short" />
       <div class="admin-option build-ship">
         Can build a ship in <strong><%= production_ticks %></strong> ticks<br />
-        <a href="#" id="#build-ship" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to build a ship</a>
+        <a href="#" id="build-ship" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to build a ship</a>
       </div>
     </div>
 

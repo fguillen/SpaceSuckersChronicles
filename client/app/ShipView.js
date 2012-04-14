@@ -4,11 +4,16 @@ $(function(){
     template: _.template( $("#ship").html() ),
 
     events: {
-      "click": "select"
+      "click .admin .enrol-in-fleet .pay-button": "enrolInFleet",
+      "click .admin .pull-out-of-fleet .pay-button": "pullOutOfFleet"
     },
 
-    select: function(){
-      this.ship.selectToggle();
+    enrolInFleet: function(){
+      this.ship.enrolInFleet();
+    },
+
+    pullOutOfFleet: function(){
+      this.ship.pullOutOfFleet();
     },
 
     initialize: function(opts){
@@ -20,7 +25,7 @@ $(function(){
     render: function(){
       var shipDecorator = new App.ShipDecorator({ ship: this.ship });
       this.$el.html( this.template( shipDecorator.toJSON() ) );
-      this.$el.find( "div.ship" ).toggleClass( "selected", this.ship.get( "selected" ) );
+
       return this;
     }
   });

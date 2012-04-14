@@ -1,7 +1,7 @@
 $(function(){
   App.Ship = Backbone.Model.extend({
     initialize: function(){
-      this.set( "selected", false );
+      this.set( "enroledInFleet", false );
       this.on( "change:base_id", this.updateBase, this );
       this.updateBase();
     },
@@ -12,12 +12,12 @@ $(function(){
       base.ships.add( this );
     },
 
-    selectToggle: function(){
-      if( this.get( "selected" ) ){
-        this.set( "selected", false );
-      } else {
-        this.set( "selected", true );
-      }
+    enrolInFleet: function(){
+      this.set( "enroledInFleet", true );
+    },
+
+    pullOutOfFleet: function(){
+      this.set( "enroledInFleet", false );
     },
   });
 
