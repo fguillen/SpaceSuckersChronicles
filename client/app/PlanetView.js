@@ -7,7 +7,7 @@ $(function(){
     },
 
     events: {
-      "click": "click"
+      "click #see-details": "seeDetails"
     },
 
     initialize: function(opts){
@@ -18,15 +18,8 @@ $(function(){
       this.planet.enemyFleets.on( "all", this.render, this );
     },
 
-    click: function(){
-      if( this.planet.get( "possibleFleetDestination" ) ){
-        this.sendFleet();
-      } else {
-        this.openPlanetInfo();
-      }
-    },
-
-    openPlanetInfo: function(){
+    seeDetails: function(){
+      console.log( "see details" );
       App.Navigator.navigate( "planet/" + this.planet.id, {trigger: true} );
     },
 

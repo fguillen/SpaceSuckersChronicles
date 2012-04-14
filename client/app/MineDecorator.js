@@ -12,6 +12,7 @@ $(function(){
           {
             extra_css_classes: this.extraCSSClasses(),
             upgrade_percent: this.upgradePercent(),
+
           }
         );
 

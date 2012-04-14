@@ -13,6 +13,7 @@ $(function(){
     },
 
     upgrade: function(){
+      console.log( "upgrade mine" );
       this.mine.upgrade();
     },
 

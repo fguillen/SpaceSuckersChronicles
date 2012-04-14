@@ -6,7 +6,6 @@ body {
   /*font-family: 'PT Mono', sans-serif;*/
   /*font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;*/
   font-size: 16px;
-  line-height: 24px;
   background-color: #F1F1F2;
 }
 
@@ -30,99 +29,36 @@ strong {
 
 .card {
   box-sizing: border-box;
+  overflow: visible;
 }
 
-.card.active {
-  cursor: pointer;
-}
 
-.card .reverse {
-  display: none;
-  background-color: rgba(241, 241, 242, 0.9);
-  color: black;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  white-space: normal;
-  padding: 90% 5px 0px 5px;
-  line-height: 1em;
-  font-weight: bold;
-}
-
-.card .reverse a {
-  color: black;
-}
-
-/*.card:hover .reverse {
-  display: block;
-}*/
 
 #icon {
-  font-family: 'Ubuntu Mono', sans-serif;
+  display: block;
 }
 
-.card.active:hover .header #icon {
-  font-size: 110px;
-  text-shadow: 3px 3px 6px #111;
-}
 
-.card.vertical.small:hover .header #icon {
-  font-size: 55px;
-  text-shadow: 2px 2px 3px #111;
-}
 
-.card.active:active .header #icon {
-  font-size: 90px;
-  text-shadow: 1px 1px 2px #111;
-}
-
-.card.vertical.small:active .header #icon {
-  font-size: 45px;
-  text-shadow: 1px 1px 2px #111;
-}
 
 .card .header #icon,
 #details .header #icon {
   text-align: center;
-  font-size: 100px;
-  line-height: 80px;
-  text-shadow: 2px 2px 4px #111;
+  font-size: 25px;
+  line-height: 30px;
+  text-shadow: -2px -2px 10px #AAA;
 }
 
 .card.vertical.small .header #icon {
-  font-size: 50px;
+  font-size: 16px;
   margin-top: 10px;
-  line-height: 12px;
-  text-shadow: 1px 1px 2px #111;
+  line-height: 16px;
 }
 
 .card.vertical.small .header h1{
   font-size: 12px;
   text-align: center;
 }
-
-.card.vertical.mini {
-  width: 46px;
-  height: 60px;
-  margin: 1px;
-}
-
-
-.card.vertical.mini .header #icon {
-  font-size: 35px;
-  margin-top: 12px;
-  line-height: 18px;
-  text-shadow: 1px 1px 2px #111;
-}
-
-.card.vertical.mini .header h1{
-  font-size: 10px;
-  text-align: center;
-}
-
-
 
 
 .card.horizontal-long .header {
@@ -138,9 +74,8 @@ strong {
 }
 
 .card.horizontal-long .header #icon {
-  font-size: 40px;
+  font-size: 10px;
   margin-top: 5px;
-  line-height: 15px;
   text-shadow: 1px 1px 2px #111;
 }
 
@@ -200,7 +135,6 @@ strong {
 .folder{
   background-color: white;
   white-space: nowrap;
-  overflow: hidden;
   float: left;
   margin: 10px;
   border: 2px solid #F1F1F2;
@@ -265,46 +199,38 @@ strong {
 
 .card.bigbox {
   box-sizing: border-box;
+  height: 110px;
   width: 220px;
+}
+
+.card.bigbox .content {
+  box-sizing: border-box;
   padding: 10px 10px 10px 10px;
 }
 
 .card.bigbox .header {
-  margin-top: -20px;
   width: 40%;
   float: left;
 }
 
-.card.bigbox #controls {
+.card.bigbox #info {
   width: 50%;
   text-align: center;
   float: right;
 }
 
-.card.bigbox #controls .data {
+.card.bigbox #info .data {
   margin-top: 10px;
 }
 
-.card.bigbox #controls #level,
-.card.bigbox #controls #velocity {
+.card.bigbox #info #level,
+.card.bigbox #info #velocity {
   position: relative;
   padding: 5px;
 }
 
-.card.bigbox #controls #level:hover .reverse,
-.card.bigbox #controls #velocity:hover .reverse {
-  font-weight: normal;
-  padding: 5px;
-  display: block;
-  font-size: 0.8em;
-}
 
-
-
-.card #controls .data {
-}
-
-.card #controls .data span {
+.card #info .data span {
   font-size: 1.3em;
 }
 
@@ -317,7 +243,7 @@ strong {
   height: 4px;
   border: 1px solid #ccc;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 .percent-value {
   background-color: black;
@@ -411,7 +337,7 @@ strong {
 }
 
 #infos .planet {
-  display: none;
+  /*display: none;*/
 }
 
 #infos .planet #enemy-fleets {
@@ -449,7 +375,18 @@ strong {
   display: block;
 }
 
-
+.cover {
+box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 15% 10px 10px 10%;
+  text-align: center;
+  line-height: 20px;
+}
 
 .construction #upgrading {
   display: none;
@@ -458,10 +395,64 @@ strong {
   display: block;
 }
 
-#hangar.construction #building {
+.construction #building {
   display: none;
 }
 
-#hangar.construction.building #building {
+.construction.building #building {
   display: block;
+}
+
+.construction.upgrading:hover .admin {
+  display: none;
+}
+
+.construction.building:hover .admin .upgrade{
+  display: none;
+}
+
+.card:hover .admin {
+    display: block;
+    z-index: 100;
+}
+
+.admin {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    display: none;
+        border: 2px solid #c1c1c1;
+    position: absolute;
+    width: 200px;
+    left: 100%;
+    top: 0px;
+    background-color: white;
+
+        box-shadow: 4px 5px 50px rgba(50, 50, 50, 0.96);
+}
+
+.admin-option{
+    margin: 0px 0px;
+}
+
+hr.short {
+margin-top: 20px;
+    margin-bottom: 20px;
+    width: 55%;
+height:0px;/*solo queremos borde*/
+text-align:left;
+border-top:0px;/*quita el grosor extra de Opera y FFox*/
+border-bottom:1px solid #ccc;
+}
+
+.admin:after {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    left: -20px;
+    top: 10px;
+
+    border: 10px solid transparent;
+    border-right-color: white;
 }

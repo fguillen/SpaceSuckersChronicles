@@ -64,7 +64,10 @@
   <!-- <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Asap:700' rel='stylesheet' type='text/css'> -->
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./csss/reset.css">
+  <link rel="stylesheet" type="text/css" href="./csss/animations.css">
+  <link rel="stylesheet" type="text/css" href="./csss/buttons.css">
   <link rel="stylesheet" type="text/css" href="./csss/planets.css">
+
 </head>
 <body>
   <div id="universe-controls">
@@ -107,14 +110,14 @@
 
 
 
-    <div id="notices" class="folder shadow small-long">
-      <h1>notices</h1>
-      <ul></ul>
-    </div> <!-- notices -->
+
 
     <div id="dashboard">
 
-
+      <div id="notices" class="folder shadow small-long">
+        <h1>notices</h1>
+        <ul></ul>
+      </div> <!-- notices -->
 
 
       <div id="planets" class="folder shadow cards4">
@@ -146,9 +149,9 @@
 <script type="text/template" id="notice">
   <div id="<%= id %>" class="notice card horizontal-long <%= family %>">
     <div class="header">
-      <div id="icon" class="ship">▻</div>
-      <div id="icon" class="planet">☐</div>
-      <div id="icon" class="fleet">▻</div>
+      <div id="icon" class="ship">ship</div>
+      <div id="icon" class="planet">planet</div>
+      <div id="icon" class="fleet">fleet</div>
     </div>
 
     <div id="message"><%= message %></div>
@@ -156,37 +159,56 @@
 </script>
 
 <script type="text/template" id="ship">
-  <div id="<%= id %>" class="ship card small vertical active">
-    <div class="header">
-      <div id="icon">▻</div>
-      <h1><%= id %></h1>
+  <div id="<%= id %>" class="ship card small vertical">
+    <div class="content">
+      <div class="header">
+        <div id="icon">ship</div>
+        <h1><%= id %></h1>
+      </div>
+
+      <div id="life" class="percent-bar">
+        <div class="percent-value" style="width:<%= life_percent %>%" />
+      </div>
+
+      <div id="forces" class="sash bottom">
+        <div id="attack" class="sash-cell"><%= attack %></div>
+        <div id="defense" class="sash-cell"><%= defense %></div>
+      </div>
     </div>
 
-    <div id="life" class="percent-bar">
-      <div class="percent-value" style="width:<%= life_percent %>%" />
-    </div>
-
-    <div id="forces" class="sash bottom">
-      <div id="attack" class="sash-cell"><%= attack %></div>
-      <div id="defense" class="sash-cell"><%= defense %></div>
+    <div class="admin">
+      <div class="admin-option">
+        ship <strong><%= id %></strong><br />
+        has <strong><%= life %></strong> points of life<br />
+        attacks with <strong><%= attack %></strong> of energy <br />
+        defenses with <strong><%= defense %></strong> of energy <br />
+      </div>
     </div>
   </div> <!-- ship -->
 </script>
 
 <script type="text/template" id="planet">
-  <div id="<%= id %>" class="planet card vertical active <%= extra_css_classes %>">
-    <div class="header">
-      <div id="icon" class="normal">☐</div>
-      <div id="icon" class="target">⧇</div>
-      <h1><%= id %></h1>
+  <div id="<%= id %>" class="planet card vertical <%= extra_css_classes %>">
+    <div class="content">
+      <div class="header">
+        <div id="icon" class="normal">planet</div>
+        <h1><%= id %></h1>
+      </div>
+      <div id="info" class="sash bottom">
+        <div id="own" class="sash-cell"><%= units_count %></div>
+        <div id="enemy" class="sash-cell"><%= units_enemy_count %></div>
+      </div>
     </div>
-    <div id="controls" class="sash bottom">
-      <div id="own" class="sash-cell"><%= units_count %></div>
-      <div id="enemy" class="sash-cell"><%= units_enemy_count %></div>
+
+    <div class="admin">
+      <div class="admin-option">
+        planet <strong><%= id %></strong><br />
+        defended by <strong><%= units_count %></strong> ships<br />
+        attacked by <strong><%= units_enemy_count %></strong> enemy ships<br />
+        <a href="#" id="see-details" onclick="return false;" class="pay-button">see more details</a>
+      </div>
     </div>
-    <div id="creating-fleet" class="reverse">
-      Back to planet
-    </div>
+
   </div>
 </script>
 
@@ -194,12 +216,12 @@
   <div id="<%= id %>" class="fleet card horizontal <%= traveling_class %>">
     <div id="planets">
       <div id="origin" class="planet">
-        <div id="icon">☐</div>
+        <div id="icon">planet</div>
         <h1><%= base_id %></h1>
       </div>
 
       <div id="destination" class="planet">
-        <div id="icon">☐</div>
+        <div id="icon">planet</div>
         <h1><%= destination_id %></h1>
       </div>
     </div>
@@ -220,25 +242,35 @@
   <div id="mine" class="construction card bigbox <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
 
-    <div class="header">
-      <div id="icon">⧫</div>
-      <h1>mine</h1>
-    </div>
-    <div id="controls">
-      <div id="velocity" class="data">
-        <span><%= production %></span> stuff/tick
+    <div class="content">
+      <div class="header">
+        <div id="icon">mine</div>
       </div>
-      <div id="level" class="">
-        Level <%= level %>
-        <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
+      <div id="info">
+        <div id="velocity" class="data">
+          <span><%= production %></span> stuff/tick
         </div>
+        <div id="level" class="">
+          Level <%= level %>
+        </div>
+      </div>
+    </div>
 
-        <div class="reverse">
-          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
-        </div>
+    <div class="admin">
+      <div class="admin-option">
+        mine at level <strong><%= level %></strong><br />
+        can produce <strong><%= production %></strong> stuff each tick<br />
+        <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>
     </div>
+
+    <div id="upgrading" class="cover">
+      mine is upgraging ...
+      <div class="percent-bar">
+        <div class="percent-value" style="width:<%= upgrade_percent %>%" />
+      </div>
+    </div>
+
   </div>
 </script>
 
@@ -246,28 +278,37 @@
   <div id="silo" class="construction card bigbox <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
 
-    <div class="header">
-      <div id="icon">⋀</div>
-      <h1>silo</h1>
+    <div class="content">
+      <div class="header">
+        <div id="icon">silo</div>
+      </div>
+      <div id="info"d>
+        <div id="stuff" class="data">
+          <span><%= stuff %> </span> stuff
+        </div>
+
+        <div id="capacity" class="percent-bar">
+          <div class="percent-value" style="width:<%= capacity_percent %>%" />
+        </div>
+
+        <div id="level" class="">
+          Level <%= level %>
+        </div>
+      </div>
     </div>
-    <div id="controls">
-      <div id="stuff" class="data">
-        <span><%= stuff %> </span> stuff
+
+    <div class="admin">
+      <div class="admin-option">
+        silo at level <strong><%= level %></strong><br />
+        can store <strong><%= capacity %></strong> of stuff <br />
+        <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>
+    </div>
 
-      <div id="capacity" class="percent-bar">
-        <div class="percent-value" style="width:<%= capacity_percent %>%" />
-      </div>
-
-      <div id="level" class="">
-        Level <%= level %>
-        <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
-        </div>
-
-        <div class="reverse">
-          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
-        </div>
+    <div id="upgrading" class="cover">
+      silo is upgraging ...
+      <div class="percent-bar">
+        <div class="percent-value" style="width:<%= upgrade_percent %>%" />
       </div>
     </div>
   </div>
@@ -278,37 +319,47 @@
 <script type="text/template" id="hangar">
   <div id="hangar" class="construction card bigbox <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
-    <div class="header">
-      <div id="icon">∩</div>
-      <h1>hangar</h1>
-    </div>
-    <div id="controls">
 
-      <div id="velocity" class="data">
-        <span><%= production_ticks %></span> ticks/▻
+    <div class="content">
+      <div class="header">
+        <div id="icon">hangar</div>
+      </div>
+      <div id="info">
 
-        <div id="building">
-          <div class="percent-bar">
-            <div class="percent-value" style="width:<%= build_percent %>%" />
-          </div>
-
-          <%= building_ships %>
+        <div id="velocity" class="data">
+          <span><%= production_ticks %></span> ticks/▻
         </div>
 
-        <div class="reverse">
-          <a id="build-ship" href="#" onclick="return false;">build ▻</a>
+        <div id="level" class="">
+          Level <%= level %>
         </div>
       </div>
+    </div>
 
-      <div id="level" class="">
-        Level <%= level %>
-        <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
-        </div>
+    <div class="admin">
+      <div class="admin-option upgrade">
+        hangar at level <strong><%= level %></strong><br />
+        <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
+      </div>
+      <hr class="short" />
+      <div class="admin-option build-ship">
+        Can build a ship in <strong><%= production_ticks %></strong> ticks<br />
+        <a href="#" id="#build-ship" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to build a ship</a>
+      </div>
+    </div>
 
-        <div class="reverse">
-          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
-        </div>
+    <div id="upgrading" class="cover">
+      hangar is upgraging ...
+      <div class="percent-bar">
+        <div class="percent-value" style="width:<%= upgrade_percent %>%" />
+      </div>
+    </div>
+
+    <div id="building" class="cover">
+      hangar is building <br />
+      <strong>1</strong> ship of <strong><%= building_ships %></strong> ...
+      <div class="percent-bar">
+        <div class="percent-value" style="width:<%= build_percent %>%" />
       </div>
     </div>
   </div>
@@ -317,30 +368,32 @@
 <script type="text/template" id="parking">
   <div id="parking" class="construction card bigbox <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
+    <div class="content">
+      <div class="header">
+        <div id="icon">parking</div>
+      </div>
+      <div id="info">
 
-    <div class="header">
-      <div id="icon">⋕</div>
-      <h1>parking</h1>
+        <div id="ships" class="data">
+          <span><%= capacity %></span> ▻
+        </div>
+
+        <div id="capacity" class="percent-bar">
+          <div class="percent-value" style="width:<%= capacity_percent %>%" />
+        </div>
+
+        <div id="level" class="data">
+          Level <%= level %>
+        </div>
+      </div>
     </div>
-    <div id="controls">
 
-      <div id="ships" class="data">
-        <span><%= capacity %></span> ▻
-      </div>
 
-      <div id="capacity" class="percent-bar">
-        <div class="percent-value" style="width:<%= capacity_percent %>%" />
-      </div>
-
-      <div id="level" class="data">
-        Level <%= level %>
-        <div id="upgrading" class="percent-bar">
-          <div class="percent-value" style="width:<%= upgrade_percent %>%" />
-        </div>
-
-        <div class="reverse">
-          <a id="upgrade" href="#" onclick="return false;">upgrade</a>
-        </div>
+    <div class="admin">
+      <div class="admin-option">
+        parking at level <strong><%= level %></strong> <br />
+        can store <strong><%= capacity %></strong> ships <br />
+        <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>
     </div>
   </div>
@@ -350,7 +403,7 @@
   <div id="planet-info-<%= id %>" class="planet folder <%= extra_css_classes %>">
     <div id="details">
       <div class="header">
-        <div id="icon">☐</div>
+        <div id="icon">planet</div>
         <h1><%= id %></h1>
       </div>
     </div>

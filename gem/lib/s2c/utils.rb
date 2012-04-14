@@ -45,7 +45,7 @@ module S2C
       ship2    = planets[0].ships.create!
       ship3    = planets[0].ships.create!
 
-      3.times { planets[1].ships.create! }
+      40.times { planets[1].ships.create! }
       3.times { planets[2].ships.create! }
       3.times { planets[3].ships.create! }
       3.times { planets[4].ships.create! }
