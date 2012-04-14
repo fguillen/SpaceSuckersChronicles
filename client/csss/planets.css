@@ -153,6 +153,10 @@ strong {
    width: 640px;
 }
 
+.folder.cards-small4 {
+   width: 256;
+}
+
 .folder.small {
   width: 195px;
 }
@@ -461,4 +465,14 @@ border-bottom:1px solid #ccc;
 
 #fleet-builder {
   width: 800px;
+}
+
+
+#fleet-builder-wrapper {
+  width: 689px;
+}
+
+#fleet-builder-wrapper #admin {
+  width: 361px;
+  white-space: normal;
 }

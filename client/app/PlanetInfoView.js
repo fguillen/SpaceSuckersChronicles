@@ -28,7 +28,7 @@ $(function(){
     },
 
     createFleet: function(){
-      App.Game.createFleet( this );
+      App.Game.createFleet( this.planet );
     },
 
 

@@ -40,7 +40,7 @@ $(function(){
     },
 
     createFleet: function( planet ){
-      console.log( "Universe.createFleet" );
+      console.log( "Universe.createFleet", planet );
 
       var fleetBuilder      = new App.FleetBuilder({ planet: planet });
       var fleetBuilderView  = new App.FleetBuilderView({ fleetBuilder: fleetBuilder });

@@ -55,6 +55,12 @@
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
 
+  <script type="text/javascript" src="./app/PlanetSmallView.js"></script>
+  <script type="text/javascript" src="./app/PlanetsSmallView.js"></script>
+  <script type="text/javascript" src="./app/FleetBuilder.js"></script>
+  <script type="text/javascript" src="./app/FleetBuilderDecorator.js"></script>
+  <script type="text/javascript" src="./app/FleetBuilderView.js"></script>
+
   <script type="text/javascript" src="./app/Universe.js"></script>
   <script type="text/javascript" src="./app/UniverseView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
@@ -446,6 +452,15 @@
   </div> <!-- enemy -->
 </script>
 
+<script type="text/template" id="planet-small">
+  <div id="<%= id %>" class="planet-small card small vertical">
+    <div class="header">
+      <div id="icon">planet</div>
+      <h1><%= id %></h1>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="fleet-builder">
   <div class="folder">
     <div id="details">
@@ -456,7 +471,7 @@
 
     <div id="navy" class="folder shadow cards-small10">
       <h1>navy</h1>
-      Choose your ships:
+      choose the <strong>ships</strong> for the fleet:
       <ul></ul>
 
       <div id="controls" class="sash">
@@ -468,6 +483,7 @@
 
     <div id="planets" class="folder shadow cards-small4">
       <h1>planets</h1>
+      choose the <strong>planet</strong> of destination:
       <ul></ul>
     </div> <!-- planets -->
 
