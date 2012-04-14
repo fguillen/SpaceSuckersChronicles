@@ -355,7 +355,8 @@ strong {
   color: black;
 }
 
-#infos #details {
+#infos #details,
+#fleet-builder #details {
   float: left;
   width: 100px;
 }
@@ -456,4 +457,8 @@ border-bottom:1px solid #ccc;
 
     border: 10px solid transparent;
     border-right-color: white;
+}
+
+#fleet-builder {
+  width: 800px;
 }

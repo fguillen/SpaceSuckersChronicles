@@ -13,8 +13,6 @@ $(function(){
     initialize: function(opts){
       this.planet = opts.planet;
       this.planet.ships.on( "add remove", this.render, this );
-      this.planet.on( "change:creatingFleet", this.render, this );
-      this.planet.on( "change:possibleFleetDestination", this.render, this );
       this.planet.enemyFleets.on( "all", this.render, this );
     },
 

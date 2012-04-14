@@ -3,20 +3,16 @@ $(function(){
     template  : _.template( $('#fleet-builder').html() ),
 
     initialize: function( opts ){
-      this.planet     = opts.planet;
-      this.shipsView  = new App.ShipsView({ ships: this.planet.ships });
-      this.planetsView
-    },
-
-    fadeOut: function(){
-      var _self = this;
-      this.$el.animate( { right: -400 }, 500, function(){ _self.remove(); } );
+      this.fleetBuilder  = opts.fleetBuilder;
+      this.shipsView     = new App.ShipsView({ ships: this.planet.ships });
+      this.planetsView   = new App.SmallPlanetsView();
     },
 
     render: function(){
-      var fleetDecorator = new App.FleetDecorator({ fleet: this.fleet });
-      this.$el.html( this.template( fleetDecorator.toJSON() ) );
-      this.$el.find( "ul" ).append( this.shipsView.render().el );
+      var fleetBuilderDecorator = new App.FleetBuilderDecorator({ fleetBuilder: this.fleetBuilder });
+      this.$el.html( this.template( fleetBuilderDecorator.toJSON() ) );
+      this.$el.find( "#navy ul" ).append( this.shipsView.render().el );
+      this.$el.find( "#planets ul" ).append( this.planetsView.render().el );
 
       return this;
     }

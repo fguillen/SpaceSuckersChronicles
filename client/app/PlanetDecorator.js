@@ -25,8 +25,6 @@ $(function(){
     extraCSSClasses: function(){
       result = "";
 
-      if( this.planet.get( "creatingFleet" ) )            result += "creating-fleet";
-      if( this.planet.get( "possibleFleetDestination" ) ) result += "possible-fleet-destination";
       if( this.planet.get( "visible" ) )                  result += "visible";
 
       return result;

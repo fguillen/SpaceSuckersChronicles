@@ -39,6 +39,15 @@ $(function(){
       App.Utils.refreshCollection( this.notices,  this.get( "events" ) );
     },
 
+    createFleet: function( planet ){
+      console.log( "Universe.createFleet" );
+
+      var fleetBuilder      = new App.FleetBuilder({ planet: planet });
+      var fleetBuilderView  = new App.FleetBuilderView({ fleetBuilder: fleetBuilder });
+
+      fleetBuilderView.render();
+    },
+
     sendFleetToPlanet: function( planetDestination ){
       var planetOrigin      = this.planets.creatingFleet()[0];
       var planetDestination = planetDestination;

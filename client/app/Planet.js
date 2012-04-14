@@ -4,8 +4,6 @@ $(function(){
       this.ships        = new App.Ships();
       this.enemyFleets  = new App.Fleets();
 
-      this.set( "creatingFleet", false );
-      this.set( "possibleFleetDestination", false );
       this.set( "visible", false );
 
       this.on( "change:mine change:silo change:hangar change:parking", this.updateConstructions, this );

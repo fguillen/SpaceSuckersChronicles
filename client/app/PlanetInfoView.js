@@ -4,14 +4,13 @@ $(function(){
     template  : _.template( $('#planet-info').html() ),
 
     events: {
-      "click .create-fleet": "creatingFleet"
+      "click .create-fleet": "createFleet"
     },
 
     initialize: function(opts){
       this.planet = opts.planet;
       this.planet.on( "change:blackstuff", this.render, this );
       this.planet.on( "change:visible", this.render, this );
-      this.planet.on( "change:creatingFleet", this.updateNavyControls, this );
       this.planet.ships.on( "change:selected", this.updateNavyControls, this );
 
       this.planet.enemyFleets.on( "all", this.render, this );
@@ -28,14 +27,10 @@ $(function(){
       }
     },
 
-    creatingFleet: function(){
-      this.planet.set( "creatingFleet", true );
-      App.Navigator.navigate( "dashboard", {trigger: true} );
+    createFleet: function(){
+      App.Game.createFleet( this );
     },
 
-    cancelFleet: function(){
-      this.planet.set( "creatingFleet", false );
-    },
 
     render: function(){
       var planetDecorator = new App.PlanetDecorator({ planet: this.planet });

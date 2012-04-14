@@ -3,10 +3,10 @@ $(function(){
     el: "#universe-controls",
 
     events: {
-      "click #synch":     "synch",
-      "click #pause":     "pause",
-      "click #step":      "step",
-      "click #dashboard": "dashboard",
+      "click #synch":       "synch",
+      "click #pause":       "pause",
+      "click #step":        "step",
+      "click #dashboard":   "dashboard",
     },
 
     initialize: function(opts){
