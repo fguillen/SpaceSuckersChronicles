@@ -8,19 +8,22 @@ $(function(){
     },
 
     events: {
-      "click": "click"
+      "click .admin #choose-destination": "chooseAsDestination"
     },
 
     initialize: function(opts){
       this.planet = opts.planet;
+      this.planet.on( "change" , this.render, this );
     },
 
-    click: function(){
-      console.log( "small planet click" );
+    chooseAsDestination: function(){
+      console.log( "PlanetSmallView.chooseAsDestination" );
+      this.planet.set( "fleet_destination", true );
     },
 
     render: function(){
-      this.$el.html( this.template( this.planet.toJSON() ) );
+      var planetDecorator = new App.PlanetDecorator({ planet: this.planet });
+      this.$el.html( this.template( planetDecorator.toJSON() ) );
       return this;
     }
   });

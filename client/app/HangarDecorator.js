@@ -22,8 +22,8 @@ $(function(){
     extraCSSClasses: function(){
       result = "";
 
-      if( this.job.name == "upgrade" ) result += "upgrading";
-      if( this.job.name == "build_ship" ) result += "building";
+      if( this.job.name == "upgrade" )    result += " upgrading";
+      if( this.job.name == "build_ship" ) result += " building";
 
       return result;
     },

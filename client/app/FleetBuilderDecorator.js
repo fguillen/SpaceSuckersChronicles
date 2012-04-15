@@ -9,12 +9,19 @@ $(function(){
         _.extend(
           this.fleetBuilder.toJSON(),
           {
-            base_id: this.fleetBuilder.planet.id,
-            destination_id: "unknown",
+            extra_css_classes: this.extraCSSClasses(),
           }
         );
 
       return json;
+    },
+
+    extraCSSClasses: function(){
+      result = "";
+
+      if( this.fleetBuilder.get( "ready_to_go" ) )    result += " ready-to-go";
+
+      return result;
     },
 
   });

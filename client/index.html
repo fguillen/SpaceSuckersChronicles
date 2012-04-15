@@ -59,6 +59,7 @@
   <script type="text/javascript" src="./app/PlanetsSmallView.js"></script>
   <script type="text/javascript" src="./app/FleetBuilder.js"></script>
   <script type="text/javascript" src="./app/FleetBuilderDecorator.js"></script>
+  <script type="text/javascript" src="./app/FleetBuilderAdminView.js"></script>
   <script type="text/javascript" src="./app/FleetBuilderView.js"></script>
 
   <script type="text/javascript" src="./app/Universe.js"></script>
@@ -384,7 +385,7 @@
 </script>
 
 <script type="text/template" id="parking">
-  <div id="parking" class="construction card bigbox <%= extra_css_classes %>">
+  <div id="parking" class="construction card bigbox upgrading <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
     <div class="content">
       <div class="header">
@@ -406,7 +407,6 @@
       </div>
     </div>
 
-
     <div class="admin">
       <div class="admin-option">
         parking at level <strong><%= level %></strong> <br />
@@ -414,6 +414,14 @@
         <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>
     </div>
+
+    <div id="upgrading" class="cover">
+      parking is upgraging ...
+      <div class="percent-bar">
+        <div class="percent-value" style="width:<%= upgrade_percent %>%" />
+      </div>
+    </div>
+
   </div>
 </script>
 
@@ -464,11 +472,28 @@
 </script>
 
 <script type="text/template" id="planet-small">
-  <div id="<%= id %>" class="planet-small card small vertical">
-    <div class="header">
-      <div id="icon">planet</div>
-      <h1><%= id %></h1>
+  <div id="<%= id %>" class="planet-small card small vertical <%= extra_css_classes %>">
+    <div class="content">
+      <div class="header">
+        <div id="icon">planet</div>
+        <h1><%= id %></h1>
+      </div>
     </div>
+
+    <div class="admin">
+      <div class="admin-option" id="choose-destination">
+        <a href="#" onclick="return false;" class="pay-button">choose this planet as <strong>destination</strong></a>
+      </div>
+    </div>
+
+    <div id="fleet-origin" class="cover">
+      planet <strong><%= id %></strong> is the <strong>origin</strong> of the fleet
+    </div>
+
+    <div id="fleet-destination" class="cover">
+      planet <strong><%= id %></strong> is the <strong>destination</strong> of the fleet
+    </div>
+
   </div>
 </script>
 
@@ -504,19 +529,21 @@
         <ul></ul>
       </div> <!-- planets -->
 
-      <div id="admin" class="folder shadow">
-        <h1>admin</h1>
-        <div class="comment deep">
-          Sending fleet of <strong>12</strong> ships <br />
-          from planet <strong><%= base_id %></strong> <br />
-          to planet <strong><%= destination_id %></strong> <br />
-
-          <a href="#" id="send-fleet" onclick="return false;" class="pay-button">pay <strong>100</strong> to send fleet</a>
-        </div>
-      </div> <!-- planets -->
-
+      <div id="admin"></div>
     </div>
+  </div>
+</script>
 
+<script type="text/template" id="fleet-builder-admin">
+  <div id="admin-folder" class="folder shadow <%= extra_css_classes %>">
+    <h1>admin</h1>
+    <div class="comment deep">
+      Sending fleet of <strong><%= ships_count %></strong> ships <br />
+      from planet <strong><%= base_id %></strong> <br />
+      to planet <strong><%= target_id %></strong> <br />
+
+      <a href="#" id="send-fleet" onclick="return false;" class="pay-button">pay <strong><%= price %></strong> stuff to send fleet</a>
+    </div>
   </div>
 </script>
 

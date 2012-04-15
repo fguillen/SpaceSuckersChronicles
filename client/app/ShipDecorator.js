@@ -20,8 +20,8 @@ $(function(){
     extraCssClasses: function(){
       result = "";
 
-      if( this.ship.get( "creatingFleet" ) ) result += " creating-fleet";
-      if( this.ship.get( "enroledInFleet" ) ) result += " enroled-in-fleet";
+      if( this.ship.get( "creating_fleet" ) ) result += " creating-fleet";
+      if( this.ship.get( "enroled_in_fleet" ) ) result += " enroled-in-fleet";
 
       return result;
     },

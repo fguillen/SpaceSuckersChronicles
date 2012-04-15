@@ -251,6 +251,12 @@ strong {
   width: 40px;
 }
 
+.card.small .cover {
+  white-space: normal;
+font-size: 9px;
+line-height: 10px;
+}
+
 .percent-bar {
   width: 60px;
   height: 4px;
@@ -381,17 +387,6 @@ strong {
   display:none;
 }
 
-#planets .planet.possible-fleet-destination #icon.normal {
-  display:none;
-}
-
-#planets .planet.possible-fleet-destination #icon.target {
-  display:block;
-}
-
-#planets .planet.creating-fleet #creating-fleet {
-  display: block;
-}
 
 .cover {
 box-sizing: border-box;
@@ -404,20 +399,15 @@ box-sizing: border-box;
   padding: 15% 10px 10px 10%;
   text-align: center;
   line-height: 20px;
-}
-
-.construction #upgrading {
   display: none;
 }
-.construction.upgrading #upgrading {
+
+
+.construction.upgrading .cover#upgrading {
   display: block;
 }
 
-.construction #building {
-  display: none;
-}
-
-.construction.building #building {
+.construction.building .cover#building {
   display: block;
 }
 
@@ -484,9 +474,16 @@ border-bottom:1px solid #ccc;
   width: 665px;
 }
 
-#fleet-builder-wrapper #admin {
+
+
+#fleet-builder-wrapper #admin-folder {
+  display: none;
   width: 361px;
   white-space: normal;
+}
+
+#fleet-builder-wrapper #admin-folder.ready-to-go {
+  display: block;
 }
 
 .ship .in-creating-fleet{
@@ -506,5 +503,17 @@ border-bottom:1px solid #ccc;
 }
 
 .ship.enroled-in-fleet .admin .pull-out-of-fleet{
+  display: block;
+}
+
+
+
+.planet-small.fleet-destination .admin,
+.planet-small.fleet-origin .admin {
+  display: none;
+}
+
+.planet-small.fleet-destination .cover#fleet-destination,
+.planet-small.fleet-origin .cover#fleet-origin{
   display: block;
 }

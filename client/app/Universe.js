@@ -42,14 +42,14 @@ $(function(){
     createFleet: function( planet ){
       console.log( "Universe.createFleet", planet );
 
-      var fleetBuilder      = new App.FleetBuilder({ planet: planet });
+      var fleetBuilder      = new App.FleetBuilder({ planet: planet, planetsDestination: this.planets });
       var fleetBuilderView  = new App.FleetBuilderView({ fleetBuilder: fleetBuilder });
 
       fleetBuilderView.render();
     },
 
     sendFleetToPlanet: function( planetDestination ){
-      var planetOrigin      = this.planets.creatingFleet()[0];
+      var planetOrigin      = this.planets.creating_fleet()[0];
       var planetDestination = planetDestination;
       var ships             = planetOrigin.ships.selected();
 
@@ -69,7 +69,7 @@ $(function(){
         { wait: true }
       );
 
-      planetOrigin.set( "creatingFleet", false );
+      planetOrigin.set( "creating_fleet", false );
     },
   })
 });
