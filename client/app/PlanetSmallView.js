@@ -25,6 +25,6 @@ $(function(){
       var planetDecorator = new App.PlanetDecorator({ planet: this.planet });
       this.$el.html( this.template( planetDecorator.toJSON() ) );
       return this;
-    }
+    },
   });
 });

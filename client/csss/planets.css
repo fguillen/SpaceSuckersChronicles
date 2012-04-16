@@ -380,7 +380,6 @@ line-height: 10px;
 #fleet-builder-wrapper #details {
   float: left;
   width: 100px;
-  height: 100%;
 }
 
 #planets .planet .header #icon.target {
@@ -474,7 +473,25 @@ border-bottom:1px solid #ccc;
   width: 665px;
 }
 
+#fleet-builder-wrapper {
+  display: none;
 
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  overflow: auto;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  padding: 20px;
+}
+
+#fleet-builder-wrapper > .folder {
+  margin: 0 auto;
+}
 
 #fleet-builder-wrapper #admin-folder {
   display: none;

@@ -10,12 +10,12 @@ $(function(){
       this.addAll();
     },
 
-    addOne: function( model ) {
+    addOne: function( model ){
       var view = new App.PlanetView({ planet: model });
       this.$el.append( view.render().el );
     },
 
-    addAll: function() {
+    addAll: function(){
       this.planets.each( $.proxy( this.addOne, this ) );
     },
 

@@ -4,6 +4,10 @@ $(function(){
 
     template  : _.template( $('#fleet-builder').html() ),
 
+    events: {
+      "click #cancel-fleet": "cancelFleet",
+    },
+
     initialize: function( opts ){
       this.fleetBuilder  = opts.fleetBuilder;
       this.ships         = this.fleetBuilder.planet.ships;
@@ -20,9 +24,27 @@ $(function(){
       this.$el.find( "#planets ul" ).append( this.planetsView.render().el );
 
       var fleetBuilderAdminView = new App.FleetBuilderAdminView({ fleetBuilder: this.fleetBuilder });
-      this.$el.find( "#admin" ).append( fleetBuilderAdminView.render().el )
+      this.$el.find( "#admin" ).append( fleetBuilderAdminView.render().el );
 
       return this;
+    },
+
+    show: function(){
+      this.$el.fadeIn();
+    },
+
+    cancelFleet: function(){
+      var _self = this;
+      this.$el.fadeOut( "fast", function(){
+        _self.unlink();
+      });
+    },
+
+    unlink: function(){
+      this.shipsView.unlink();
+      this.planetsView.unlink();
+      this.fleetBuilder.unlink();
+      this.$el.empty();
     }
   });
 });

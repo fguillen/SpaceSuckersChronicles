@@ -19,5 +19,10 @@ $(function(){
       this.planets.each( $.proxy( this.addOne, this ) );
     },
 
+    unlink: function(){
+      this.planets.off(null, null, this);
+      this.remove();
+    }
+
   });
 });

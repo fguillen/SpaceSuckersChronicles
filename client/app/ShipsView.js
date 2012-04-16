@@ -23,5 +23,10 @@ $(function(){
       this.$el.append( view.render().el );
     },
 
+    unlink: function(){
+      this.ships.off(null, null, this);;
+      this.remove();
+    }
+
   });
 });

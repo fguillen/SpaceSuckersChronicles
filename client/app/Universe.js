@@ -46,6 +46,7 @@ $(function(){
       var fleetBuilderView  = new App.FleetBuilderView({ fleetBuilder: fleetBuilder });
 
       fleetBuilderView.render();
+      fleetBuilderView.show();
     },
 
     sendFleetToPlanet: function( planetDestination ){
