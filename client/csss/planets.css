@@ -297,9 +297,8 @@ line-height: 10px;
 }
 
 .fleet.card #planets .planet #icon {
-  font-size: 60px;
-  line-height: 36px;
-  text-shadow: 2px 2px 4px #111;
+  font-size: 16px;
+  text-shadow: -2px -2px 10px #AAA;
 }
 
 .fleet.card #planets .planet > h1 {
@@ -318,6 +317,7 @@ line-height: 10px;
 
 .fleet.card #status h1 {
   font-size: 35px;
+  line-height: 16px;
 }
 
 .fleet.card #status #travel {
@@ -464,9 +464,6 @@ border-bottom:1px solid #ccc;
     border-right-color: white;
 }
 
-#fleet-builder-wrapper > .folder {
-  /*width: 800px;*/
-}
 
 #fleet-builder-wrapper > .folder > .content {
   float: left;
@@ -490,7 +487,6 @@ border-bottom:1px solid #ccc;
 }
 
 #fleet-builder-wrapper > .folder {
-  margin: 0 auto;
 }
 
 #fleet-builder-wrapper #admin-folder {

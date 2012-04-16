@@ -103,7 +103,7 @@ module S2C
       {
         "id"             => fleet.id,
         "base_id"        => fleet.base_id,
-        "destination_id" => fleet.target_id,
+        "target_id" => fleet.target_id,
         "job"            => job_to_hash( fleet.job )
       }
     end
@@ -123,7 +123,7 @@ module S2C
         "name"            => job.name,
         "ticks_total"     => job.ticks_total,
         "ticks_remain"    => job.ticks_remain,
-        "destination_id"  => job.target_id
+        "target_id"  => job.target_id
       }
     end
 

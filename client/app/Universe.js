@@ -48,29 +48,5 @@ $(function(){
       fleetBuilderView.render();
       fleetBuilderView.show();
     },
-
-    sendFleetToPlanet: function( planetDestination ){
-      var planetOrigin      = this.planets.creating_fleet()[0];
-      var planetDestination = planetDestination;
-      var ships             = planetOrigin.ships.selected();
-
-      planetOrigin.ships.remove( ships );
-
-      var ship_ids =
-        ships.map(function( ship, index ) {
-          ship.set( "selected", false );
-          return ship.get( "id" )
-        });
-
-      this.fleets.create({
-          base_id:         planetOrigin.id,
-          destination_id:  planetDestination.id,
-          ship_ids:        ship_ids
-        },
-        { wait: true }
-      );
-
-      planetOrigin.set( "creating_fleet", false );
-    },
   })
 });

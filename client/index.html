@@ -144,10 +144,11 @@
       <ul></ul>
     </div> <!-- infox -->
 
+    <div id="fleet-builder-wrapper"></div>
+
   </div> <!-- wrapper -->
 
-  <div id="fleet-builder-wrapper">
-  </div>
+
 </body>
 
 <!-- TEMPLATES -->
@@ -232,26 +233,38 @@
 
 <script type="text/template" id="fleet">
   <div id="<%= id %>" class="fleet card horizontal <%= traveling_class %>">
-    <div id="planets">
-      <div id="origin" class="planet">
-        <div id="icon">planet</div>
-        <h1><%= base_id %></h1>
+    <div class="content">
+      <div id="planets">
+        <div id="origin" class="planet">
+          <div id="icon">planet</div>
+          <h1><%= base_id %></h1>
+        </div>
+
+        <div id="destination" class="planet">
+          <div id="icon">planet</div>
+          <h1><%= target_id %></h1>
+        </div>
       </div>
 
-      <div id="destination" class="planet">
-        <div id="icon">planet</div>
-        <h1><%= destination_id %></h1>
+      <div id="status" class="sash right">
+          <h1><%= units_count %></h1>
+          <div id="travel" class="percent-bar">
+            <div class="percent-value" style="width:<%= travel_percent %>%" />
+          </div>
+          <div id="combat">
+            combat
+          </div>
       </div>
     </div>
 
-    <div id="status" class="sash right">
-        <h1><%= units_count %></h1>
-        <div id="travel" class="percent-bar">
-          <div class="percent-value" style="width:<%= travel_percent %>%" />
-        </div>
-        <div id="combat">
-          combat
-        </div>
+    <div class="admin">
+      <div class="admin-option">
+        fleet <strong><%= id %></strong><br />
+        is traveling from planet <strong><%= base_id %></strong><br />
+        to planet <strong><%= target_id %></strong><br />
+        with a navy of <strong><%= units_count %></strong> ships<br />
+        <a href="#" id="see-details" onclick="return false;" class="pay-button">see more details</a>
+      </div>
     </div>
   </div>
 </script>
@@ -460,7 +473,7 @@
     <h1>
       <%= id %>
       <div id="travel">
-        fleet is traveling to planet <strong><%= destination_id %></strong>
+        fleet is traveling to planet <strong><%= target_id %></strong>
         <div class="percent-bar">
           <div class="percent-value" style="width:<%= travel_percent %>%" />
         </div>

@@ -7,7 +7,7 @@ $(function(){
     },
 
     events: {
-      "click": "openPlanetInfo"
+      "click #see-details": "openPlanetInfo"
     },
 
     initialize: function(opts){
@@ -24,7 +24,7 @@ $(function(){
     },
 
     openPlanetInfo: function(){
-      App.Navigator.navigate( "planet/" + this.fleet.get( "destination_id" ), {trigger: true} );
+      App.Navigator.navigate( "planet/" + this.fleet.get( "target_id" ), {trigger: true} );
     },
 
     render: function(){

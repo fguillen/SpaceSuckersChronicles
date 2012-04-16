@@ -76,7 +76,7 @@ var data = {
       "id":             "1",
       "name":           "F001",
       "origin_id":      "1",
-      "destination_id": "3",
+      "target_id": "3",
       "percent":        "23",
       "shipsData": [
         {
@@ -98,7 +98,7 @@ var data = {
       "id":             "2",
       "name":           "F002",
       "origin_id":      "2",
-      "destination_id": "3",
+      "target_id": "3",
       "percent":        "30",
       "shipsData": [
         {

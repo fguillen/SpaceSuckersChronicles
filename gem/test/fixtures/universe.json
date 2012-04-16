@@ -88,12 +88,12 @@
     {
       "id": 16,
       "base_id": 1,
-      "destination_id": 2,
+      "target_id": 2,
       "job": {
         "name": "travel",
         "ticks_total": 1,
         "ticks_remain": 1,
-        "destination_id": 2
+        "target_id": 2
       }
     }
   ],
