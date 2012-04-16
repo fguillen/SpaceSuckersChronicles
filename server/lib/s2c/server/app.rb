@@ -42,7 +42,7 @@ module S2C::Server
       puts "XXX: data: #{data}"
 
       base    = universe.planets.find( data["base_id"] )
-      target  = universe.planets.find( data["destination_id"] )
+      target  = universe.planets.find( data["target_id"] )
       ships   = universe.ships.find( data["ship_ids"] )
 
       fleet =

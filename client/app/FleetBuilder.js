@@ -14,7 +14,8 @@ $(function(){
       this.set( "base_id",      this.planet.id );
       this.set( "target_id",    undefined );
       this.set( "ready_to_go",  this.readyToGo() );
-      this.set( "ships_count",   0 );
+      this.set( "ships_count",  0 );
+      this.set( "ship_ids",     [] )
       this.set( "price",        0 );
 
       this.markAllPlanetShips();
@@ -24,13 +25,7 @@ $(function(){
 
     planetDestination: function(){
       console.log( "FleetBuilder.planetDestination.find", this.planetsDestination );
-      var result =
-        this.planetsDestination.find(
-          function( planet ) {
-            console.log( "planet.fleet_destination", planet.get( "fleet_destination" ) );
-            return planet.get( "fleet_destination" );
-          }
-        );
+      var result = this.planetsDestination.get( this.get( "target_id" ) );
 
       console.log( "FleetBuilder.planetDestination.result", result );
 
@@ -76,9 +71,9 @@ $(function(){
         this.ships.remove( model )
       }
 
-      this.set( "ships_count", this.ships.size() );
-      this.set( "price", ( this.ships.size() * 10 ) );
-      this.set( "ready_to_go", this.readyToGo() );
+      this.set( "ships_count",  this.ships.size() );
+      this.set( "price",        ( this.ships.size() * 10 ) );
+      this.set( "ready_to_go",  this.readyToGo() );
 
       console.log( "FleetBuilder.selectShip", this.get( "ships_count" ) );
     },

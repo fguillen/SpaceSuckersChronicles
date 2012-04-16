@@ -5,6 +5,7 @@ $(function(){
     template  : _.template( $('#fleet-builder').html() ),
 
     events: {
+      "click #send-fleet": "sendFleet",
       "click #cancel-fleet": "cancelFleet",
     },
 
@@ -40,11 +41,22 @@ $(function(){
       });
     },
 
+    sendFleet: function(){
+      console.log( "FleetBuilderView.sendFleet XXX" );
+      var _self = this;
+      this.fleetBuilder.save({}, {
+        wait: true,
+        success: function(){ console.log( "fleetBuilder.save.SUCCESS" ); _self.cancelFleet() },
+        error: function(){ console.log( "fleetBuilder.save.ERROR" ); }
+      });
+    },
+
     unlink: function(){
       this.shipsView.unlink();
       this.planetsView.unlink();
       this.fleetBuilder.unlink();
       this.$el.empty();
-    }
+    },
+
   });
 });
