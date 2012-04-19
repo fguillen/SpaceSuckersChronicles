@@ -1,7 +1,5 @@
 $(function(){
   App.NoticesView = Backbone.View.extend({
-    el: "#notices ul",
-
     initialize: function(opts){
       this.notices = opts.notices;
       this.notices.bind( 'reset', this.addAll, this );
@@ -12,7 +10,10 @@ $(function(){
 
     addOne: function( model ) {
       var view = new App.NoticeView({ notice: model });
-      this.$el.append( view.render().el );
+      view.render()
+      view.$el.hide();
+      this.$el.prepend( view.$el );
+      view.$el.fadeIn();
     },
 
     addAll: function() {

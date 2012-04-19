@@ -1,7 +1,5 @@
 $(function(){
   App.FleetsView = Backbone.View.extend({
-    el: "#dashboard #fleets ul",
-
     initialize: function(opts){
       this.fleets = opts.fleets;
       this.fleets.bind( 'reset', this.addAll, this );

@@ -19,7 +19,18 @@ $(function(){
     },
 
     unitsEnemyCount: function() {
-      return this.planet.enemyFleets.reduce( function( memo, fleet ) { return memo + fleet.ships.size(); }, 0);
+      console.log( "PlanetDecorator.unitsEnemyCount", this.planet.id );
+      var result =
+        this.planet.enemyFleets.reduce(
+          function( memo, fleet ) {
+            return memo + fleet.ships.size();
+          },
+          0
+        );
+
+      console.log( "PlanetDecorator.unitsEnemyCount.result", result );
+
+      return result;
     },
 
     extraCSSClasses: function(){
