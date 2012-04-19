@@ -353,15 +353,12 @@ line-height: 10px;
 
 
 
-#infos {
-  float: left;
-}
 
-#infos .planet {
+.planet-info {
   width: 1018px;
 }
 
-#infos .planet #enemy-fleets {
+.planet-info #enemy-fleets {
   float: left;
 }
 
@@ -375,8 +372,8 @@ line-height: 10px;
   color: black;
 }
 
-#infos #details,
-#fleet-builder-wrapper #details {
+.planet-info #details,
+#fleet-builder #details {
   float: left;
   width: 100px;
 }
@@ -464,13 +461,13 @@ border-bottom:1px solid #ccc;
 }
 
 
-#fleet-builder-wrapper > .folder > .content {
+#fleet-builder > .folder > .content {
   float: left;
   width: 665px;
 }
 
-#fleet-builder-wrapper {
-  display: none;
+#fleet-builder {
+/*  display: none;
 
   position: fixed;
   top: 0px;
@@ -482,19 +479,19 @@ border-bottom:1px solid #ccc;
 
   background-color: rgba(0, 0, 0, 0.5);
 
-  padding: 20px;
+  padding: 20px;*/
 }
 
-#fleet-builder-wrapper > .folder {
+#fleet-builder > .folder {
 }
 
-#fleet-builder-wrapper #admin-folder {
+#fleet-builder #admin-folder {
   display: none;
   width: 361px;
   white-space: normal;
 }
 
-#fleet-builder-wrapper #admin-folder.ready-to-go {
+#fleet-builder #admin-folder.ready-to-go {
   display: block;
 }
 
@@ -528,4 +525,12 @@ border-bottom:1px solid #ccc;
 .planet-small.fleet-destination .cover#fleet-destination,
 .planet-small.fleet-origin .cover#fleet-origin{
   display: block;
+}
+
+#ajax-loading {
+  position: fixed;
+  width: 100px;
+  height: 200px;
+  /*top: -200px;*/
+  right: 100px;
 }

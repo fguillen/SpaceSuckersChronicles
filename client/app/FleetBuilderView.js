@@ -1,12 +1,14 @@
 $(function(){
   App.FleetBuilderView = Backbone.View.extend({
-    el: $("#fleet-builder-wrapper"),
+    template  : _.template( $('#fleet-builder-template').html() ),
 
-    template  : _.template( $('#fleet-builder').html() ),
+    attributes: {
+      id: "fleet-builder"
+    },
 
     events: {
       "click #send-fleet": "sendFleet",
-      "click #cancel-fleet": "cancelFleet",
+      "click #cancel-fleet": "backToPlanet",
     },
 
     initialize: function( opts ){
@@ -34,11 +36,8 @@ $(function(){
       this.$el.fadeIn();
     },
 
-    cancelFleet: function(){
-      var _self = this;
-      this.$el.fadeOut( "fast", function(){
-        _self.unlink();
-      });
+    backToPlanet: function(){
+      App.Navigator.navigate( "planet/" + this.fleetBuilder.planet.id, {trigger: true} );
     },
 
     sendFleet: function(){
@@ -46,7 +45,7 @@ $(function(){
       var _self = this;
       this.fleetBuilder.save({}, {
         wait: true,
-        success: function(){ console.log( "fleetBuilder.save.SUCCESS" ); _self.cancelFleet() },
+        success: function(){ console.log( "fleetBuilder.save.SUCCESS" ); _self.backToPlanet() },
         error: function(){ console.log( "fleetBuilder.save.ERROR" ); }
       });
     },

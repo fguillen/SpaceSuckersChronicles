@@ -16,7 +16,7 @@ $(function(){
     },
 
     createFleet: function(){
-      App.Game.createFleet( this.planet );
+      App.Navigator.navigate( "planet/" + this.planet.id + "/create_fleet", {trigger: true} );
     },
 
     renderByBlackStuff: function(){

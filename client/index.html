@@ -80,50 +80,10 @@
 <body>
 
   <div id="wrapper">
-    <div id="page"></div>
-
-
-<!--     <div id="test" style="font-family: 'Ubuntu Mono', sans-serif;">
-      planet: Ѳ º ο ò ó ô õ ö ŏ ő ō ơ ǒ ȍ ȏ ȯ <br />
-
-      planet: ☐ <br />
-      ship: ▻ <br />
-
-      planet-target: ¤ <br />
-      ship: > <br />
-      mine: Ʉ • <br />
-      silo: Ʌ Δ<br />
-      hangar: П<br />
-      parking: ψ ӝ Ӝ ǂ<br />
-    </div>
-
-    <div id="test" style="font-family: 'Lucida Sans', sans-serif;">
-      planet: Ѳ º ο ò ó ô õ ö ŏ ő ō ơ ǒ ȍ ȏ ȯ <br />
-      planet-target: ¤ <br />
-
-      planet: ☐ <br />
-      ship: ▻ <br />
-
-      ship: > <br />
-      mine: Ʉ • <br />
-      silo: Ʌ Δ<br />
-      hangar: П<br />
-      parking: ψ ӝ Ӝ ǂ<br />
-    </div> -->
-
-
-
-
-
-
-
-    <div id="infos">
-      <ul></ul>
-    </div> <!-- infox -->
-
-    <div id="fleet-builder-wrapper"></div>
-
   </div> <!-- wrapper -->
+
+  <div id="ajax-loading">AJAX</div>
+
 
 
 </body>
@@ -455,7 +415,7 @@
 </script>
 
 <script type="text/template" id="planet-info">
-  <div id="planet-info-<%= id %>" class="planet folder <%= extra_css_classes %>">
+  <div id="planet-info-<%= id %>" class="planet-info folder <%= extra_css_classes %>">
     <div id="details">
       <div class="header">
         <div id="icon">planet</div>
@@ -526,7 +486,7 @@
   </div>
 </script>
 
-<script type="text/template" id="fleet-builder">
+<script type="text/template" id="fleet-builder-template">
   <div class="folder">
     <div id="details">
       <div class="header">

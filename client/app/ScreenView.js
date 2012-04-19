@@ -29,6 +29,12 @@ $(function(){
       this.replaceActualPage( dashboardView );
     },
 
+    renderCreateFleet: function( planet ){
+      var fleetBuilder      = new App.FleetBuilder({ planet: planet, planetsDestination: this.universe.planets });
+      var fleetBuilderView  = new App.FleetBuilderView({ fleetBuilder: fleetBuilder });
+      this.replaceActualPage( fleetBuilderView );
+    },
+
     renderPage: function( view ){
       this.$el.find( "#page" ).html( view.render().el );
       view.$el.fadeIn();

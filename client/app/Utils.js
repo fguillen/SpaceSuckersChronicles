@@ -25,5 +25,15 @@ $(function(){
         collection.remove( model_id_to_remove );
       });
     },
+
+    ajaxWatcher: function() {
+      $('#ajax-loading').ajaxStart( function() {
+        $(this).animate({ top: "0" }, 200);
+      });
+
+      $('#ajax-loading').ajaxStop( function() {
+        $(this).animate({ top: "-200" }, 100);
+      });
+    }
   }
 });

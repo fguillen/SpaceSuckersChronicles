@@ -2,8 +2,10 @@
     App.Router = Backbone.Router.extend({
 
       routes: {
-        "dashboard":  "dashboard",
-        "planet/:id": "planet",
+        "dashboard":                "dashboard",
+        "planet/:id/create_fleet":  "createFleet",
+        "planet/:id":               "planet",
+
       },
 
       dashboard: function() {
@@ -36,6 +38,15 @@
         // });
 
         console.log( "Router.planet END" );
+      },
+
+      createFleet: function( id ){
+        console.log( "Router.createFleet", id );
+
+        var planet = App.Game.planets.get( id );
+        App.Screen.renderCreateFleet( planet );
+
+        console.log( "Router.createFleet END" );
       }
 
     });
