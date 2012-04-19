@@ -27,21 +27,22 @@ $(function(){
 
       var _self = this;
       this.interval =
-        setInterval(function() {
-          _self.refresh();
-        }, 1000);
+        setInterval(
+          function() { _self.refresh(); },
+          1000
+        );
     },
 
     refresh: function(){
       console.log( "Refresh Universe..." );
-      if( this.actualStep == 1 ) {
-        this.set( data1 );
-        this.actualStep = 2;
-      } else {
-        this.set( data2 );
-        this.actualStep = 1;
-      }
-      // this.fetch();
+      // if( this.actualStep == 1 ) {
+      //   this.set( data1 );
+      //   this.actualStep = 2;
+      // } else {
+      //   this.set( data2 );
+      //   this.actualStep = 1;
+      // }
+      this.fetch();
     },
 
     pause: function(){

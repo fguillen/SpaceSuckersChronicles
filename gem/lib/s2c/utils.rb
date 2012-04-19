@@ -23,18 +23,18 @@ module S2C
 
       planets = []
 
-      planets[0]  = universe.planets.create!( :position =>  [1, 1] )
-      planets[1]  = universe.planets.create!( :position =>  [1, 2] )
-      planets[2]  = universe.planets.create!( :position =>  [1, 3] )
-      planets[3]  = universe.planets.create!( :position =>  [1, 4] )
-      planets[4]  = universe.planets.create!( :position =>  [2, 1] )
-      planets[5]  = universe.planets.create!( :position =>  [2, 2] )
-      planets[6]  = universe.planets.create!( :position =>  [2, 3] )
-      planets[7]  = universe.planets.create!( :position =>  [2, 4] )
-      planets[8]  = universe.planets.create!( :position =>  [3, 1] )
-      planets[9]  = universe.planets.create!( :position =>  [3, 2] )
-      planets[10] = universe.planets.create!( :position =>  [3, 3] )
-      planets[11] = universe.planets.create!( :position =>  [3, 4] )
+      planets[0]  = universe.planets.create!( :position =>  [100, 100] )
+      planets[1]  = universe.planets.create!( :position =>  [100, 200] )
+      planets[2]  = universe.planets.create!( :position =>  [100, 300] )
+      planets[3]  = universe.planets.create!( :position =>  [100, 400] )
+      planets[4]  = universe.planets.create!( :position =>  [200, 100] )
+      planets[5]  = universe.planets.create!( :position =>  [200, 200] )
+      planets[6]  = universe.planets.create!( :position =>  [200, 300] )
+      planets[7]  = universe.planets.create!( :position =>  [200, 400] )
+      planets[8]  = universe.planets.create!( :position =>  [300, 100] )
+      planets[9]  = universe.planets.create!( :position =>  [300, 200] )
+      planets[10] = universe.planets.create!( :position =>  [300, 300] )
+      planets[11] = universe.planets.create!( :position =>  [300, 400] )
 
       planets.each do |planet|
         planet.furnish

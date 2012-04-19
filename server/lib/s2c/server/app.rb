@@ -10,7 +10,7 @@ module S2C::Server
       S2C::Utils.feed_universe( @@universe )
       @@universe.reload
     end
-    # @@universe.start
+    @@universe.start
 
     before do
       headers(
@@ -27,12 +27,12 @@ module S2C::Server
     end
 
     get "/universe" do
-      @@universe.step
-      @@universe.reload
+      # @@universe.step
+      # @@universe.reload
       result = S2C::JSONer.to_json( @@universe )
 
       File.open( "#{File.dirname(__FILE__)}/../../../tmp/univers2_#{Time.now.to_i}.json", "w" ) { |f| f.write result }
-      # puts result
+      puts result
       # result
 
 
@@ -61,7 +61,11 @@ module S2C::Server
 
       fleet.start_trip
 
-      JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
+      result = JSON.pretty_generate( S2C::JSONer.fleet_to_hash( fleet ) )
+
+      puts "XXX: result: #{result}"
+
+      result
     end
 
     post "/upgrade/:id" do

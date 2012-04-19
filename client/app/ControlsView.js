@@ -36,8 +36,20 @@ $(function(){
 
     render: function(){
       this.$el.html( this.template() );
+      this.ajaxWatcher();
 
       return this;
+    },
+
+
+    ajaxWatcher: function() {
+      this.$el.find('#ajax-loading').ajaxStart( function() {
+        $(this).fadeIn();
+      });
+
+      this.$el.find('#ajax-loading').ajaxStop( function() {
+        $(this).fadeOut();
+      });
     }
 
   });

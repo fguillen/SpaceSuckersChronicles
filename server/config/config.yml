@@ -19,7 +19,7 @@ ship:
   power: 20
   attack: 12
   defense: 8
-  life: 10
+  life: 100
 
 mine:
   production: 10

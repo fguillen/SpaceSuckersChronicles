@@ -2,7 +2,6 @@ App.RootUrl = "http://localhost:4567";
 
 $(function(){
   console.log( "Loading Game..." );
-  App.Utils.ajaxWatcher();
 
   App.Game = new App.Universe();
 
@@ -12,8 +11,8 @@ $(function(){
   App.Navigator = new App.Router();
 
   // App.Game.synch();
-  // App.Game.fetch({ success: function(){ Backbone.history.start() } });
-  Backbone.history.start();
+  App.Game.fetch({ success: function(){ Backbone.history.start() } });
+  // Backbone.history.start();
 
 
 

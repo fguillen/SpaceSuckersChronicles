@@ -526,11 +526,3 @@ border-bottom:1px solid #ccc;
 .planet-small.fleet-origin .cover#fleet-origin{
   display: block;
 }
-
-#ajax-loading {
-  position: fixed;
-  width: 100px;
-  height: 200px;
-  /*top: -200px;*/
-  right: 100px;
-}
