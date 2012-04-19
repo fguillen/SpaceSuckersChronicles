@@ -21,8 +21,8 @@ $(function(){
     addOne: function( model ) {
       var view = new App.ShipView({ ship: model });
       view.render().$el.hide();
-      this.$el.append( view.render().el );
-      view.render().$el.fadeIn();
+      this.$el.append( view.el );
+      view.$el.fadeIn();
     },
 
     unlink: function(){

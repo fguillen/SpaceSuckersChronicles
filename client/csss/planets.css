@@ -358,12 +358,7 @@ line-height: 10px;
 }
 
 #infos .planet {
-  display: none;
   width: 1018px;
-}
-
-#infos .visible {
-  display: block;
 }
 
 #infos .planet #enemy-fleets {

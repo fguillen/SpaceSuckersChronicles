@@ -46,16 +46,8 @@ $(function(){
     },
 
     addModel: function( model ){
-
-
-
       if( model.get( this.filterField ) == this.filterValue ){
         console.log( "AutoUpdatedCollection.addModel", this.name, model.id, Math.random() );
-
-        this.filteredCollection.each( function( _model ){
-          console.log( "model.id", _model.id )
-        });
-
 
         this.filteredCollection.add( model );
       }

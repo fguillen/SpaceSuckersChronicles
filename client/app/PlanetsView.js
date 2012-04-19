@@ -1,11 +1,9 @@
 $(function(){
   App.PlanetsView = Backbone.View.extend({
-    el: "#dashboard #planets ul",
-
     initialize: function(opts){
       this.planets = opts.planets;
-      this.planets.bind( 'reset', this.addAll, this );
-      this.planets.bind( 'add', this.addOne, this );
+      this.planets.on( 'reset', this.addAll, this );
+      this.planets.on( 'add', this.addOne, this );
 
       this.addAll();
     },
@@ -18,6 +16,11 @@ $(function(){
     addAll: function(){
       this.planets.each( $.proxy( this.addOne, this ) );
     },
+
+    unlink: function(){
+      this.planets.off( null, null, this );
+      this.remove();
+    }
 
   });
 });

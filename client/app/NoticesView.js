@@ -18,5 +18,10 @@ $(function(){
     addAll: function() {
       this.notices.each( $.proxy( this.addOne, this ) );
     },
+
+    unlink: function(){
+      this.notices.off( null, null, this );
+      this.remove();
+    }
   });
 });

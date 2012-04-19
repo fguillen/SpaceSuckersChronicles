@@ -55,7 +55,6 @@
 
   <script type="text/javascript" src="./app/FleetInfoView.js"></script>
   <script type="text/javascript" src="./app/PlanetInfoView.js"></script>
-  <script type="text/javascript" src="./app/PlanetInfosView.js"></script>
 
   <script type="text/javascript" src="./app/PlanetSmallView.js"></script>
   <script type="text/javascript" src="./app/PlanetsSmallView.js"></script>
@@ -65,7 +64,9 @@
   <script type="text/javascript" src="./app/FleetBuilderView.js"></script>
 
   <script type="text/javascript" src="./app/Universe.js"></script>
-  <script type="text/javascript" src="./app/UniverseView.js"></script>
+  <script type="text/javascript" src="./app/DashboardView.js"></script>
+  <script type="text/javascript" src="./app/ScreenView.js"></script>
+  <script type="text/javascript" src="./app/LoadingView.js"></script>
   <script type="text/javascript" src="./app/Utils.js"></script>
   <script type="text/javascript" src="./app/Router.js"></script>
   <script type="text/javascript" src="./app/LoadGame.js"></script>
@@ -77,14 +78,9 @@
 
 </head>
 <body>
-  <div id="universe-controls">
-    <a href="#" id="synch" onclick="return false;">synch</a>
-    <a href="#" id="pause" style="display:none" onclick="return false;">pause</a>
-    <a href="#" id="step" onclick="return false;">step</a>
-    <a href="#" id="dashboard" onclick="return false;">dashboard</a>
-  </div>
 
   <div id="wrapper">
+    <div id="page"></div>
 
 
 <!--     <div id="test" style="font-family: 'Ubuntu Mono', sans-serif;">
@@ -119,27 +115,6 @@
 
 
 
-    <div id="dashboard">
-
-      <div id="notices" class="folder shadow small-long">
-        <h1>notices</h1>
-        <ul></ul>
-      </div> <!-- notices -->
-
-
-      <div id="planets" class="folder shadow cards4">
-        <h1>planets</h1>
-        <ul></ul>
-      </div> <!-- planets -->
-
-      <div id="fleets" class="folder shadow small">
-        <h1>fleets</h1>
-        <ul></ul>
-      </div> <!-- fleets -->
-
-
-
-    </div> <!-- dashboard -->
 
 
     <div id="infos">
@@ -154,6 +129,44 @@
 </body>
 
 <!-- TEMPLATES -->
+<script type="text/template" id="controls-template">
+  <div id="universe-controls">
+    <a href="#" id="synch" onclick="return false;">synch</a>
+    <a href="#" id="pause" style="display:none" onclick="return false;">pause</a>
+    <a href="#" id="step" onclick="return false;">step</a>
+    <a href="#" id="dashboard" onclick="return false;">dashboard</a>
+  </div>
+</script>
+
+<script type="text/template" id="screen-template">
+  <div id="screen">
+    <div id="controls"></div>
+    <div id="page"></div>
+  </div>
+</script>
+
+<script type="text/template" id="loading-template">
+   Loading...
+</script>
+
+<script type="text/template" id="dashboard-template">
+  <div id="dashboard">
+    <div id="notices" class="folder shadow small-long">
+      <h1>notices</h1>
+      <ul></ul>
+    </div> <!-- notices -->
+
+    <div id="planets" class="folder shadow cards4">
+      <h1>planets</h1>
+      <ul></ul>
+    </div> <!-- planets -->
+
+    <div id="fleets" class="folder shadow small">
+      <h1>fleets</h1>
+      <ul></ul>
+    </div> <!-- fleets -->
+  </div> <!-- dashboard -->
+</script>
 
 <script type="text/template" id="notice">
   <div id="<%= id %>" class="notice card horizontal-long <%= family %>">

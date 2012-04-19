@@ -1,6 +1,6 @@
 $(function(){
   App.ControlsView = Backbone.View.extend({
-    el: "#universe-controls",
+    template  : _.template( $('#controls-template').html() ),
 
     events: {
       "click #synch":       "synch",
@@ -26,11 +26,18 @@ $(function(){
     },
 
     step: function(){
+      console.log( "ControlsView.step" );
       App.Game.refresh();
     },
 
     dashboard: function(){
       App.Navigator.navigate( "dashboard", {trigger: true} );
+    },
+
+    render: function(){
+      this.$el.html( this.template() );
+
+      return this;
     }
 
   });

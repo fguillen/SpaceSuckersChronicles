@@ -1,9 +1,13 @@
 App.RootUrl = "http://localhost:4567";
 
 $(function(){
+  console.log( "Loading Game..." );
+
   App.Game = new App.Universe();
-  new App.UniverseView({ universe: App.Game });
-  new App.ControlsView({ universe: App.Game });
+
+  App.Screen = new App.ScreenView({ universe: App.Game });
+  $("#wrapper").html( App.Screen.render().el );
+
   App.Navigator = new App.Router();
 
   // App.Game.synch();

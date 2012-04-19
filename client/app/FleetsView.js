@@ -18,5 +18,10 @@ $(function(){
     addAll: function() {
       this.fleets.each( $.proxy( this.addOne, this ) );
     },
+
+    unlink: function() {
+      this.fleets.off( null, null, this );
+      this.remove();
+    }
   });
 });

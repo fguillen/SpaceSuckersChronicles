@@ -1,6 +1,5 @@
 $(function(){
   App.PlanetInfoView = Backbone.View.extend({
-    tagName   : "li",
     template  : _.template( $('#planet-info').html() ),
 
     events: {
@@ -9,32 +8,30 @@ $(function(){
 
     initialize: function(opts){
       this.planet = opts.planet;
-      this.planet.on( "change:blackstuff", this.render, this );
-      this.planet.on( "change:visible", this.render, this );
-      this.planet.ships.on( "change:selected", this.updateNavyControls, this );
+      this.planet.on( "change:blackstuff", this.renderByBlackStuff, this );
 
-      this.planet.enemyFleets.on( "all", this.render, this );
-
-      console.log( "PlanetInfoView.initialize.planet.ships", this.planet.ships );
+      this.planet.enemyFleets.on( "all", this.renderByEnemyFleet, this );
 
       this.shipsView = new App.ShipsView({ ships: this.planet.ships });
-    },
-
-    updateNavyControls: function(){
-      if( this.planet.ships.anySelected() ){
-        this.$el.find( ".create-fleet" ).fadeIn();
-      } else {
-        this.cancelFleet();
-        this.$el.find( ".create-fleet" ).fadeOut();
-      }
     },
 
     createFleet: function(){
       App.Game.createFleet( this.planet );
     },
 
+    renderByBlackStuff: function(){
+      console.log( "PlanetInfoView.renderByBlackStuff", this.planet.id );
+      this.render();
+    },
+
+    renderByEnemyFleet: function(){
+      console.log( "PlanetInfoView.renderByEnemyFleet", this.planet.id );
+      this.render();
+    },
 
     render: function(){
+      console.log( "PlanetInfoView.render", this.planet.id );
+
       var planetDecorator = new App.PlanetDecorator({ planet: this.planet });
       this.$el.html( this.template( planetDecorator.toJSON() ) );
 
@@ -66,6 +63,13 @@ $(function(){
       });
 
       return this;
+    },
+
+    unlink: function(){
+      console.log( "PlanetInfoView.unlink", this.planet.id );
+      this.planet.enemyFleets.off( null, null, this );
+      this.planet.off( null, null, this );
+      this.remove();
     }
   });
 });

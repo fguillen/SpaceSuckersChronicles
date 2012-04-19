@@ -17,8 +17,6 @@ $(function(){
           filterValue:      this.id
         }).filteredCollection;
 
-      this.set( "visible", false );
-
       this.on( "change:mine change:silo change:hangar change:parking", this.updateConstructions, this );
 
       this.updateConstructions();
