@@ -5,12 +5,14 @@
   <script type="text/javascript" src="./libs/jquery.js"></script>
   <script type="text/javascript" src="./libs/underscore.js"></script>
   <script type="text/javascript" src="./libs/backbone.js"></script>
-  <script type="text/javascript" src="./libs/data.js"></script>
+  <script type="text/javascript" src="./libs/data1.js"></script>
+  <script type="text/javascript" src="./libs/data2.js"></script>
   <script type="text/javascript" src="./libs/maths.js"></script>
   <script type="text/javascript" src="./app/App.js"></script>
   <script type="text/javascript" src="./app/ControlsView.js"></script>
   <script type="text/javascript" src="./app/CommandUpgrade.js"></script>
   <script type="text/javascript" src="./app/CommandBuildShip.js"></script>
+  <script type="text/javascript" src="./app/AutoUpdatedCollection.js"></script>
 
   <script type="text/javascript" src="./app/Notice.js"></script>
   <script type="text/javascript" src="./app/NoticeView.js"></script>
@@ -331,6 +333,7 @@
     <div class="admin">
       <div class="admin-option">
         silo at level <strong><%= level %></strong><br />
+        is storing <strong><%= stuff %></strong> of stuff <br />
         can store <strong><%= capacity %></strong> of stuff <br />
         <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>
@@ -397,7 +400,7 @@
 </script>
 
 <script type="text/template" id="parking">
-  <div id="parking" class="construction card bigbox upgrading <%= extra_css_classes %>">
+  <div id="parking" class="construction card bigbox <%= extra_css_classes %>">
     <!-- ID: '<%= id %>' -->
     <div class="content">
       <div class="header">
@@ -422,6 +425,7 @@
     <div class="admin">
       <div class="admin-option">
         parking at level <strong><%= level %></strong> <br />
+        is storing <strong><%= ships %></strong> ships <br />
         can store <strong><%= capacity %></strong> ships <br />
         <a href="#" id="upgrade" onclick="return false;" class="pay-button">pay <strong>100</strong> stuff to upgrade</a>
       </div>

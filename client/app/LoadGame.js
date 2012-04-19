@@ -7,5 +7,6 @@ $(function(){
   App.Navigator = new App.Router();
 
   // App.Game.synch();
-  App.Game.fetch({ success: function(){ Backbone.history.start() } });
+  // App.Game.fetch({ success: function(){ Backbone.history.start() } });
+  Backbone.history.start();
 });

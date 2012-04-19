@@ -22,18 +22,25 @@ module S2C::Server
       )
     end
 
-    get "/universe" do
-      # @@universe.step
-      # @@universe.reload
-      # result = S2C::JSONer.to_json( @@universe )
+    options "/*" do
+      "*"
+    end
 
+    get "/universe" do
+      @@universe.step
+      @@universe.reload
+      result = S2C::JSONer.to_json( @@universe )
+
+      File.open( "#{File.dirname(__FILE__)}/../../../tmp/univers2_#{Time.now.to_i}.json", "w" ) { |f| f.write result }
       # puts result
       # result
 
 
       # File.open( "#{File.dirname(__FILE__)}/../../../tmp/universo.json", "w" ) { |f| f.write result }
 
-      File.read( "#{File.dirname(__FILE__)}/../../../tmp/universo.json" )
+      # File.read( "#{File.dirname(__FILE__)}/../../../tmp/universo.json" )
+
+      result
     end
 
     post "/fleets" do
@@ -61,14 +68,14 @@ module S2C::Server
       unit = universe.units.find( params[:id] )
       unit.start_upgrade
 
-      "ok"
+      { :result => "ok" }.to_json
     end
 
     post "/build_ship/:hangar_id" do
       unit = universe.units.find( params[:hangar_id] )
       unit.start_build_ship
 
-      "ok"
+      { :result => "ok" }.to_json
     end
 
     def universe

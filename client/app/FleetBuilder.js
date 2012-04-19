@@ -71,6 +71,7 @@ $(function(){
         this.ships.remove( model )
       }
 
+      this.set( "ship_ids",     this.ships.map( function( ship ) { return ship.id } ) );
       this.set( "ships_count",  this.ships.size() );
       this.set( "price",        ( this.ships.size() * 10 ) );
       this.set( "ready_to_go",  this.readyToGo() );

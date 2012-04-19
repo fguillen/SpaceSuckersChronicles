@@ -1,12 +1,15 @@
 $(function(){
   App.Utils = {
     refreshCollection: function( collection, collectionJSON ){
+      console.log( "refreshCollection XXX" );
+
       // update/add
       _( collectionJSON ).each( function( modelJSON ) {
         var model = collection.get( modelJSON.id );
         if( model ) {
           model.set( modelJSON );
         } else {
+          console.log( "refreshCollection.addingModel", modelJSON.id )
           collection.add( modelJSON );
         }
       });

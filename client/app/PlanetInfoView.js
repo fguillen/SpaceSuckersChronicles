@@ -15,6 +15,8 @@ $(function(){
 
       this.planet.enemyFleets.on( "all", this.render, this );
 
+      console.log( "PlanetInfoView.initialize.planet.ships", this.planet.ships );
+
       this.shipsView = new App.ShipsView({ ships: this.planet.ships });
     },
 

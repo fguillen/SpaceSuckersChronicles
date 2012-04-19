@@ -10,7 +10,16 @@ $(function(){
 
       this.interval;
 
+      this.actualStep = 1;
+
+      this.actualView;
+
       this.on( "change", this.setup, this );
+    },
+
+    replaceActualView: function( view ){
+      if( this.actuaView ) this.actualView.unlink();
+      this.actualView = view;
     },
 
     synch: function(){
@@ -25,7 +34,14 @@ $(function(){
 
     refresh: function(){
       console.log( "Refresh Universe..." );
-      this.fetch();
+      if( this.actualStep == 1 ) {
+        this.set( data1 );
+        this.actualStep = 2;
+      } else {
+        this.set( data2 );
+        this.actualStep = 1;
+      }
+      // this.fetch();
     },
 
     pause: function(){
@@ -33,6 +49,8 @@ $(function(){
     },
 
     setup: function(){
+      console.log( "Universe.setup" );
+
       App.Utils.refreshCollection( this.planets,  this.get( "planets" ) );
       App.Utils.refreshCollection( this.fleets,   this.get( "fleets" ) );
       App.Utils.refreshCollection( this.ships,    this.get( "ships" ) );

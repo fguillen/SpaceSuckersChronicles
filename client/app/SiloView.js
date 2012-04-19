@@ -13,6 +13,7 @@ $(function(){
     },
 
     upgrade: function(){
+      console.log( "SiloView.upgrade" );
       this.silo.upgrade();
     },
 

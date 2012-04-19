@@ -2,13 +2,14 @@ $(function(){
   App.Ship = Backbone.Model.extend({
     initialize: function(){
       this.set( "enroled_in_fleet", false );
-      this.on( "change:base_id", this.updateBase, this );
-      this.updateBase();
+      // this.on( "change:base_id", this.updateBase, this );
+      // this.updateBase();
     },
 
     updateBase: function(){
       var base = App.Game.planets.get( this.get( "base_id" ) )
       if( !base ) base = App.Game.fleets.get( this.get( "base_id" ) )
+      console.log( "Ship.updateBase", base );
       base.ships.add( this );
     },
 
